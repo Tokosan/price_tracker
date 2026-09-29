@@ -1,0 +1,33 @@
+.env
+*.env
+!.env.example
+
+# Datos locales
+data/
+*.db
+*.db-wal
+*.db-shm
+
+# Python
+__pycache__/
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Frontend
+node_modules/
+dist/
+
+# Planes de trabajo (locales, no versionados)
+plans/
+
+# Backups locales de la DB (scripts/backup.sh)
+backups/
+
+# Link de invitación del admin (solo en el servidor)
+ADMIN_INVITE.txt
+
+# Documentación y configuración locales del despliegue (no se publican)
+plan.md
+CLAUDE.md
+deploy/deploy.env

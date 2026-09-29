@@ -1,0 +1,13 @@
+# Backup diario de la DB de price_tracker. Lo dispara tracker-backup.timer.
+# Instalar (reemplaza __USER__ y __APP_DIR__ por tu usuario y la ruta del clon):
+#   sed -e "s|__USER__|$USER|" -e "s|__APP_DIR__|$PWD|" deploy/systemd/tracker-backup.service \
+#     | sudo tee /etc/systemd/system/tracker-backup.service >/dev/null
+#   sudo cp deploy/systemd/tracker-backup.timer /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now tracker-backup.timer
+[Unit]
+Description=Backup de la DB de price_tracker (sqlite3 .backup, 7 diarios + 4 semanales)
+
+[Service]
+Type=oneshot
+User=__USER__
+ExecStart=__APP_DIR__/scripts/backup.sh

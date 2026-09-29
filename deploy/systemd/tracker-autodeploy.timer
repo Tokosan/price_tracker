@@ -1,0 +1,10 @@
+[Unit]
+Description=Revisa cada minuto si hay que desplegar price_tracker
+
+[Timer]
+# Segundo 30 para no coincidir con otros jobs que corren en el segundo 0.
+OnCalendar=*-*-* *:*:30
+Persistent=false
+
+[Install]
+WantedBy=timers.target

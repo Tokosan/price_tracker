@@ -1,0 +1,16 @@
+# Bloque de ejemplo para Caddy: la API va al contenedor (127.0.0.1:8910) y el
+# resto es el build del frontend. Reemplaza el dominio por el tuyo.
+#
+# Para que solo se pueda entrar desde una VPN (p. ej. Tailscale), agrega
+# `bind <IP del servidor en la VPN>` dentro del bloque y limita el acceso con sus ACLs.
+tracker.example.com {
+	handle /api/* {
+		reverse_proxy localhost:8910
+	}
+
+	handle {
+		root * /var/www/tracker
+		try_files {path} /index.html
+		file_server
+	}
+}
