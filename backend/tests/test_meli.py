@@ -63,7 +63,7 @@ def test_conectar_canjea_el_codigo_con_pkce(token_api):
     r = admin.get(
         f"/api/admin/meli/callback?code=TG-code&state={q['state']}", follow_redirects=False
     )
-    assert r.status_code == 302 and r.headers["location"].endswith("/admin?meli=ok")
+    assert r.status_code == 302 and r.headers["location"].endswith("/admin/tiendas?meli=ok")
     sent = calls[0]
     assert sent["grant_type"] == "authorization_code" and sent["code"] == "TG-code"
     # El verifier enviado corresponde al challenge de la URL de autorización.

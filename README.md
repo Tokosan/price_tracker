@@ -34,7 +34,8 @@ que soporta cada tienda.
 - **Anti-spam**: histéresis en los umbrales y un solo mensaje por lectura. Las lecturas absurdas (errores de scraping) nunca generan alertas: quedan como anomalías en el panel admin.
 - **Productos compartidos**: si dos usuarios siguen lo mismo, se lee una sola vez y ambos ven el historial completo.
 - **Historial de precios** con gráfico, historial de avisos y botón "Revisar ahora" (con cooldown).
-- **Panel admin**: usuarios e invitaciones, cuota por usuario, productos rotos, anomalías y métricas agregadas. El admin nunca ve qué sigue cada usuario.
+- **Panel admin** (dashboard con sidebar): resumen, usuarios e invitaciones con su cuota, productos (todos, con quién los sigue, y el detalle por usuario) y salud de cada tienda (productos rotos, anomalías). El admin ve qué productos sigue cada usuario; los usuarios entre sí no se ven.
+- **Temas** claro/oscuro y paletas verde/azul, guardados por usuario.
 - **Scheduler** con intervalo por tienda, jitter, límite de peticiones por dominio y backoff. Tras varios fallos seguidos el producto queda como `broken` y se avisa al admin.
 
 ## Stack

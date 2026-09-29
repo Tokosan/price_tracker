@@ -1,8 +1,8 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
-import { NavLink, Navigate, Route, Routes, useNavigate } from "react-router-dom";
+import { NavLink, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { api } from "./api.js";
 import { applyTheme, effectiveMode, saveTheme } from "./theme.js";
-import Admin from "./pages/Admin.jsx";
+import Admin from "./pages/admin/Admin.jsx";
 import AddWatch from "./pages/AddWatch.jsx";
 import Invite from "./pages/Invite.jsx";
 import Login from "./pages/Login.jsx";
@@ -46,6 +46,7 @@ export default function App() {
 function Shell() {
   const { me, reload } = useMe();
   const navigate = useNavigate();
+  const wide = useLocation().pathname.startsWith("/admin");
   const logout = async () => {
     await api("/api/auth/logout", { method: "POST" }).catch(() => {});
     await reload();
@@ -76,7 +77,7 @@ function Shell() {
           </button>
         </div>
       </header>
-      <main>
+      <main className={wide ? "wide" : undefined}>
         <Routes>
           <Route path="/" element={<Watches />} />
           <Route path="/agregar" element={<AddWatch />} />
@@ -85,7 +86,7 @@ function Shell() {
           <Route path="/tiendas" element={<Stores />} />
           <Route path="/sitios" element={<Navigate to="/tiendas" replace />} />
           <Route path="/ajustes" element={<Settings />} />
-          {me.role === "admin" && <Route path="/admin" element={<Admin />} />}
+          {me.role === "admin" && <Route path="/admin/*" element={<Admin />} />}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </main>

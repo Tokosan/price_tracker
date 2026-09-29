@@ -1,4 +1,9 @@
-"""Panel admin. Nunca expone qué sigue cada usuario: solo métricas agregadas."""
+"""Panel admin: usuarios, productos seguidos por cada usuario, tiendas y métricas.
+
+Desde el 2026-09-29 el admin sí ve qué productos sigue cada usuario (decisión del
+dueño de la instancia; antes solo veía métricas agregadas). Los usuarios entre sí
+siguen sin verse.
+"""
 
 import re
 from datetime import timedelta
@@ -12,6 +17,7 @@ from sqlalchemy.orm import Session as DbSession
 
 from tracker import meli
 from tracker.api.deps import require_admin
+from tracker.api.watches import latest_point, product_out, rule_out
 from tracker.config import settings
 from tracker.db import get_db, utcnow
 from tracker.models import (
@@ -23,6 +29,7 @@ from tracker.models import (
     User,
     Watch,
 )
+from tracker.processors import PROCESSORS
 from tracker.security import create_invite, revoke_sessions
 
 router = APIRouter(prefix="/api/admin", tags=["admin"])
@@ -40,6 +47,7 @@ def user_out(db: DbSession, u: User) -> dict:
         .order_by(Invite.expires_at.desc())
         .limit(1)
     )
+    week = utcnow() - timedelta(days=7)
     return {
         "id": u.id,
         "username": u.username,
@@ -47,6 +55,14 @@ def user_out(db: DbSession, u: User) -> dict:
         "active": u.active,
         "watch_quota": u.watch_quota,
         "watch_count": db.scalar(select(func.count(Watch.id)).where(Watch.user_id == u.id)),
+        "active_watch_count": db.scalar(
+            select(func.count(Watch.id)).where(Watch.user_id == u.id, Watch.active.is_(True))
+        ),
+        "notifications_7d": db.scalar(
+            select(func.count(Notification.id))
+            .join(Watch, Watch.id == Notification.watch_id)
+            .where(Watch.user_id == u.id, Notification.sent_at >= week)
+        ),
         "has_password": u.password_hash is not None,
         "pending_invite_expires_at": iso(invite.expires_at) if invite else None,
         "created_at": iso(u.created_at),
@@ -135,21 +151,125 @@ def products(
     q = select(Product).order_by(Product.last_checked_at.desc())
     if status != "all":
         q = q.where(Product.status == status)
+    out = []
+    for p in db.scalars(q.limit(500)):
+        point = latest_point(db, p.id)
+        followers = list(
+            db.scalars(
+                select(User.username)
+                .join(Watch, Watch.user_id == User.id)
+                .where(Watch.product_id == p.id)
+                .order_by(User.username)
+            )
+        )
+        out.append(
+            {
+                "id": p.id,
+                "processor": p.processor,
+                "title": p.title,
+                "url": p.canonical_url,
+                "image_url": p.image_url,
+                "currency": p.currency,
+                "price": point.price if point else None,
+                "available": point.available if point else None,
+                "status": p.status,
+                "fail_count": p.fail_count,
+                "last_error": p.last_error,
+                "last_checked_at": iso(p.last_checked_at),
+                "next_check_at": iso(p.next_check_at),
+                "watchers": len(followers),
+                "followers": followers,
+            }
+        )
+    return out
+
+
+@router.get("/watches")
+def watches(
+    user_id: int | None = None,
+    _: User = Depends(require_admin),
+    db: DbSession = Depends(get_db),
+) -> list:
+    """Productos que sigue cada usuario (o uno), con reglas y avisos recientes."""
+    week = utcnow() - timedelta(days=7)
+    q = (
+        select(Watch, User.username)
+        .join(User, User.id == Watch.user_id)
+        .order_by(User.username, Watch.created_at.desc())
+    )
+    if user_id is not None:
+        q = q.where(Watch.user_id == user_id)
+    out = []
+    for w, username in db.execute(q):
+        last_notif = db.scalar(
+            select(func.max(Notification.sent_at)).where(Notification.watch_id == w.id)
+        )
+        out.append(
+            {
+                "id": w.id,
+                "user": {"id": w.user_id, "username": username},
+                "active": w.active,
+                "created_at": iso(w.created_at),
+                "price_at_start": w.price_at_start,
+                "product": product_out(db, w.product),
+                "rules": [rule_out(r) for r in w.rules],
+                "notifications_7d": db.scalar(
+                    select(func.count(Notification.id)).where(
+                        Notification.watch_id == w.id, Notification.sent_at >= week
+                    )
+                ),
+                "last_notification_at": iso(last_notif),
+            }
+        )
+    return out
+
+
+@router.get("/stores")
+def stores(_: User = Depends(require_admin), db: DbSession = Depends(get_db)) -> list:
+    """Salud y uso por tienda (procesador)."""
+    week = utcnow() - timedelta(days=7)
+
+    def per_processor(q) -> dict:
+        return dict(db.execute(q.group_by(Product.processor)).all())
+
+    products_n = per_processor(select(Product.processor, func.count(Product.id)))
+    watches_n = per_processor(
+        select(Product.processor, func.count(Watch.id)).join(Watch, Watch.product_id == Product.id)
+    )
+    users_n = per_processor(
+        select(Product.processor, func.count(func.distinct(Watch.user_id))).join(
+            Watch, Watch.product_id == Product.id
+        )
+    )
+    broken_n = per_processor(
+        select(Product.processor, func.count(Product.id)).where(Product.status == "broken")
+    )
+    failing_n = per_processor(
+        select(Product.processor, func.count(Product.id)).where(Product.fail_count > 0)
+    )
+    anomalies_n = per_processor(
+        select(Product.processor, func.count(Anomaly.id))
+        .join(Anomaly, Anomaly.product_id == Product.id)
+        .where(Anomaly.created_at >= week)
+    )
+    last_ok = per_processor(
+        select(Product.processor, func.max(Product.last_checked_at)).where(Product.status == "ok")
+    )
     return [
         {
-            "id": p.id,
-            "processor": p.processor,
-            "title": p.title,
-            "url": p.canonical_url,
-            "status": p.status,
-            "fail_count": p.fail_count,
-            "last_error": p.last_error,
-            "last_checked_at": iso(p.last_checked_at),
-            "next_check_at": iso(p.next_check_at),
-            # Cuántos lo siguen, sin decir quiénes.
-            "watchers": db.scalar(select(func.count(Watch.id)).where(Watch.product_id == p.id)),
+            "name": p.name,
+            "label": p.label,
+            "domain": p.domain(),
+            "check_interval_hours": p.check_interval.total_seconds() / 3600,
+            "products": products_n.get(p.name, 0),
+            "watches": watches_n.get(p.name, 0),
+            "users": users_n.get(p.name, 0),
+            "broken": broken_n.get(p.name, 0),
+            "failing": failing_n.get(p.name, 0),
+            "anomalies_7d": anomalies_n.get(p.name, 0),
+            "last_ok_at": iso(last_ok.get(p.name)),
         }
-        for p in db.scalars(q.limit(200))
+        for p in PROCESSORS.values()
     ]
 
 
@@ -246,7 +366,7 @@ async def meli_callback(
     db: DbSession = Depends(get_db),
 ) -> RedirectResponse:
     """MercadoLibre vuelve aquí con `code` y `state`; se canjea y se vuelve al panel."""
-    back = f"{settings.public_url}/admin"
+    back = f"{settings.public_url}/admin/tiendas"
     if error or not code:
         return RedirectResponse(f"{back}?meli=error&msg={quote(error or 'sin código')}", 302)
     try:

@@ -319,3 +319,30 @@ def test_preferencias_de_tema_por_usuario():
     # Son de cada usuario.
     assert bob.get("/api/auth/me").json()["preferences"]["theme"] == "system"
     assert ana.patch("/api/auth/preferences", {"theme": "neon"}).status_code == 422
+
+
+def test_admin_ve_los_productos_de_cada_usuario():
+    admin, ana, bob = logged_in("jefe", role="admin"), logged_in("ana"), logged_in("bob")
+    ana.post("/api/watches", {"urls": [STARDEW, BILLY], "rules": [{"kind": "BACK_IN_STOCK"}]})
+    bob.post("/api/watches", {"urls": [STARDEW], "rules": []})
+    ana_id = next(u["id"] for u in admin.get("/api/admin/users").json() if u["username"] == "ana")
+
+    todos = admin.get("/api/admin/watches").json()
+    assert sorted(w["user"]["username"] for w in todos) == ["ana", "ana", "bob"]
+    de_ana = admin.get(f"/api/admin/watches?user_id={ana_id}").json()
+    assert len(de_ana) == 2
+    assert {w["product"]["processor"] for w in de_ana} == {"steam", "ikea"}
+    assert all(w["rules"][0]["kind"] == "BACK_IN_STOCK" for w in de_ana)
+
+    productos = {p["processor"]: p for p in admin.get("/api/admin/products?status=all").json()}
+    assert productos["steam"]["followers"] == ["ana", "bob"]
+    assert productos["steam"]["price"] is not None
+
+    tiendas = {s["name"]: s for s in admin.get("/api/admin/stores").json()}
+    assert set(tiendas) == set(PROCESSORS)
+    assert (tiendas["steam"]["watches"], tiendas["steam"]["users"]) == (2, 2)
+    assert tiendas["mercadolibre"]["products"] == 0
+
+    # Un usuario común no puede usar nada de esto.
+    for url in ("/api/admin/watches", "/api/admin/products?status=all", "/api/admin/stores"):
+        assert ana.get(url).status_code == 403
