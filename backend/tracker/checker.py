@@ -200,7 +200,7 @@ async def apply_result(
             if hit:
                 fired.append(hit)
         if fired:
-            text = build_message(product, result, fired, historic_min)
+            text = build_message(product, result, fired, historic_min, previous)
             notif = Notification(
                 watch_id=watch.id,
                 payload={
@@ -208,6 +208,9 @@ async def apply_result(
                     "url": product.canonical_url,
                     "price": result.price,
                     "list_price": result.list_price,
+                    # Precio de la lectura anterior: es el "antes" del aviso (list_price es
+                    # el precio normal de la tienda, no el anterior).
+                    "previous_price": previous,
                     "currency": result.currency,
                     "available": result.available,
                     "historic_min": historic_min,
@@ -247,21 +250,29 @@ def _is_historic_min(db: DbSession, product_id: int, price: int | None, now: dat
 
 
 def build_message(
-    product: Product, result: ScrapeResult, fired: list[rules.Fired], historic_min: bool
+    product: Product,
+    result: ScrapeResult,
+    fired: list[rules.Fired],
+    historic_min: bool,
+    previous_price: int | None = None,
 ) -> str:
     cur = result.currency
     lines = [f"<b>{esc(product.title)}</b>"]
     price_line = format_price(result.price, cur)
-    if result.list_price and result.price is not None and result.list_price > result.price:
-        price_line += f" (antes {format_price(result.list_price, cur)})"
+    if previous_price is not None and result.price is not None and previous_price != result.price:
+        price_line += f" (antes {format_price(previous_price, cur)})"
     if not result.available:
         price_line += " · sin stock"
     lines.append(price_line)
+    if result.list_price and result.price is not None and result.list_price > result.price:
+        lines.append(f"Precio normal {format_price(result.list_price, cur)}")
     for f in fired:
         extra = ""
         if "target" in f.data:
-            extra = f" ({format_price(f.data['target'], cur)})"
-        elif "from" in f.data:
+            extra = f" (objetivo {format_price(f.data['target'], cur)})"
+        elif "from" in f.data and f.data["from"] != previous_price:
+            # PRICE_DROP / PRICE_UP comparan contra el último aviso, no contra la
+            # lectura anterior: ese "desde" sí aporta.
             extra = f" (desde {format_price(f.data['from'], cur)})"
         lines.append(f"• {esc(f.message)}{extra}")
     if historic_min:

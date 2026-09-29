@@ -40,6 +40,24 @@ export function formatDate(iso) {
   });
 }
 
+export function formatTime(iso) {
+  return new Date(iso).toLocaleTimeString("es-CL", { hour: "2-digit", minute: "2-digit" });
+}
+
+// "Hoy", "Ayer" o "28 sept" (con año si no es el actual).
+export function dayLabel(iso) {
+  const d = new Date(iso);
+  const today = new Date();
+  const days = Math.round((new Date(today.toDateString()) - new Date(d.toDateString())) / 86400000);
+  if (days === 0) return "Hoy";
+  if (days === 1) return "Ayer";
+  return d.toLocaleDateString("es-CL", {
+    day: "numeric",
+    month: "short",
+    ...(d.getFullYear() !== today.getFullYear() && { year: "numeric" }),
+  });
+}
+
 export function relative(iso) {
   if (!iso) return "nunca";
   const diff = (Date.now() - new Date(iso).getTime()) / 1000;
