@@ -24,6 +24,7 @@ def sin_red(monkeypatch):
         "413150": ("steam", "stardew_valley.json"),
         "00263850": ("ikea", "billy_blanco.html"),
         "50508652": ("ikea", "billy_blanco.html"),  # basta para tener precio
+        "MLC49200061": ("mercadolibre", "catalogo_switch2.json"),
     }
 
     def fake(proc):
@@ -414,3 +415,26 @@ def test_logo_invalido_se_rechaza():
     # Un usuario común no puede.
     hu = {"X-CSRF-Token": ana.c.cookies.get("tracker_csrf", ""), "Content-Type": "image/png"}
     assert ana.c.put("/api/admin/stores/steam/logo", content=png(), headers=hu).status_code == 403
+
+
+def test_catalogo_de_meli_se_elige_que_oferta_seguir():
+    ana = logged_in("ana")
+    url = "https://www.mercadolibre.cl/p/MLC49200061"
+    body = ana.post("/api/resolve", {"url": url}).json()
+    assert body["variants_title"] == "¿Qué oferta seguir?"
+    assert [v["url"] for v in body["variants"]] == [
+        url,
+        url + "?modo=nacional",
+        url + "?modo=todos",
+    ]
+    assert body["product"]["current"]["price"] == 639262
+
+    created = ana.post("/api/watches", {"urls": [url, url + "?modo=todos"], "rules": []}).json()
+    prices = {w["product"]["variant_label"]: w["product"]["current"]["price"] for w in created}
+    assert prices == {
+        "Tienda oficial (o el más barato nacional)": 639262,
+        "Más barato, incluidas compras internacionales": 526077,
+    }
+    # "Ya la sigues" distingue la oferta, no solo el catálogo.
+    body = ana.post("/api/resolve", {"url": url}).json()
+    assert [v["already_watching"] for v in body["variants"]] == [True, False, True]

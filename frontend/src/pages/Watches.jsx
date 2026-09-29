@@ -181,6 +181,7 @@ function WatchCard({ w, logo }) {
         {p.image_url ? <img src={p.image_url} alt="" loading="lazy" /> : <div className="img-ph" />}
         <div className="watch-main">
           <div className="watch-title">{p.title || p.url}</div>
+          {p.variant_label && <div className="small variant-label">{p.variant_label}</div>}
           <div className="muted small store-line">
             <StoreLogo name={p.processor} url={logo} size={16} />
             {PROCESSOR_LABEL[p.processor] ?? p.processor} · revisado {relative(p.last_checked_at)}

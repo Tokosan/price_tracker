@@ -57,10 +57,16 @@ def product_out(db: DbSession, product: Product) -> dict:
         until = product.last_manual_check_at + timedelta(minutes=settings.manual_check_cooldown_min)
         if until > utcnow():
             cooldown_until = iso(until)
+    from tracker.processors import get_processor
+
     return {
         "id": product.id,
         "processor": product.processor,
         "title": product.title,
+        # Qué se sigue cuando no es obvio (p. ej. qué oferta de un catálogo de MercadoLibre).
+        "variant_label": get_processor(product.processor).variant_label(
+            product.external_id, product.variant_id
+        ),
         "image_url": product.image_url,
         "url": product.canonical_url,
         "currency": product.currency,
@@ -178,25 +184,28 @@ async def resolve(
     product = get_or_create_product(db, proc, ref)
     await apply_result(db, product, inspection.result)
 
-    watched = set(
-        db.scalars(
-            select(Product.external_id)
+    watched = {
+        (ext, variant)
+        for ext, variant in db.execute(
+            select(Product.external_id, Product.variant_id)
             .join(Watch, Watch.product_id == Product.id)
             .where(Watch.user_id == user.id, Product.processor == proc.name)
         )
-    )
+    }
     return {
         "processor": proc.name,
         "processor_label": proc.label,
         "product": product_out(db, product),
-        "already_watching": ref.external_id in watched,
+        "already_watching": (ref.external_id, ref.variant_id) in watched,
+        "variants_title": proc.variants_title,
+        "variants_hint": proc.variants_hint,
         "variants": [
             {
                 "url": v.url,
                 "label": v.label,
                 "external_id": v.external_id,
                 "selected": v.selected,
-                "already_watching": v.external_id in watched,
+                "already_watching": (v.external_id, v.variant_id) in watched,
             }
             for v in inspection.variants
         ],
