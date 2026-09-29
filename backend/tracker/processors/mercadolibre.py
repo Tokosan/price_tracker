@@ -7,7 +7,8 @@ que sí es accesible es el **catálogo**: `/products/{id}` (nombre, fotos) y
 
 - Link de catálogo (`/p/MLC…`): se sigue una oferta del catálogo según el modo, que va
   en `variant_id` (cada modo es un Product aparte, con su historial):
-  - `""` (por defecto): la tienda oficial si la vende; si no, el más barato nacional.
+  - `""` (por defecto): la tienda oficial si la vende; si no, el más barato nacional; y si
+    solo hay compras internacionales, la más barata de ellas (mejor que darlo por agotado).
   - `nacional`: el más barato sin contar publicaciones internacionales.
   - `todos`: el más barato de todos, incluidas las internacionales.
   La página de MercadoLibre muestra la oferta "ganadora", pero la API no dice cuál es
@@ -75,7 +76,7 @@ def choose(items: list[dict], mode: str) -> dict | None:
     elif mode == "nacional":
         pool = national
     else:
-        pool = [i for i in national if is_official(i)] or national
+        pool = [i for i in national if is_official(i)] or national or items
     priced = [i for i in pool if i.get("price") is not None]
     return min(priced, key=lambda i: i["price"], default=None)
 
