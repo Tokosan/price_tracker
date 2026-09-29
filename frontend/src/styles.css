@@ -268,3 +268,17 @@ table.stores td { vertical-align: middle; }
   .hide-sm { display: none; }
   .store-icon { display: none; }
 }
+
+.toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; }
+.toolbar .grow { flex: 1 1 14rem; }
+.sort { display: flex; gap: 0.25rem; }
+button.icon-only { padding: 0.45rem 0.7rem; min-width: 2.4rem; }
+.toggle { padding: 0 0.25rem; white-space: nowrap; }
+.list-count { display: flex; gap: 0.5rem; align-items: center; margin: 0.25rem 0 0.75rem; }
+.list-count button.link { font-size: inherit; }
+.watch-list + .day-label, section + section .day-label { margin-top: 1.25rem; }
+@media (max-width: 560px) {
+  .toolbar select, .toolbar .sort { flex: 1 1 45%; }
+  .toolbar .sort select { flex: 1; }
+}
+.watch-list .card { margin-bottom: 0.6rem; }
