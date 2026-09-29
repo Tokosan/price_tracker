@@ -441,8 +441,9 @@ def notifications(
     db: DbSession = Depends(get_db),
 ) -> list[dict]:
     q = (
-        select(Notification)
+        select(Notification, Product)
         .join(Watch, Watch.id == Notification.watch_id)
+        .join(Product, Product.id == Watch.product_id)
         .where(Watch.user_id == user.id)
         .order_by(Notification.sent_at.desc(), Notification.id.desc())
         .limit(max(1, min(limit, 500)))
@@ -456,8 +457,9 @@ def notifications(
             "sent_at": iso(n.sent_at),
             "payload": n.payload,
             "delivery": n.delivery,
+            "product": {"processor": p.processor, "image_url": p.image_url},
         }
-        for n in db.scalars(q)
+        for n, p in db.execute(q)
     ]
 
 

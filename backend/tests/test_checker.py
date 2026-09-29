@@ -4,8 +4,14 @@ from datetime import timedelta
 
 from sqlalchemy import select
 
-from tracker import checker
-from tracker.checker import apply_result, backoff_delay, next_check, record_failure
+from tracker import checker, rules
+from tracker.checker import (
+    apply_result,
+    backoff_delay,
+    build_message,
+    next_check,
+    record_failure,
+)
 from tracker.db import utcnow
 from tracker.models import AlertRule, Anomaly, Notification, PricePoint, Product, User, Watch
 from tracker.processors import ScrapeResult
@@ -135,3 +141,31 @@ def test_jitter_de_20_por_ciento():
     for _ in range(200):
         delta = next_check(timedelta(hours=10), now) - now
         assert timedelta(hours=8) <= delta <= timedelta(hours=12)
+
+
+async def test_el_antes_del_aviso_es_la_lectura_anterior_no_el_precio_normal(session):
+    # Caso real de MercadoLibre: precio normal 249.990, la lectura anterior 248.803.
+    product, _ = setup_watch(session, [("PRICE_CHANGE", {}, {"last_price": 248803})], 248803)
+    await apply_result(session, product, result(249966, list_price=249990))
+    payload = session.scalars(select(Notification)).one().payload
+    assert payload["previous_price"] == 248803
+    assert payload["list_price"] == 249990
+
+
+def test_mensaje_muestra_antes_y_precio_normal_por_separado():
+    product = Product(title="Frosthaven", canonical_url="https://x/1")
+    fired = [rules.Fired("PRICE_CHANGE", "El precio varió +0.5 %", {"from": 248803})]
+    text = build_message(product, result(249966, list_price=249990), fired, False, 248803)
+    lines = text.split("\n")
+    assert lines[1] == "$249.966 (antes $248.803)"
+    assert lines[2] == "Precio normal $249.990"
+    # El "desde" repetiría el "antes": no se agrega.
+    assert lines[3] == "• El precio varió +0.5 %"
+
+
+def test_mensaje_conserva_el_desde_del_ultimo_aviso():
+    product = Product(title="Juego", canonical_url="https://x/1")
+    fired = [rules.Fired("PRICE_DROP", "Bajó 20 %", {"from": 10000})]
+    text = build_message(product, result(8000), fired, False, 9000)
+    assert "$8.000 (antes $9.000)" in text
+    assert "• Bajó 20 % (desde $10.000)" in text

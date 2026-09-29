@@ -90,7 +90,7 @@ export default function RulesEditor({ value, onChange, currency = "CLP" }) {
                 <span>% respecto de</span>
                 <select value={r.baseline || "watch_start"} onChange={(e) => set(kind, { baseline: e.target.value })}>
                   <option value="watch_start">el precio al empezar a seguirlo</option>
-                  <option value="list_price">el precio "antes" de la tienda</option>
+                  <option value="list_price">el precio normal de la tienda (sin oferta)</option>
                   <option value="fixed">un precio que yo indico</option>
                 </select>
                 {r.baseline === "fixed" && (

@@ -111,7 +111,7 @@ export default function WatchDetail() {
           <div className="price big">{formatPrice(cur?.price, p.currency)}</div>
           <div className="small">
             {cur && (cur.available ? <span className="badge ok">Disponible</span> : <span className="badge out">Sin stock</span>)}
-            {cur?.list_price && <span className="muted"> · antes {formatPrice(cur.list_price, p.currency)}</span>}
+            {cur?.list_price > cur?.price && <span className="muted"> · precio normal {formatPrice(cur.list_price, p.currency)}</span>}
           </div>
           <div className="muted small">
             Al empezar: {formatPrice(watch.price_at_start, p.currency)} · mínimo visto: {formatPrice(p.min_price, p.currency)}

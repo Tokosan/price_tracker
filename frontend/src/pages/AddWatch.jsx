@@ -117,7 +117,7 @@ export default function AddWatch() {
             <div>
               <h2>{p.title}</h2>
               <div className="price">{formatPrice(p.current?.price, p.currency)}</div>
-              {p.current?.list_price && <div className="muted small">Antes {formatPrice(p.current.list_price, p.currency)}</div>}
+              {p.current?.list_price > p.current?.price && <div className="muted small">Precio normal {formatPrice(p.current.list_price, p.currency)}</div>}
               {p.current && !p.current.available && <span className="badge out">Sin stock</span>}
               {preview.already_watching && <p className="muted small">Ya sigues este producto.</p>}
             </div>
