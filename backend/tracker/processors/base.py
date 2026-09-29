@@ -72,6 +72,9 @@ class Processor:
     example_url: str = ""
     platform: str = ""
     supports_variants: bool = False
+    # Textos del selector al agregar (por defecto, variantes como colores o tamaños).
+    variants_title: str = "Variantes"
+    variants_hint: str = "Cada variante se sigue por separado. Marca las que quieras."
     supports_list_price: bool = True  # informa el precio "antes" de una oferta
     slow: bool = False  # pasa por FlareSolverr: la primera lectura tarda
     notes: str = ""
@@ -90,6 +93,10 @@ class Processor:
 
     def parse(self, raw: str, ref: ProductRef) -> ScrapeResult:
         raise NotImplementedError
+
+    def variant_label(self, external_id: str, variant_id: str) -> str:
+        """Nombre legible de la variante que se sigue ("" si no hace falta mostrarlo)."""
+        return ""
 
     def parse_variants(self, raw: str, ref: ProductRef) -> list[Variant]:
         return []

@@ -45,9 +45,58 @@ def test_publicacion_up_sigue_esa_publicacion():
     assert r.image_url
 
 
-def test_catalogo_sigue_el_precio_mas_bajo():
+def test_catalogo_sigue_la_tienda_oficial_por_defecto():
+    # Frosthaven: la tienda oficial (249.990) aunque un nacional lo venda a 248.803.
     r = parse("catalogo_frosthaven.json", "https://www.mercadolibre.cl/p/MLC48419682")
-    assert (r.price, r.list_price, r.available) == (248803, 249990, True)
+    assert (r.price, r.available) == (249990, True)
+    r = parse("catalogo_frosthaven.json", "https://www.mercadolibre.cl/p/MLC48419682?modo=nacional")
+    assert (r.price, r.list_price) == (248803, 249990)
+
+
+SWITCH2 = "https://www.mercadolibre.cl/p/MLC49200061"
+
+
+def test_catalogo_con_compras_internacionales():
+    # Caso real (2026-09-29): 6 ofertas internacionales más baratas, sin garantía; la
+    # página muestra la de la tienda oficial de Nintendo.
+    r = parse("catalogo_switch2.json", SWITCH2)
+    assert (r.price, r.list_price, r.available) == (639262, 659990, True)
+    assert parse("catalogo_switch2.json", SWITCH2 + "?modo=nacional").price == 579990
+    assert parse("catalogo_switch2.json", SWITCH2 + "?modo=todos").price == 526077
+
+
+def test_selector_de_ofertas_del_catalogo():
+    ref = ml.normalize(SWITCH2)
+    variants = ml.parse_variants(fixture_text("mercadolibre", "catalogo_switch2.json"), ref)
+    assert [(v.variant_id, v.selected) for v in variants] == [
+        ("", True),
+        ("nacional", False),
+        ("todos", False),
+    ]
+    assert variants[0].label.startswith("Tienda oficial (o el más barato nacional): $639.262")
+    assert "tienda oficial" in variants[0].label
+    assert "compra internacional, sin garantía" in variants[2].label
+    assert variants[2].url == SWITCH2 + "?modo=todos"
+    # Cada URL vuelve a su modo.
+    assert [ml.normalize(v.url).variant_id for v in variants] == ["", "nacional", "todos"]
+
+
+def test_selector_no_repite_la_misma_oferta():
+    # Frosthaven no tiene internacionales: "todos" es la misma oferta que "nacional".
+    ref = ml.normalize("https://www.mercadolibre.cl/p/MLC48419682")
+    variants = ml.parse_variants(fixture_text("mercadolibre", "catalogo_frosthaven.json"), ref)
+    assert [v.variant_id for v in variants] == ["", "nacional"]
+    # Si el link pide `todos`, se muestra aunque coincida con otra.
+    ref = ml.normalize("https://www.mercadolibre.cl/p/MLC48419682?modo=todos")
+    variants = ml.parse_variants(fixture_text("mercadolibre", "catalogo_frosthaven.json"), ref)
+    assert [v.variant_id for v in variants] == ["", "nacional", "todos"]
+
+
+def test_publicacion_up_no_tiene_selector():
+    ref = ml.normalize(UP_URL)
+    assert ml.parse_variants(fixture_text("mercadolibre", "up_frosthaven.json"), ref) == []
+    assert ml.variant_label(ref.external_id, ref.variant_id) == ""
+    assert ml.variant_label("MLC49200061", "todos").startswith("Más barato, incluidas")
 
 
 def test_catalogo_con_descuento():
@@ -78,10 +127,18 @@ def test_normaliza_links():
     cat = ml.normalize(
         "https://mercadolibre.cl/juego-frosthaven/p/mlc48419682?pdp_filters=x#reviews"
     )
-    assert (cat.external_id, cat.canonical_url) == (
+    assert (cat.external_id, cat.canonical_url, cat.variant_id) == (
         "MLC48419682",
         "https://www.mercadolibre.cl/p/MLC48419682",
+        "",
     )
+    nac = ml.normalize("https://www.mercadolibre.cl/p/MLC48419682?modo=nacional&x=1")
+    assert (nac.variant_id, nac.canonical_url) == (
+        "nacional",
+        "https://www.mercadolibre.cl/p/MLC48419682?modo=nacional",
+    )
+    # Un modo desconocido cae en el por defecto.
+    assert ml.normalize("https://www.mercadolibre.cl/p/MLC48419682?modo=raro").variant_id == ""
 
 
 def test_matchea_solo_productos_de_mercadolibre_chile():

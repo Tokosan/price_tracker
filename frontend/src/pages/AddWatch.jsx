@@ -104,15 +104,15 @@ export default function AddWatch() {
 
           {preview.variants.length > 1 && (
             <>
-              <h3>Variantes</h3>
-              <p className="muted small">Cada variante se sigue por separado. Marca las que quieras.</p>
+              <h3>{preview.variants_title || "Variantes"}</h3>
+              <p className="muted small">{preview.variants_hint}</p>
               <ul className="variants">
                 {preview.variants.map((v) => (
                   <li key={v.url}>
                     <label className="check">
                       <input type="checkbox" checked={selected.has(v.url)} onChange={() => toggle(v.url)} />
                       {v.label}
-                      {v.selected && <span className="muted small"> (la del link)</span>}
+                      {v.selected && preview.processor !== "mercadolibre" && <span className="muted small"> (la del link)</span>}
                       {v.already_watching && <span className="muted small"> · ya la sigues</span>}
                     </label>
                   </li>
@@ -125,7 +125,7 @@ export default function AddWatch() {
           <RulesEditor value={editor} onChange={setEditor} currency={p.currency} />
           {error && <p className="error">{error}</p>}
           <button onClick={create} disabled={busy || (preview.variants.length > 0 && selected.size === 0)}>
-            {busy ? "Guardando…" : selected.size > 1 ? `Seguir ${selected.size} variantes` : "Seguir producto"}
+            {busy ? "Guardando…" : selected.size > 1 ? `Seguir ${selected.size} opciones` : "Seguir producto"}
           </button>
         </div>
       )}

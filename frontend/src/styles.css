@@ -136,7 +136,7 @@ input, select {
   background: var(--surface); color: var(--text); min-width: 0;
 }
 input:focus, select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
-input[type="checkbox"] { accent-color: var(--accent); width: 1rem; height: 1rem; }
+input[type="checkbox"] { accent-color: var(--accent); width: 1rem; height: 1rem; flex-shrink: 0; }
 
 .segmented { display: inline-flex; padding: 3px; gap: 2px; background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; }
 .segmented button { background: transparent; color: var(--muted); border: 0; padding: 0.35rem 0.8rem; border-radius: 7px; display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 500; }
@@ -247,6 +247,7 @@ table.stores td { vertical-align: middle; }
 .store-logo.letter { display: inline-grid; place-items: center; padding: 0; font-weight: 700; font-size: calc(var(--size) * 0.5); color: #fff; background: hsl(var(--h) 42% 44%); box-shadow: none; }
 .logo-editor { display: flex; align-items: center; gap: 0.1rem; margin-left: -0.3rem; }
 .logo-editor button.link { font-size: inherit; }
+.variant-label { color: var(--accent); font-weight: 500; }
 .store-line { display: flex; align-items: center; gap: 0.35rem; flex-wrap: wrap; }
 .notif-meta .store-logo { vertical-align: -3px; margin-right: 0.3rem; }
 .store-status { font-size: 0.75rem; font-weight: 500; padding: 0.15rem 0.55rem; border-radius: 99px; white-space: nowrap; }

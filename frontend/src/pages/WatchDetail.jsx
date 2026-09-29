@@ -107,6 +107,7 @@ export default function WatchDetail() {
         {p.image_url && <img src={p.image_url} alt="" />}
         <div className="grow">
           <h1>{p.title}</h1>
+          {p.variant_label && <div className="small variant-label">Sigues: {p.variant_label}</div>}
           <div className="muted small store-line">
             <StoreLogo name={p.processor} url={stores[p.processor]?.logo_url} size={16} />
             {PROCESSOR_LABEL[p.processor] ?? p.processor} · <a href={p.url} target="_blank" rel="noreferrer">ver en la tienda ↗</a>
