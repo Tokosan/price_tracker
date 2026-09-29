@@ -81,6 +81,21 @@ def test_selector_de_ofertas_del_catalogo():
     assert [ml.normalize(v.url).variant_id for v in variants] == ["", "nacional", "todos"]
 
 
+def test_catalogo_solo_con_compras_internacionales_no_queda_agotado():
+    # Caso real (Gloomhaven, 2026-09-29): todas las ofertas son internacionales.
+    raw = json.loads(fixture_text("mercadolibre", "catalogo_switch2.json"))
+    raw["items"] = [i for i in raw["items"] if "cbt_item" in i["tags"]]
+    raw = json.dumps(raw)
+    r = ml.parse(raw, ml.normalize(SWITCH2))
+    assert (r.price, r.available) == (526077, True)
+    # "Más barato nacional" sí queda sin ofertas.
+    assert ml.parse(raw, ml.normalize(SWITCH2 + "?modo=nacional")).available is False
+    # El selector muestra una sola opción (las otras caen en la misma oferta o en ninguna).
+    variants = ml.parse_variants(raw, ml.normalize(SWITCH2))
+    assert [v.variant_id for v in variants] == [""]
+    assert "compra internacional" in variants[0].label
+
+
 def test_selector_no_repite_la_misma_oferta():
     # Frosthaven no tiene internacionales: "todos" es la misma oferta que "nacional".
     ref = ml.normalize("https://www.mercadolibre.cl/p/MLC48419682")
