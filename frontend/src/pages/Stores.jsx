@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { api } from "../api.js";
+import StoreLogo, { loadStores } from "../components/StoreLogo.jsx";
 import { relative } from "../format.js";
 
 const STATUS = {
@@ -8,13 +8,6 @@ const STATUS = {
   problems: { label: "Con problemas", cls: "problems" },
   unknown: { label: "Sin lecturas aún", cls: "unknown" },
 };
-
-// Color estable por tienda para el ícono con la inicial.
-function hue(name) {
-  let h = 0;
-  for (const c of name) h = (h * 31 + c.charCodeAt(0)) % 360;
-  return h;
-}
 
 function every(hours) {
   return hours % 24 === 0 && hours >= 24 ? `cada ${hours / 24} d` : `cada ${hours} h`;
@@ -27,7 +20,7 @@ export default function Stores() {
   const [open, setOpen] = useState(null);
   const [error, setError] = useState("");
   useEffect(() => {
-    api("/api/processors").then(setStores).catch((e) => setError(e.message));
+    loadStores().then(setStores).catch((e) => setError(e.message));
   }, []);
 
   if (error) return <p className="error">{error}</p>;
@@ -62,9 +55,7 @@ export default function Stores() {
                   <tr className={"store-row" + (isOpen ? " open" : "")} onClick={toggle}>
                     <td>
                       <div className="store-name">
-                        <span className="store-icon" style={{ "--h": hue(s.name) }} aria-hidden="true">
-                          {s.label.charAt(0)}
-                        </span>
+                        <StoreLogo name={s.name} url={s.logo_url} label={s.label} />
                         <div>
                           <div className="strong">
                             {s.label}

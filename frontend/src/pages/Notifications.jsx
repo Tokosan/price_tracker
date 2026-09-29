@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../api.js";
+import StoreLogo, { useStores } from "../components/StoreLogo.jsx";
 import { dayLabel, formatDate, formatPrice, formatTime, PROCESSOR_LABEL } from "../format.js";
 
 // Precio de la lectura anterior. Los avisos antiguos no guardaban `previous_price`:
@@ -28,7 +29,7 @@ function Delivery({ delivery }) {
   });
 }
 
-export function NotificationItem({ n, link }) {
+export function NotificationItem({ n, link, logo }) {
   const p = n.payload;
   const prev = previousPrice(p);
   const diff = prev !== null && p.price != null && prev !== p.price ? p.price - prev : null;
@@ -49,7 +50,13 @@ export function NotificationItem({ n, link }) {
         </ul>
         <div className="notif-meta">
           {link ? formatTime(n.sent_at) : formatDate(n.sent_at)}
-          {link && n.product && <> · {PROCESSOR_LABEL[n.product.processor] ?? n.product.processor}</>}
+          {link && n.product && (
+            <>
+              {" · "}
+              <StoreLogo name={n.product.processor} url={logo} size={14} />
+              {PROCESSOR_LABEL[n.product.processor] ?? n.product.processor}
+            </>
+          )}
           {" · "}
           <Delivery delivery={n.delivery} />
         </div>
@@ -85,6 +92,7 @@ function byDay(items) {
 export default function Notifications() {
   const [items, setItems] = useState(null);
   const [error, setError] = useState("");
+  const stores = useStores();
   useEffect(() => {
     api("/api/notifications?limit=200").then(setItems).catch((e) => setError(e.message));
   }, []);
@@ -100,7 +108,7 @@ export default function Notifications() {
           <section key={g.label} className="notif-day">
             <h2 className="day-label">{g.label}</h2>
             <ul className="notif-list">
-              {g.items.map((n) => <NotificationItem key={n.id} n={n} link />)}
+              {g.items.map((n) => <NotificationItem key={n.id} n={n} link logo={stores[n.product?.processor]?.logo_url} />)}
             </ul>
           </section>
         ))

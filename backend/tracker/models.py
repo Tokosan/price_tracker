@@ -9,6 +9,7 @@ from sqlalchemy import (
     DateTime,
     ForeignKey,
     Integer,
+    LargeBinary,
     String,
     Text,
     UniqueConstraint,
@@ -230,4 +231,15 @@ class OAuthToken(Base):
     expires_at: Mapped[datetime] = mapped_column(DateTime)
     account_id: Mapped[str] = mapped_column(String(64), default="")
     scope: Mapped[str] = mapped_column(String(255), default="")
+    updated_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow)
+
+
+class StoreLogo(Base):
+    """Logo de una tienda subido por el admin; reemplaza al de `processors/logos/`."""
+
+    __tablename__ = "store_logos"
+
+    processor: Mapped[str] = mapped_column(String(32), primary_key=True)
+    data: Mapped[bytes] = mapped_column(LargeBinary)
+    sha256: Mapped[str] = mapped_column(String(64))
     updated_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow)

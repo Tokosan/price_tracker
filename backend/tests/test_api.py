@@ -346,3 +346,71 @@ def test_admin_ve_los_productos_de_cada_usuario():
     # Un usuario común no puede usar nada de esto.
     for url in ("/api/admin/watches", "/api/admin/products?status=all", "/api/admin/stores"):
         assert ana.get(url).status_code == 403
+
+
+def png(width=64, height=64) -> bytes:
+    """PNG mínimo válido de un color (basta con que la cabecera sea correcta)."""
+    import struct
+    import zlib
+
+    def chunk(kind, data):
+        body = kind + data
+        return struct.pack(">I", len(data)) + body + struct.pack(">I", zlib.crc32(body))
+
+    raw = b"".join(b"\x00" + b"\xff\x00\x00" * width for _ in range(height))
+    ihdr = struct.pack(">IIBBBBB", width, height, 8, 2, 0, 0, 0)
+    return (
+        b"\x89PNG\r\n\x1a\n"
+        + chunk(b"IHDR", ihdr)
+        + chunk(b"IDAT", zlib.compress(raw))
+        + chunk(b"IEND", b"")
+    )
+
+
+def test_tiendas_traen_logo_por_defecto():
+    ana = logged_in("ana")
+    for s in ana.get("/api/processors").json():
+        assert s["logo_url"], s["name"]
+        r = ana.get(s["logo_url"])
+        assert r.status_code == 200 and r.headers["content-type"] == "image/png"
+        assert r.content.startswith(b"\x89PNG")
+        etag = r.headers["etag"]
+        assert ana.get(s["logo_url"], headers={"If-None-Match": etag}).status_code == 304
+    assert ana.get("/api/processors/noexiste/logo").status_code == 404
+    assert Api().get("/api/processors/steam/logo").status_code == 401
+
+
+def test_admin_cambia_y_restaura_el_logo():
+    admin, ana = logged_in("jefe", role="admin"), logged_in("ana")
+    h = {"X-CSRF-Token": admin.c.cookies.get("tracker_csrf", ""), "Content-Type": "image/png"}
+    default_url = {s["name"]: s for s in ana.get("/api/processors").json()}["steam"]["logo_url"]
+
+    nuevo = png()
+    r = admin.c.put("/api/admin/stores/steam/logo", content=nuevo, headers=h)
+    assert r.status_code == 200, r.text
+    assert r.json()["logo_custom"] is True and r.json()["logo_url"] != default_url
+    # Todos ven el nuevo logo (la URL cambia con el contenido).
+    steam = {s["name"]: s for s in ana.get("/api/processors").json()}["steam"]
+    assert steam["logo_url"] == r.json()["logo_url"]
+    assert ana.get(steam["logo_url"]).content == nuevo
+    assert {s["name"]: s for s in admin.get("/api/admin/stores").json()}["steam"]["logo_custom"]
+
+    # Restaurar vuelve al de por defecto.
+    r = admin.c.delete("/api/admin/stores/steam/logo", headers=h)
+    assert r.json() == {"logo_url": default_url, "logo_custom": False}
+
+
+def test_logo_invalido_se_rechaza():
+    admin, ana = logged_in("jefe", role="admin"), logged_in("ana")
+    h = {"X-CSRF-Token": admin.c.cookies.get("tracker_csrf", ""), "Content-Type": "image/png"}
+    put = admin.c.put
+    assert put("/api/admin/stores/steam/logo", content=b"GIF89a....", headers=h).status_code == 422
+    assert put("/api/admin/stores/steam/logo", content=png(4000, 10), headers=h).status_code == 422
+    too_big = png() + b"\x00" * (600 * 1024)
+    assert put("/api/admin/stores/steam/logo", content=too_big, headers=h).status_code == 422
+    jpeg = {**h, "Content-Type": "image/jpeg"}
+    assert put("/api/admin/stores/steam/logo", content=png(), headers=jpeg).status_code == 415
+    assert put("/api/admin/stores/noexiste/logo", content=png(), headers=h).status_code == 404
+    # Un usuario común no puede.
+    hu = {"X-CSRF-Token": ana.c.cookies.get("tracker_csrf", ""), "Content-Type": "image/png"}
+    assert ana.c.put("/api/admin/stores/steam/logo", content=png(), headers=hu).status_code == 403

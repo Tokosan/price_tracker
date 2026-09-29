@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { api } from "../../api.js";
+import StoreLogo, { loadStores } from "../../components/StoreLogo.jsx";
 import { formatDate, PROCESSOR_LABEL, relative } from "../../format.js";
 import { useAdminData } from "./useAdmin.js";
 
 export default function Stores() {
-  const { data, error, run } = useAdminData(["/api/admin/stores", "/api/admin/products?status=broken", "/api/admin/anomalies"]);
+  const { data, error, setError, run } = useAdminData(["/api/admin/stores", "/api/admin/products?status=broken", "/api/admin/anomalies"]);
   if (!data) return error ? <p className="error">{error}</p> : <p className="muted">Cargando…</p>;
   const [stores, broken, anomalies] = data;
 
@@ -25,8 +26,14 @@ export default function Stores() {
             {stores.map((s) => (
               <tr key={s.name}>
                 <td>
-                  <div className="strong">{s.label}</div>
-                  <div className="muted small">{s.domain.replace(/^www\./, "")} · cada {s.check_interval_hours} h</div>
+                  <div className="store-name">
+                    <StoreLogo name={s.name} url={s.logo_url} label={s.label} />
+                    <div>
+                      <div className="strong">{s.label}</div>
+                      <div className="muted small nowrap">{s.domain.replace(/^www\./, "")} · cada {s.check_interval_hours} h</div>
+                      <LogoEditor store={s} run={run} setError={setError} />
+                    </div>
+                  </div>
                 </td>
                 <td className="num">{s.products}</td>
                 <td className="num">{s.watches}</td>
@@ -78,6 +85,39 @@ export default function Stores() {
         )}
       </section>
     </>
+  );
+}
+
+const MAX_LOGO_KB = 512;
+
+// Cambiar el logo (PNG, se sube tal cual) o volver al de por defecto.
+function LogoEditor({ store, run, setError }) {
+  const input = useRef(null);
+  const upload = (e) => {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    if (file.type !== "image/png") return setError("El logo debe ser un PNG.");
+    if (file.size > MAX_LOGO_KB * 1024) return setError(`El logo no puede pesar más de ${MAX_LOGO_KB} KB.`);
+    run(async () => {
+      await api(`/api/admin/stores/${store.name}/logo`, { method: "PUT", file });
+      await loadStores({ refresh: true });
+    });
+  };
+  const reset = () => {
+    if (!confirm(`¿Volver al logo por defecto de ${store.label}?`)) return;
+    run(async () => {
+      await api(`/api/admin/stores/${store.name}/logo`, { method: "DELETE" });
+      await loadStores({ refresh: true });
+    });
+  };
+  return (
+    <span className="logo-editor small">
+      <input ref={input} type="file" accept="image/png" hidden onChange={upload} />
+      <button className="link" onClick={() => input.current.click()}>Cambiar logo</button>
+      {store.logo_custom && <button className="link" onClick={reset}>Restaurar</button>}
+      {store.logo_custom && <span className="badge paused-badge" title="Subido por un admin">propio</span>}
+    </span>
   );
 }
 
