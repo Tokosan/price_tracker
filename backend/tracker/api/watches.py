@@ -170,8 +170,8 @@ async def resolve(
 ) -> dict:
     """Pide la página una vez: devuelve la vista previa y las variantes hermanas."""
     proc = _processor_or_422(body.url)
-    ref = proc.normalize(body.url)
     try:
+        ref = proc.normalize(await proc.expand(body.url.strip()))
         async with domain_slot(proc.domain()):
             inspection = await proc.inspect(ref)
     except FetchError as exc:

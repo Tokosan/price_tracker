@@ -82,6 +82,10 @@ class Processor:
     def normalize(self, url: str) -> ProductRef:
         raise NotImplementedError
 
+    async def expand(self, url: str) -> str:
+        """Convierte un link corto en la URL que acepta `normalize` (por defecto, igual)."""
+        return url
+
     def domain(self) -> str:
         raise NotImplementedError
 

@@ -24,6 +24,7 @@ def sin_red(monkeypatch):
         "413150": ("steam", "stardew_valley.json"),
         "00263850": ("ikea", "billy_blanco.html"),
         "50508652": ("ikea", "billy_blanco.html"),  # basta para tener precio
+        "1005006153442431": ("aliexpress", "con_descuento.json"),
     }
 
     def fake(proc):
@@ -156,6 +157,30 @@ def test_agregar_ikea_con_variantes_y_reglas():
     # Volver a agregar el mismo no duplica.
     api.post("/api/watches", {"urls": urls[:1], "rules": []})
     assert len(api.get("/api/watches").json()) == 2
+
+
+def test_agregar_aliexpress_desde_link_corto(monkeypatch):
+    import httpx
+
+    from tracker.processors import aliexpress
+
+    item = "https://es.aliexpress.com/item/1005006153442431.html?src=app"
+    monkeypatch.setattr(
+        aliexpress,
+        "_transport",
+        httpx.MockTransport(lambda r: httpx.Response(302, headers={"location": item})),
+    )
+    api = logged_in("ana")
+    r = api.post("/api/resolve", {"url": "https://a.aliexpress.com/_mKqZ1a2"})
+    assert r.status_code == 200, r.text
+    body = r.json()
+    assert body["processor"] == "aliexpress"
+    assert body["product"]["url"] == "https://www.aliexpress.com/item/1005006153442431.html"
+    assert body["product"]["current"]["price"] == 2499
+    assert body["product"]["currency"] == "USD"
+    r = api.post("/api/watches", {"urls": [body["product"]["url"]], "rules": []})
+    assert r.status_code == 201, r.text
+    assert r.json()[0]["price_at_start"] == 2499
 
 
 def test_regla_invalida_422():
