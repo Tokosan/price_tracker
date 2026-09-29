@@ -50,4 +50,4 @@ export function relative(iso) {
   return fut ? `en ${unit}` : `hace ${unit}`;
 }
 
-export const PROCESSOR_LABEL = { steam: "Steam", ikea: "IKEA", entrejuegos: "Entrejuegos", dementegames: "DementeGames", lafortaleza: "La Fortaleza", mercadolibre: "MercadoLibre" };
+export const PROCESSOR_LABEL = { steam: "Steam", ikea: "IKEA", entrejuegos: "Entrejuegos", dementegames: "DementeGames", lafortaleza: "La Fortaleza", mercadolibre: "MercadoLibre", aliexpress: "AliExpress" };

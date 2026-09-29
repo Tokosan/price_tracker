@@ -1,5 +1,6 @@
 """Registro de procesadores. Para agregar un sitio: una clase aquí y sus fixtures."""
 
+from tracker.processors.aliexpress import AliExpressProcessor
 from tracker.processors.base import (
     FetchError,
     Inspection,
@@ -25,6 +26,7 @@ PROCESSORS: dict[str, Processor] = {
         DementeGamesProcessor(),
         LaFortalezaProcessor(),
         MercadoLibreProcessor(),
+        AliExpressProcessor(),
     )
 }
 

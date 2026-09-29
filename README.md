@@ -17,6 +17,7 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Entrejuegos | PrestaShop, detrás de Cloudflare → [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr) |
 | DementeGames | PrestaShop |
 | La Fortaleza | Jumpseller |
+| AliExpress | API oficial de afiliados (app key/secret en el `.env`; precios en USD por defecto) |
 
 Hay clases base para **PrestaShop** y **Jumpseller**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/sitios` con lo

@@ -47,6 +47,21 @@ class Settings:
     # Vacío = f"{PUBLIC_URL}/api/admin/meli/callback". Debe coincidir exacto con la
     # redirect URI registrada en la app de MercadoLibre.
     meli_redirect_uri: str = field(default_factory=lambda: os.environ.get("MELI_REDIRECT_URI", ""))
+    # AliExpress (API de afiliados, ver tracker/processors/aliexpress.py). Sin app key y
+    # secret, el procesador responde "no configurado".
+    aliexpress_app_key: str = field(
+        default_factory=lambda: os.environ.get("ALIEXPRESS_APP_KEY", "").strip()
+    )
+    aliexpress_app_secret: str = field(
+        default_factory=lambda: os.environ.get("ALIEXPRESS_APP_SECRET", "").strip()
+    )
+    aliexpress_tracking_id: str = field(
+        default_factory=lambda: os.environ.get("ALIEXPRESS_TRACKING_ID", "").strip()
+    )
+    # Moneda en que la API entrega los precios (CLP no está entre las documentadas).
+    aliexpress_currency: str = field(
+        default_factory=lambda: os.environ.get("ALIEXPRESS_CURRENCY", "USD").strip().upper()
+    )
     # Segundos mínimos entre dos peticiones al mismo dominio.
     domain_min_interval: float = field(
         default_factory=lambda: float(os.environ.get("DOMAIN_MIN_INTERVAL", "5"))
