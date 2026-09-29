@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../api.js";
+import StoreLogo, { useStores } from "../components/StoreLogo.jsx";
 import { formatPrice, PROCESSOR_LABEL, relative } from "../format.js";
 
 export function priceChange(watch) {
@@ -83,6 +84,7 @@ export default function Watches() {
   const [watches, setWatches] = useState(null);
   const [error, setError] = useState("");
   const [view, setView] = useView();
+  const storeInfo = useStores();
   useEffect(() => {
     api("/api/watches").then(setWatches).catch((e) => setError(e.message));
   }, []);
@@ -163,14 +165,14 @@ export default function Watches() {
       {groups.map(([label, items]) => (
         <section key={label ?? "all"}>
           {label && <h2 className="day-label">{label} · {items.length}</h2>}
-          <ul className="watch-list">{items.map((w) => <WatchCard key={w.id} w={w} />)}</ul>
+          <ul className="watch-list">{items.map((w) => <WatchCard key={w.id} w={w} logo={storeInfo[w.product.processor]?.logo_url} />)}</ul>
         </section>
       ))}
     </>
   );
 }
 
-function WatchCard({ w }) {
+function WatchCard({ w, logo }) {
   const p = w.product;
   const change = priceChange(w);
   return (
@@ -179,7 +181,8 @@ function WatchCard({ w }) {
         {p.image_url ? <img src={p.image_url} alt="" loading="lazy" /> : <div className="img-ph" />}
         <div className="watch-main">
           <div className="watch-title">{p.title || p.url}</div>
-          <div className="muted small">
+          <div className="muted small store-line">
+            <StoreLogo name={p.processor} url={logo} size={16} />
             {PROCESSOR_LABEL[p.processor] ?? p.processor} · revisado {relative(p.last_checked_at)}
             {!w.active && " · pausado"}
           </div>

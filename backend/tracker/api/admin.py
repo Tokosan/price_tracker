@@ -9,13 +9,13 @@ import re
 from datetime import timedelta
 from urllib.parse import quote
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, Field
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session as DbSession
 
-from tracker import meli
+from tracker import logos, meli
 from tracker.api.deps import require_admin
 from tracker.api.watches import latest_point, product_out, rule_out
 from tracker.config import settings
@@ -255,11 +255,14 @@ def stores(_: User = Depends(require_admin), db: DbSession = Depends(get_db)) ->
     last_ok = per_processor(
         select(Product.processor, func.max(Product.last_checked_at)).where(Product.status == "ok")
     )
+    store_logos = {name: logos.get_logo(db, name) for name in PROCESSORS}
     return [
         {
             "name": p.name,
             "label": p.label,
             "domain": p.domain(),
+            "logo_url": logos.logo_url(store_logos[p.name], p.name),
+            "logo_custom": bool(store_logos[p.name] and store_logos[p.name].custom),
             "check_interval_hours": p.check_interval.total_seconds() / 3600,
             "products": products_n.get(p.name, 0),
             "watches": watches_n.get(p.name, 0),
@@ -271,6 +274,40 @@ def stores(_: User = Depends(require_admin), db: DbSession = Depends(get_db)) ->
         }
         for p in PROCESSORS.values()
     ]
+
+
+def _processor_or_404(name: str) -> str:
+    if name not in PROCESSORS:
+        raise HTTPException(404, "no existe esa tienda")
+    return name
+
+
+@router.put("/stores/{name}/logo")
+async def upload_logo(
+    name: str,
+    request: Request,
+    _: User = Depends(require_admin),
+    db: DbSession = Depends(get_db),
+) -> dict:
+    """Reemplaza el logo: el cuerpo es el PNG tal cual (Content-Type: image/png)."""
+    _processor_or_404(name)
+    if request.headers.get("content-type", "").split(";")[0].strip() != "image/png":
+        raise HTTPException(415, "el logo debe ser un PNG")
+    try:
+        logo = logos.set_logo(db, name, await request.body())
+    except logos.LogoError as exc:
+        raise HTTPException(422, str(exc)) from exc
+    return {"logo_url": logos.logo_url(logo, name), "logo_custom": True}
+
+
+@router.delete("/stores/{name}/logo")
+def reset_logo(
+    name: str, _: User = Depends(require_admin), db: DbSession = Depends(get_db)
+) -> dict:
+    """Vuelve al logo por defecto (el del código), si existe."""
+    _processor_or_404(name)
+    logos.reset_logo(db, name)
+    return {"logo_url": logos.logo_url(logos.get_logo(db, name), name), "logo_custom": False}
 
 
 @router.post("/products/{product_id}/retry")

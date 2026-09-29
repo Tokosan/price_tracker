@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../api.js";
 import { useMe } from "../App.jsx";
 import PriceChart from "../components/PriceChart.jsx";
+import StoreLogo, { useStores } from "../components/StoreLogo.jsx";
 import RulesEditor, { editorFromRules, rulesFromEditor } from "../components/RulesEditor.jsx";
 import { formatDate, formatPrice, PROCESSOR_LABEL, relative } from "../format.js";
 import { NotificationItem } from "./Notifications.jsx";
@@ -19,6 +20,7 @@ export default function WatchDetail() {
   const [msg, setMsg] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const stores = useStores();
 
   const load = useCallback(async () => {
     try {
@@ -105,7 +107,8 @@ export default function WatchDetail() {
         {p.image_url && <img src={p.image_url} alt="" />}
         <div className="grow">
           <h1>{p.title}</h1>
-          <div className="muted small">
+          <div className="muted small store-line">
+            <StoreLogo name={p.processor} url={stores[p.processor]?.logo_url} size={16} />
             {PROCESSOR_LABEL[p.processor] ?? p.processor} · <a href={p.url} target="_blank" rel="noreferrer">ver en la tienda ↗</a>
           </div>
           <div className="price big">{formatPrice(cur?.price, p.currency)}</div>

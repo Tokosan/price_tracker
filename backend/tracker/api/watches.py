@@ -6,12 +6,12 @@ Privacidad: toda consulta filtra por `Watch.user_id == user.id`.
 from datetime import timedelta
 from typing import Any
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from pydantic import BaseModel, Field
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session as DbSession
 
-from tracker import rules
+from tracker import logos, rules
 from tracker.api.deps import current_user
 from tracker.checker import apply_result, check_product, domain_slot, is_in_flight
 from tracker.config import settings
@@ -516,9 +516,29 @@ def processors(user: User = Depends(current_user), db: DbSession = Depends(get_d
                 "supports_list_price": p.supports_list_price,
                 "slow": p.slow,
                 "notes": p.notes,
+                "logo_url": logos.logo_url(logos.get_logo(db, p.name), p.name),
                 "my_watches": mine.get(p.name, 0),
                 "status": status,
                 "last_ok_at": iso(last_ok.get(p.name)),
             }
         )
     return out
+
+
+@router.get("/processors/{name}/logo")
+def processor_logo(
+    name: str,
+    request: Request,
+    _: User = Depends(current_user),
+    db: DbSession = Depends(get_db),
+) -> Response:
+    """PNG del logo. La URL lleva `?v=<hash>`, así que se puede cachear sin vencimiento."""
+    from tracker.processors import PROCESSORS
+
+    logo = logos.get_logo(db, name) if name in PROCESSORS else None
+    if logo is None:
+        raise HTTPException(404, "sin logo")
+    headers = {"ETag": f'"{logo.etag}"', "Cache-Control": "private, max-age=31536000, immutable"}
+    if request.headers.get("if-none-match") == headers["ETag"]:
+        return Response(status_code=304, headers=headers)
+    return Response(logo.data, media_type="image/png", headers=headers)

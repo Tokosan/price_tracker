@@ -24,18 +24,20 @@ async function ensureCsrf() {
   await csrfReady;
 }
 
-export async function api(path, { method = "GET", body } = {}) {
+// `body` va como JSON; `file` (un Blob/File) va tal cual, con su tipo como Content-Type.
+export async function api(path, { method = "GET", body, file } = {}) {
   const headers = {};
   if (method !== "GET") {
     await ensureCsrf();
     headers["X-CSRF-Token"] = readCookie("tracker_csrf");
   }
   if (body !== undefined) headers["Content-Type"] = "application/json";
+  if (file !== undefined) headers["Content-Type"] = file.type;
   const resp = await fetch(path, {
     method,
     headers,
     credentials: "same-origin",
-    body: body !== undefined ? JSON.stringify(body) : undefined,
+    body: file !== undefined ? file : body !== undefined ? JSON.stringify(body) : undefined,
   });
   if (resp.status === 204) return null;
   const data = await resp.json().catch(() => null);
