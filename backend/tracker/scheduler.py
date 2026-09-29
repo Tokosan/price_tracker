@@ -38,7 +38,7 @@ async def tick() -> None:
     ids = [pid for pid in due_product_ids() if not is_in_flight(pid)]
     if ids:
         log.info("revisando %d producto(s): %s", len(ids), ids)
-    # Cada revisión es una tarea; el rate limit por dominio las serializa por sitio.
+    # Cada revisión es una tarea; el rate limit por dominio las serializa por tienda.
     for pid in ids:
         task = asyncio.create_task(check_product(pid))
         _tasks.add(task)

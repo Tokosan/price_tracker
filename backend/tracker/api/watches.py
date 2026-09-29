@@ -22,7 +22,6 @@ from tracker.models import (
     Notification,
     PricePoint,
     Product,
-    SiteRequest,
     User,
     Watch,
     WatchChannel,
@@ -137,7 +136,7 @@ def _processor_or_422(url: str) -> Processor:
             422,
             {
                 "code": "unsupported",
-                "message": "Todavía no hay un procesador para este sitio.",
+                "message": "Esa tienda todavía no está soportada.",
             },
         )
     return proc
@@ -463,25 +462,10 @@ def notifications(
     ]
 
 
-# --- Reportar un sitio sin procesador -------------------------------------------------------
-class SiteRequestIn(BaseModel):
-    url: str = Field(min_length=8, max_length=2000)
-    note: str = Field(default="", max_length=1000)
-
-
-@router.post("/site-requests", status_code=201)
-def create_site_request(
-    body: SiteRequestIn, user: User = Depends(current_user), db: DbSession = Depends(get_db)
-) -> dict:
-    req = SiteRequest(user_id=user.id, url=body.url.strip(), note=body.note.strip())
-    db.add(req)
-    db.commit()
-    return {"id": req.id, "status": req.status}
-
-
+# --- Tiendas soportadas --------------------------------------------------------------
 @router.get("/processors")
 def processors(user: User = Depends(current_user), db: DbSession = Depends(get_db)) -> list[dict]:
-    """Sitios soportados, con los productos del usuario y el estado agregado del sitio.
+    """Tiendas soportadas, con los productos del usuario y el estado agregado de la tienda.
 
     El estado (`ok` | `problems` | `unknown`) y la última lectura correcta se calculan
     sobre todos los productos seguidos, sin revelar qué ni cuánto siguen otros usuarios.

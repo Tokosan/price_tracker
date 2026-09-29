@@ -14,13 +14,11 @@ const METRIC_LABELS = {
   price_points_24h: "Lecturas (24 h)",
   notifications_7d: "Avisos (7 d)",
   anomalies_7d: "Anomalías (7 d)",
-  pending_site_requests: "Sitios pedidos",
 };
 
 export default function Admin() {
   const [metrics, setMetrics] = useState(null);
   const [users, setUsers] = useState([]);
-  const [requests, setRequests] = useState([]);
   const [broken, setBroken] = useState([]);
   const [anomalies, setAnomalies] = useState([]);
   const [newUser, setNewUser] = useState("");
@@ -29,16 +27,14 @@ export default function Admin() {
 
   const load = useCallback(async () => {
     try {
-      const [m, u, r, b, a] = await Promise.all([
+      const [m, u, b, a] = await Promise.all([
         api("/api/admin/metrics"),
         api("/api/admin/users"),
-        api("/api/admin/site-requests"),
         api("/api/admin/products?status=broken"),
         api("/api/admin/anomalies"),
       ]);
       setMetrics(m);
       setUsers(u);
-      setRequests(r);
       setBroken(b);
       setAnomalies(a);
     } catch (e) {
@@ -96,7 +92,7 @@ export default function Admin() {
                 <div key={k}>{PROCESSOR_LABEL[k] ?? k}: <b>{v}</b></div>
               ))}
             </div>
-            <div className="muted small">Por sitio</div>
+            <div className="muted small">Por tienda</div>
           </div>
         </section>
       )}
@@ -141,30 +137,6 @@ export default function Admin() {
             ))}
           </tbody>
         </table>
-      </section>
-
-      <section className="card">
-        <h2>Sitios pedidos</h2>
-        {requests.length === 0 ? <p className="muted">Nada pendiente.</p> : (
-          <table>
-            <tbody>
-              {requests.map((r) => (
-                <tr key={r.id} className={r.status === "pending" ? "" : "muted"}>
-                  <td><a href={r.url} target="_blank" rel="noreferrer">{r.url}</a><div className="small muted">{r.note}</div></td>
-                  <td className="small">{r.username} · {formatDate(r.created_at)}</td>
-                  <td className="nowrap">
-                    {r.status === "pending" ? (
-                      <>
-                        <button className="link" onClick={() => run(() => api(`/api/admin/site-requests/${r.id}`, { method: "PATCH", body: { status: "done" } }))}>Hecho</button>
-                        <button className="link" onClick={() => run(() => api(`/api/admin/site-requests/${r.id}`, { method: "PATCH", body: { status: "rejected" } }))}>Rechazar</button>
-                      </>
-                    ) : r.status}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
       </section>
 
       <section className="card">
@@ -218,7 +190,7 @@ function MeliConnection() {
     <section className="card">
       <div className="row-between">
         <h2>MercadoLibre</h2>
-        <span className={`site-status ${st.connected ? "ok" : "unknown"}`}>
+        <span className={`store-status ${st.connected ? "ok" : "unknown"}`}>
           {st.connected ? "Conectado" : "No conectado"}
         </span>
       </div>

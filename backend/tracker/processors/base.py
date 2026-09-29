@@ -1,4 +1,4 @@
-"""Interfaz común de los procesadores (uno por sitio, solo en código)."""
+"""Interfaz común de los procesadores (uno por tienda, solo en código)."""
 
 from dataclasses import asdict, dataclass, field
 from datetime import timedelta
@@ -61,13 +61,13 @@ class Processor:
     check_interval: timedelta = timedelta(hours=6)
     fixture_ext: str = "html"
     # Caída máxima (%) en una lectura antes de tratarla como anomalía. None = sin
-    # límite, para sitios cuya fuente es estructurada y confiable (una API, no HTML).
+    # límite, para tiendas cuya fuente es estructurada y confiable (una API, no HTML).
     anomaly_drop_pct: int | None = 80
     # True si "sin precio y sin stock" es un agotado real y no un parseo roto (APIs
     # que dejan de listar la oferta cuando se agota). En HTML debe quedar en False.
     sold_out_without_price: bool = False
 
-    # Metadatos para la página "Sitios soportados" (solo presentación).
+    # Metadatos para la página "Tiendas soportadas" (solo presentación).
     home_url: str = ""
     example_url: str = ""
     platform: str = ""

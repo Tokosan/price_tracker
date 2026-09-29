@@ -24,7 +24,7 @@ export default function Watches() {
       <div className="empty card">
         <h2>Aún no sigues ningún producto</h2>
         <p>
-          Pega el link de un producto de alguna de las <Link to="/sitios">tiendas soportadas</Link>.
+          Pega el link de un producto de alguna de las <Link to="/tiendas">tiendas soportadas</Link>.
         </p>
         <Link className="button" to="/agregar">Agregar producto</Link>
       </div>

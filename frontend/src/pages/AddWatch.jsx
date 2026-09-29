@@ -14,8 +14,6 @@ export default function AddWatch() {
   const [selected, setSelected] = useState(new Set());
   const [editor, setEditor] = useState(DEFAULT_EDITOR);
   const [unsupported, setUnsupported] = useState(false);
-  const [note, setNote] = useState("");
-  const [reported, setReported] = useState(false);
 
   const resolve = async (e) => {
     e.preventDefault();
@@ -23,7 +21,6 @@ export default function AddWatch() {
     setError("");
     setPreview(null);
     setUnsupported(false);
-    setReported(false);
     try {
       const data = await api("/api/resolve", { method: "POST", body: { url } });
       setPreview(data);
@@ -62,18 +59,6 @@ export default function AddWatch() {
     }
   };
 
-  const report = async () => {
-    setBusy(true);
-    try {
-      await api("/api/site-requests", { method: "POST", body: { url, note } });
-      setReported(true);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setBusy(false);
-    }
-  };
-
   const p = preview?.product;
   return (
     <>
@@ -92,21 +77,15 @@ export default function AddWatch() {
         )}
       </form>
       <p className="muted small">
-        ¿Qué tiendas funcionan? Mira los <Link to="/sitios">sitios soportados</Link>.
+        ¿Qué tiendas funcionan? Mira las <Link to="/tiendas">tiendas soportadas</Link>.
       </p>
 
       {unsupported && (
         <div className="card">
-          <h2>Ese sitio todavía no está soportado</h2>
-          {reported ? (
-            <p>✅ Listo, el admin verá tu pedido.</p>
-          ) : (
-            <>
-              <p>Puedes pedirle al admin que agregue un procesador para este sitio.</p>
-              <label>Comentario (opcional)<input value={note} onChange={(e) => setNote(e.target.value)} placeholder="Ej.: tienen buenos precios en juegos de mesa" /></label>
-              <button onClick={report} disabled={busy}>Reportar sitio al admin</button>
-            </>
-          )}
+          <h2>Esa tienda todavía no está soportada</h2>
+          <p className="muted">
+            Revisa la lista de <Link to="/tiendas">tiendas soportadas</Link> y pega el link de un producto de alguna de ellas.
+          </p>
         </div>
       )}
 

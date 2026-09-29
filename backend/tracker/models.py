@@ -215,17 +215,6 @@ class Notification(Base):
     watch: Mapped[Watch] = relationship()
 
 
-class SiteRequest(Base):
-    __tablename__ = "site_requests"
-
-    id: Mapped[int] = mapped_column(primary_key=True)
-    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), index=True)
-    url: Mapped[str] = mapped_column(Text)
-    note: Mapped[str] = mapped_column(Text, default="")
-    status: Mapped[str] = mapped_column(String(16), default="pending")  # pending|done|rejected
-    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow)
-
-
 class OAuthToken(Base):
     """Token OAuth de un proveedor (hoy solo MercadoLibre), uno por proveedor.
 
