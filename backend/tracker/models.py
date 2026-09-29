@@ -32,6 +32,8 @@ class User(Base):
     role: Mapped[str] = mapped_column(String(16), default="user")  # admin | user
     active: Mapped[bool] = mapped_column(Boolean, default=True)
     watch_quota: Mapped[int] = mapped_column(Integer, default=50)
+    # Preferencias de la UI por usuario (tema, paleta): ver api/auth.py.
+    preferences: Mapped[dict[str, Any]] = mapped_column(default=dict)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow)
 
     watches: Mapped[list["Watch"]] = relationship(

@@ -32,7 +32,8 @@ export function NotificationItem({ n, link }) {
   const p = n.payload;
   const prev = previousPrice(p);
   const diff = prev !== null && p.price != null && prev !== p.price ? p.price - prev : null;
-  const title = link ? <Link to={`/w/${n.watch_id}`}>{p.title}</Link> : p.title;
+  // Sin `link` es la lista del detalle del producto: el título sobra.
+  const title = <Link to={`/w/${n.watch_id}`}>{p.title}</Link>;
   return (
     <li className="notif">
       {link && (
@@ -41,7 +42,7 @@ export function NotificationItem({ n, link }) {
           : <div className="notif-img" />
       )}
       <div className="notif-body">
-        <div className="notif-title">{title}</div>
+        {link && <div className="notif-title">{title}</div>}
         <ul className="notif-fired">
           {p.fired.map((f, i) => <li key={i}>{f.message}</li>)}
           {p.historic_min && <li className="best">Mínimo histórico</li>}

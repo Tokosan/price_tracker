@@ -308,3 +308,16 @@ def test_sitios_soportados_con_mis_productos_y_estado_agregado():
         db.commit()
     steam = {s["name"]: s for s in bob.get("/api/processors").json()}["steam"]
     assert steam["status"] == "problems"
+
+
+def test_preferencias_de_tema_por_usuario():
+    ana, bob = logged_in("ana"), logged_in("bob")
+    assert ana.get("/api/auth/me").json()["preferences"] == {"theme": "system", "palette": "green"}
+    r = ana.patch("/api/auth/preferences", {"theme": "light"})
+    assert r.json() == {"theme": "light", "palette": "green"}
+    r = ana.patch("/api/auth/preferences", {"palette": "blue"})
+    assert r.json() == {"theme": "light", "palette": "blue"}
+    assert ana.get("/api/auth/me").json()["preferences"] == {"theme": "light", "palette": "blue"}
+    # Son de cada usuario.
+    assert bob.get("/api/auth/me").json()["preferences"]["theme"] == "system"
+    assert ana.patch("/api/auth/preferences", {"theme": "neon"}).status_code == 422

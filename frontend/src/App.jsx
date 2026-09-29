@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { NavLink, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import { api } from "./api.js";
+import { applyTheme, effectiveMode, saveTheme } from "./theme.js";
 import Admin from "./pages/Admin.jsx";
 import AddWatch from "./pages/AddWatch.jsx";
 import Invite from "./pages/Invite.jsx";
@@ -18,7 +19,9 @@ export default function App() {
   const [me, setMe] = useState(undefined); // undefined = cargando, null = sin sesión
   const reload = useCallback(async () => {
     try {
-      setMe(await api("/api/auth/me"));
+      const data = await api("/api/auth/me");
+      applyTheme(data.preferences);
+      setMe(data);
     } catch {
       setMe(null);
     }
@@ -52,7 +55,11 @@ function Shell() {
     <>
       <header className="topbar">
         <NavLink to="/" className="brand">
-          <img src="/favicon.svg" alt="" width="22" height="22" /> Tracker
+          <svg className="brand-logo" viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
+            <rect width="32" height="32" rx="8" />
+            <path d="M7 21l6-6 5 5 7-8" fill="none" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          Tracker
         </NavLink>
         <nav>
           <NavLink to="/" end>Productos</NavLink>
@@ -62,9 +69,12 @@ function Shell() {
           <NavLink to="/ajustes">Ajustes</NavLink>
           {me.role === "admin" && <NavLink to="/admin">Admin</NavLink>}
         </nav>
-        <button className="link" onClick={logout} title={`Sesión de ${me.username}`}>
-          Salir
-        </button>
+        <div className="topbar-actions">
+          <ThemeToggle />
+          <button className="link" onClick={logout} title={`Sesión de ${me.username}`}>
+            Salir
+          </button>
+        </div>
       </header>
       <main>
         <Routes>
@@ -79,5 +89,26 @@ function Shell() {
         </Routes>
       </main>
     </>
+  );
+}
+
+// Alterna claro/oscuro (deja de seguir al sistema). La paleta se elige en Ajustes.
+function ThemeToggle() {
+  const { reload } = useMe();
+  const dark = effectiveMode() === "dark";
+  const toggle = () => saveTheme({ theme: dark ? "light" : "dark" }).then(reload).catch(() => {});
+  return (
+    <button className="icon-button" onClick={toggle} title={dark ? "Usar tema claro" : "Usar tema oscuro"} aria-label="Cambiar tema">
+      {dark ? (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+        </svg>
+      ) : (
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+        </svg>
+      )}
+    </button>
   );
 }
