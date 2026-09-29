@@ -40,6 +40,26 @@ class PasswordChangeIn(BaseModel):
     new_password: str
 
 
+# Preferencias de la UI y sus valores permitidos (el primero es el por defecto).
+PREFERENCES = {
+    "theme": ("system", "light", "dark"),
+    "palette": ("green", "blue"),
+}
+
+
+class PreferencesIn(BaseModel):
+    theme: str | None = None
+    palette: str | None = None
+
+
+def preferences_out(user: User) -> dict:
+    saved = user.preferences or {}
+    return {
+        key: saved.get(key) if saved.get(key) in allowed else allowed[0]
+        for key, allowed in PREFERENCES.items()
+    }
+
+
 def _set_session_cookies(response: Response, token: str, csrf: str) -> None:
     max_age = settings.session_days * 86400
     response.set_cookie(
@@ -158,6 +178,22 @@ def change_password(
     return {"ok": True}
 
 
+@router.patch("/preferences")
+def update_preferences(
+    body: PreferencesIn, user: User = Depends(current_user), db: DbSession = Depends(get_db)
+) -> dict:
+    user = db.merge(user)
+    prefs = preferences_out(user)
+    for key, value in body.model_dump(exclude_none=True).items():
+        if value not in PREFERENCES[key]:
+            raise HTTPException(422, f"{key}: debe ser {' | '.join(PREFERENCES[key])}")
+        prefs[key] = value
+    # Se reasigna el dict completo: SQLAlchemy no detecta mutaciones de un JSON.
+    user.preferences = prefs
+    db.commit()
+    return prefs
+
+
 @router.get("/me")
 def me(user: User = Depends(current_user), db: DbSession = Depends(get_db)) -> dict:
     watch_count = db.scalar(select(func.count(Watch.id)).where(Watch.user_id == user.id))
@@ -172,6 +208,7 @@ def me(user: User = Depends(current_user), db: DbSession = Depends(get_db)) -> d
         "role": user.role,
         "watch_quota": user.watch_quota,
         "watch_count": watch_count,
+        "preferences": preferences_out(user),
         "telegram": {
             "configured": bot is not None,
             "bot_username": bot.username if bot else None,

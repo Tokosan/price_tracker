@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { api } from "../api.js";
 import { useMe } from "../App.jsx";
+import { saveTheme } from "../theme.js";
 
 export default function Settings() {
   const { me, reload } = useMe();
@@ -66,6 +67,7 @@ export default function Settings() {
   return (
     <>
       <h1>Ajustes</h1>
+      <Appearance />
       <section className="card">
         <h2>Telegram</h2>
         {!tg.configured ? (
@@ -137,5 +139,53 @@ export default function Settings() {
       {msg && <p className="ok-msg">{msg}</p>}
       {error && <p className="error">{error}</p>}
     </>
+  );
+}
+
+const THEMES = [
+  { value: "system", label: "Sistema" },
+  { value: "light", label: "Claro" },
+  { value: "dark", label: "Oscuro" },
+];
+const PALETTES = [
+  { value: "green", label: "Verde" },
+  { value: "blue", label: "Azul" },
+];
+
+// Tema y paleta: se guardan en la cuenta, así te siguen en cualquier dispositivo.
+function Appearance() {
+  const { me, reload } = useMe();
+  const [error, setError] = useState("");
+  const set = (patch) => {
+    setError("");
+    saveTheme(patch).then(reload).catch((e) => setError(e.message));
+  };
+  const prefs = me.preferences;
+  return (
+    <section className="card">
+      <h2>Apariencia</h2>
+      <div className="field-row">
+        <span className="field-label">Tema</span>
+        <div className="segmented" role="radiogroup" aria-label="Tema">
+          {THEMES.map((t) => (
+            <button key={t.value} role="radio" aria-checked={prefs.theme === t.value} className={prefs.theme === t.value ? "on" : ""} onClick={() => set({ theme: t.value })}>
+              {t.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="field-row">
+        <span className="field-label">Color</span>
+        <div className="segmented" role="radiogroup" aria-label="Color">
+          {PALETTES.map((p) => (
+            <button key={p.value} role="radio" aria-checked={prefs.palette === p.value} className={prefs.palette === p.value ? "on" : ""} onClick={() => set({ palette: p.value })}>
+              <span className={`swatch ${p.value}`} aria-hidden="true" />
+              {p.label}
+            </button>
+          ))}
+        </div>
+      </div>
+      {error && <p className="error">{error}</p>}
+    </section>
   );
 }
