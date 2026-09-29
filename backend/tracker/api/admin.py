@@ -20,7 +20,6 @@ from tracker.models import (
     Notification,
     PricePoint,
     Product,
-    SiteRequest,
     User,
     Watch,
 )
@@ -129,47 +128,6 @@ def update_user(
     return user_out(db, user)
 
 
-@router.get("/site-requests")
-def site_requests(_: User = Depends(require_admin), db: DbSession = Depends(get_db)) -> list:
-    rows = db.execute(
-        select(SiteRequest, User.username)
-        .join(User, User.id == SiteRequest.user_id)
-        .order_by(SiteRequest.created_at.desc())
-    )
-    return [
-        {
-            "id": r.id,
-            "url": r.url,
-            "note": r.note,
-            "status": r.status,
-            "username": username,
-            "created_at": iso(r.created_at),
-        }
-        for r, username in rows
-    ]
-
-
-class SiteRequestPatchIn(BaseModel):
-    status: str
-
-
-@router.patch("/site-requests/{req_id}")
-def update_site_request(
-    req_id: int,
-    body: SiteRequestPatchIn,
-    _: User = Depends(require_admin),
-    db: DbSession = Depends(get_db),
-) -> dict:
-    if body.status not in ("pending", "done", "rejected"):
-        raise HTTPException(422, "estado inválido")
-    req = db.get(SiteRequest, req_id)
-    if req is None:
-        raise HTTPException(404, "no existe")
-    req.status = body.status
-    db.commit()
-    return {"id": req.id, "status": req.status}
-
-
 @router.get("/products")
 def products(
     status: str = "broken", _: User = Depends(require_admin), db: DbSession = Depends(get_db)
@@ -262,9 +220,6 @@ def metrics(_: User = Depends(require_admin), db: DbSession = Depends(get_db)) -
             select(func.count(Notification.id)).where(Notification.sent_at >= week)
         ),
         "anomalies_7d": count(select(func.count(Anomaly.id)).where(Anomaly.created_at >= week)),
-        "pending_site_requests": count(
-            select(func.count(SiteRequest.id)).where(SiteRequest.status == "pending")
-        ),
     }
 
 

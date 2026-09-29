@@ -1,4 +1,4 @@
-"""Registro de procesadores. Para agregar un sitio: una clase aquí y sus fixtures."""
+"""Registro de procesadores. Para agregar una tienda: una clase aquí y sus fixtures."""
 
 from tracker.processors.base import (
     FetchError,

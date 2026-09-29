@@ -8,7 +8,7 @@ import Invite from "./pages/Invite.jsx";
 import Login from "./pages/Login.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Settings from "./pages/Settings.jsx";
-import Sites from "./pages/Sites.jsx";
+import Stores from "./pages/Stores.jsx";
 import WatchDetail from "./pages/WatchDetail.jsx";
 import Watches from "./pages/Watches.jsx";
 
@@ -65,7 +65,7 @@ function Shell() {
           <NavLink to="/" end>Productos</NavLink>
           <NavLink to="/agregar">Agregar</NavLink>
           <NavLink to="/notificaciones">Avisos</NavLink>
-          <NavLink to="/sitios">Sitios</NavLink>
+          <NavLink to="/tiendas">Tiendas</NavLink>
           <NavLink to="/ajustes">Ajustes</NavLink>
           {me.role === "admin" && <NavLink to="/admin">Admin</NavLink>}
         </nav>
@@ -82,7 +82,8 @@ function Shell() {
           <Route path="/agregar" element={<AddWatch />} />
           <Route path="/w/:id" element={<WatchDetail />} />
           <Route path="/notificaciones" element={<Notifications />} />
-          <Route path="/sitios" element={<Sites />} />
+          <Route path="/tiendas" element={<Stores />} />
+          <Route path="/sitios" element={<Navigate to="/tiendas" replace />} />
           <Route path="/ajustes" element={<Settings />} />
           {me.role === "admin" && <Route path="/admin" element={<Admin />} />}
           <Route path="*" element={<Navigate to="/" />} />

@@ -8,7 +8,7 @@ from tests.conftest import fixture_text
 from tracker.config import settings
 from tracker.db import SessionLocal
 from tracker.main import app
-from tracker.models import PricePoint, Product, SiteRequest, User
+from tracker.models import PricePoint, Product, User
 from tracker.processors import PROCESSORS
 from tracker.security import create_invite
 
@@ -117,15 +117,13 @@ def test_csrf_obligatorio():
     assert r.status_code == 403
 
 
-def test_url_sin_procesador_se_rechaza_y_se_puede_reportar():
+def test_url_de_tienda_no_soportada_se_rechaza():
     api = logged_in("ana")
     r = api.post("/api/resolve", {"url": "https://www.falabella.com/falabella-cl/product/123"})
     assert r.status_code == 422
     assert r.json()["detail"]["code"] == "unsupported"
-    r = api.post("/api/site-requests", {"url": "https://www.falabella.com/x", "note": "porfa"})
-    assert r.status_code == 201
-    with SessionLocal() as db:
-        assert db.scalar(select(SiteRequest.note)) == "porfa"
+    # Ya no existe la función de pedirle una tienda al admin.
+    assert api.post("/api/site-requests", {"url": "https://x.cl/1"}).status_code in (404, 405)
 
 
 def test_agregar_ikea_con_variantes_y_reglas():
@@ -287,20 +285,20 @@ def test_cli_borra_usuario_y_productos_huerfanos(monkeypatch, capsys):
     assert "1 producto(s)" in capsys.readouterr().out
 
 
-def test_sitios_soportados_con_mis_productos_y_estado_agregado():
+def test_tiendas_soportadas_con_mis_productos_y_estado_agregado():
     ana, bob = logged_in("ana"), logged_in("bob")
     ana.post("/api/watches", {"urls": [STARDEW], "rules": []})
 
-    sites = {s["name"]: s for s in ana.get("/api/processors").json()}
-    assert set(sites) == set(PROCESSORS)
-    steam = sites["steam"]
+    stores = {s["name"]: s for s in ana.get("/api/processors").json()}
+    assert set(stores) == set(PROCESSORS)
+    steam = stores["steam"]
     assert (steam["my_watches"], steam["status"]) == (1, "ok")
     assert steam["last_ok_at"] and steam["example_url"] and steam["domain"]
-    assert sites["ikea"]["supports_variants"] and not sites["ikea"]["supports_list_price"]
-    assert sites["entrejuegos"]["slow"]
-    assert sites["dementegames"]["status"] == "unknown"
+    assert stores["ikea"]["supports_variants"] and not stores["ikea"]["supports_list_price"]
+    assert stores["entrejuegos"]["slow"]
+    assert stores["dementegames"]["status"] == "unknown"
 
-    # Bob ve el estado del sitio, pero no cuántos productos sigue Ana.
+    # Bob ve el estado de la tienda, pero no cuántos productos sigue Ana.
     assert {s["name"]: s["my_watches"] for s in bob.get("/api/processors").json()}["steam"] == 0
 
     with SessionLocal() as db:

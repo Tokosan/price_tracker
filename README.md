@@ -19,8 +19,8 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | La Fortaleza | Jumpseller |
 
 Hay clases base para **PrestaShop** y **Jumpseller**, así que una tienda nueva con
-esas plataformas se agrega en pocas líneas. La app tiene una página `/sitios` con lo
-que soporta cada tienda y un formulario para pedir tiendas nuevas.
+esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
+que soporta cada tienda.
 
 ## Funcionalidades
 
@@ -34,7 +34,7 @@ que soporta cada tienda y un formulario para pedir tiendas nuevas.
 - **Anti-spam**: histéresis en los umbrales y un solo mensaje por lectura. Las lecturas absurdas (errores de scraping) nunca generan alertas: quedan como anomalías en el panel admin.
 - **Productos compartidos**: si dos usuarios siguen lo mismo, se lee una sola vez y ambos ven el historial completo.
 - **Historial de precios** con gráfico, historial de avisos y botón "Revisar ahora" (con cooldown).
-- **Panel admin**: usuarios e invitaciones, cuota por usuario, tiendas pedidas, productos rotos, anomalías y métricas agregadas. El admin nunca ve qué sigue cada usuario.
+- **Panel admin**: usuarios e invitaciones, cuota por usuario, productos rotos, anomalías y métricas agregadas. El admin nunca ve qué sigue cada usuario.
 - **Scheduler** con intervalo por tienda, jitter, límite de peticiones por dominio y backoff. Tras varios fallos seguidos el producto queda como `broken` y se avisa al admin.
 
 ## Stack
@@ -61,7 +61,7 @@ DATABASE_URL=sqlite:///./data/dev.db COOKIE_SECURE=false uv run uvicorn tracker.
 npm ci && npm run dev
 ```
 
-Probar un procesador contra el sitio real:
+Probar un procesador contra la tienda real:
 
 ```bash
 uv run python -m tracker.check steam https://store.steampowered.com/app/413150/
