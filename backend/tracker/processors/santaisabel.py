@@ -18,6 +18,8 @@ class SantaIsabelProcessor(VtexProcessor):
     example_url = "https://www.santaisabel.cl/atun-antartic-lomitos-en-agua-91-g-drenado-1989506/p"
     notes = (
         "Precio online sin Tarjeta Cencosud (el precio con tarjeta no se guarda). "
-        "Un producto sin precio y sin stock cuenta como agotado. Si el link trae un slug "
-        "de Jumbo que Santa Isabel no tiene, se busca el mismo producto por su código."
+        "Un producto sin precio y sin stock cuenta como agotado. Conviene pegar el link "
+        "de la ficha de Santa Isabel: el buscador a veces muestra links de Jumbo que aquí "
+        "no existen. Esos se siguen igual (se busca el mismo producto por su código), "
+        "pero el link guardado no abre en la tienda."
     )
