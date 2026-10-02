@@ -12,6 +12,7 @@ from tracker.processors.base import (
 from tracker.processors.dementegames import DementeGamesProcessor
 from tracker.processors.entrejuegos import EntrejuegosProcessor
 from tracker.processors.ikea import IkeaProcessor
+from tracker.processors.jumbo import JumboProcessor
 from tracker.processors.lafortaleza import LaFortalezaProcessor
 from tracker.processors.lider import LiderProcessor
 from tracker.processors.mercadolibre import MercadoLibreProcessor
@@ -27,6 +28,7 @@ PROCESSORS: dict[str, Processor] = {
         LaFortalezaProcessor(),
         MercadoLibreProcessor(),
         LiderProcessor(),
+        JumboProcessor(),
     )
 }
 

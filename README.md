@@ -18,8 +18,9 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | DementeGames | PrestaShop |
 | La Fortaleza | Jumpseller |
 | Lider (supermercado) | Datos de Next.js de la ficha (plataforma de Walmart) |
+| Jumbo | API pública del catálogo de VTEX |
 
-Hay clases base para **PrestaShop** y **Jumpseller**, así que una tienda nueva con
+Hay clases base para **PrestaShop**, **Jumpseller** y **VTEX**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
 que soporta cada tienda.
 
