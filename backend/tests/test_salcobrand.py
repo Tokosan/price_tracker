@@ -157,6 +157,45 @@ def test_normaliza_url_con_variante():
         "4845262",
     )
     assert ref.canonical_url == MASCARA + "?default_sku=4845262"
+    # Link real de un banner del home: la query de campaña viene pegada con otro "?".
+    ref = sb.normalize(BASE + "metotrexato?default_sku=3256037?utm_source=x")
+    assert (ref.external_id, ref.variant_id) == ("metotrexato", "3256037")
+    assert ref.canonical_url == BASE + "metotrexato?default_sku=3256037"
+
+
+@pytest.mark.parametrize(
+    ("availability", "available"),
+    [
+        ("https://schema.org/InStock", True),
+        ("http://schema.org/PreOrder", True),
+        ("LimitedAvailability", True),
+        ("https://schema.org/OutOfStock", False),
+        ("https://schema.org/SoldOut", False),
+        ("https://schema.org/Discontinued", False),
+    ],
+)
+def test_availability_conocida(availability, available):
+    raw = fixture_text("salcobrand", "descuento_pasta_colgate.html").replace(
+        '"https://schema.org/InStock"', f'"{availability}"'
+    )
+    assert sb.parse(raw, sb.normalize(COLGATE)).available is available
+
+
+def test_availability_ausente_o_desconocida_es_error_de_lectura():
+    raw = fixture_text("salcobrand", "descuento_pasta_colgate.html")
+    assert raw.count('"availability":"https://schema.org/InStock",') == 1
+    sin = raw.replace('"availability":"https://schema.org/InStock",', "")
+    rara = raw.replace("https://schema.org/InStock", "https://schema.org/BackOrder")
+    for page in (sin, rara):
+        with pytest.raises(FetchError, match="availability"):
+            sb.parse(page, sb.normalize(COLGATE))
+
+
+def test_price_type_sin_prefijo():
+    raw = fixture_text("salcobrand", "descuento_pasta_colgate.html").replace(
+        '"priceType":"https://schema.org/StrikethroughPrice"', '"priceType":"StrikethroughPrice"'
+    )
+    assert sb.parse(raw, sb.normalize(COLGATE)).list_price == 4499
 
 
 def test_matchea_solo_fichas_de_salcobrand():

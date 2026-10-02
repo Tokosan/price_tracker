@@ -31,13 +31,17 @@ from tracker.processors.base import (
     Variant,
 )
 from tracker.processors.http import get_text
-from tracker.processors.util import availability_in_stock, iter_json_ld, to_minor
+from tracker.processors.util import iter_json_ld, to_minor
 
 _HOSTS = frozenset({"salcobrand.cl", "www.salcobrand.cl"})
 _PATH_RE = re.compile(r"^/products/([a-z0-9-]+)/?$", re.I)
 _OPTION_RE = re.compile(r"<option\b([^>]*\bsku=\"(\d+)\"[^>]*)>([^<]*)</option>")
 _TRACKER_RE = re.compile(r"var product_traker_data = (\{.*?\});\s*\n")
 _HEX_RE = re.compile(r"#[0-9a-f]{3,8}$", re.I)
+# `Offer.availability` de schema.org. Un valor ausente o desconocido es un error de lectura,
+# no un agotado: si no, un cambio en el JSON-LD dispararía OUT_OF_STOCK en todos.
+_IN_STOCK = frozenset({"instock", "limitedavailability", "onlineonly", "preorder", "presale"})
+_SOLD_OUT = frozenset({"outofstock", "soldout", "discontinued"})
 
 
 class SalcobrandProcessor(Processor):
@@ -66,8 +70,11 @@ class SalcobrandProcessor(Processor):
         m = _PATH_RE.match(parts.path)
         if not m:
             return None
-        sku = (parse_qs(parts.query).get("default_sku") or [""])[0].strip()
-        return m.group(1).lower(), sku if sku.isdigit() else ""
+        # Los banners del home pegan otra query con "?" (`?default_sku=596310?utm_source=…`):
+        # se toman los dígitos del inicio.
+        raw_sku = (parse_qs(parts.query).get("default_sku") or [""])[0].strip()
+        sku = re.match(r"\d+", raw_sku)
+        return m.group(1).lower(), sku.group(0) if sku else ""
 
     def matches(self, url: str) -> bool:
         return self._match(url) is not None
@@ -105,7 +112,7 @@ class SalcobrandProcessor(Processor):
             price=price,
             list_price=strike if strike and price is not None and strike > price else None,
             currency=currency,
-            available=availability_in_stock(offer.get("availability")),
+            available=_available(offer.get("availability")),
             image_url=image if isinstance(image, str) else None,
         )
 
@@ -165,12 +172,22 @@ def _product_offer(raw: str) -> tuple[dict, dict]:
     return product, offer
 
 
+def _available(value) -> bool:
+    tail = str(value or "").strip().rsplit("/", 1)[-1].lower()
+    if tail in _IN_STOCK:
+        return True
+    if tail in _SOLD_OUT:
+        return False
+    raise FetchError(f"availability desconocida en el JSON-LD de Salcobrand: {value!r}")
+
+
 def _strikethrough(offer: dict, currency: str) -> int | None:
     """Precio Farmacia: la especificación tachada (el "Precio SBPay" no tiene priceType)."""
     specs = offer.get("priceSpecification") or []
     for spec in specs if isinstance(specs, list) else [specs]:
-        if isinstance(spec, dict) and str(spec.get("priceType") or "").endswith(
-            "/StrikethroughPrice"
+        if (
+            isinstance(spec, dict)
+            and str(spec.get("priceType") or "").rsplit("/", 1)[-1] == "StrikethroughPrice"
         ):
             return to_minor(spec.get("price"), spec.get("priceCurrency") or currency)
     return None
