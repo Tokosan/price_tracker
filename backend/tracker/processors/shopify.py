@@ -12,12 +12,19 @@ La ficha también vive bajo una colección (`/collections/<x>/products/<handle>`
 mismo producto y se normaliza a `/products/<handle>`. La variante va en la URL como
 `?variant=<id>` (el parámetro que entiende la ficha) y en `variant_id`. Sin `variant` se
 sigue la primera variante (la ficha muestra la primera con stock, que cambia con el
-inventario; para seguir un precio conviene una fija), como en VTEX.
+inventario; para seguir un precio conviene una fija), como en VTEX. Si la tienda no
+ofrece selector (`supports_variants = False`), se sigue siempre la primera.
+
+Precio 0 (o negativo): sin stock es un agotado real (`sold_out_without_price`); con stock
+es un producto gratuito (los torneos de Piedra Bruja) y `parse` lanza `NotFoundError`,
+así que el alta lo rechaza en vez de dejar un seguimiento que daría anomalía en cada
+lectura.
 
 Cada tienda define `name`, `label`, `host` (sin www), `canonical_host` y sus metadatos.
 """
 
 import json
+import logging
 import re
 from datetime import timedelta
 from decimal import Decimal, InvalidOperation
@@ -34,9 +41,13 @@ from tracker.processors.base import (
 from tracker.processors.http import get_text
 from tracker.processors.util import to_minor
 
+log = logging.getLogger(__name__)
+
 # Path de una ficha: /products/<handle>, opcionalmente bajo /collections/<colección>/.
 # Colecciones (/collections/<x>), búsquedas, páginas y el carrito no matchean.
 _PATH_RE = re.compile(r"(?:/collections/[^/]+)?/products/([\w%-]+)/?", re.I)
+# El handle ya decodificado: letras, dígitos, `_` y `-` (así `%2E%2E` no pasa).
+_HANDLE_RE = re.compile(r"[\w-]+")
 
 # Título de la única variante de un producto sin opciones.
 _DEFAULT_TITLE = "Default Title"
@@ -67,7 +78,10 @@ class ShopifyProcessor(Processor):
             return None
         if (parts.hostname or "") not in self._hosts:
             return None
-        return _PATH_RE.fullmatch(parts.path)
+        m = _PATH_RE.fullmatch(parts.path)
+        if not m or not _HANDLE_RE.fullmatch(unquote(m.group(1))):
+            return None
+        return m
 
     def matches(self, url: str) -> bool:
         return bool(self._match(url))
@@ -80,7 +94,8 @@ class ShopifyProcessor(Processor):
         variant = ""
         if self.supports_variants:
             variant = (parse_qs(urlsplit(url.strip()).query).get("variant") or [""])[0]
-            variant = variant if variant.isdigit() else ""
+            # Solo dígitos ASCII ("٣" pasa `isdigit`); "007" y "7" son la misma variante.
+            variant = str(int(variant)) if variant.isascii() and variant.isdigit() else ""
         return ProductRef(handle, self._url(handle, variant), variant)
 
     def _url(self, handle: str, variant: str = "") -> str:
@@ -95,16 +110,25 @@ class ShopifyProcessor(Processor):
 
     def parse(self, raw: str, ref: ProductRef) -> ScrapeResult:
         product = _product(raw, self.label)
+        if not self.supports_variants and len(product["variants"]) > 1:
+            log.warning(
+                "%s: %s tiene %d variantes y la tienda no tiene selector; se sigue la primera",
+                self.name,
+                ref.external_id,
+                len(product["variants"]),
+            )
         variant = _variant(product, ref)
         price = self._amount(variant.get("price"))
         if price is None or not isinstance(variant.get("available"), bool):
             # Respuesta incompleta: es un error de lectura, no un agotado (si no,
             # `sold_out_without_price` lo dejaría pasar y avisaría OUT_OF_STOCK).
             raise FetchError("la variante de Shopify no trae price o available")
-        if price == 0:
-            # Con stock, precio 0 queda en None (anomalía); sin stock es un agotado real.
-            # Piedra Bruja publica así sus torneos gratuitos.
-            price = None
+        if price <= 0:
+            if variant["available"]:
+                # Gratis y con stock (los torneos de Piedra Bruja): no hay precio que
+                # seguir, y aceptarlo daría una anomalía en cada lectura.
+                raise NotFoundError("producto gratuito: no tiene precio que seguir")
+            price = None  # sin stock es un agotado real (sold_out_without_price)
         listed = self._amount(variant.get("compare_at_price"))
         title = (product.get("title") or "").strip()
         if self.supports_variants and len(product.get("variants") or []) > 1:
@@ -139,7 +163,7 @@ class ShopifyProcessor(Processor):
             vid = str(var["id"])
             label = _label(var)
             price = self._amount(var.get("price"))
-            if price:
+            if price and price > 0:
                 label += f": ${price:,}".replace(",", ".")
             if var.get("available") is not True:
                 label += " (agotada)"

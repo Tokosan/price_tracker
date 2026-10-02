@@ -59,11 +59,27 @@ def test_preventa_se_puede_comprar():
     assert (r.price, r.list_price, r.available) == (29990, None, True)
 
 
-def test_torneo_gratis_con_cupo_es_anomalia():
-    r = parse("torneo_precio_0.json", f"{BASE}/torneo-yu-gi-oh")
-    assert (r.price, r.available) == (None, True)
-    reading = Reading(price=None, list_price=None, available=True)
-    assert check_anomaly(reading, 5000, pb.anomaly_drop_pct, pb.sold_out_without_price)
+def test_torneo_gratis_con_cupo_se_rechaza():
+    # Precio 0 con stock: no hay precio que seguir (el alta muestra este mensaje).
+    with pytest.raises(NotFoundError, match="producto gratuito"):
+        parse("torneo_precio_0.json", f"{BASE}/torneo-yu-gi-oh")
+
+
+@pytest.mark.parametrize("cents", [0, -100])
+def test_precio_0_o_negativo_sin_stock_es_agotado(cents):
+    data = json.loads(fixture_text("piedrabruja", "agotado.json"))
+    data["variants"][0]["price"] = cents
+    r = pb.parse(json.dumps(data), pb.normalize(f"{BASE}/pictionary"))
+    assert (r.price, r.list_price, r.available) == (None, None, False)
+    reading = Reading(price=None, list_price=None, available=False)
+    assert check_anomaly(reading, 19990, pb.anomaly_drop_pct, pb.sold_out_without_price) is None
+
+
+def test_precio_negativo_con_stock_se_rechaza_como_gratuito():
+    data = json.loads(fixture_text("piedrabruja", "en_stock.json"))
+    data["variants"][0]["price"] = -100
+    with pytest.raises(NotFoundError, match="producto gratuito"):
+        pb.parse(json.dumps(data), pb.normalize(RENEGADO))
 
 
 def test_sin_variant_sigue_la_primera_fecha():
@@ -149,6 +165,9 @@ def test_fetch_pide_el_json_de_la_ficha(monkeypatch):
             "52433109319960",
         ),
         (f"{CURSO}?variant=abc", ""),
+        (f"{CURSO}?variant=0052433109319960", "52433109319960"),
+        (f"{CURSO}?variant=%D9%A3%D9%A4", ""),  # dígitos arábigos: isdigit() pero no ASCII
+        (f"{CURSO}?variant=-5", ""),
     ],
 )
 def test_normaliza_url(url, variant):
@@ -170,3 +189,18 @@ def test_matchea_solo_fichas_de_su_dominio():
     assert not pb.matches("https://piedrabruja.cl.evil.com/products/pictionary")
     assert not pb.matches("https://evilpiedrabruja.cl/products/pictionary")
     assert not pb.matches("ftp://piedrabruja.cl/products/pictionary")
+
+
+@pytest.mark.parametrize(
+    "path",
+    ["%2E%2E", "%2e%2e%2Fadmin", "pictionary%2F..", "pictionary%3Fview%3Djson", "%20"],
+)
+def test_handle_codificado_que_no_es_handle_no_matchea(path):
+    url = f"{BASE}/{path}"
+    assert not pb.matches(url)
+    with pytest.raises(ValueError):
+        pb.normalize(url)
+
+
+def test_handle_codificado_valido_se_decodifica():
+    assert pb.normalize(f"{BASE}/pictionary%2Dmini").external_id == "pictionary-mini"

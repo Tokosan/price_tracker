@@ -2,7 +2,8 @@
 
 Todo lo común está en `ShopifyProcessor`. Casi todos los productos tienen una sola
 variante; los cursos y talleres traen una por fecha. Las preventas se venden como un
-producto en stock. Los torneos gratuitos tienen precio 0 (con cupo, es una anomalía).
+producto en stock. Los torneos gratuitos tienen precio 0: con cupo se rechazan al agregarlos
+(no hay precio que seguir).
 """
 
 from datetime import timedelta
@@ -23,5 +24,6 @@ class PiedraBrujaProcessor(ShopifyProcessor):
     notes = (
         "Precio de la ficha (el mismo con cualquier medio de pago). Las preventas cuentan "
         "como disponibles mientras se puedan comprar. Los productos con variantes (p. ej. "
-        "las fechas de un curso) se eligen al agregarlos y cada una se sigue por separado."
+        "las fechas de un curso) se eligen al agregarlos y cada una se sigue por separado. "
+        "Los productos gratuitos (torneos) no se pueden seguir."
     )

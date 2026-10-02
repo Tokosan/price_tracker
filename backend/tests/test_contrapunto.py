@@ -1,3 +1,6 @@
+import json
+import logging
+
 import pytest
 
 from tests.conftest import fixture_text
@@ -62,6 +65,16 @@ def test_sin_selector_de_variantes():
     )
     ref = cp.normalize(f"{VERITY}?variant=43053451608139")
     assert (ref.variant_id, ref.canonical_url) == ("", VERITY)
+
+
+def test_varias_variantes_sin_selector_sigue_la_primera_y_avisa(caplog):
+    data = json.loads(fixture_text("contrapunto", "descuento.json"))
+    otra = dict(data["variants"][0], id=1, price=999900, title="Tapa dura")
+    data["variants"].append(otra)
+    with caplog.at_level(logging.WARNING, logger="tracker.processors.shopify"):
+        r = cp.parse(json.dumps(data), cp.normalize(VERITY))
+    assert (r.title, r.price) == ("Verity", 15210)
+    assert "tiene 2 variantes" in caplog.text
 
 
 @pytest.mark.parametrize(
