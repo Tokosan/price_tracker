@@ -47,9 +47,22 @@ def test_agotado_con_precio():
     assert (r.price, r.list_price, r.available) == (13500, None, False)
 
 
-def test_producto_simple_no_tiene_variantes():
-    url = f"{BASE}/arena-aglutinante-para-gatos-hey-20kg-1526501/p"
-    assert variants("arena_en_stock.json", url) == []
+ARENA = f"{BASE}/arena-aglutinante-para-gatos-hey-20kg-1526501/p"
+
+
+@pytest.mark.parametrize("url", [ARENA, f"{ARENA}?skuId=514286"])
+def test_producto_simple_se_ofrece_sin_skuid(url):
+    # Con o sin ?skuId= en el link, la única opción es la URL limpia con variant_id "":
+    # AddWatch agrega esa, así que los dos links terminan en el mismo Product.
+    vs = variants("arena_en_stock.json", url)
+    assert [(v.url, v.external_id, v.variant_id, v.selected) for v in vs] == [
+        (ARENA, "arena-aglutinante-para-gatos-hey-20kg-1526501", "", True)
+    ]
+
+
+def test_producto_simple_con_skuid_ajeno_no_existe():
+    with pytest.raises(NotFoundError):
+        variants("arena_en_stock.json", f"{ARENA}?skuId=999")
 
 
 def test_sin_skuid_sigue_el_primer_color():

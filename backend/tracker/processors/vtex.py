@@ -149,13 +149,21 @@ class VtexProcessor(Processor):
         """Los items hermanos, cada uno con su `?skuId=` en la URL.
 
         Si el link no trae `skuId`, el item actual (el primero) se devuelve con el suyo: al
-        agregarlo se sigue ese item fijo, no el que la API liste primero más adelante.
+        agregarlo se sigue ese item fijo, no el que la API liste primero más adelante. Con un
+        solo item es al revés: se devuelve sin `skuId` (`variant_id` vacío).
         """
         if not self.supports_variants:
             return []
         product = self._product(raw, ref)
         items = product.get("items") or []
-        if len(items) < 2:
+        if len(items) == 1:
+            # Un solo item: el `skuId` del link no aporta nada. Se ofrece la forma sin
+            # `skuId` (la UI no muestra selector con una opción, pero agrega esta URL), para
+            # que el link limpio y el copiado del sitio, con `?skuId=`, sean el mismo Product.
+            _item(product, ref)  # un skuId que no es el de su item sigue siendo NotFoundError
+            label = self._labels(product).get(str(items[0].get("itemId") or ""), "")
+            return [Variant(self._url(ref.external_id), label, ref.external_id, "", True)]
+        if not items:
             return []
         current = str(_item(product, ref).get("itemId") or "")
         labels = self._labels(product)
