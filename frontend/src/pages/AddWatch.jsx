@@ -146,7 +146,7 @@ export default function AddWatch() {
                     <label className="check">
                       <input type="checkbox" checked={selected.has(v.url)} onChange={() => toggle(v.url)} />
                       {v.label}
-                      {v.selected && preview.processor !== "mercadolibre" && <span className="muted small"> (la del link)</span>}
+                      {v.selected && !["mercadolibre", "solotodo"].includes(preview.processor) && <span className="muted small"> (la del link)</span>}
                       {v.watching_in && <span className="muted small"> · ya la sigues en «{v.watching_in.name}»</span>}
                     </label>
                   </li>

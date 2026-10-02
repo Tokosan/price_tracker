@@ -22,6 +22,7 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | PC Factory | API del catálogo que usa la página (precio por transferencia) |
 | Falabella | API de la plataforma Falabella, con selector de variantes (tallas, colores, medidas) |
 | Hites | JSON del controlador `Product-Variation` (Salesforce Commerce Cloud), con selector de color y talla |
+| Solotodo (comparador) | API pública: el precio más bajo entre tiendas, con o sin reacondicionados |
 
 Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX** y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
