@@ -1,0 +1,242 @@
+{"pdp": {"action": "Product-Show", "add_to_cart": "<button class=\"add-to-cart btn btn-primary\"\n            data-toggle=\"modal\" data-target=\"#chooseBonusProductModal\"\n            data-pid=\"89871\"\n            data-is-unavailable=\"true\"\n            disabled>"}, "variation": {
+  "action": "Product-Variation",
+  "queryString": "pid=89871&quantity=1",
+  "locale": "default",
+  "product": {
+    "uuid": "a7c93c93fd104eaf3dcb5f6545",
+    "id": "89871",
+    "productName": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un",
+    "productType": "standard",
+    "brand": "Pigeon",
+    "farmaIsp": false,
+    "manufacturerName": "Sin Laboratorio Asignado",
+    "pickupInStoreOnly": {},
+    "price": {
+      "sales": {
+        "value": 7799,
+        "currency": "CLP",
+        "formatted": "$7.799",
+        "decimalPrice": "7799"
+      },
+      "list": null,
+      "hasFamiliaAhumadaPrice": false,
+      "familiaAhumadaPriceForCart": {},
+      "html": "    <div class=\"price\">\n        \n        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    <span class=\"d-block default-price\">\n        <span class=\"sales d-flex \">\n            \n            \n                \n                \n                \n                    <span class=\"value d-flex align-items-center\" content=\"7799\"></span>\n                \n                $7.799\n\n\n                <img\n                    class=\"promotion-badge\"\n                    src=\"\"\n                    alt=\"Loyalty Familia Ahumada\"\n                    onerror=\"this.style.display='none';\"\n                />\n            \n            \n                \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"promotion-badge-container flex-row align-items-center ml-0 \">\n    \n        \n        \n    \n</div>\n\n            \n            \n            \n            \n            \n        </span>\n    </span>\n\n    \n\n    \n</span>\n\n\n\n\n\n\n    </div>\n\n\n"
+    },
+    "renderedPrice": "    <div class=\"price\">\n        \n        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    <span class=\"d-block default-price\">\n        <span class=\"pricing line-item-total-price-amount \">\n            \n            \n                \n                \n                \n                    <span class=\"value d-flex align-items-center\" content=\"7799\"></span>\n                \n                $7.799\n\n\n\n            \n            \n                \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"promotion-badge-container flex-row align-items-center ml-0 \">\n    \n        \n        \n    \n</div>\n\n            \n            \n            \n            \n            \n        </span>\n    </span>\n\n    \n\n    \n</span>\n\n\n\n\n\n\n    </div>\n\n\n",
+    "images": {
+      "large": [
+        {
+          "index": "0",
+          "alt": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, , large",
+          "title": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw09682b80/images/products/89871/89871.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw09682b80/images/products/89871/89871.jpg?sw=1050&sh=1050&sm=fit"
+        },
+        {
+          "index": "1",
+          "alt": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, , large",
+          "title": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw9996528c/images/products/89871/89871_2.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw9996528c/images/products/89871/89871_2.jpg?sw=1050&sh=1050&sm=fit"
+        },
+        {
+          "index": "2",
+          "alt": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, , large",
+          "title": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw771ad652/images/products/89871/89871_3.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw771ad652/images/products/89871/89871_3.jpg?sw=1050&sh=1050&sm=fit"
+        },
+        {
+          "index": "3",
+          "alt": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, , large",
+          "title": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw5a66f72f/images/products/89871/89871_4.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw5a66f72f/images/products/89871/89871_4.jpg?sw=1050&sh=1050&sm=fit"
+        }
+      ],
+      "small": [
+        {
+          "index": "0",
+          "alt": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, , large",
+          "title": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw09682b80/images/products/89871/89871.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw09682b80/images/products/89871/89871.jpg?sw=247&sh=247&sm=fit"
+        },
+        {
+          "index": "1",
+          "alt": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, , large",
+          "title": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw9996528c/images/products/89871/89871_2.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw9996528c/images/products/89871/89871_2.jpg?sw=247&sh=247&sm=fit"
+        },
+        {
+          "index": "2",
+          "alt": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, , large",
+          "title": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw771ad652/images/products/89871/89871_3.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw771ad652/images/products/89871/89871_3.jpg?sw=247&sh=247&sm=fit"
+        },
+        {
+          "index": "3",
+          "alt": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, , large",
+          "title": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw5a66f72f/images/products/89871/89871_4.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw5a66f72f/images/products/89871/89871_4.jpg?sw=247&sh=247&sm=fit"
+        }
+      ],
+      "zoom": [
+        {
+          "index": "0",
+          "alt": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, , large",
+          "title": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw09682b80/images/products/89871/89871.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw09682b80/images/products/89871/89871.jpg?sw=1575&sh=1575&sm=fit"
+        },
+        {
+          "index": "1",
+          "alt": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, , large",
+          "title": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw9996528c/images/products/89871/89871_2.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw9996528c/images/products/89871/89871_2.jpg?sw=1575&sh=1575&sm=fit"
+        },
+        {
+          "index": "2",
+          "alt": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, , large",
+          "title": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw771ad652/images/products/89871/89871_3.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw771ad652/images/products/89871/89871_3.jpg?sw=1575&sh=1575&sm=fit"
+        },
+        {
+          "index": "3",
+          "alt": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, , large",
+          "title": "Tetina Pigeon Repuesto Boca Standard Talla M 2 un, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw5a66f72f/images/products/89871/89871_4.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw5a66f72f/images/products/89871/89871_4.jpg?sw=1575&sh=1575&sm=fit"
+        }
+      ]
+    },
+    "selectedQuantity": 1,
+    "minOrderQuantity": 1,
+    "maxOrderQuantity": 10,
+    "variationAttributes": null,
+    "longDescription": null,
+    "shortDescription": null,
+    "rating": 3.4,
+    "promotions": [
+      {
+        "calloutMsg": "",
+        "details": "",
+        "enabled": true,
+        "id": "Despacho Gratis Cyber",
+        "name": "Despacho Gratis sobre $39.990",
+        "promotionClass": "SHIPPING",
+        "rank": null
+      }
+    ],
+    "attributes": null,
+    "availability": {
+      "messages": [
+        "In Stock"
+      ],
+      "inStockDate": null,
+      "outOfStockCustomMessage": "Producto sin stock"
+    },
+    "available": true,
+    "options": [],
+    "quantities": [
+      {
+        "value": "1",
+        "selected": true,
+        "url": ""
+      },
+      {
+        "value": "2",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "3",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "4",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "5",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "6",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "7",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "8",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "9",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "10",
+        "selected": false,
+        "url": ""
+      }
+    ],
+    "selectedProductUrl": "/tetina-pigeon-repuesto-boca-standard-talla-m-2-un-89871.html?%2Ftetina-pigeon-repuesto-boca-standard-talla-m-2-un-89871.html=undefined&quantity=1",
+    "readyToOrder": true,
+    "online": true,
+    "pageTitle": "Tetina Pigeon Repuesto Boca Standard Talla M",
+    "pageDescription": "Asegura la comodidad de tu bebé con la tetina Pigeon de boca estándar. Ideal para una alimentación natural y sin complicaciones. ¡Compra ahora!",
+    "pageKeywords": "bebé, lactancia, recién nacido",
+    "pageMetaTags": [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "template": null,
+    "custom": {
+      "sellCondition": {},
+      "bioequivalent": false,
+      "activePrinciple": null,
+      "displayReceta": null,
+      "cmr": null,
+      "fonasa": null,
+      "badgeSchedule": null,
+      "promotionBadgeSchedule": null,
+      "ahumadaContigo3Unidad": null,
+      "fractionedPrice": "3.900 x Unidad"
+    },
+    "tabDetails": null,
+    "tabDescription": "Con el respaldo de más de 60 años de investigación sobre el movimiento natural de succión del bebé, nuestra tetina de cuello delgado y flexible es tan suave que se flexiona con los movimientos de la boca del bebé y se dobla naturalmente al compás de su movimiento. El sistema de ventilación de aire (AVS¿) de la mamadera reduce la ingesta de aire, posible causa de cólicos.\n\nLa abertura de la tetina tiene un corte redondo, que permite que la leche salga de manera uniforme y gradual. Los recién nacidos aún tienen movimientos mínimos de los músculos de la mandíbula, por lo que la tetina está diseñada para apoyar su capacidad de succión a esta edad.\n\n- Para bebés de 4 meses o más. \n- Contenido: 2 piezas.\n- Súper flexible y estirable.\n- La sección de la tetina tiene una porción ¿similar a un acordeón¿ que le permite estirarse en respuesta al movimiento peristáltico de la lengua del bebé.\n- Silicona ultra suave.\n- Fabricada con material de silicona grueso y ultra suave, la tetina tiene una elasticidad similar a la del pecho real de una madre.\n- La forma de cúpula hace que la boca del bebé se abra de forma natural, sostiene su boca suavemente y se adapta a sus labios con delicadeza.\n\nCómo limpiar los productos:\nLavar inmediatamente después de cada uso. Recomendamos utilizar el líquido limpia biberones de PIGEON, ya que elimina cualquier residuo de leche que pueda quedar. Enjuagar y dejar secar por completo. \nAsegúrese de esterilizar antes de cada uso.\n\nCómo esterilizar el producto:\nMétodo de esterilización: por ebullición, por vapor, o con productos químicos específicos.\nEsterilización por ebullición o vapor: lave bien la tetina y colóquela en agua hirviendo durante 5 minutos (después de que el agua hierva).\nEs posible realizar la esterilización química y la esterilización por microondas. Utilice para ello productos esterilizadores específicos para mamaderas y tetinas. Siga las instrucciones del manual del usuario de estos productos.",
+    "enableAtencionMedica": false,
+    "attributesHtml": "",
+    "promotionsHtml": "    \n        <div class=\"row collapsible-xl\">\n            <div class=\"col-12\">\n                <button class=\"title callout btn text-left btn-block\"\n                        aria-expanded=\"false\" aria-controls=\"collapsible-promotion-details-0\">\n                    \n                </button>\n            </div>\n            <div class=\"col-12 value content\" id=\"collapsible-promotion-details-0\">\n                \n            </div>\n        </div>\n        <hr>\n    \n\n\n",
+    "optionsHtml": ""
+  },
+  "isAjax": true,
+  "imageTextPrecio": "",
+  "productDisplayType": "N",
+  "ahumadaContigo3Unidad": null,
+  "suppressChronicVisuals": false,
+  "resources": {
+    "info_selectforstock": "Select Styles for Availability",
+    "assistiveSelectedText": "selected"
+  }
+}}

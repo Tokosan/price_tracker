@@ -1,6 +1,7 @@
 """Registro de procesadores. Para agregar una tienda: una clase aquí y sus fixtures."""
 
 from tracker.processors.abc import AbcProcessor
+from tracker.processors.ahumada import AhumadaProcessor
 from tracker.processors.base import (
     FetchError,
     Inspection,
@@ -12,6 +13,7 @@ from tracker.processors.base import (
 )
 from tracker.processors.cruzverde import CruzVerdeProcessor
 from tracker.processors.dementegames import DementeGamesProcessor
+from tracker.processors.drsimi import DrSimiProcessor
 from tracker.processors.easy import EasyProcessor
 from tracker.processors.ecofarmacias import EcofarmaciasProcessor
 from tracker.processors.entrejuegos import EntrejuegosProcessor
@@ -61,6 +63,8 @@ PROCESSORS: dict[str, Processor] = {
         EcofarmaciasProcessor(),
         CruzVerdeProcessor(),
         SalcobrandProcessor(),
+        DrSimiProcessor(),
+        AhumadaProcessor(),
     )
 }
 

@@ -1,0 +1,179 @@
+{"pdp": {"action": "Product-Show", "add_to_cart": "<button class=\"add-to-cart btn btn-primary\"\n            data-toggle=\"modal\" data-target=\"#chooseBonusProductModal\"\n            data-pid=\"6\"\n            data-is-unavailable=\"false\"\n            >"}, "variation": {
+  "action": "Product-Variation",
+  "queryString": "pid=6&quantity=1",
+  "locale": "default",
+  "product": {
+    "uuid": "c4bc47cc7d4d794cfe571148c5",
+    "id": "6",
+    "productName": "Reflexan 10 mg x 20 Comprimidos Recubiertos",
+    "productType": "standard",
+    "brand": "Reflexan",
+    "farmaIsp": true,
+    "manufacturerName": "Megalabs Chile S.A",
+    "pickupInStoreOnly": {},
+    "price": {
+      "sales": {
+        "value": 13719,
+        "currency": "CLP",
+        "formatted": "$13.719",
+        "decimalPrice": "13719"
+      },
+      "list": null,
+      "hasFamiliaAhumadaPrice": false,
+      "familiaAhumadaPriceForCart": {},
+      "html": "    <div class=\"price\">\n        \n        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    <span class=\"d-block default-price\">\n        <span class=\"sales d-flex \">\n            \n            \n                \n                \n                \n                    <span class=\"value d-flex align-items-center\" content=\"13719\"></span>\n                \n                $13.719\n\n\n                <img\n                    class=\"promotion-badge\"\n                    src=\"\"\n                    alt=\"Loyalty Familia Ahumada\"\n                    onerror=\"this.style.display='none';\"\n                />\n            \n            \n                \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"promotion-badge-container flex-row align-items-center ml-0 \">\n    \n        \n        \n    \n</div>\n\n            \n            \n            \n            \n            \n        </span>\n    </span>\n\n    \n\n    \n</span>\n\n\n\n\n\n\n    </div>\n\n\n"
+    },
+    "renderedPrice": "    <div class=\"price\">\n        \n        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    <span class=\"d-block default-price\">\n        <span class=\"pricing line-item-total-price-amount \">\n            \n            \n                \n                \n                \n                    <span class=\"value d-flex align-items-center\" content=\"13719\"></span>\n                \n                $13.719\n\n\n\n            \n            \n                \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"promotion-badge-container flex-row align-items-center ml-0 \">\n    \n        \n        \n    \n</div>\n\n            \n            \n            \n            \n            \n        </span>\n    </span>\n\n    \n\n    \n</span>\n\n\n\n\n\n\n    </div>\n\n\n",
+    "images": {
+      "large": [
+        {
+          "index": "0",
+          "alt": "Reflexan 10 mg x 20 Comprimidos Recubiertos, , large",
+          "title": "Reflexan 10 mg x 20 Comprimidos Recubiertos, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwc6eb09fb/images/products/6/6.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwc6eb09fb/images/products/6/6.jpg?sw=1050&sh=1050&sm=fit"
+        }
+      ],
+      "small": [
+        {
+          "index": "0",
+          "alt": "Reflexan 10 mg x 20 Comprimidos Recubiertos, , large",
+          "title": "Reflexan 10 mg x 20 Comprimidos Recubiertos, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwc6eb09fb/images/products/6/6.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwc6eb09fb/images/products/6/6.jpg?sw=247&sh=247&sm=fit"
+        }
+      ],
+      "zoom": [
+        {
+          "index": "0",
+          "alt": "Reflexan 10 mg x 20 Comprimidos Recubiertos, , large",
+          "title": "Reflexan 10 mg x 20 Comprimidos Recubiertos, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwc6eb09fb/images/products/6/6.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwc6eb09fb/images/products/6/6.jpg?sw=1575&sh=1575&sm=fit"
+        }
+      ]
+    },
+    "selectedQuantity": 1,
+    "minOrderQuantity": 1,
+    "maxOrderQuantity": 10,
+    "variationAttributes": null,
+    "longDescription": null,
+    "shortDescription": null,
+    "rating": 3.5,
+    "promotions": [
+      {
+        "calloutMsg": "",
+        "details": "",
+        "enabled": true,
+        "id": "Despacho Gratis Cyber",
+        "name": "Despacho Gratis sobre $39.990",
+        "promotionClass": "SHIPPING",
+        "rank": null
+      }
+    ],
+    "attributes": null,
+    "availability": {
+      "messages": [
+        "In Stock"
+      ],
+      "inStockDate": null,
+      "outOfStockCustomMessage": "Producto sin stock"
+    },
+    "available": true,
+    "options": [],
+    "quantities": [
+      {
+        "value": "1",
+        "selected": true,
+        "url": ""
+      },
+      {
+        "value": "2",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "3",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "4",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "5",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "6",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "7",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "8",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "9",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "10",
+        "selected": false,
+        "url": ""
+      }
+    ],
+    "selectedProductUrl": "/reflexan-10-mg-x-20-comprimidos-recubiertos-6.html?%2Freflexan-10-mg-x-20-comprimidos-recubiertos-6.html=undefined&quantity=1",
+    "readyToOrder": true,
+    "online": true,
+    "pageTitle": "Reflexan 10 mg - Relajante Muscular Efectivo",
+    "pageDescription": "Reflexan 10 mg es un relajante muscular que alivia espasmos musculares. Ideal para condiciones musculoesqueléticas agudas. Uso seguro y efectivo.",
+    "pageKeywords": "ciclobenzaprina, relajante muscular, contractura muscular, dolor de cuello, espasmo muscular",
+    "pageMetaTags": [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "template": null,
+    "custom": {
+      "sellCondition": {},
+      "bioequivalent": true,
+      "activePrinciple": "CICLOBENZAPRINA CLORHIDRATO",
+      "displayReceta": null,
+      "cmr": null,
+      "fonasa": null,
+      "badgeSchedule": null,
+      "promotionBadgeSchedule": null,
+      "ahumadaContigo3Unidad": null,
+      "fractionedPrice": "686 x Comp."
+    },
+    "tabDetails": "<h3 style='color:#e4002b;'>■ Principios Activos</h3><p>Ciclobenzaprina Clorhidrato</p><h3 style='color:#e4002b;'>■ Almacenamiento</h3><p>Conservar en un lugar fresco y seco, protegido de la luz y fuera del alcance de los niños. No utilizar después de la fecha de vencimiento indicada en el envase.</p><h3 style='color:#e4002b;'>■ Presentación</h3><p>Reflexan se presenta en forma de comprimidos recubiertos, en un envase que contiene 20 unidades de 10 mg cada uno, facilitando su dosificación y administración.</p><h3 style='color:#e4002b;'>■ Laboratorio</h3><p>Megalabs Chile S.A</p><h3 style='color:#e4002b;'>■ Precauciones</h3><p>Es importante seguir las indicaciones del médico y no exceder la dosis recomendada. Evitar el consumo de alcohol durante el tratamiento, ya que puede aumentar los efectos sedantes. No utilizar en caso de alergia conocida a alguno de los componentes del producto.</p>",
+    "tabDescription": "<p><strong>Reflexan 10 mg x 20 Comprimidos Recubiertos</strong> es un medicamento cuyo principio activo es la Ciclobenzaprina Clorhidrato, fabricado por Megalabs Chile S.A. Este relajante muscular se utiliza principalmente para el alivio de espasmos musculares asociados a diversas condiciones musculoesqueléticas agudas y dolorosas, tales como contracturas, desgarros, tortícolis, esguinces y dolor de espalda. Su acción se centra en el sistema nervioso central, ayudando a reducir la tensión muscular sin afectar la función muscular normal, lo que lo convierte en una opción eficaz para el tratamiento a corto plazo, generalmente recomendado por un período de 2 a 3 semanas, como complemento del reposo y la terapia física.</p><h2>Beneficios clave</h2><ul><li>Alivio efectivo de espasmos musculares.</li><li>Actúa a nivel del sistema nervioso central.</li><li>No interfiere con la función muscular normal.</li><li>Ideal para el tratamiento de condiciones musculoesqueléticas agudas.</li></ul><h2>Ingredientes clave</h2><ul><li>Ciclobenzaprina Clorhidrato</li></ul><h2>Modo de uso</h2><ol><li>Tomar un comprimido según indicación médica.</li><li>Se recomienda no exceder la dosis prescrita.</li><li>Usar por un período corto, generalmente de 2 a 3 semanas.</li><li>Complementar con reposo y terapia física para mejores resultados.</li></ol><h2>Preguntas frecuentes</h2><p><strong>¿Qué es Reflexan?</strong><br>Reflexan es un relajante muscular que ayuda a aliviar espasmos musculares.</p><p><strong>¿Cuánto tiempo se puede usar Reflexan?</strong><br>Se recomienda su uso a corto plazo, generalmente de 2 a 3 semanas.</p><p><strong>¿Cuáles son los efectos secundarios más comunes?</strong><br>Los efectos secundarios incluyen somnolencia, sequedad de boca y mareos.</p><p><strong>¿Quiénes no deben usar Reflexan?</strong><br>Está contraindicado en personas con arritmias, insuficiencia cardíaca, hipertiroidismo o que hayan sufrido un infarto reciente.</p>",
+    "enableAtencionMedica": false,
+    "attributesHtml": "",
+    "promotionsHtml": "    \n        <div class=\"row collapsible-xl\">\n            <div class=\"col-12\">\n                <button class=\"title callout btn text-left btn-block\"\n                        aria-expanded=\"false\" aria-controls=\"collapsible-promotion-details-0\">\n                    \n                </button>\n            </div>\n            <div class=\"col-12 value content\" id=\"collapsible-promotion-details-0\">\n                \n            </div>\n        </div>\n        <hr>\n    \n\n\n",
+    "optionsHtml": ""
+  },
+  "isAjax": true,
+  "imageTextPrecio": "",
+  "productDisplayType": "N",
+  "ahumadaContigo3Unidad": null,
+  "suppressChronicVisuals": false,
+  "resources": {
+    "info_selectforstock": "Select Styles for Availability",
+    "assistiveSelectedText": "selected"
+  }
+}}

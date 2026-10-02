@@ -118,6 +118,10 @@ class VtexProcessor(Processor):
             # queda price=None, que el checker trata como anomalía.
             price = None
         listed = to_minor(offer.get("ListPrice"), "CLP")
+        if not (listed and price is not None and listed > price):
+            # Una promoción del catálogo baja `Price` y deja el precio previo en
+            # `PriceWithoutDiscount`, aunque la tienda no use `ListPrice` (Dr. Simi).
+            listed = to_minor(offer.get("PriceWithoutDiscount"), "CLP")
         images = item.get("images") or []
         title = (product.get("productName") or "").strip()
         if self.supports_variants and len(product.get("items") or []) > 1:

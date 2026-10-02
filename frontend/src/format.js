@@ -68,7 +68,7 @@ export function relative(iso) {
   return fut ? `en ${unit}` : `hace ${unit}`;
 }
 
-export const PROCESSOR_LABEL = { steam: "Steam", ikea: "IKEA", entrejuegos: "Entrejuegos", dementegames: "DementeGames", lafortaleza: "La Fortaleza", mercadolibre: "MercadoLibre", lider: "Lider", jumbo: "Jumbo", santaisabel: "Santa Isabel", easy: "Easy", pcfactory: "PC Factory", falabella: "Falabella", hites: "Hites", solotodo: "Solotodo", sodimac: "Sodimac", tottus: "Tottus", abc: "abc", paris: "Paris", ripley: "Ripley", unimarc: "Unimarc", spdigital: "SP Digital", ecofarmacias: "Ecofarmacias", cruzverde: "Cruz Verde", salcobrand: "Salcobrand" };
+export const PROCESSOR_LABEL = { steam: "Steam", ikea: "IKEA", entrejuegos: "Entrejuegos", dementegames: "DementeGames", lafortaleza: "La Fortaleza", mercadolibre: "MercadoLibre", lider: "Lider", jumbo: "Jumbo", santaisabel: "Santa Isabel", easy: "Easy", pcfactory: "PC Factory", falabella: "Falabella", hites: "Hites", solotodo: "Solotodo", sodimac: "Sodimac", tottus: "Tottus", abc: "abc", paris: "Paris", ripley: "Ripley", unimarc: "Unimarc", spdigital: "SP Digital", ecofarmacias: "Ecofarmacias", cruzverde: "Cruz Verde", salcobrand: "Salcobrand", drsimi: "Dr. Simi", ahumada: "Ahumada" };
 
 // Color de la n-ésima serie (link) de un gráfico: orden fijo, hasta 8 (el máximo de links).
 export const seriesColor = (n) => `var(--series-${(n % 8) + 1})`;

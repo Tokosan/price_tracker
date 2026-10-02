@@ -33,7 +33,10 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Unimarc | BFF del sitio (HTTP/2, detrás de Akamai), con la API de VTEX de respaldo |
 | SP Digital | GraphQL de Saleor que usa la página, con curl_cffi (precio por transferencia) |
 | Ecofarmacias | Store API de WooCommerce, con selector de variantes (colores, tallas) |
+| Cruz Verde | API que usa la página (`api.cruzverde.cl`, con sesión de invitado) |
 | Salcobrand | JSON-LD de la ficha (Spree), precio Internet, con selector de variantes |
+| Dr. Simi | API pública del catálogo de VTEX |
+| Farmacias Ahumada | JSON de `Product-Variation` (Salesforce Commerce Cloud) y el stock de la ficha (comuna Santiago) |
 
 Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX**, **WooCommerce** y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
