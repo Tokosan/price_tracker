@@ -9,6 +9,10 @@ precio 0, mientras que la API sí lo lista.
 Cada tienda solo define su `host` y su `account`. Si sus items son variantes elegibles
 (p. ej. colores que comparten la URL), activa `supports_variants` y redefine `item_label`:
 `variant_id` es el `itemId`.
+
+Si el buscador de la tienda muestra slugs de otro catálogo (Santa Isabel muestra los de
+Jumbo), `refid_fallback` busca por el sufijo numérico del slug (`alternateIds_RefId`)
+cuando el slug no existe, y solo acepta un producto con ese RefId.
 """
 
 import json
@@ -38,6 +42,8 @@ class VtexProcessor(Processor):
     # tienda no tiene precio que mostrar: es un agotado real, no un parseo roto.
     sold_out_without_price = True
     platform = "VTEX"
+    # Si el slug no existe, buscar por su sufijo numérico (RefId) antes de darlo por perdido.
+    refid_fallback: bool = False
 
     def __init__(self) -> None:
         bare = self.host.removeprefix("www.")
@@ -62,11 +68,36 @@ class VtexProcessor(Processor):
     def search_url(self, slug: str) -> str:
         return f"https://{self.domain()}/api/catalog_system/pub/products/search/{slug}/p"
 
+    def refid_url(self, refid: str) -> str:
+        return (
+            f"https://{self.domain()}/api/catalog_system/pub/products/search"
+            f"?fq=alternateIds_RefId:{refid}"
+        )
+
     async def fetch_raw(self, ref: ProductRef) -> str:
-        return await get_text(self.search_url(ref.external_id))
+        raw = await get_text(self.search_url(ref.external_id))
+        refid = _refid(ref.external_id)
+        if self.refid_fallback and refid and raw.strip() == "[]":
+            raw = await get_text(self.refid_url(refid))
+        return raw
+
+    def _product(self, raw: str, ref: ProductRef) -> dict:
+        data = _products(raw, ref)
+        if not self.refid_fallback:
+            return data[0]
+        refid = _refid(ref.external_id)
+        for p in data:
+            if (p.get("linkText") or "").lower() == ref.external_id:
+                return p
+        for p in data:
+            if refid and refid in _product_refids(p):
+                return p
+        if refid:
+            raise NotFoundError(f"{ref.external_id} no existe en el catálogo")
+        return data[0]
 
     def parse(self, raw: str, ref: ProductRef) -> ScrapeResult:
-        product = _product(raw, ref)
+        product = self._product(raw, ref)
         item = _item(product, ref)
         offer = _offer(item)
         price = to_minor(offer.get("Price"), "CLP")
@@ -95,7 +126,7 @@ class VtexProcessor(Processor):
     def parse_variants(self, raw: str, ref: ProductRef) -> list[Variant]:
         if not self.supports_variants:
             return []
-        product = _product(raw, ref)
+        product = self._product(raw, ref)
         items = product.get("items") or []
         if len(items) < 2:
             return []
@@ -112,7 +143,26 @@ class VtexProcessor(Processor):
         ]
 
 
-def _product(raw: str, ref: ProductRef) -> dict:
+# Sufijo numérico del slug (`…-1871480`), que en Cencosud es el RefId del producto. Cinco
+# dígitos o más: los sufijos cortos (`…-500grs-2`) no son RefId.
+_REFID_RE = re.compile(r"-(\d{5,})$")
+
+
+def _refid(slug: str) -> str | None:
+    m = _REFID_RE.search(slug)
+    return m.group(1) if m else None
+
+
+def _product_refids(product: dict) -> set[str]:
+    refs = {str(product.get("productReference") or "")}
+    for it in product.get("items") or []:
+        for alt in it.get("referenceId") or []:
+            if isinstance(alt, dict) and alt.get("Key") == "RefId":
+                refs.add(str(alt.get("Value") or ""))
+    return refs - {""}
+
+
+def _products(raw: str, ref: ProductRef) -> list[dict]:
     try:
         data = json.loads(raw)
     except ValueError as exc:
@@ -121,7 +171,7 @@ def _product(raw: str, ref: ProductRef) -> dict:
         raise FetchError("respuesta inesperada de la API de VTEX")
     if not data:
         raise NotFoundError(f"{ref.external_id} no existe en el catálogo")
-    return data[0]
+    return data
 
 
 def _item(product: dict, ref: ProductRef) -> dict:
