@@ -100,9 +100,10 @@ class FalabellaPlatformProcessor(Processor):
         variants = data.get("variants") or []
         v = _pick(data, ref.variant_id)
         if v is None:
-            # Sin variantes (o el SKU del link ya no está): no hay precio que leer.
-            if not sold_out and not ref.variant_id:
-                raise FetchError("la respuesta no trae variantes y no dice que esté agotado")
+            # Agotado real: la API lo dice, o el SKU del link ya no está entre las demás
+            # variantes (talla descontinuada). Sin variantes y sin decirlo, es un error.
+            if not sold_out and not (ref.variant_id and variants):
+                raise FetchError("la respuesta no trae la variante y no dice que esté agotado")
             return ScrapeResult(data.get("name") or "", None, None, "CLP", False, None)
         price, list_price = _prices(v)
         title = data.get("name") or v.get("name") or ""
@@ -122,15 +123,17 @@ class FalabellaPlatformProcessor(Processor):
     def parse_variants(self, raw: str, ref: ProductRef) -> list[Variant]:
         """Las variantes hermanas, cada una con su SKU en la URL.
 
-        La que corresponde al link actual conserva su URL y su `variant_id` (aunque sea
-        `""`), para que no se cree otro Product para la misma variante.
+        La que corresponde al link actual conserva su URL si el link trae SKU. Si no lo
+        trae, se devuelve con el SKU de `currentVariant`: al agregarla se sigue esa
+        variante fija, y no la que la ficha muestre más adelante (que puede cambiar, y en
+        Sodimac las medidas tienen precios distintos).
         """
         _, data = _load(raw)
         variants = data.get("variants") or []
         if len(variants) < 2:
             return []
         current = _pick(data, ref.variant_id)
-        current_id = current.get("id") if current else None
+        current_id = str(current.get("id")) if current else None
         slug = data.get("slug") or "p"
         out: list[Variant] = []
         for v in variants:
@@ -143,12 +146,11 @@ class FalabellaPlatformProcessor(Processor):
                 label += f": ${price:,}".replace(",", ".")
             if v.get("isPurchaseable") is not True:
                 label += " (agotada)"
-            if vid == current_id:
-                out.append(Variant(ref.canonical_url, label, ref.external_id, ref.variant_id, True))
+            if vid == current_id and ref.variant_id:
+                out.append(Variant(ref.canonical_url, label, ref.external_id, vid, True))
             else:
-                out.append(
-                    Variant(self._url(ref.external_id, slug, vid), label, ref.external_id, vid)
-                )
+                url = self._url(ref.external_id, slug, vid)
+                out.append(Variant(url, label, ref.external_id, vid, vid == current_id))
         return sorted(out, key=lambda v: not v.selected)
 
 

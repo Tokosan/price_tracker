@@ -18,6 +18,8 @@ class FalabellaProcessor(FalabellaPlatformProcessor):
     notes = (
         "Precio internet (o el de evento, si hay), sin la tarjeta CMR: el precio CMR no se "
         'guarda. El precio "antes" es el normal tachado. Cada talla, color o medida se '
-        "sigue por separado; un link sin SKU sigue la variante que muestra la ficha. "
+        "sigue por separado. Si el link no trae SKU, se fija la variante que muestra la "
+        "ficha; como link extra de un producto ya seguido, se sigue la que muestre la "
+        "ficha en cada lectura, que puede cambiar. "
         "Incluye los productos de vendedores externos (marketplace)."
     )

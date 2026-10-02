@@ -76,23 +76,32 @@ def test_respuestas_raras_son_error_de_lectura():
         falabella.parse("<html>403</html>", ref)
     with pytest.raises(FetchError):
         falabella.parse(json.dumps({"responseType": "OTRA_COSA", "data": {}}), ref)
+    sin_variantes = json.dumps({"data": {"id": "1", "name": "x", "variants": []}})
     with pytest.raises(FetchError):
-        falabella.parse(json.dumps({"data": {"id": "1", "name": "x", "variants": []}}), ref)
+        falabella.parse(sin_variantes, ref)
+    # Con SKU tampoco: sin OUT_OF_STOCK, una respuesta sin variantes no es un agotado.
+    with pytest.raises(FetchError):
+        falabella.parse(sin_variantes, falabella.normalize(f"{BASE}/1/slug/2"))
+    with pytest.raises(FetchError):
+        falabella.parse(
+            json.dumps({"data": {"id": "1", "name": "x"}}), falabella.normalize(f"{BASE}/1/slug/2")
+        )
 
 
-def test_variantes_conservan_la_ref_actual():
+def test_variantes_sin_sku_fijan_el_sku_de_la_actual():
     raw = fixture_text("falabella", "tallas.json")
     ref = falabella.normalize(f"{BASE}/143441472")  # sin SKU: la actual es 143441473
     variants = falabella.parse_variants(raw, ref)
     assert len(variants) == 6
     current = variants[0]
     assert current.selected
-    assert (current.url, current.variant_id) == (ref.canonical_url, "")
+    assert (current.url, current.variant_id) == (f"{ZAPATILLA}/143441473", "143441473")
     assert current.label == "Blanco · 35: $17.990"
+    assert [v.variant_id for v in variants].count("143441473") == 1
     others = {v.variant_id: v for v in variants[1:]}
-    assert "143441473" not in others
     assert others["143441497"].label == "Blanco · 40: $17.990 (agotada)"
     assert others["143441497"].url == f"{ZAPATILLA}/143441497"
+    assert not any(v.selected for v in others.values())
     assert all(v.external_id == "143441472" for v in variants)
     # Cada URL de variante vuelve a la misma variante al normalizarla.
     for v in variants:
@@ -105,6 +114,19 @@ def test_variantes_con_sku_marcan_esa():
     variants = falabella.parse_variants(raw, falabella.normalize(url))
     assert [v.variant_id for v in variants if v.selected] == ["143441497"]
     assert variants[0].url == url
+    assert [v.variant_id for v in variants].count("143441497") == 1
+
+
+def test_variantes_con_sku_y_otro_slug_conservan_la_url_del_link():
+    raw = fixture_text("falabella", "tallas.json")
+    url = f"{BASE}/143441472/otro-slug/143441498"
+    current = falabella.parse_variants(raw, falabella.normalize(url))[0]
+    assert (current.url, current.variant_id, current.selected) == (url, "143441498", True)
+
+
+def test_sku_ausente_con_out_of_stock_queda_agotado():
+    r = parse("agotado.json", f"{BASE}/121181480/zapatilla-saucony/999")
+    assert (r.price, r.available) == (None, False)
 
 
 def test_producto_de_una_variante_no_ofrece_selector():
