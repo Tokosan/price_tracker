@@ -1,9 +1,12 @@
-"""Clientes HTTP: directo con httpx y a través de FlareSolverr."""
+"""Clientes HTTP: directo con httpx, con curl_cffi (fingerprint TLS de Chrome) y a
+través de FlareSolverr."""
 
 import contextlib
 import logging
 
 import httpx
+from curl_cffi.requests import AsyncSession
+from curl_cffi.requests.exceptions import RequestException
 
 from tracker.config import settings
 from tracker.processors.base import FetchError, NotFoundError
@@ -24,6 +27,25 @@ async def get_text(url: str, *, params: dict | None = None, timeout: float = 30)
         ) as client:
             resp = await client.get(url, params=params)
     except httpx.HTTPError as exc:
+        raise FetchError(f"error de red: {exc!r}") from exc
+    if resp.status_code == 404:
+        raise NotFoundError(f"404 en {url}")
+    if resp.status_code >= 400:
+        raise FetchError(f"HTTP {resp.status_code} en {url}")
+    return resp.text
+
+
+async def get_text_impersonate(url: str, *, params: dict | None = None, timeout: float = 30) -> str:
+    """Como `get_text`, pero con curl_cffi imitando a Chrome.
+
+    Para tiendas cuyo Cloudflare bloquea el fingerprint TLS de httpx (403) y deja
+    pasar a un navegador o a curl desde la misma IP (Ripley).
+    """
+    headers = {"Accept-Language": "es-CL,es;q=0.9"}  # el User-Agent lo pone impersonate
+    try:
+        async with AsyncSession(impersonate="chrome", headers=headers) as session:
+            resp = await session.get(url, params=params, timeout=timeout, allow_redirects=True)
+    except RequestException as exc:
         raise FetchError(f"error de red: {exc!r}") from exc
     if resp.status_code == 404:
         raise NotFoundError(f"404 en {url}")
