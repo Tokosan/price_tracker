@@ -1,0 +1,735 @@
+{
+  "action": "Product-Variation",
+  "queryString": "dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699",
+  "locale": "default",
+  "product": {
+    "notOrderableMaster": false,
+    "custom": {},
+    "canBeSoldSeparately": true,
+    "uuid": "589328289e5025a3eb8c917ef3",
+    "id": "954699",
+    "productName": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+    "productType": "master",
+    "bundled": false,
+    "brand": "HERALD",
+    "masterID": "",
+    "itemSize": "S",
+    "price": {
+      "sales": {
+        "value": 4990,
+        "currency": "CLP",
+        "formatted": "$4.990",
+        "decimalPrice": "4990"
+      },
+      "list": {
+        "value": 16990,
+        "currency": "CLP",
+        "formatted": "$16.990",
+        "decimalPrice": "16990"
+      },
+      "hites": {
+        "value": null,
+        "currency": null,
+        "formatted": null
+      },
+      "numberOfPricesDisplayed": 3,
+      "hasValidPrice": true,
+      "hitesPriceOffer": {
+        "value": 0,
+        "formatted": ""
+      },
+      "bestPrice": {
+        "value": 4990,
+        "currency": "CLP",
+        "formatted": "$4.990",
+        "decimalPrice": "4990"
+      },
+      "discounts": {
+        "salesDiscount": 71,
+        "hitesDiscount": 0
+      },
+      "html": "    <div class=\"price\">\n        \n            \n\n\n\n\n\n\n\n\n\n\n\n\n    \n        <h5 class=\"price-item sales \">\n            \n                <span class=\"discount-badge pruebaaa discount-price \">71%</span>\n            \n            \n            \n            \n                <span class=\"value\" content=\"4990\">\n            \n            $4.990\n\n </span><span class=\"price-sales-text\">TODO MEDIO DE PAGO</span>\n        </h5>\n        \n    \n\n\n\n    \n    \n        <span class=\"price-item list strike-through \">\n            <span class=\"value\" content=\"16990\">\n                <span class=\"sr-only\">\n                    Price reduced from\n                </span>\n                Normal\n                $16.990\n\n\n                <span class=\"sr-only\">\n                    to\n                </span>\n            </span>\n        </span>\n    \n\n\n        \n    </div>\n\n\n"
+    },
+    "renderedPrice": "    <div class=\"price\">\n        \n            \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n        \n    </div>\n\n\n",
+    "images": {
+      "large": [],
+      "small": []
+    },
+    "selectedQuantity": 1,
+    "minOrderQuantity": 1,
+    "maxOrderQuantity": 20,
+    "variationAttributes": [
+      {
+        "attributeId": "color",
+        "displayName": "Color",
+        "id": "color",
+        "swatchable": true,
+        "values": [
+          {
+            "id": "ROSADO",
+            "description": null,
+            "displayValue": "ROSADO",
+            "value": "ROSADO",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=ROSADO&pid=954699&quantity=1",
+            "images": {
+              "swatch": [
+                {
+                  "alt": "ROSADO",
+                  "url": "/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw9ec6ea61/images/swatch/ROSADO.png",
+                  "index": 0,
+                  "title": "ROSADO",
+                  "absURL": "https://www.hites.com/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw9ec6ea61/images/swatch/ROSADO.png"
+                }
+              ],
+              "medium": [
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw922c7308/images/original/pim/954699037/954699037_1.jpg?sw=306&sh=306",
+                  "index": 0,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw922c7308/images/original/pim/954699037/954699037_1.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw61b49ed8/images/original/pim/954699037/954699037_2.jpg?sw=306&sh=306",
+                  "index": 1,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw61b49ed8/images/original/pim/954699037/954699037_2.jpg?sw=306&sh=306"
+                }
+              ]
+            }
+          },
+          {
+            "id": "NARANJA",
+            "description": null,
+            "displayValue": "NARANJA",
+            "value": "NARANJA",
+            "selected": true,
+            "selectable": false,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=&pid=954699&quantity=1",
+            "images": {
+              "swatch": [
+                {
+                  "alt": "NARANJA",
+                  "url": "/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw33e894dc/images/swatch/NARANJO.png",
+                  "index": 0,
+                  "title": "NARANJA",
+                  "absURL": "https://www.hites.com/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw33e894dc/images/swatch/NARANJO.png"
+                }
+              ],
+              "medium": [
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwf48d5c76/images/original/pim/954699016/954699016_1.jpg?sw=306&sh=306",
+                  "index": 0,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwf48d5c76/images/original/pim/954699016/954699016_1.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw6c7937f4/images/original/pim/954699016/954699016_2.jpg?sw=306&sh=306",
+                  "index": 1,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw6c7937f4/images/original/pim/954699016/954699016_2.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw105b0f87/images/original/pim/954699016/954699016_3.jpg?sw=306&sh=306",
+                  "index": 2,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw105b0f87/images/original/pim/954699016/954699016_3.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw4619bb32/images/original/pim/954699016/954699016_4.jpg?sw=306&sh=306",
+                  "index": 3,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw4619bb32/images/original/pim/954699016/954699016_4.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw43c82f70/images/original/pim/954699016/954699016_5.jpg?sw=306&sh=306",
+                  "index": 4,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw43c82f70/images/original/pim/954699016/954699016_5.jpg?sw=306&sh=306"
+                }
+              ]
+            }
+          },
+          {
+            "id": "DAMASCO",
+            "description": null,
+            "displayValue": "DAMASCO",
+            "value": "DAMASCO",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=DAMASCO&pid=954699&quantity=1",
+            "images": {
+              "swatch": [
+                {
+                  "alt": "DAMASCO",
+                  "url": "/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwada70a8a/images/swatch/DAMASCO.png",
+                  "index": 0,
+                  "title": "DAMASCO",
+                  "absURL": "https://www.hites.com/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwada70a8a/images/swatch/DAMASCO.png"
+                }
+              ],
+              "medium": [
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw48dfb879/images/original/pim/954699051/954699051_1.jpg?sw=306&sh=306",
+                  "index": 0,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw48dfb879/images/original/pim/954699051/954699051_1.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw7614956e/images/original/pim/954699051/954699051_2.jpg?sw=306&sh=306",
+                  "index": 1,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw7614956e/images/original/pim/954699051/954699051_2.jpg?sw=306&sh=306"
+                }
+              ]
+            }
+          },
+          {
+            "id": "AMARILLO",
+            "description": null,
+            "displayValue": "AMARILLO",
+            "value": "AMARILLO",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=AMARILLO&pid=954699&quantity=1",
+            "images": {
+              "swatch": [
+                {
+                  "alt": "AMARILLO",
+                  "url": "/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw57f1b525/images/swatch/AMARILLO.png",
+                  "index": 0,
+                  "title": "AMARILLO",
+                  "absURL": "https://www.hites.com/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw57f1b525/images/swatch/AMARILLO.png"
+                }
+              ],
+              "medium": [
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwd591c98c/images/original/pim/954699033/954699033_1.jpg?sw=306&sh=306",
+                  "index": 0,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwd591c98c/images/original/pim/954699033/954699033_1.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw3ccf4118/images/original/pim/954699033/954699033_2.jpg?sw=306&sh=306",
+                  "index": 1,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw3ccf4118/images/original/pim/954699033/954699033_2.jpg?sw=306&sh=306"
+                }
+              ]
+            }
+          },
+          {
+            "id": "MORADO",
+            "description": null,
+            "displayValue": "MORADO",
+            "value": "MORADO",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=MORADO&pid=954699&quantity=1",
+            "images": {
+              "swatch": [
+                {
+                  "alt": "MORADO",
+                  "url": "/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw09ccb725/images/swatch/MORADO.png",
+                  "index": 0,
+                  "title": "MORADO",
+                  "absURL": "https://www.hites.com/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw09ccb725/images/swatch/MORADO.png"
+                }
+              ],
+              "medium": [
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw0e5fb36a/images/original/pim/954699023/954699023_1.jpg?sw=306&sh=306",
+                  "index": 0,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw0e5fb36a/images/original/pim/954699023/954699023_1.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw5f34e062/images/original/pim/954699023/954699023_2.jpg?sw=306&sh=306",
+                  "index": 1,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw5f34e062/images/original/pim/954699023/954699023_2.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw9cb02432/images/original/pim/954699023/954699023_3.jpg?sw=306&sh=306",
+                  "index": 2,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw9cb02432/images/original/pim/954699023/954699023_3.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw9d3a9ea6/images/original/pim/954699023/954699023_4.jpg?sw=306&sh=306",
+                  "index": 3,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw9d3a9ea6/images/original/pim/954699023/954699023_4.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwdab5252c/images/original/pim/954699023/954699023_5.jpg?sw=306&sh=306",
+                  "index": 4,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwdab5252c/images/original/pim/954699023/954699023_5.jpg?sw=306&sh=306"
+                }
+              ]
+            }
+          },
+          {
+            "id": "STONE",
+            "description": null,
+            "displayValue": "STONE",
+            "value": "STONE",
+            "selected": false,
+            "selectable": false,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=STONE&pid=954699&quantity=1",
+            "images": {
+              "swatch": [
+                {
+                  "alt": "STONE",
+                  "url": "/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw98782556/images/swatch/GRIS.png",
+                  "index": 0,
+                  "title": "STONE",
+                  "absURL": "https://www.hites.com/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw98782556/images/swatch/GRIS.png"
+                }
+              ],
+              "medium": [
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw934ce18f/images/original/pim/954699048/954699048_1.jpg?sw=306&sh=306",
+                  "index": 0,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw934ce18f/images/original/pim/954699048/954699048_1.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw7b2f15c5/images/original/pim/954699048/954699048_2.jpg?sw=306&sh=306",
+                  "index": 1,
+                  "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw7b2f15c5/images/original/pim/954699048/954699048_2.jpg?sw=306&sh=306"
+                }
+              ]
+            }
+          }
+        ],
+        "isVisible": true
+      },
+      {
+        "attributeId": "Talla",
+        "displayName": "Talla",
+        "id": "Talla-Vestuario-Generica",
+        "swatchable": false,
+        "values": [
+          {
+            "id": "TS",
+            "description": null,
+            "displayValue": "S",
+            "value": "TS",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TS&dwvar_954699_color=NARANJA&pid=954699&quantity=1"
+          },
+          {
+            "id": "TM",
+            "description": null,
+            "displayValue": "M",
+            "value": "TM",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TM&dwvar_954699_color=NARANJA&pid=954699&quantity=1"
+          },
+          {
+            "id": "TL",
+            "description": null,
+            "displayValue": "L",
+            "value": "TL",
+            "selected": true,
+            "selectable": false,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=&dwvar_954699_color=NARANJA&pid=954699&quantity=1"
+          },
+          {
+            "id": "TXL",
+            "description": null,
+            "displayValue": "XL",
+            "value": "TXL",
+            "selected": false,
+            "selectable": false,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TXL&dwvar_954699_color=NARANJA&pid=954699&quantity=1"
+          },
+          {
+            "id": "TXXL",
+            "description": null,
+            "displayValue": "XXL",
+            "value": "TXXL",
+            "selected": false,
+            "selectable": false,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TXXL&dwvar_954699_color=NARANJA&pid=954699&quantity=1"
+          }
+        ],
+        "resetUrl": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=&dwvar_954699_color=NARANJA&pid=954699&quantity=1",
+        "isVisible": true
+      }
+    ],
+    "longDescription": null,
+    "shortDescription": "\n            <h2>Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald</h2>\n<p>Encuentra el mejor estilo con la Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald y combínala con tu ropa favorita. Cómprala en Hites.com</p>\n        ",
+    "rating": 3.1,
+    "promotionsHtml": "",
+    "promotions": null,
+    "attributes": [
+      {
+        "ID": "mainAttributes",
+        "name": null,
+        "attributes": [
+          {
+            "ID": "Fit",
+            "label": "Fit",
+            "value": [
+              "Regular"
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "otherAttributes",
+        "name": "Características",
+        "attributes": [
+          {
+            "ID": "Producto",
+            "label": "Producto",
+            "value": [
+              "Polera"
+            ]
+          },
+          {
+            "ID": "Marca",
+            "label": "Marca",
+            "value": [
+              "Herald"
+            ]
+          },
+          {
+            "ID": "Genero",
+            "label": "Género",
+            "value": [
+              "Hombre"
+            ]
+          },
+          {
+            "ID": "Manga",
+            "label": "Manga",
+            "value": [
+              "Manga Corta"
+            ]
+          },
+          {
+            "ID": "Composicion",
+            "label": "Composición",
+            "value": [
+              "65%polyester/35%cotton"
+            ]
+          },
+          {
+            "ID": "CuidadosDePrenda",
+            "label": "Cuidados De Prenda",
+            "value": [
+              "Lavar En Agua Fria / Lavar Con Colores Similares / Usar Jabón Neutro / No Clorar / Secar Colgado / Planchar A Temperatura Media"
+            ]
+          },
+          {
+            "ID": "Modelo",
+            "label": "Modelo",
+            "value": [
+              "Polera"
+            ]
+          },
+          {
+            "ID": "Largo",
+            "label": "Largo",
+            "value": [
+              "Regular"
+            ]
+          },
+          {
+            "ID": "Material",
+            "label": "Material",
+            "value": [
+              "Poliester"
+            ]
+          },
+          {
+            "ID": "Temporada",
+            "label": "Temporada",
+            "value": [
+              "Verano"
+            ]
+          },
+          {
+            "ID": "Cuello",
+            "label": "Cuello",
+            "value": [
+              "Piqué"
+            ]
+          },
+          {
+            "ID": "Fit",
+            "label": "Fit",
+            "value": [
+              "Regular"
+            ]
+          },
+          {
+            "ID": "HechoEn",
+            "label": "Hecho en",
+            "value": [
+              "China"
+            ]
+          }
+        ]
+      }
+    ],
+    "availability": {
+      "status": "NO_DISPONIBLE",
+      "messages": [
+        "¡Producto disponible!"
+      ],
+      "inStockDate": null,
+      "secondaryMessage": ""
+    },
+    "ats": 0,
+    "available": false,
+    "options": [],
+    "quantities": [
+      {
+        "value": "1",
+        "selected": true,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=1"
+      },
+      {
+        "value": "2",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=2"
+      },
+      {
+        "value": "3",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=3"
+      },
+      {
+        "value": "4",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=4"
+      },
+      {
+        "value": "5",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=5"
+      },
+      {
+        "value": "6",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=6"
+      },
+      {
+        "value": "7",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=7"
+      },
+      {
+        "value": "8",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=8"
+      },
+      {
+        "value": "9",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=9"
+      },
+      {
+        "value": "10",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=10"
+      },
+      {
+        "value": "11",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=11"
+      },
+      {
+        "value": "12",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=12"
+      },
+      {
+        "value": "13",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=13"
+      },
+      {
+        "value": "14",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=14"
+      },
+      {
+        "value": "15",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=15"
+      },
+      {
+        "value": "16",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=16"
+      },
+      {
+        "value": "17",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=17"
+      },
+      {
+        "value": "18",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=18"
+      },
+      {
+        "value": "19",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=19"
+      },
+      {
+        "value": "20",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&pid=954699&quantity=20"
+      }
+    ],
+    "selectedProductUrl": "/polera-basica-lisa-regular-manga-corta-cuello-pique-hombre-herald-954699.html?dwvar_954699_Talla-Vestuario-Generica=TL&dwvar_954699_color=NARANJA&quantity=undefined",
+    "readyToOrder": false,
+    "readyToOrderReason": "",
+    "online": true,
+    "pageTitle": null,
+    "pageDescription": null,
+    "pageKeywords": null,
+    "pageMetaTags": [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "template": null,
+    "categories": [],
+    "primaryCategory": {
+      "ID": "polera_hombre",
+      "displayName": "Poleras Hombre",
+      "custom": {
+        "tagGreatDealThreshold": null,
+        "tagLastUnitsThreshold": null,
+        "catAssetID1": null,
+        "catAssetID2": null,
+        "showHitesWarrantyModal": false
+      }
+    },
+    "safetyPriceAvailability": true,
+    "normalPriceAvailability": false,
+    "badges": {
+      "discount": 71
+    },
+    "tags": {
+      "lastUnits": false,
+      "offer": true,
+      "outOfStock": true,
+      "new": false,
+      "html": "<div class=\"product-tags\">\n    \n\n    \n        \n        \n            <span class=\"tag-item outofstock\">&iexcl;SIN STOCK!</span>\n        \n        \n            <span class=\"tag-item offer\">&iexcl;S&Uacute;PER OFERTA!</span>\n        \n        \n    \n</div>\n\n\n"
+    },
+    "brandLogo": {
+      "src": {},
+      "alt": "herald"
+    },
+    "availableForInStorePickup": true,
+    "availableForShipping": true,
+    "wishlist": {
+      "itemExists": false
+    },
+    "videoProvider": "",
+    "videoID": null,
+    "recommendations": {},
+    "isSellable": true,
+    "maxToSell": 20,
+    "comunasDAD_1_7": [],
+    "comunasDAD_8_12": [],
+    "comunasDAD_13_16": [],
+    "comunasRET_1_7": [],
+    "comunasRET_8_12": [],
+    "comunasRET_13_16": [],
+    "comunasSD_1_7": [
+      "36"
+    ],
+    "comunasSD_8_12": [
+      "36"
+    ],
+    "comunasSD_13_16": [
+      "36"
+    ],
+    "sameDay": false,
+    "attributesHtml": "<div id=\"especificaciones-null\" class=\"col-12 product-attributes description tab-pane card \" role=\"tabpanel\" aria-labelledby=\"tab-B\">\n\n\t<div class=\"col-sm-12 col-lg-12 product-details-content-div value content\" data-parent=\"#accordion\" id=\"especificionescontainer\">\n        \n        \n            \n        \n            \n                <ul class=\"product-specification-list col-lg-12\">\n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText active\" data-slide-to=\"0\">Producto</span>\n                            <span class=\"text col-7\">\n                                \n                                    Polera\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"1\">Marca</span>\n                            <span class=\"text col-7\">\n                                \n                                    Herald\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"2\">Género</span>\n                            <span class=\"text col-7\">\n                                \n                                    Hombre\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"3\">Manga</span>\n                            <span class=\"text col-7\">\n                                \n                                    Manga Corta\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"4\">Composición</span>\n                            <span class=\"text col-7\">\n                                \n                                    65%polyester/35%cotton\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"5\">Cuidados De Prenda</span>\n                            <span class=\"text col-7\">\n                                \n                                    Lavar En Agua Fria / Lavar Con Colores Similares / Usar Jabón Neutro / No Clorar / Secar Colgado / Planchar A Temperatura Media\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"6\">Modelo</span>\n                            <span class=\"text col-7\">\n                                \n                                    Polera\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"7\">Largo</span>\n                            <span class=\"text col-7\">\n                                \n                                    Regular\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"8\">Material</span>\n                            <span class=\"text col-7\">\n                                \n                                    Poliester\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"9\">Temporada</span>\n                            <span class=\"text col-7\">\n                                \n                                    Verano\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"10\">Cuello</span>\n                            <span class=\"text col-7\">\n                                \n                                    Piqué\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"11\">Fit</span>\n                            <span class=\"text col-7\">\n                                \n                                    Regular\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"12\">Hecho en</span>\n                            <span class=\"text col-7\">\n                                \n                                    China\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                </ul>\n            \n        \n    </div>\n</div>\n",
+    "cardButton": "Selecciona una Talla",
+    "carousel": [
+      {
+        "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwf48d5c76/images/original/pim/954699016/954699016_1.jpg?sw=1500&sh=1500",
+        "index": 0,
+        "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwf48d5c76/images/original/pim/954699016/954699016_1.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw6c7937f4/images/original/pim/954699016/954699016_2.jpg?sw=1500&sh=1500",
+        "index": 1,
+        "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw6c7937f4/images/original/pim/954699016/954699016_2.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw105b0f87/images/original/pim/954699016/954699016_3.jpg?sw=1500&sh=1500",
+        "index": 2,
+        "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw105b0f87/images/original/pim/954699016/954699016_3.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw4619bb32/images/original/pim/954699016/954699016_4.jpg?sw=1500&sh=1500",
+        "index": 3,
+        "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw4619bb32/images/original/pim/954699016/954699016_4.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw43c82f70/images/original/pim/954699016/954699016_5.jpg?sw=1500&sh=1500",
+        "index": 4,
+        "title": "Polera Básica Lisa Regular Manga Corta Cuello Piqué Hombre Herald",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw43c82f70/images/original/pim/954699016/954699016_5.jpg?sw=1500&sh=1500"
+      }
+    ]
+  },
+  "resources": {
+    "info_selectforstock": "Seleccionar estilos para disponibilidad",
+    "assistiveSelectedText": "selected",
+    "outofstock": "Producto Agotado",
+    "buy": "Agregar a la bolsa",
+    "sku": "SKU:"
+  }
+}

@@ -1,0 +1,912 @@
+{
+  "action": "Product-Variation",
+  "queryString": "pid=967752001",
+  "locale": "default",
+  "product": {
+    "notOrderableMaster": false,
+    "custom": {},
+    "canBeSoldSeparately": true,
+    "uuid": "745b9a076e5b9bff274fc332f5",
+    "id": "967752001",
+    "productName": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+    "productType": "optionProduct",
+    "bundled": false,
+    "brand": "ASUS",
+    "masterID": "",
+    "itemSize": "S",
+    "price": {
+      "sales": {
+        "value": 719990,
+        "currency": "CLP",
+        "formatted": "$719.990",
+        "decimalPrice": "719990"
+      },
+      "list": {
+        "value": 1099990,
+        "currency": "CLP",
+        "formatted": "$1.099.990",
+        "decimalPrice": "1099990"
+      },
+      "hites": {
+        "value": 699990,
+        "currency": "CLP",
+        "formatted": "$699.990",
+        "decimalPrice": "699990"
+      },
+      "numberOfPricesDisplayed": 3,
+      "hasValidPrice": true,
+      "hitesPriceOffer": {
+        "value": 20000,
+        "formatted": "$20.000"
+      },
+      "bestPrice": {
+        "value": 699990,
+        "currency": "CLP",
+        "formatted": "$699.990",
+        "decimalPrice": "699990"
+      },
+      "discounts": {
+        "salesDiscount": 35,
+        "hitesDiscount": 36
+      },
+      "html": "    <div class=\"price\">\n        \n            \n\n\n\n\n\n\n\n\n\n    \n    <h5 class=\"price-item hites-price\">\n\t\t\n\t\t\t<span class=\"discount-badge discount-price\">36%</span>\n\t\t\n        $699.990\n\n\n        <svg class=\"icon\">\n            <use xlink:href=\"#tarjeta-hites-icon\"></use>\n        </svg>\n    </h5>\n    \n\n\n\n\n    \n        <span class=\"price-item sales strike-through\">\n            \n                <span class=\"discount-badge pruebaaa discount-price \">35%</span>\n            \n            \n            \n            \n                <span class=\"value\" content=\"719990\">\n            \n            $719.990\n\n </span><span class=\"price-sales-text\">TODO MEDIO DE PAGO</span>\n        </span>\n        \n    \n\n\n\n    \n    \n        <span class=\"price-item list strike-through \">\n            <span class=\"value\" content=\"1099990\">\n                <span class=\"sr-only\">\n                    Price reduced from\n                </span>\n                Normal\n                $1.099.990\n\n\n                <span class=\"sr-only\">\n                    to\n                </span>\n            </span>\n        </span>\n    \n\n\n        \n    </div>\n\n\n"
+    },
+    "renderedPrice": "    <div class=\"price\">\n        \n            \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n        \n    </div>\n\n\n",
+    "images": {
+      "large": [
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwc5fe41ee/images/original/computacion/967752001_1.jpg?sw=1500&sh=1500",
+          "index": 0,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwc5fe41ee/images/original/computacion/967752001_1.jpg?sw=1500&sh=1500"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw3c823751/images/original/pim/967752001/967752001_2.jpg?sw=1500&sh=1500",
+          "index": 1,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw3c823751/images/original/pim/967752001/967752001_2.jpg?sw=1500&sh=1500"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw0055a15d/images/original/pim/967752001/967752001_3.jpg?sw=1500&sh=1500",
+          "index": 2,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw0055a15d/images/original/pim/967752001/967752001_3.jpg?sw=1500&sh=1500"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw80297c74/images/original/pim/967752001/967752001_4.jpg?sw=1500&sh=1500",
+          "index": 3,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw80297c74/images/original/pim/967752001/967752001_4.jpg?sw=1500&sh=1500"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw99f48652/images/original/pim/967752001/967752001_5.jpg?sw=1500&sh=1500",
+          "index": 4,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw99f48652/images/original/pim/967752001/967752001_5.jpg?sw=1500&sh=1500"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwf5d7f00b/images/original/pim/967752001/967752001_6.jpg?sw=1500&sh=1500",
+          "index": 5,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwf5d7f00b/images/original/pim/967752001/967752001_6.jpg?sw=1500&sh=1500"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw88b88116/images/original/pim/967752001/967752001_7.jpg?sw=1500&sh=1500",
+          "index": 6,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw88b88116/images/original/pim/967752001/967752001_7.jpg?sw=1500&sh=1500"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwc737e30b/images/original/pim/967752001/967752001_8.jpg?sw=1500&sh=1500",
+          "index": 7,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwc737e30b/images/original/pim/967752001/967752001_8.jpg?sw=1500&sh=1500"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwcf25921c/images/original/pim/967752001/967752001_9.jpg?sw=1500&sh=1500",
+          "index": 8,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwcf25921c/images/original/pim/967752001/967752001_9.jpg?sw=1500&sh=1500"
+        }
+      ],
+      "small": [
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwc5fe41ee/images/original/computacion/967752001_1.jpg?sw=140&sh=140",
+          "index": 0,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwc5fe41ee/images/original/computacion/967752001_1.jpg?sw=140&sh=140"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw3c823751/images/original/pim/967752001/967752001_2.jpg?sw=140&sh=140",
+          "index": 1,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw3c823751/images/original/pim/967752001/967752001_2.jpg?sw=140&sh=140"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw0055a15d/images/original/pim/967752001/967752001_3.jpg?sw=140&sh=140",
+          "index": 2,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw0055a15d/images/original/pim/967752001/967752001_3.jpg?sw=140&sh=140"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw80297c74/images/original/pim/967752001/967752001_4.jpg?sw=140&sh=140",
+          "index": 3,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw80297c74/images/original/pim/967752001/967752001_4.jpg?sw=140&sh=140"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw99f48652/images/original/pim/967752001/967752001_5.jpg?sw=140&sh=140",
+          "index": 4,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw99f48652/images/original/pim/967752001/967752001_5.jpg?sw=140&sh=140"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwf5d7f00b/images/original/pim/967752001/967752001_6.jpg?sw=140&sh=140",
+          "index": 5,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwf5d7f00b/images/original/pim/967752001/967752001_6.jpg?sw=140&sh=140"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw88b88116/images/original/pim/967752001/967752001_7.jpg?sw=140&sh=140",
+          "index": 6,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw88b88116/images/original/pim/967752001/967752001_7.jpg?sw=140&sh=140"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwc737e30b/images/original/pim/967752001/967752001_8.jpg?sw=140&sh=140",
+          "index": 7,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwc737e30b/images/original/pim/967752001/967752001_8.jpg?sw=140&sh=140"
+        },
+        {
+          "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwcf25921c/images/original/pim/967752001/967752001_9.jpg?sw=140&sh=140",
+          "index": 8,
+          "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwcf25921c/images/original/pim/967752001/967752001_9.jpg?sw=140&sh=140"
+        }
+      ]
+    },
+    "selectedQuantity": 1,
+    "minOrderQuantity": 1,
+    "maxOrderQuantity": 20,
+    "variationAttributes": null,
+    "longDescription": null,
+    "shortDescription": "<h2>Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD</h2> \r\n<div>\r\n Obtén el mejor equipo, comprando el Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD. Modelo de tamaño y capacidad perfecta para disfrutrar tus juegos y programas como un profesiona, con calidad de imagen, video y sonido que te impresionarán. Cómpralo en Hites.com\r\n</div>\r\n\r\n<div class=\"flix-container\">\r\n  <div id=\"flix-minisite\"></div>\r\n  <div id=\"flix-inpage\"></div>\r\n</div>\r\n\r\n<div id=\"flix-inpage\"></div>\r\n\r\n                <script type=\"text/javascript\" src=//media.flixfacts.com/js/loader.js\r\n\r\n                data-flix-distributor=\"13303\"\r\n\r\n                data-flix-language=\"cl\"\r\n\r\n                data-flix-mpn=\"90NR0JF7-M00JZ0\" \r\n\r\n                data-flix-ean=\"4711636170833\"\r\n\r\n                data-flix-sku=\"\" \r\n\r\n                data-flix-button=\"\"\r\n\r\n                              data-flix-inpage=\"flix-inpage\"\r\n\r\n                data-flix-button-image=\"\" \r\n\r\n                data-flix-fallback-language=\"\" \r\n\r\n                data-flix-price=\"\">\r\n\r\n                </script>",
+    "rating": 5,
+    "promotionsHtml": "    <div class=\"promotions-card d-none\">\n        \n\n            \n            \n            \n\n            \n        \n\n            \n            \n            \n\n            \n                <div class=\"callout text-center\" title=\"Promohide\">\n                    <div class=\"callout-msg\">\n                        Promohide\n                    </div>\n                    <div class=\"promotion-details\">\n                        Promohide\n                    </div>\n                </div>\n            \n        \n    </div>\n\n\n",
+    "promotions": [
+      {
+        "calloutMsg": "",
+        "details": "",
+        "enabled": true,
+        "id": "esp-precios-exclusivos",
+        "name": "esp-precios-exclusivos",
+        "promotionClass": "PRODUCT",
+        "rank": 10,
+        "badge": {
+          "position": {},
+          "image": null,
+          "alt": null
+        },
+        "promotionQualifiers": null
+      },
+      {
+        "calloutMsg": "Promohide",
+        "details": "Promohide",
+        "enabled": true,
+        "id": "facetaTH",
+        "name": "Tarjeta Hites",
+        "promotionClass": "PRODUCT",
+        "rank": null,
+        "badge": {
+          "position": {},
+          "image": null,
+          "alt": null
+        },
+        "promotionQualifiers": null
+      }
+    ],
+    "attributes": [
+      {
+        "ID": "mainAttributes",
+        "name": null,
+        "attributes": [
+          {
+            "ID": "Almacenamiento",
+            "label": "Almacenamiento",
+            "value": [
+              "512 GB"
+            ]
+          },
+          {
+            "ID": "MemoriaRAM",
+            "label": "Memoria RAM",
+            "value": [
+              "8 GB"
+            ]
+          },
+          {
+            "ID": "Procesador",
+            "label": "Procesador",
+            "value": [
+              "AMD Ryzen 7"
+            ]
+          },
+          {
+            "ID": "TamanoDePantalla",
+            "label": "Tamaño De Pantalla",
+            "value": [
+              "15.6\""
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "otherAttributes",
+        "name": "Características",
+        "attributes": [
+          {
+            "ID": "Producto",
+            "label": "Producto",
+            "value": [
+              "Notebook Gamer"
+            ]
+          },
+          {
+            "ID": "Marca",
+            "label": "Marca",
+            "value": [
+              "Asus"
+            ]
+          },
+          {
+            "ID": "ModeloProducto",
+            "label": "Modelo Producto",
+            "value": [
+              "FA506NCG-HN193W"
+            ]
+          },
+          {
+            "ID": "Modelo",
+            "label": "Modelo",
+            "value": [
+              "Tuf Gaming A15"
+            ]
+          },
+          {
+            "ID": "Procesador",
+            "label": "Procesador",
+            "value": [
+              "AMD Ryzen 7"
+            ]
+          },
+          {
+            "ID": "VelocidadDelProcesador",
+            "label": "Velocidad Del Procesador",
+            "value": [
+              "3.2 Ghz"
+            ]
+          },
+          {
+            "ID": "DiscoSolido",
+            "label": "Disco Sólido",
+            "value": [
+              "512 GB"
+            ]
+          },
+          {
+            "ID": "Almacenamiento",
+            "label": "Almacenamiento",
+            "value": [
+              "512 GB"
+            ]
+          },
+          {
+            "ID": "TipoDiscoDuro",
+            "label": "Tipo de Disco Duro",
+            "value": [
+              "SSD"
+            ]
+          },
+          {
+            "ID": "MemoriaRAM",
+            "label": "Memoria RAM",
+            "value": [
+              "8 GB"
+            ]
+          },
+          {
+            "ID": "TamanoDePantalla",
+            "label": "Tamaño De Pantalla",
+            "value": [
+              "15.6\""
+            ]
+          },
+          {
+            "ID": "Resolucion",
+            "label": "Resolución",
+            "value": [
+              "1920 X 1080"
+            ]
+          },
+          {
+            "ID": "CamaraFrontal",
+            "label": "Cámara Frontal",
+            "value": [
+              "Si"
+            ]
+          },
+          {
+            "ID": "ModeloTarjetaDeVideo",
+            "label": "Modelo Tarjeta De Video",
+            "value": [
+              "Nvidia"
+            ]
+          },
+          {
+            "ID": "MemoriaDeVideo",
+            "label": "Memoria de Video",
+            "value": [
+              "4GB GDDR6"
+            ]
+          },
+          {
+            "ID": "NumeroDeHdmi",
+            "label": "Número de HDMI",
+            "value": [
+              "1"
+            ]
+          },
+          {
+            "ID": "NumeroDeUsb2",
+            "label": "Número de USB 2.0",
+            "value": [
+              "No"
+            ]
+          },
+          {
+            "ID": "NumeroDeUsb3",
+            "label": "Número de USB 3.0",
+            "value": [
+              "3"
+            ]
+          },
+          {
+            "ID": "NumeroDeUsbTipoC",
+            "label": "Número de USB Tipo C",
+            "value": [
+              "1"
+            ]
+          },
+          {
+            "ID": "Bluetooth",
+            "label": "Bluetooth",
+            "value": [
+              "Si"
+            ]
+          },
+          {
+            "ID": "Wifi",
+            "label": "Wi-Fi",
+            "value": [
+              "Si"
+            ]
+          },
+          {
+            "ID": "ConexionRedEthernet",
+            "label": "Conexión Red Ethernet",
+            "value": [
+              "Si"
+            ]
+          },
+          {
+            "ID": "LectorDeHuellaDigital",
+            "label": "Lector De Huella Digital",
+            "value": [
+              "No"
+            ]
+          },
+          {
+            "ID": "PantallaTouch",
+            "label": "Pantalla Touch",
+            "value": [
+              "No"
+            ]
+          },
+          {
+            "ID": "RetroIluminado",
+            "label": "Retro Iluminado",
+            "value": [
+              "Si"
+            ]
+          },
+          {
+            "ID": "LectorTarjetaDeMemoria",
+            "label": "Lector Tarjeta De Memoria",
+            "value": [
+              "No"
+            ]
+          },
+          {
+            "ID": "SistemaOperativo",
+            "label": "Sistema Operativo",
+            "value": [
+              "Windows 11 Home"
+            ]
+          },
+          {
+            "ID": "Peso",
+            "label": "Peso",
+            "value": [
+              "2.3 Kg"
+            ]
+          },
+          {
+            "ID": "TipoDeBateria",
+            "label": "Tipo de Batería",
+            "value": [
+              "Lion"
+            ]
+          },
+          {
+            "ID": "NumeroDeCeldas",
+            "label": "Número de Celdas",
+            "value": [
+              "3"
+            ]
+          },
+          {
+            "ID": "MarcaProcesador",
+            "label": "Marca Procesador",
+            "value": [
+              "AMD"
+            ]
+          },
+          {
+            "ID": "ModeloProcesador",
+            "label": "Modelo de Procesador",
+            "value": [
+              "7445hs"
+            ]
+          },
+          {
+            "ID": "NucleosProcesador",
+            "label": "Núcleos Procesador",
+            "value": [
+              "6"
+            ]
+          },
+          {
+            "ID": "GeneracionProcesador",
+            "label": "Generación Procesador",
+            "value": [
+              "Serie 7000"
+            ]
+          },
+          {
+            "ID": "MemoriaExpandible",
+            "label": "Memoria Expandible",
+            "value": [
+              "Hasta 64GB"
+            ]
+          },
+          {
+            "ID": "FrecuenciaDeMemoriaRam",
+            "label": "Frecuencia de Memoria RAM",
+            "value": [
+              "5600mhz"
+            ]
+          },
+          {
+            "ID": "TipoDeMemoriaRam",
+            "label": "Tipo de Memoria RAM",
+            "value": [
+              "DDR5"
+            ]
+          },
+          {
+            "ID": "TarjetaDeVideo",
+            "label": "Tarjeta De Video",
+            "value": [
+              "Geforce RTX 3050"
+            ]
+          },
+          {
+            "ID": "Altavoces",
+            "label": "Altavoces",
+            "value": [
+              "Si"
+            ]
+          },
+          {
+            "ID": "Accesorios",
+            "label": "Accesorios",
+            "value": [
+              "Cargador"
+            ]
+          },
+          {
+            "ID": "Alto",
+            "label": "Alto",
+            "value": [
+              "2.45 cm"
+            ]
+          },
+          {
+            "ID": "Ancho",
+            "label": "Ancho",
+            "value": [
+              "35.9 cm"
+            ]
+          },
+          {
+            "ID": "Profundidad",
+            "label": "Profundidad",
+            "value": [
+              "25.6 cm"
+            ]
+          },
+          {
+            "ID": "ColorEspecificaciones",
+            "label": "Color",
+            "value": [
+              "Negro"
+            ]
+          },
+          {
+            "ID": "Reacondicionado",
+            "label": "Reacondicionado",
+            "value": [
+              "No"
+            ]
+          },
+          {
+            "ID": "GarantiaProveedor",
+            "label": "Garantía Proveedor",
+            "value": [
+              "1 Año"
+            ]
+          },
+          {
+            "ID": "HechoEn",
+            "label": "Hecho en",
+            "value": [
+              "China"
+            ]
+          },
+          {
+            "ID": "VidaUtil",
+            "label": "Vida Util",
+            "value": [
+              "5 Año"
+            ]
+          }
+        ]
+      }
+    ],
+    "availability": {
+      "status": "IN_STOCK",
+      "messages": [
+        "¡Producto disponible!"
+      ],
+      "inStockDate": "2026-09-30T23:16:00.000Z",
+      "secondaryMessage": ""
+    },
+    "ats": 92,
+    "available": true,
+    "options": [
+      {
+        "id": "724",
+        "name": "Protección Hites",
+        "htmlName": "dwopt_967752001_724",
+        "isSelect": false,
+        "values": [
+          {
+            "id": "0",
+            "displayValue": "Sin Garantia",
+            "price": "$0",
+            "priceValue": {},
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwopt_967752001_724=0&pid=967752001"
+          },
+          {
+            "id": "520069001",
+            "displayValue": "Plan Protección Hites 1 año",
+            "price": "$102.490",
+            "priceValue": {},
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwopt_967752001_724=520069001&pid=967752001"
+          },
+          {
+            "id": "520070001",
+            "displayValue": "Plan Protección Hites 2 año",
+            "price": "$154.490",
+            "priceValue": {},
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwopt_967752001_724=520070001&pid=967752001"
+          }
+        ],
+        "selectedValueId": "0"
+      }
+    ],
+    "quantities": [
+      {
+        "value": "1",
+        "selected": true,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=1"
+      },
+      {
+        "value": "2",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=2"
+      },
+      {
+        "value": "3",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=3"
+      },
+      {
+        "value": "4",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=4"
+      },
+      {
+        "value": "5",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=5"
+      },
+      {
+        "value": "6",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=6"
+      },
+      {
+        "value": "7",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=7"
+      },
+      {
+        "value": "8",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=8"
+      },
+      {
+        "value": "9",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=9"
+      },
+      {
+        "value": "10",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=10"
+      },
+      {
+        "value": "11",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=11"
+      },
+      {
+        "value": "12",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=12"
+      },
+      {
+        "value": "13",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=13"
+      },
+      {
+        "value": "14",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=14"
+      },
+      {
+        "value": "15",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=15"
+      },
+      {
+        "value": "16",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=16"
+      },
+      {
+        "value": "17",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=17"
+      },
+      {
+        "value": "18",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=18"
+      },
+      {
+        "value": "19",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=19"
+      },
+      {
+        "value": "20",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=967752001&quantity=20"
+      }
+    ],
+    "selectedProductUrl": "/notebook-gamer-15.6-asus-tuf-gaming-a15-amd-ryzen-7-8-gb-ram-nvidia-geforce-rtx-3050-512-gb-ssd-967752001.html?%2Fnotebook-gamer-15.6-asus-tuf-gaming-a15-amd-ryzen-7-8-gb-ram-nvidia-geforce-rtx-3050-512-gb-ssd-967752001.html=undefined&dwopt_967752001_724=0&pid=967752001&quantity=undefined",
+    "readyToOrder": true,
+    "readyToOrderReason": "",
+    "online": true,
+    "pageTitle": null,
+    "pageDescription": null,
+    "pageKeywords": null,
+    "pageMetaTags": [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "template": null,
+    "categories": [],
+    "primaryCategory": {
+      "ID": "notebook",
+      "displayName": "Notebook",
+      "custom": {
+        "tagGreatDealThreshold": null,
+        "tagLastUnitsThreshold": null,
+        "catAssetID1": null,
+        "catAssetID2": null,
+        "showHitesWarrantyModal": false
+      }
+    },
+    "safetyPriceAvailability": true,
+    "normalPriceAvailability": true,
+    "badges": {
+      "discount": 36,
+      "null": null
+    },
+    "tags": {
+      "lastUnits": false,
+      "offer": true,
+      "outOfStock": false,
+      "new": false,
+      "html": "<div class=\"product-tags\">\n    \n\n    \n        \n        \n        \n            <span class=\"tag-item offer\">&iexcl;S&Uacute;PER OFERTA!</span>\n        \n        \n    \n</div>\n\n\n"
+    },
+    "brandLogo": {
+      "src": {},
+      "alt": "asus"
+    },
+    "availableForInStorePickup": true,
+    "availableForShipping": true,
+    "wishlist": {
+      "itemExists": false
+    },
+    "videoProvider": "",
+    "videoID": null,
+    "recommendations": {},
+    "isSellable": true,
+    "maxToSell": 20,
+    "comunasDAD_1_7": [
+      "36"
+    ],
+    "comunasDAD_8_12": [
+      "36"
+    ],
+    "comunasDAD_13_16": [
+      "36"
+    ],
+    "comunasRET_1_7": [
+      "36"
+    ],
+    "comunasRET_8_12": [
+      "36"
+    ],
+    "comunasRET_13_16": [
+      "36"
+    ],
+    "comunasSD_1_7": [
+      "36"
+    ],
+    "comunasSD_8_12": [
+      "36"
+    ],
+    "comunasSD_13_16": [
+      "36"
+    ],
+    "sameDay": true,
+    "ppum_text": null,
+    "attributesHtml": "<div id=\"especificaciones-null\" class=\"col-12 product-attributes description tab-pane card \" role=\"tabpanel\" aria-labelledby=\"tab-B\">\n\n\t<div class=\"col-sm-12 col-lg-12 product-details-content-div value content\" data-parent=\"#accordion\" id=\"especificionescontainer\">\n        \n        \n            \n        \n            \n                <ul class=\"product-specification-list col-lg-12\">\n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText active\" data-slide-to=\"0\">Producto</span>\n                            <span class=\"text col-7\">\n                                \n                                    Notebook Gamer\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"1\">Marca</span>\n                            <span class=\"text col-7\">\n                                \n                                    Asus\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"2\">Modelo Producto</span>\n                            <span class=\"text col-7\">\n                                \n                                    FA506NCG-HN193W\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"3\">Modelo</span>\n                            <span class=\"text col-7\">\n                                \n                                    Tuf Gaming A15\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"4\">Procesador</span>\n                            <span class=\"text col-7\">\n                                \n                                    AMD Ryzen 7\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"5\">Velocidad Del Procesador</span>\n                            <span class=\"text col-7\">\n                                \n                                    3.2 Ghz\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"6\">Disco Sólido</span>\n                            <span class=\"text col-7\">\n                                \n                                    512 GB\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"7\">Almacenamiento</span>\n                            <span class=\"text col-7\">\n                                \n                                    512 GB\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"8\">Tipo de Disco Duro</span>\n                            <span class=\"text col-7\">\n                                \n                                    SSD\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"9\">Memoria RAM</span>\n                            <span class=\"text col-7\">\n                                \n                                    8 GB\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"10\">Tamaño De Pantalla</span>\n                            <span class=\"text col-7\">\n                                \n                                    15.6\"\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"11\">Resolución</span>\n                            <span class=\"text col-7\">\n                                \n                                    1920 X 1080\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"12\">Cámara Frontal</span>\n                            <span class=\"text col-7\">\n                                \n                                    Si\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"13\">Modelo Tarjeta De Video</span>\n                            <span class=\"text col-7\">\n                                \n                                    Nvidia\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"14\">Memoria de Video</span>\n                            <span class=\"text col-7\">\n                                \n                                    4GB GDDR6\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"15\">Número de HDMI</span>\n                            <span class=\"text col-7\">\n                                \n                                    1\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"16\">Número de USB 2.0</span>\n                            <span class=\"text col-7\">\n                                \n                                    No\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"17\">Número de USB 3.0</span>\n                            <span class=\"text col-7\">\n                                \n                                    3\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"18\">Número de USB Tipo C</span>\n                            <span class=\"text col-7\">\n                                \n                                    1\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"19\">Bluetooth</span>\n                            <span class=\"text col-7\">\n                                \n                                    Si\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"20\">Wi-Fi</span>\n                            <span class=\"text col-7\">\n                                \n                                    Si\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"21\">Conexión Red Ethernet</span>\n                            <span class=\"text col-7\">\n                                \n                                    Si\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"22\">Lector De Huella Digital</span>\n                            <span class=\"text col-7\">\n                                \n                                    No\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"23\">Pantalla Touch</span>\n                            <span class=\"text col-7\">\n                                \n                                    No\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"24\">Retro Iluminado</span>\n                            <span class=\"text col-7\">\n                                \n                                    Si\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"25\">Lector Tarjeta De Memoria</span>\n                            <span class=\"text col-7\">\n                                \n                                    No\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"26\">Sistema Operativo</span>\n                            <span class=\"text col-7\">\n                                \n                                    Windows 11 Home\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"27\">Peso</span>\n                            <span class=\"text col-7\">\n                                \n                                    2.3 Kg\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"28\">Tipo de Batería</span>\n                            <span class=\"text col-7\">\n                                \n                                    Lion\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"29\">Número de Celdas</span>\n                            <span class=\"text col-7\">\n                                \n                                    3\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"30\">Marca Procesador</span>\n                            <span class=\"text col-7\">\n                                \n                                    AMD\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"31\">Modelo de Procesador</span>\n                            <span class=\"text col-7\">\n                                \n                                    7445hs\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"32\">Núcleos Procesador</span>\n                            <span class=\"text col-7\">\n                                \n                                    6\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"33\">Generación Procesador</span>\n                            <span class=\"text col-7\">\n                                \n                                    Serie 7000\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"34\">Memoria Expandible</span>\n                            <span class=\"text col-7\">\n                                \n                                    Hasta 64GB\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"35\">Frecuencia de Memoria RAM</span>\n                            <span class=\"text col-7\">\n                                \n                                    5600mhz\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"36\">Tipo de Memoria RAM</span>\n                            <span class=\"text col-7\">\n                                \n                                    DDR5\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"37\">Tarjeta De Video</span>\n                            <span class=\"text col-7\">\n                                \n                                    Geforce RTX 3050\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"38\">Altavoces</span>\n                            <span class=\"text col-7\">\n                                \n                                    Si\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"39\">Accesorios</span>\n                            <span class=\"text col-7\">\n                                \n                                    Cargador\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"40\">Alto</span>\n                            <span class=\"text col-7\">\n                                \n                                    2.45 cm\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"41\">Ancho</span>\n                            <span class=\"text col-7\">\n                                \n                                    35.9 cm\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"42\">Profundidad</span>\n                            <span class=\"text col-7\">\n                                \n                                    25.6 cm\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"43\">Color</span>\n                            <span class=\"text col-7\">\n                                \n                                    Negro\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"44\">Reacondicionado</span>\n                            <span class=\"text col-7\">\n                                \n                                    No\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"45\">Garantía Proveedor</span>\n                            <span class=\"text col-7\">\n                                \n                                    1 Año\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"46\">Hecho en</span>\n                            <span class=\"text col-7\">\n                                \n                                    China\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"47\">Vida Util</span>\n                            <span class=\"text col-7\">\n                                \n                                    5 Año\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                </ul>\n            \n        \n    </div>\n</div>\n",
+    "cardButton": "Agregar a la bolsa",
+    "carousel": [
+      {
+        "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwc5fe41ee/images/original/computacion/967752001_1.jpg?sw=1500&sh=1500",
+        "index": 0,
+        "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwc5fe41ee/images/original/computacion/967752001_1.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw3c823751/images/original/pim/967752001/967752001_2.jpg?sw=1500&sh=1500",
+        "index": 1,
+        "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw3c823751/images/original/pim/967752001/967752001_2.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw0055a15d/images/original/pim/967752001/967752001_3.jpg?sw=1500&sh=1500",
+        "index": 2,
+        "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw0055a15d/images/original/pim/967752001/967752001_3.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw80297c74/images/original/pim/967752001/967752001_4.jpg?sw=1500&sh=1500",
+        "index": 3,
+        "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw80297c74/images/original/pim/967752001/967752001_4.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw99f48652/images/original/pim/967752001/967752001_5.jpg?sw=1500&sh=1500",
+        "index": 4,
+        "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw99f48652/images/original/pim/967752001/967752001_5.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwf5d7f00b/images/original/pim/967752001/967752001_6.jpg?sw=1500&sh=1500",
+        "index": 5,
+        "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwf5d7f00b/images/original/pim/967752001/967752001_6.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw88b88116/images/original/pim/967752001/967752001_7.jpg?sw=1500&sh=1500",
+        "index": 6,
+        "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw88b88116/images/original/pim/967752001/967752001_7.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwc737e30b/images/original/pim/967752001/967752001_8.jpg?sw=1500&sh=1500",
+        "index": 7,
+        "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwc737e30b/images/original/pim/967752001/967752001_8.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwcf25921c/images/original/pim/967752001/967752001_9.jpg?sw=1500&sh=1500",
+        "index": 8,
+        "title": "Notebook Gamer 15.6\" Asus Tuf Gaming A15 / AMD Ryzen 7 / 8 GB RAM / Nvidia Geforce RTX 3050 / 512 GB SSD",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwcf25921c/images/original/pim/967752001/967752001_9.jpg?sw=1500&sh=1500"
+      }
+    ]
+  },
+  "resources": {
+    "info_selectforstock": "Seleccionar estilos para disponibilidad",
+    "assistiveSelectedText": "selected",
+    "outofstock": "Producto Agotado",
+    "buy": "Agregar a la bolsa",
+    "sku": "SKU:"
+  }
+}
