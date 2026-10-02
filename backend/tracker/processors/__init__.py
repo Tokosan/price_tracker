@@ -1,5 +1,6 @@
 """Registro de procesadores. Para agregar una tienda: una clase aquí y sus fixtures."""
 
+from tracker.processors.abc import AbcProcessor
 from tracker.processors.base import (
     FetchError,
     Inspection,
@@ -43,6 +44,7 @@ PROCESSORS: dict[str, Processor] = {
         SolotodoProcessor(),
         SodimacProcessor(),
         TottusProcessor(),
+        AbcProcessor(),
     )
 }
 
