@@ -1,0 +1,426 @@
+{
+  "action": "Product-Variation",
+  "queryString": "pid=10059000211001",
+  "locale": "default",
+  "product": {
+    "notOrderableMaster": false,
+    "custom": {},
+    "canBeSoldSeparately": true,
+    "uuid": "aeb9bdc2181574cbb42cd159f0",
+    "id": "10059000211001",
+    "productName": "Banano Hip Pouch 1l Loam",
+    "productType": "variant",
+    "bundled": false,
+    "brand": "EVOC",
+    "masterID": "10059000211",
+    "itemSize": "S",
+    "price": {
+      "sales": {
+        "value": 56290,
+        "currency": "CLP",
+        "formatted": "$56.290",
+        "decimalPrice": "56290"
+      },
+      "list": {
+        "value": 63990,
+        "currency": "CLP",
+        "formatted": "$63.990",
+        "decimalPrice": "63990"
+      },
+      "hites": {
+        "value": null,
+        "currency": null,
+        "formatted": null
+      },
+      "numberOfPricesDisplayed": 3,
+      "hasValidPrice": true,
+      "hitesPriceOffer": {
+        "value": 0,
+        "formatted": ""
+      },
+      "bestPrice": {
+        "value": 56290,
+        "currency": "CLP",
+        "formatted": "$56.290",
+        "decimalPrice": "56290"
+      },
+      "discounts": {
+        "salesDiscount": 12,
+        "hitesDiscount": 0
+      },
+      "html": "    <div class=\"price\">\n        \n            \n\n\n\n\n\n\n\n\n\n\n\n\n    \n        <h5 class=\"price-item sales \">\n            \n                <span class=\"discount-badge pruebaaa discount-price \">12%</span>\n            \n            \n            \n            \n                <span class=\"value\" content=\"56290\">\n            \n            $56.290\n\n </span><span class=\"price-sales-text\">TODO MEDIO DE PAGO</span>\n        </h5>\n        \n    \n\n\n\n    \n    \n        <span class=\"price-item list strike-through \">\n            <span class=\"value\" content=\"63990\">\n                <span class=\"sr-only\">\n                    Price reduced from\n                </span>\n                Normal\n                $63.990\n\n\n                <span class=\"sr-only\">\n                    to\n                </span>\n            </span>\n        </span>\n    \n\n\n        \n    </div>\n\n\n"
+    },
+    "renderedPrice": "    <div class=\"price\">\n        \n            \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n        \n    </div>\n\n\n",
+    "images": {
+      "large": [
+        {
+          "alt": "Banano Hip Pouch 1l Loam",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwedf9a8c8/images/original/mkp/10059000211/10059000211_AMARILLO_3.jpg?sw=1500&sh=1500",
+          "index": 0,
+          "title": "Banano Hip Pouch 1l Loam",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwedf9a8c8/images/original/mkp/10059000211/10059000211_AMARILLO_3.jpg?sw=1500&sh=1500"
+        },
+        {
+          "alt": "Banano Hip Pouch 1l Loam",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw238a2da4/images/original/mkp/10059000211/10059000211_AMARILLO_4.jpg?sw=1500&sh=1500",
+          "index": 1,
+          "title": "Banano Hip Pouch 1l Loam",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw238a2da4/images/original/mkp/10059000211/10059000211_AMARILLO_4.jpg?sw=1500&sh=1500"
+        },
+        {
+          "alt": "Banano Hip Pouch 1l Loam",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwce4d61e7/images/original/mkp/10059000211/10059000211_AMARILLO_5.jpg?sw=1500&sh=1500",
+          "index": 2,
+          "title": "Banano Hip Pouch 1l Loam",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwce4d61e7/images/original/mkp/10059000211/10059000211_AMARILLO_5.jpg?sw=1500&sh=1500"
+        }
+      ],
+      "small": [
+        {
+          "alt": "Banano Hip Pouch 1l Loam",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwedf9a8c8/images/original/mkp/10059000211/10059000211_AMARILLO_3.jpg?sw=140&sh=140",
+          "index": 0,
+          "title": "Banano Hip Pouch 1l Loam",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwedf9a8c8/images/original/mkp/10059000211/10059000211_AMARILLO_3.jpg?sw=140&sh=140"
+        },
+        {
+          "alt": "Banano Hip Pouch 1l Loam",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw238a2da4/images/original/mkp/10059000211/10059000211_AMARILLO_4.jpg?sw=140&sh=140",
+          "index": 1,
+          "title": "Banano Hip Pouch 1l Loam",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw238a2da4/images/original/mkp/10059000211/10059000211_AMARILLO_4.jpg?sw=140&sh=140"
+        },
+        {
+          "alt": "Banano Hip Pouch 1l Loam",
+          "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwce4d61e7/images/original/mkp/10059000211/10059000211_AMARILLO_5.jpg?sw=140&sh=140",
+          "index": 2,
+          "title": "Banano Hip Pouch 1l Loam",
+          "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwce4d61e7/images/original/mkp/10059000211/10059000211_AMARILLO_5.jpg?sw=140&sh=140"
+        }
+      ]
+    },
+    "selectedQuantity": 1,
+    "minOrderQuantity": 1,
+    "maxOrderQuantity": 20,
+    "variationAttributes": [
+      {
+        "attributeId": "color",
+        "displayName": "Color",
+        "id": "color",
+        "swatchable": true,
+        "values": [
+          {
+            "id": "AMARILLO",
+            "description": null,
+            "displayValue": "AMARILLO",
+            "value": "AMARILLO",
+            "selected": true,
+            "selectable": true,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_10059000211_Talla=TAMANO%20UNICO&dwvar_10059000211_color=&pid=10059000211&quantity=1",
+            "images": {
+              "swatch": [
+                {
+                  "alt": "AMARILLO",
+                  "url": "/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw57f1b525/images/swatch/AMARILLO.png",
+                  "index": 0,
+                  "title": "AMARILLO",
+                  "absURL": "https://www.hites.com/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw57f1b525/images/swatch/AMARILLO.png"
+                }
+              ],
+              "medium": [
+                {
+                  "alt": "Banano Hip Pouch 1l Loam",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwedf9a8c8/images/original/mkp/10059000211/10059000211_AMARILLO_3.jpg?sw=306&sh=306",
+                  "index": 0,
+                  "title": "Banano Hip Pouch 1l Loam",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwedf9a8c8/images/original/mkp/10059000211/10059000211_AMARILLO_3.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Banano Hip Pouch 1l Loam",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw238a2da4/images/original/mkp/10059000211/10059000211_AMARILLO_4.jpg?sw=306&sh=306",
+                  "index": 1,
+                  "title": "Banano Hip Pouch 1l Loam",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw238a2da4/images/original/mkp/10059000211/10059000211_AMARILLO_4.jpg?sw=306&sh=306"
+                },
+                {
+                  "alt": "Banano Hip Pouch 1l Loam",
+                  "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwce4d61e7/images/original/mkp/10059000211/10059000211_AMARILLO_5.jpg?sw=306&sh=306",
+                  "index": 2,
+                  "title": "Banano Hip Pouch 1l Loam",
+                  "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwce4d61e7/images/original/mkp/10059000211/10059000211_AMARILLO_5.jpg?sw=306&sh=306"
+                }
+              ]
+            }
+          }
+        ],
+        "isVisible": true
+      },
+      {
+        "attributeId": "Talla",
+        "displayName": "Talla",
+        "id": "Talla",
+        "swatchable": false,
+        "values": [
+          {
+            "id": "TAMANO UNICO",
+            "description": null,
+            "displayValue": "TAMANO UNICO",
+            "value": "TAMANO UNICO",
+            "selected": true,
+            "selectable": true,
+            "url": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_10059000211_Talla=&dwvar_10059000211_color=AMARILLO&pid=10059000211&quantity=1"
+          }
+        ],
+        "resetUrl": "https://www.hites.com/on/demandware.store/Sites-HITES-Site/default/Product-Variation?dwvar_10059000211_Talla=&dwvar_10059000211_color=AMARILLO&pid=10059000211&quantity=1",
+        "isVisible": true
+      }
+    ],
+    "longDescription": null,
+    "shortDescription": "\n            Banano EVOC Hip Pouch LoamEl ideólogo de EVOC fue el aventurero Holger Feist que recorría el mundo con su bicicleta y su snowboard. En una de sus aventuras sufrió un accidente que lesionó su espina dorsal. Desde ese momento comenzó el mayor proyecto de su vida y comenzó a desarrollar mochilas con protección para la espalda. Con ello, además de lo útil que resulta, nos protege en caso de accidente. Gracias a sus contactos en la industria rápidamente fabricó un prototipo de una mochila. A finales de 2006 conoció al que sería su socio, Bernd Stucke y ahí nació EVOC. Desde ahí que EVOC es sinónimo de protección tanto para ti como para tus pertenencias.\n        ",
+    "rating": 5,
+    "promotionsHtml": "",
+    "promotions": null,
+    "attributes": [
+      {
+        "ID": "otherAttributes",
+        "name": "Caracteristicas",
+        "attributes": [
+          {
+            "ID": "Producto",
+            "label": "Producto",
+            "value": [
+              "Banano"
+            ]
+          },
+          {
+            "ID": "Marca",
+            "label": "Marca",
+            "value": [
+              "Evoc"
+            ]
+          },
+          {
+            "ID": "InformacionAdicional",
+            "label": "Información Adicional",
+            "value": [
+              "Ciclismo"
+            ]
+          },
+          {
+            "ID": "GarantiaProveedor",
+            "label": "Garantía Proveedor",
+            "value": [
+              "6 meses"
+            ]
+          }
+        ]
+      }
+    ],
+    "availability": {
+      "status": "IN_STOCK",
+      "messages": [
+        "¡Producto disponible!"
+      ],
+      "inStockDate": null,
+      "secondaryMessage": ""
+    },
+    "ats": 1,
+    "available": true,
+    "options": [],
+    "quantities": [
+      {
+        "value": "1",
+        "selected": true,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=1"
+      },
+      {
+        "value": "2",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=2"
+      },
+      {
+        "value": "3",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=3"
+      },
+      {
+        "value": "4",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=4"
+      },
+      {
+        "value": "5",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=5"
+      },
+      {
+        "value": "6",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=6"
+      },
+      {
+        "value": "7",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=7"
+      },
+      {
+        "value": "8",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=8"
+      },
+      {
+        "value": "9",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=9"
+      },
+      {
+        "value": "10",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=10"
+      },
+      {
+        "value": "11",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=11"
+      },
+      {
+        "value": "12",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=12"
+      },
+      {
+        "value": "13",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=13"
+      },
+      {
+        "value": "14",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=14"
+      },
+      {
+        "value": "15",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=15"
+      },
+      {
+        "value": "16",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=16"
+      },
+      {
+        "value": "17",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=17"
+      },
+      {
+        "value": "18",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=18"
+      },
+      {
+        "value": "19",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=19"
+      },
+      {
+        "value": "20",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-HITES-Site/default/Product-Variation?pid=10059000211001&quantity=20"
+      }
+    ],
+    "selectedProductUrl": "/banano-hip-pouch-1l-loam-10059000211.html?dwvar_10059000211_Talla=TAMANO%20UNICO&dwvar_10059000211_color=AMARILLO&quantity=undefined",
+    "readyToOrder": true,
+    "readyToOrderReason": "",
+    "online": true,
+    "pageTitle": null,
+    "pageDescription": null,
+    "pageKeywords": null,
+    "pageMetaTags": [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "template": null,
+    "categories": [],
+    "primaryCategory": null,
+    "safetyPriceAvailability": true,
+    "normalPriceAvailability": true,
+    "badges": {
+      "discount": 12
+    },
+    "tags": {
+      "lastUnits": false,
+      "offer": false,
+      "outOfStock": false,
+      "new": false,
+      "html": "<div class=\"product-tags\">\n    \n\n    \n        \n        \n        \n        \n    \n</div>\n\n\n"
+    },
+    "availableForInStorePickup": false,
+    "availableForShipping": true,
+    "wishlist": {
+      "itemExists": false
+    },
+    "videoProvider": "",
+    "videoID": null,
+    "recommendations": {},
+    "isSellable": true,
+    "maxToSell": 20,
+    "comunasDAD_1_7": [
+      "36"
+    ],
+    "comunasDAD_8_12": [
+      "36"
+    ],
+    "comunasDAD_13_16": [
+      "36"
+    ],
+    "comunasRET_1_7": [],
+    "comunasRET_8_12": [],
+    "comunasRET_13_16": [],
+    "comunasSD_1_7": [],
+    "comunasSD_8_12": [],
+    "comunasSD_13_16": [],
+    "sameDay": false,
+    "ppum_text": null,
+    "attributesHtml": "<div id=\"especificaciones-null\" class=\"col-12 product-attributes description tab-pane card \" role=\"tabpanel\" aria-labelledby=\"tab-B\">\n\n\t<div class=\"col-sm-12 col-lg-12 product-details-content-div value content\" data-parent=\"#accordion\" id=\"especificionescontainer\">\n        \n        \n            \n                <ul class=\"product-specification-list col-lg-12\">\n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText active\" data-slide-to=\"0\">Producto</span>\n                            <span class=\"text col-7\">\n                                \n                                    Banano\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"1\">Marca</span>\n                            <span class=\"text col-7\">\n                                \n                                    Evoc\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"2\">Información Adicional</span>\n                            <span class=\"text col-7\">\n                                \n                                    Ciclismo\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                        \n\t\t\t\t\t\t<li class=\"product-specification-item row align-items-center attribute-values row\">\n                            <span class=\"product-specification-item-name col-4 offset-1 largeText \" data-slide-to=\"3\">Garantía Proveedor</span>\n                            <span class=\"text col-7\">\n                                \n                                    6 meses\n                                    \n                                \n                            </span>\n                        </li>\n                        \n                    \n                </ul>\n            \n        \n    </div>\n</div>\n",
+    "cardButton": "Agregar a la bolsa",
+    "carousel": [
+      {
+        "alt": "Banano Hip Pouch 1l Loam",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwedf9a8c8/images/original/mkp/10059000211/10059000211_AMARILLO_3.jpg?sw=1500&sh=1500",
+        "index": 0,
+        "title": "Banano Hip Pouch 1l Loam",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwedf9a8c8/images/original/mkp/10059000211/10059000211_AMARILLO_3.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Banano Hip Pouch 1l Loam",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw238a2da4/images/original/mkp/10059000211/10059000211_AMARILLO_4.jpg?sw=1500&sh=1500",
+        "index": 1,
+        "title": "Banano Hip Pouch 1l Loam",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dw238a2da4/images/original/mkp/10059000211/10059000211_AMARILLO_4.jpg?sw=1500&sh=1500"
+      },
+      {
+        "alt": "Banano Hip Pouch 1l Loam",
+        "url": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwce4d61e7/images/original/mkp/10059000211/10059000211_AMARILLO_5.jpg?sw=1500&sh=1500",
+        "index": 2,
+        "title": "Banano Hip Pouch 1l Loam",
+        "absURL": "https://www.hites.com/dw/image/v2/BDPN_PRD/on/demandware.static/-/Sites-mastercatalog_HITES/default/dwce4d61e7/images/original/mkp/10059000211/10059000211_AMARILLO_5.jpg?sw=1500&sh=1500"
+      }
+    ]
+  },
+  "resources": {
+    "info_selectforstock": "Seleccionar estilos para disponibilidad",
+    "assistiveSelectedText": "selected",
+    "outofstock": "Producto Agotado",
+    "buy": "Agregar a la bolsa",
+    "sku": "SKU:"
+  }
+}
