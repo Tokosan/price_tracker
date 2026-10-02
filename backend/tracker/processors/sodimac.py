@@ -18,8 +18,9 @@ class SodimacProcessor(FalabellaPlatformProcessor):
     notes = (
         "Precio internet (o el de evento, si hay), sin la tarjeta CMR: el precio CMR no se "
         'guarda. El precio "antes" es el normal tachado. Cada medida, color o formato tiene '
-        "su propio precio y se sigue por separado. Si el link no trae SKU, se fija la "
-        "variante que muestra la ficha; como link extra de un producto ya seguido, se sigue "
-        "la que muestre la ficha en cada lectura, que puede cambiar. "
+        "su propio precio y se sigue por separado. Si el link no trae SKU, se preselecciona "
+        "la variante por defecto de la API, que puede no ser la medida que muestra la ficha: "
+        "revisa la medida al agregar o pega el link con SKU. Como link extra de un producto "
+        "ya seguido, un link sin SKU sigue esa variante por defecto, que puede cambiar. "
         "Incluye los productos de vendedores externos (marketplace)."
     )
