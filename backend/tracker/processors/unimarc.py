@@ -107,7 +107,10 @@ class UnimarcProcessor(Processor):
             raise
         except FetchError:
             pass
-        return await get_text(_vtex.search_url(slug))
+        try:
+            return await get_text(_vtex.search_url(slug))
+        except NotFoundError as exc:  # el respaldo nunca decide que el producto no existe
+            raise FetchError(f"el respaldo VTEX respondió 404: {exc}") from exc
 
     def parse(self, raw: str, ref: ProductRef) -> ScrapeResult:
         text = raw.lstrip()

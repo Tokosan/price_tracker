@@ -176,6 +176,15 @@ async def test_fetch_con_akamai_bloqueando_usa_vtex(monkeypatch):
     assert kwargs == {}  # VTEX no tiene WAF: get_text normal
 
 
+async def test_fetch_404_del_respaldo_vtex_no_es_producto_inexistente(monkeypatch):
+    _fake_get_text(
+        monkeypatch, [FetchError("HTTP 403"), FetchError("HTTP 403"), NotFoundError("404")]
+    )
+    with pytest.raises(FetchError) as exc:
+        await um.fetch_raw(um.normalize(ARROZ))
+    assert not isinstance(exc.value, NotFoundError)
+
+
 async def test_get_text_por_defecto_no_cambia(monkeypatch):
     seen = []
 
