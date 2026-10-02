@@ -32,8 +32,9 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Ripley | Datos de Next.js de la ficha, pedida con [curl_cffi](https://github.com/lexiforest/curl_cffi) (Cloudflare bloquea httpx), con selector de tallas |
 | Unimarc | BFF del sitio (HTTP/2, detrás de Akamai), con la API de VTEX de respaldo |
 | SP Digital | GraphQL de Saleor que usa la página, con curl_cffi (precio por transferencia) |
+| Ecofarmacias | Store API de WooCommerce, con selector de variantes (colores, tallas) |
 
-Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX** y la **plataforma Falabella**, así que una tienda nueva con
+Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX**, **WooCommerce** y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
 que soporta cada tienda.
 

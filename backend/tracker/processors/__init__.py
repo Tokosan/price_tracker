@@ -12,6 +12,7 @@ from tracker.processors.base import (
 )
 from tracker.processors.dementegames import DementeGamesProcessor
 from tracker.processors.easy import EasyProcessor
+from tracker.processors.ecofarmacias import EcofarmaciasProcessor
 from tracker.processors.entrejuegos import EntrejuegosProcessor
 from tracker.processors.falabella import FalabellaProcessor
 from tracker.processors.hites import HitesProcessor
@@ -55,6 +56,7 @@ PROCESSORS: dict[str, Processor] = {
         RipleyProcessor(),
         UnimarcProcessor(),
         SpDigitalProcessor(),
+        EcofarmaciasProcessor(),
     )
 }
 
