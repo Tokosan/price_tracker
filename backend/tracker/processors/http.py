@@ -76,6 +76,27 @@ async def get_text_impersonate(url: str, *, params: dict | None = None, timeout:
             resp = await session.get(url, params=params, timeout=timeout, allow_redirects=True)
     except RequestException as exc:
         raise FetchError(f"error de red: {exc!r}") from exc
+    return _impersonated_text(resp, url)
+
+
+async def post_json_impersonate(
+    url: str, payload: dict, *, headers: dict | None = None, timeout: float = 30
+) -> str:
+    """POST de `payload` como JSON con curl_cffi imitando a Chrome; devuelve el cuerpo.
+
+    Mismo manejo de errores que `get_text_impersonate`. Devuelve texto (no el JSON ya
+    interpretado) para que el procesador pueda guardarlo tal cual como fixture.
+    """
+    headers = {"Accept-Language": "es-CL,es;q=0.9", **(headers or {})}
+    try:
+        async with AsyncSession(impersonate="chrome", headers=headers) as session:
+            resp = await session.post(url, json=payload, timeout=timeout)
+    except RequestException as exc:
+        raise FetchError(f"error de red: {exc!r}") from exc
+    return _impersonated_text(resp, url)
+
+
+def _impersonated_text(resp, url: str) -> str:
     if resp.status_code == 404:
         raise NotFoundError(f"404 en {url}")
     if resp.status_code >= 400:
