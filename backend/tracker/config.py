@@ -10,6 +10,9 @@ def _bool(value: str | None, default: bool) -> bool:
     return value.strip().lower() in {"1", "true", "yes", "si", "sí"}
 
 
+MIN_SECRET_KEY_LEN = 32
+
+
 @dataclass
 class Settings:
     database_url: str = field(
@@ -58,6 +61,20 @@ class Settings:
     def __post_init__(self) -> None:
         if not self.meli_redirect_uri:
             self.meli_redirect_uri = f"{self.public_url}/api/admin/meli/callback"
+
+    def check_production(self) -> None:
+        """Con cookies seguras (producción) exige una SECRET_KEY de verdad.
+
+        Sin esto, un `.env` copiado del ejemplo (SECRET_KEY vacía) arrancaría
+        con una clave HMAC vacía sin que nadie lo note.
+        """
+        if not self.cookie_secure:
+            return
+        if self.secret_key in ("", "dev-inseguro") or len(self.secret_key) < MIN_SECRET_KEY_LEN:
+            raise RuntimeError(
+                f"SECRET_KEY vacía o de menos de {MIN_SECRET_KEY_LEN} caracteres. Genera una con: "
+                "python3 -c 'import secrets; print(secrets.token_urlsafe(48))'"
+            )
 
 
 settings = Settings()

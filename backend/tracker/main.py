@@ -22,6 +22,7 @@ log = logging.getLogger("tracker")
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    settings.check_production()
     sched = None
     poll_task = None
     if settings.scheduler_enabled:

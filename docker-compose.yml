@@ -4,7 +4,7 @@ services:
     env_file:
       - ./backend/.env
     # Mismo uid que el usuario del host: la DB y los backups (sqlite3 desde el
-    # host) quedan con dueño tokosan.
+    # host) quedan del usuario que despliega. scripts/deploy.sh exporta su uid/gid.
     user: "${TRACKER_UID:-1000}:${TRACKER_GID:-1000}"
     ports:
       # Solo loopback; Caddy (mismo host) lo alcanza por localhost:8910.
@@ -12,6 +12,15 @@ services:
     volumes:
       - ./data:/app/data
     extra_hosts:
-      # FlareSolverr escucha en el host.
+      # Para un FlareSolverr que corre en el host (fuera de Compose).
       - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+  # Opcional, solo para Entrejuegos (Cloudflare). Se levanta con el perfil
+  # `flaresolverr` (COMPOSE_PROFILES=flaresolverr en el .env de la raíz) y
+  # FLARESOLVERR_URL=http://flaresolverr:8191/v1 en backend/.env. Sin puertos
+  # publicados: solo lo alcanza el backend por la red interna de Compose.
+  flaresolverr:
+    image: ghcr.io/flaresolverr/flaresolverr:latest
+    profiles: [flaresolverr]
     restart: unless-stopped

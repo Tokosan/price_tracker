@@ -87,19 +87,159 @@ uv run python -m tracker.check ikea <url> --save-fixture nombre   # guarda la re
 
 ## Deploy
 
-1. Clona el repo en el servidor y crea `backend/.env` a partir de `backend/.env.example` (`chmod 600`).
-2. `docker compose up -d --build` levanta el backend en `127.0.0.1:8910`. Las migraciones corren solas.
-3. Construye el frontend (`npm ci && npm run build` en `frontend/`) y publica `frontend/dist` en la carpeta que sirve tu reverse proxy. Ver `deploy/Caddyfile.example`.
-4. Crea el admin: `docker compose exec backend python -m tracker.cli create-admin <usuario>` y después `… invite <usuario>`.
-5. Opcional:
-   - `scripts/deploy.sh` para desplegar por SSH (configúralo con `deploy/deploy.env.example`).
-   - `deploy/systemd/` para auto-deploy al avanzar `main` y backups diarios de SQLite.
+Instrucciones para un servidor Linux nuevo. El backend corre en Docker; el frontend
+es estático y lo sirve tu reverse proxy, que también hace de proxy de `/api` al backend.
 
-Importante: corre **un solo worker** de uvicorn. El scheduler vive en el proceso, y con varios workers se duplicarían las lecturas y las alertas.
+### Requisitos del servidor
+
+- **Docker Engine** con el plugin **Compose v2** (`docker compose version`).
+- **git**, **Node 22** con npm (para construir el frontend), **curl** y **sqlite3**
+  (los usan el deploy, los backups y el aviso del auto-deploy).
+- Un **reverse proxy con HTTPS**. El ejemplo es para [Caddy](https://caddyserver.com/),
+  que saca el certificado solo. Las cookies de sesión son `Secure`: sin HTTPS no se
+  puede iniciar sesión (salvo con `COOKIE_SECURE=false`, que es solo para desarrollo).
+- Un dominio que apunte al servidor (o a su IP en la VPN, ver [Seguridad](#seguridad)).
+
+### 1. Clonar y configurar
+
+```bash
+git clone https://github.com/Tokosan/price_tracker.git ~/price_tracker   # o tu fork
+cd ~/price_tracker
+
+cp backend/.env.example backend/.env
+chmod 600 backend/.env
+python3 -c 'import secrets; print(secrets.token_urlsafe(48))'   # pégalo en SECRET_KEY
+```
+
+En `backend/.env`, como mínimo:
+
+| Variable | Valor |
+|---|---|
+| `SECRET_KEY` | La clave generada arriba (32+ caracteres). **Con una vacía el backend no arranca.** No la cambies después: invalida las sesiones e invitaciones vigentes. |
+| `PUBLIC_URL` | La URL con que se entra a la app, sin `/` final (p. ej. `https://tracker.example.com`). Se usa en los links de invitación. |
+
+El resto es opcional (ver [Integraciones](#integraciones)).
+
+Crea la carpeta de datos y un `.env` en la **raíz** del repo (lo lee Docker Compose,
+no se versiona) para que el contenedor corra con tu usuario y pueda escribir en `data/`:
+
+```bash
+mkdir -p data && chmod 700 data
+printf 'TRACKER_UID=%s\nTRACKER_GID=%s\n' "$(id -u)" "$(id -g)" > .env
+```
+
+### 2. Levantar el backend
+
+```bash
+docker compose -p price_tracker up -d --build
+curl -s http://127.0.0.1:8910/api/health        # {"ok": true, ...}
+```
+
+Escucha solo en `127.0.0.1:8910`. Las migraciones de la base de datos (SQLite en
+`data/tracker.db`) corren solas al arrancar. Si no responde:
+`docker compose -p price_tracker logs backend`.
+
+### 3. Construir y publicar el frontend
+
+```bash
+cd frontend && npm ci && npm run build && cd ..
+sudo mkdir -p /var/www/tracker
+sudo cp -a frontend/dist/. /var/www/tracker/
+```
+
+### 4. Reverse proxy
+
+Copia el bloque de `deploy/Caddyfile.example` a `/etc/caddy/Caddyfile`, cambia el
+dominio y recarga (`sudo systemctl reload caddy`). Con otro proxy la idea es la misma:
+`/api/*` va a `http://127.0.0.1:8910` y todo lo demás sale de `/var/www/tracker`, con
+`index.html` como respaldo para las rutas del frontend.
+
+### 5. Crear el admin
+
+```bash
+docker compose -p price_tracker exec backend python -m tracker.cli create-admin <usuario>
+docker compose -p price_tracker exec backend python -m tracker.cli invite <usuario>
+```
+
+`invite` imprime un link de un solo uso (dura 48 h) para definir la contraseña.
+Ábrelo, elige la contraseña y ya estás dentro. Desde el panel admin se invita al resto
+(o con `create-user` + `invite`). `invite` también sirve para resetear una contraseña.
+
+### 6. Comprobar que funciona
+
+Agrega un producto de Steam (no necesita nada extra), p. ej.
+`https://store.steampowered.com/app/413150/`, y usa "Revisar ahora". Para probar un
+procesador sin la UI:
+
+```bash
+docker compose -p price_tracker exec backend python -m tracker.check steam https://store.steampowered.com/app/413150/
+```
+
+### Actualizar
+
+`scripts/deploy.sh` hace todo lo anterior de una vez (pull, build del frontend,
+publicación atómica, rebuild del backend y espera a `/api/health`):
+
+```bash
+# En el servidor:
+TRACKER_SSH_HOST=local ./scripts/deploy.sh
+# Desde tu máquina, por SSH: copia deploy/deploy.env.example a deploy/deploy.env y
+./scripts/deploy.sh [--ref <rama|tag|commit>] [--frontend|--backend]
+```
+
+Usa `sudo` para publicar en `TRACKER_WEB_ROOT`: por SSH no hay terminal para pedir la
+contraseña, así que tu usuario necesita `sudo` sin contraseña (o corre el script en el
+servidor). Los archivos quedan con dueño `TRACKER_WEB_OWNER` (`caddy:caddy` por
+defecto; `www-data:www-data` con nginx).
+
+**Un deploy reinicia el contenedor**: se cortan las peticiones en curso.
+
+### Tareas programadas (opcional)
+
+En `deploy/systemd/` hay units con `__USER__` y `__APP_DIR__` como marcadores; el
+comentario de cada `.service` tiene el comando para instalarla.
+
+- **Backups** (`tracker-backup.timer`): todos los días a las 04:15 copia la DB con
+  `sqlite3 .backup` a `backups/` (7 diarios y 4 semanales). Para restaurar:
+  `docker compose -p price_tracker stop backend`, descomprime el backup sobre
+  `data/tracker.db` (borra `tracker.db-wal` y `tracker.db-shm` si existen) y vuelve a
+  levantarlo. Guarda una copia fuera del servidor.
+- **Auto-deploy** (`tracker-autodeploy.timer`): cada minuto, si `origin/main` avanzó,
+  lo despliega y avisa por Telegram al admin. **Despliega lo que llegue a `origin`**: si
+  clonaste este repo directamente, cualquier commit de upstream llegaría a tu servidor
+  sin revisión. Úsalo solo con un `origin` que controles (tu fork).
 
 ### Integraciones
 
-- **Telegram**: crea un bot con @BotFather y pon el token en `TELEGRAM_BOT_TOKEN`. Cada usuario lo vincula desde Ajustes con un deep link. Usa long polling, así que no hace falta exponer un webhook.
+- **Telegram**: crea un bot con [@BotFather](https://t.me/BotFather) y pon el token en
+  `TELEGRAM_BOT_TOKEN`. Cada usuario lo vincula desde Ajustes con un deep link. Usa long
+  polling, así que no hace falta exponer un webhook. Verifica el token con
+  `docker compose -p price_tracker exec backend python -m tracker.cli telegram-check`.
 - **Discord**: cada usuario pega la URL de un webhook de su servidor.
-- **FlareSolverr**: necesario para Entrejuegos (`FLARESOLVERR_URL`).
-- **MercadoLibre**: crea una app en el DevCenter de MercadoLibre con la redirect URI `$PUBLIC_URL/api/admin/meli/callback` y PKCE. Pon `MELI_CLIENT_ID` y `MELI_CLIENT_SECRET`, y conecta la cuenta desde el panel admin.
+- **MercadoLibre**: crea una app en el [DevCenter](https://developers.mercadolibre.cl/devcenter)
+  con la redirect URI `$PUBLIC_URL/api/admin/meli/callback` (o la que pongas en
+  `MELI_REDIRECT_URI`; debe coincidir exacto) y PKCE. Pon `MELI_CLIENT_ID` y
+  `MELI_CLIENT_SECRET`, y conecta la cuenta desde el panel admin. Sin esto, la tienda
+  queda deshabilitada.
+- **FlareSolverr** (solo Entrejuegos, que está detrás de Cloudflare): viene como servicio
+  opcional en `docker-compose.yml`. Agrega `COMPOSE_PROFILES=flaresolverr` al `.env` de
+  la raíz, pon `FLARESOLVERR_URL=http://flaresolverr:8191/v1` en `backend/.env` y vuelve
+  a hacer `docker compose -p price_tracker up -d`. Si ya tienes uno en el host, deja
+  `http://host.docker.internal:8191/v1`; no lo publiques en `0.0.0.0` sin firewall: es un
+  navegador que pide cualquier URL.
+
+Después de cambiar `backend/.env`: `docker compose -p price_tracker up -d` (recrea el contenedor).
+
+### Seguridad
+
+- **Corre un solo worker** de uvicorn (ya viene así en el `Dockerfile`). El scheduler vive
+  en el proceso, y con varios workers se duplicarían las lecturas y las alertas.
+- **Pensado para una red privada.** El login no tiene límite de intentos (las contraseñas
+  usan argon2 y piden 10+ caracteres, pero eso no frena un ataque sostenido). Lo
+  recomendable es publicarlo solo por una VPN (Tailscale, Headscale, WireGuard): pon el
+  `bind` a la IP de la VPN en el bloque de Caddy y limita el acceso con sus ACLs. Si lo
+  expones a internet, agrega un límite de intentos en el proxy (p. ej. fail2ban sobre
+  los 401 de `/api/auth/login`).
+- `backend/.env` (`chmod 600`) tiene todos los secretos y `data/` (`chmod 700`) los
+  hashes de contraseñas y los tokens de MercadoLibre. Ninguno se versiona.
+- El admin ve qué productos sigue cada usuario; los usuarios entre sí no se ven.
