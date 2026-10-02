@@ -32,6 +32,7 @@ from tracker.processors.mercadolibre import MercadoLibreProcessor
 from tracker.processors.paris import ParisProcessor
 from tracker.processors.pcfactory import PcFactoryProcessor
 from tracker.processors.piedrabruja import PiedraBrujaProcessor
+from tracker.processors.preunic import PreunicProcessor
 from tracker.processors.ripley import RipleyProcessor
 from tracker.processors.salcobrand import SalcobrandProcessor
 from tracker.processors.santaisabel import SantaIsabelProcessor
@@ -77,6 +78,7 @@ PROCESSORS: dict[str, Processor] = {
         ContrapuntoProcessor(),
         FeriaChilenaDelLibroProcessor(),
         BuscalibreProcessor(),
+        PreunicProcessor(),
     )
 }
 
