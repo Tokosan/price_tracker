@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { api } from "../api.js";
 import StoreLogo, { useStores } from "../components/StoreLogo.jsx";
@@ -217,6 +217,8 @@ export default function Watches() {
                 selecting={selecting}
                 selected={selected.has(w.id)}
                 onToggle={() => toggle(w.id)}
+                onChange={(next) => setWatches(watches.map((x) => (x.id === next.id ? next : x)))}
+                onRemove={() => setWatches(watches.filter((x) => x.id !== w.id))}
               />
             ))}
           </ul>
@@ -308,7 +310,67 @@ function MergeDialog({ watches, onCancel }) {
   );
 }
 
-function WatchCard({ w, stores, selecting, selected, onToggle }) {
+// Menú ⋯ de una tarjeta: renombrar y dejar de seguir sin entrar al producto.
+function CardMenu({ w, onRename, onRemove }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!open) return;
+    const close = (e) => ref.current && !ref.current.contains(e.target) && setOpen(false);
+    const esc = (e) => e.key === "Escape" && setOpen(false);
+    document.addEventListener("mousedown", close);
+    document.addEventListener("keydown", esc);
+    return () => {
+      document.removeEventListener("mousedown", close);
+      document.removeEventListener("keydown", esc);
+    };
+  }, [open]);
+  const pick = (fn) => () => {
+    setOpen(false);
+    fn();
+  };
+  return (
+    <div className="card-menu" ref={ref}>
+      <button className="icon-button" onClick={() => setOpen(!open)} aria-label={`Opciones de ${title(w)}`} aria-expanded={open} title="Opciones">⋯</button>
+      {open && (
+        <div className="menu-popover" role="menu">
+          <button role="menuitem" onClick={pick(onRename)}>Renombrar</button>
+          <button role="menuitem" className="danger-item" onClick={pick(onRemove)}>Dejar de seguir</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function WatchCard({ w, stores, selecting, selected, onToggle, onChange, onRemove }) {
+  const [naming, setNaming] = useState(null);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+
+  const saveName = async (e) => {
+    e.preventDefault();
+    setBusy(true);
+    setError("");
+    try {
+      onChange(await api(`/api/watches/${w.id}`, { method: "PATCH", body: { name: naming } }));
+      setNaming(null);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const remove = async () => {
+    if (!confirm(`¿Dejar de seguir «${title(w)}»? Se borran sus reglas y avisos.`)) return;
+    try {
+      await api(`/api/watches/${w.id}`, { method: "DELETE" });
+      onRemove();
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
   const first = w.items[0] ?? {};
   const best = w.items.find((i) => i.best) ?? first;
   const procs = processorsOf(w);
@@ -320,7 +382,24 @@ function WatchCard({ w, stores, selecting, selected, onToggle }) {
       {selecting && <input type="checkbox" className="card-check" checked={selected} onChange={onToggle} aria-label={`Elegir ${title(w)}`} />}
       {best.image_url ? <img src={best.image_url} alt="" loading="lazy" /> : <div className="img-ph" />}
       <div className="watch-main">
-        <div className="watch-title">{title(w)}</div>
+        {naming === null ? (
+          <div className="watch-title">{title(w)}</div>
+        ) : (
+          <form className="name-form card-name-form" onSubmit={saveName}>
+            <input
+              autoFocus
+              value={naming}
+              maxLength={200}
+              placeholder={first.title}
+              onChange={(e) => setNaming(e.target.value)}
+              onKeyDown={(e) => e.key === "Escape" && setNaming(null)}
+              aria-label="Nombre"
+            />
+            <button disabled={busy}>Guardar</button>
+            <button type="button" className="secondary" onClick={() => setNaming(null)}>Cancelar</button>
+          </form>
+        )}
+        {error && <div className="error small">{error}</div>}
         {!multi && first.variant_label && <div className="small variant-label">{first.variant_label}</div>}
         <div className="muted small store-line">
           {procs.slice(0, 3).map((p) => <StoreLogo key={p} name={p} url={stores[p]?.logo_url} size={16} />)}
@@ -347,11 +426,17 @@ function WatchCard({ w, stores, selecting, selected, onToggle }) {
   );
   const cls = "watch-card card" + (w.active ? "" : " paused") + (selected ? " selected" : "");
   return (
-    <li>
+    <li className="watch-item">
       {selecting ? (
         <label className={cls}>{body}</label>
+      ) : naming !== null ? (
+        // Renombrando: la tarjeta deja de ser un link para poder escribir.
+        <div className={cls}>{body}</div>
       ) : (
         <Link to={`/w/${w.id}`} className={cls}>{body}</Link>
+      )}
+      {!selecting && naming === null && (
+        <CardMenu w={w} onRename={() => setNaming(w.name ?? "")} onRemove={remove} />
       )}
     </li>
   );
