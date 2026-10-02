@@ -187,9 +187,11 @@ class WooCommerceProcessor(Processor):
             prices = var.get("prices") or {}
             price = _amount(prices, "price", (prices.get("currency_code") or "CLP").upper())
             label = _label(var, product)
-            if price:
+            purchasable = var.get("is_purchasable") is not False
+            if price and purchasable:
+                # Una variación que no se puede comprar trae un precio de relleno ("$1").
                 label += f": ${price:,}".replace(",", ".")
-            if not (var.get("is_in_stock") is True and var.get("is_purchasable") is not False):
+            if not (var.get("is_in_stock") is True and purchasable):
                 label += " (agotada)"
             url = self._url(ref.external_id, selection)
             out.append(Variant(url, label, ref.external_id, key, key == current_key))
@@ -341,7 +343,9 @@ def _label(var: dict, product: dict) -> str:
             if values:
                 return ", ".join(values)
     # Sin atributos en el padre, la selección del permalink. Un atributo global
-    # (`pa_<nombre>`) trae el slug del término: "yuya-okita" → "Yuya Okita".
+    # (`pa_<nombre>`) trae el slug del término: "yuya-okita" → "Yuya Okita". Es una
+    # aproximación: el slug ya perdió las tildes y `.title()` deforma nombres como
+    # «McKay» ("riley-mckay" → "Riley Mckay"). El nombre exacto solo está en la ficha HTML.
     values = [
         v.replace("-", " ").title() if k.startswith("pa_") else v
         for k, v in _variation_selection(var, product).items()

@@ -153,3 +153,16 @@ def test_matchea_solo_fichas_de_su_dominio():
     assert not ga.matches("https://gatoarcano.cl.evil.com/product/robo-rally/")
     assert not ga.matches("https://evilgatoarcano.cl/product/robo-rally/")
     assert not ga.matches("https://www.ecofarmacias.cl/product/robo-rally/")
+
+
+def test_variacion_no_comprable_no_muestra_precio_de_relleno():
+    data = json.loads(fixture_text("gatoarcano", "variable_agotado_pokemon_wcd.json"))
+    yuya = next(v for v in data["variations"] if v["permalink"].endswith("yuya-okita"))
+    yuya.update(is_purchasable=False, is_in_stock=True)
+    yuya["prices"].update(price="1", regular_price="1", sale_price="1")
+    url = f"{POKEMON}?attribute_pa_wcd-2025=yuya-okita"
+    vs = ga.parse_variants(json.dumps(data), ga.normalize(url))
+    assert (vs[0].label, vs[0].selected) == ("Yuya Okita (agotada)", True)
+    assert vs[1].label == "Jose Cruz Galindo Resendiz: $26.990 (agotada)"
+    r = ga.parse(json.dumps(data), ga.normalize(url))
+    assert (r.price, r.available) == (None, False)
