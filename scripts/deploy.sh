@@ -39,6 +39,8 @@ else
 	REMOTE_DIR="${TRACKER_REMOTE_DIR:-\$HOME/price_tracker}"
 fi
 WEB_ROOT="${TRACKER_WEB_ROOT:-/var/www/tracker}"
+# Usuario:grupo con que corre el reverse proxy (dueño de los archivos publicados)
+WEB_OWNER="${TRACKER_WEB_OWNER:-caddy:caddy}"
 HEALTH_URL="${TRACKER_HEALTH_URL:-http://127.0.0.1:8910/api/health}"
 COMPOSE_PROJECT="price_tracker"
 PUBLIC_URL="${TRACKER_PUBLIC_URL:-}"
@@ -84,6 +86,7 @@ fi
 	REMOTE_DIR="$REMOTE_DIR" \
 	COMPOSE_PROJECT="$COMPOSE_PROJECT" \
 	WEB_ROOT="$WEB_ROOT" \
+	WEB_OWNER="$WEB_OWNER" \
 	HEALTH_URL="$HEALTH_URL" \
 	REF="$REF" \
 	DO_FRONTEND="$DO_FRONTEND" \
@@ -146,7 +149,7 @@ if [[ "$DO_FRONTEND" == "1" ]]; then
 	sudo rm -rf "$STAGING" "$OLD"
 	sudo mkdir -p "$STAGING"
 	sudo cp -a dist/. "$STAGING/"
-	sudo chown -R caddy:caddy "$STAGING"
+	sudo chown -R "$WEB_OWNER" "$STAGING"
 	if [[ -d "$WEB_ROOT" ]]; then
 		sudo mv "$WEB_ROOT" "$OLD"
 	fi
