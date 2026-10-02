@@ -1,4 +1,10 @@
-"""Procesador de Lider Supermercado (super.lider.cl, plataforma de Walmart).
+"""Procesador de Lider (plataforma de Walmart): supermercado y mercadería general.
+
+Son dos catálogos en dos hosts: el súper (`super.lider.cl`) y la mercadería general
+(`www.lider.cl`). Cada producto hay que leerlo en su host: el mismo id en el otro
+responde 200 sin precio. Por eso la URL canónica conserva el host, y el `external_id`
+de `www` lleva el prefijo `www:` para no chocar con el mismo id del súper (los del
+súper no llevan prefijo y quedan como estaban).
 
 La ficha es una página Next.js: el producto viene completo en `__NEXT_DATA__`
 (`props.pageProps.initialData.data.product`), con precio, precio "antes" y stock.
@@ -15,10 +21,12 @@ from tracker.processors.base import FetchError, Processor, ProductRef, ScrapeRes
 from tracker.processors.http import get_text
 from tracker.processors.util import availability_in_stock, find_ld_product, first_offer, to_minor
 
-# /ip/<categoría>/<id> o /ip/<id>; la categoría no importa (cualquiera sirve).
+# /ip/<categoría>/<slug>/<id>, /ip/<categoría>/<id> o /ip/<id>; lo previo al id no importa. Host:
+# super.lider.cl (súper) o www.lider.cl / lider.cl (mercadería general).
 _URL_RE = re.compile(
-    r"^https?://super\.lider\.cl/ip/(?:[a-z0-9-]+/)?(\d{6,20})/?(?:[?#].*)?$", re.I
+    r"^https?://(super\.|www\.)?lider\.cl/ip/(?:[a-z0-9-]+/){0,3}(\d{6,20})/?(?:[?#].*)?$", re.I
 )
+WWW_PREFIX = "www:"
 _NEXT_RE = re.compile(
     r"<script[^>]*\bid=[\"']?__NEXT_DATA__[\"']?[^>]*>(.*?)</script>", re.S | re.I
 )
@@ -29,14 +37,16 @@ class LiderProcessor(Processor):
     name = "lider"
     label = "Lider"
     check_interval = timedelta(hours=6)
-    home_url = "https://super.lider.cl/"
+    home_url = "https://www.lider.cl/"
     example_url = "https://super.lider.cl/ip/cereales/00780242000793"
     platform = "Walmart"
     supports_variants = False
     supports_list_price = True
     notes = (
-        "Solo el supermercado (super.lider.cl/ip/…). Precio de la tienda por defecto "
-        "del sitio (retiro en Vitacura); los productos a granel se siguen por kilo."
+        "Supermercado (super.lider.cl/ip/…) y mercadería general (www.lider.cl/ip/…). "
+        "Precio y stock de la tienda por defecto del sitio, sin tarjeta Lider (en el súper, "
+        "retiro en Vitacura); los productos a granel se siguen por kilo. En www también "
+        "aparecen vendedores externos (marketplace): se sigue la oferta que muestra la ficha."
     )
 
     def matches(self, url: str) -> bool:
@@ -46,11 +56,14 @@ class LiderProcessor(Processor):
         m = _URL_RE.match(url.strip())
         if not m:
             raise ValueError("no es una URL de producto de Lider")
-        item_id = m.group(1)
-        return ProductRef(item_id, f"https://super.lider.cl/ip/{item_id}")
+        item_id = m.group(2)
+        if (m.group(1) or "").lower() == "super.":
+            return ProductRef(item_id, f"https://super.lider.cl/ip/{item_id}")
+        return ProductRef(WWW_PREFIX + item_id, f"https://www.lider.cl/ip/{item_id}")
 
     def domain(self) -> str:
-        return "super.lider.cl"
+        # Un solo dominio para los dos hosts: comparten PerimeterX y el límite de peticiones.
+        return "lider.cl"
 
     async def fetch_raw(self, ref: ProductRef) -> str:
         return await get_text(ref.canonical_url)
