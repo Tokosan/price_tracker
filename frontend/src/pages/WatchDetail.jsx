@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { api } from "../api.js";
 import { useMe } from "../App.jsx";
@@ -9,6 +9,95 @@ import { formatDate, formatPrice, PROCESSOR_LABEL, relative, seriesColor } from 
 import { NotificationItem } from "./Notifications.jsx";
 
 const storeName = (processor) => PROCESSOR_LABEL[processor] ?? processor;
+
+// Las reglas se guardan solas tras esta pausa sin cambios.
+const SAVE_DELAY_MS = 800;
+
+// Firma de las reglas para saber si cambió algo (sin los id, que da el servidor).
+const signature = (rules) => JSON.stringify(rules.map(({ id: _id, ...r }) => r));
+
+// Autoguardado del editor de reglas: espera una pausa, no guarda si las reglas están
+// incompletas (avisa por qué), guarda de a una petición y, al volver, solo agrega los id
+// de las reglas nuevas, para no pisar lo que se siga escribiendo.
+function useAutosaveRules({ id, editor, setEditor, currency, onSaved }) {
+  const [status, setStatus] = useState({ kind: "idle" }); // idle | invalid | saving | saved | error
+  const lastSaved = useRef(null);
+  const inFlight = useRef(false);
+  const again = useRef(false);
+  const latest = useRef({});
+  latest.current = { id, editor, currency, onSaved };
+
+  const save = useCallback(async ({ keepalive = false } = {}) => {
+    if (lastSaved.current === null) return; // el editor aún no se cargó
+    if (inFlight.current) {
+      again.current = true;
+      return;
+    }
+    const { id, editor, currency, onSaved } = latest.current;
+    let rules;
+    try {
+      rules = rulesFromEditor(editor, currency);
+    } catch (e) {
+      setStatus({ kind: "invalid", message: e.message });
+      return;
+    }
+    const sig = signature(rules);
+    if (sig === lastSaved.current) {
+      setStatus((s) => (s.kind === "invalid" || s.kind === "error" ? { kind: "idle" } : s));
+      return;
+    }
+    inFlight.current = true;
+    setStatus({ kind: "saving" });
+    try {
+      const w = await api(`/api/watches/${id}`, { method: "PATCH", body: { rules }, keepalive });
+      lastSaved.current = sig;
+      setEditor((cur) => {
+        const next = { ...cur };
+        for (const r of w.rules) if (next[r.kind]) next[r.kind] = { ...next[r.kind], id: r.id };
+        return next;
+      });
+      onSaved(w);
+      setStatus({ kind: "saved" });
+    } catch (e) {
+      setStatus({ kind: "error", message: e.message });
+    } finally {
+      inFlight.current = false;
+      if (again.current) {
+        again.current = false;
+        save();
+      }
+    }
+  }, [setEditor]);
+
+  useEffect(() => {
+    if (lastSaved.current === null) return;
+    const t = setTimeout(save, SAVE_DELAY_MS);
+    return () => clearTimeout(t);
+  }, [editor, save]);
+
+  // Al salir con un cambio sin guardar, se guarda igual: al cambiar de página dentro de la
+  // app (desmontaje) y al cerrar o recargar la pestaña (pagehide, con keepalive).
+  useEffect(() => {
+    const flush = () => save({ keepalive: true });
+    window.addEventListener("pagehide", flush);
+    return () => {
+      window.removeEventListener("pagehide", flush);
+      save();
+    };
+  }, [save]);
+
+  // Editor recién cargado del servidor: es lo guardado.
+  const reset = useCallback((state, cur) => {
+    try {
+      lastSaved.current = signature(rulesFromEditor(state, cur));
+    } catch {
+      lastSaved.current = "";
+    }
+    setStatus({ kind: "idle" });
+  }, []);
+
+  return { status, reset };
+}
 
 // Links ordenados como en la tabla: los que cuentan y tienen stock primero, por precio.
 function sortedItems(items) {
@@ -24,12 +113,13 @@ export default function WatchDetail() {
   const [history, setHistory] = useState([]);
   const [notifs, setNotifs] = useState([]);
   const [editor, setEditor] = useState({});
-  const [dirty, setDirty] = useState(false);
   const [msg, setMsg] = useState("");
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [naming, setNaming] = useState(null);
   const stores = useStores();
+  const autosave = useAutosaveRules({ id, editor, setEditor, currency: watch?.currency, onSaved: setWatch });
+  const loadedId = useRef(null);
 
   const load = useCallback(async () => {
     try {
@@ -41,12 +131,17 @@ export default function WatchDetail() {
       setWatch(w);
       setHistory(h.items);
       setNotifs(n);
-      setEditor(editorFromRules(w.rules, w.currency));
-      setDirty(false);
+      // Solo al abrir este producto: recargar (p. ej. tras "Revisar ahora") no pisa el editor.
+      if (loadedId.current !== id) {
+        const state = editorFromRules(w.rules, w.currency);
+        autosave.reset(state, w.currency);
+        setEditor(state);
+        loadedId.current = id;
+      }
     } catch (e) {
       setError(e.message);
     }
-  }, [id]);
+  }, [id, autosave.reset]);
   useEffect(() => {
     load();
   }, [load]);
@@ -78,17 +173,7 @@ export default function WatchDetail() {
     run(async () => {
       const w = await api(`/api/watches/${id}`, { method: "PATCH", body });
       setWatch(w);
-      setEditor(editorFromRules(w.rules, w.currency));
-      setDirty(false);
     }, okMsg);
-
-  const saveRules = () => {
-    try {
-      patch({ rules: rulesFromEditor(editor, currency) }, "Reglas guardadas.");
-    } catch (e) {
-      setError(e.message);
-    }
-  };
 
   const saveName = async (e) => {
     e.preventDefault();
@@ -206,8 +291,8 @@ export default function WatchDetail() {
       <section className="card">
         <h2>Avisarme cuando…</h2>
         {multi && <p className="muted small">Las reglas miran el mejor precio entre los links con stock.</p>}
-        <RulesEditor value={editor} onChange={(v) => { setEditor(v); setDirty(true); }} currency={currency} />
-        <button onClick={saveRules} disabled={busy || !dirty}>Guardar reglas</button>
+        <RulesEditor value={editor} onChange={setEditor} currency={currency} />
+        <SaveStatus status={autosave.status} />
         <div className="channel-toggle">
           {Object.keys(watch.channels || {}).length > 0 ? (
             Object.entries(watch.channels).map(([kind, enabled]) => (
@@ -377,4 +462,12 @@ function Links({ watch, colorOf, labelOf, stores, busy, run, onChange, navigate 
       </p>
     </section>
   );
+}
+
+function SaveStatus({ status }) {
+  if (status.kind === "saving") return <p className="save-status muted small">Guardando…</p>;
+  if (status.kind === "saved") return <p className="save-status ok-msg small">✓ Reglas guardadas</p>;
+  if (status.kind === "invalid") return <p className="save-status warn small">Sin guardar: {status.message}</p>;
+  if (status.kind === "error") return <p className="save-status error small">No se pudieron guardar: {status.message}</p>;
+  return <p className="save-status muted small">Los cambios se guardan solos.</p>;
 }
