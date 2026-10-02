@@ -1,4 +1,4 @@
-"""Base para tiendas WordPress + WooCommerce (Ecofarmacias, …), vía la Store API.
+"""Base para tiendas WordPress + WooCommerce (Ecofarmacias, Gato Arcano, …), vía la Store API.
 
 `GET https://<host>/wp-json/wc/store/v1/products?slug=<slug>` es pública (la usa el
 carrito de bloques de WooCommerce): responde una lista con el producto o `[]` (HTTP 200)
@@ -134,9 +134,12 @@ class WooCommerceProcessor(Processor):
         currency = (prices.get("currency_code") or "CLP").upper()
         price = _amount(prices, "price", currency)
         regular = _amount(prices, "regular_price", currency)
-        available = item.get("is_in_stock") is True and item.get("is_purchasable") is not False
-        if price == 0:
+        purchasable = item.get("is_purchasable") is not False
+        available = item.get("is_in_stock") is True and purchasable
+        if price == 0 or not purchasable:
             # Con stock, precio 0 queda en None (anomalía); sin stock es un agotado real.
+            # Un producto que no se puede comprar ("próximamente") trae un precio de
+            # relleno ("0" o "1" en Gato Arcano) que nadie paga: tampoco es un precio.
             price = None
         title = htmllib.unescape(product.get("name") or "").strip()
         if self.supports_variants and variations and len(variations) > 1:
@@ -184,9 +187,11 @@ class WooCommerceProcessor(Processor):
             prices = var.get("prices") or {}
             price = _amount(prices, "price", (prices.get("currency_code") or "CLP").upper())
             label = _label(var, product)
-            if price:
+            purchasable = var.get("is_purchasable") is not False
+            if price and purchasable:
+                # Una variación que no se puede comprar trae un precio de relleno ("$1").
                 label += f": ${price:,}".replace(",", ".")
-            if not (var.get("is_in_stock") is True and var.get("is_purchasable") is not False):
+            if not (var.get("is_in_stock") is True and purchasable):
                 label += " (agotada)"
             url = self._url(ref.external_id, selection)
             out.append(Variant(url, label, ref.external_id, key, key == current_key))
@@ -337,5 +342,12 @@ def _label(var: dict, product: dict) -> str:
             ]
             if values:
                 return ", ".join(values)
-    values = list(_variation_selection(var, product).values())
+    # Sin atributos en el padre, la selección del permalink. Un atributo global
+    # (`pa_<nombre>`) trae el slug del término: "yuya-okita" → "Yuya Okita". Es una
+    # aproximación: el slug ya perdió las tildes y `.title()` deforma nombres como
+    # «McKay» ("riley-mckay" → "Riley Mckay"). El nombre exacto solo está en la ficha HTML.
+    values = [
+        v.replace("-", " ").title() if k.startswith("pa_") else v
+        for k, v in _variation_selection(var, product).items()
+    ]
     return ", ".join(values) if values else f"variación {var.get('id')}"
