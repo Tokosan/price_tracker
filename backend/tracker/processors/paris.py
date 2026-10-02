@@ -127,16 +127,22 @@ class ParisProcessor(Processor):
         """Las variantes del producto, cada una con su SKU en `?sku=` de la URL.
 
         Con un link sin SKU, la actual (`masterVariant`) también sale con su SKU, para que
-        el producto que se agrega siga una variante fija.
+        el producto que se agrega siga una variante fija. Con una sola variante es al revés:
+        se devuelve sin SKU (`variant_id` vacío).
         """
         product, stock = _load(raw)
         variants = _variants(product)
-        if len(variants) < 2:
-            return []
-        current = _pick(variants, ref.variant_id)
-        current_sku = current.get("sku") if current else None
         m = _PATH_RE.match(urlsplit(ref.canonical_url).path)
         slug = m.group(1) if m else ref.external_id
+        if len(variants) == 1:
+            # Una sola variante: el `?sku=` del link no aporta nada. Se ofrece la forma sin
+            # SKU (la UI no muestra selector con una opción, pero agrega esta URL), para que
+            # el link limpio y el compartido desde el sitio, con `?sku=`, sean el mismo Product.
+            if _pick(variants, ref.variant_id) is None:
+                raise NotFoundError(f"Paris ya no tiene la variante {ref.variant_id}")
+            return [Variant(_url(slug, ref.external_id), "", ref.external_id, "", True)]
+        current = _pick(variants, ref.variant_id)
+        current_sku = current.get("sku") if current else None
         out: list[Variant] = []
         for v in variants:
             sku = v.get("sku") or ""

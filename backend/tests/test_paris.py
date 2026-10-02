@@ -3,7 +3,7 @@ import json
 import pytest
 
 from tests.conftest import fixture_text
-from tracker.processors import FetchError, NotFoundError, find_processor
+from tracker.processors import FetchError, NotFoundError, Variant, find_processor
 from tracker.processors.paris import ParisProcessor
 
 paris = ParisProcessor()
@@ -110,10 +110,24 @@ def test_variantes_sin_sku_fijan_el_de_la_master():
     assert labels["408657009"] == "Blanco: $111.990"
 
 
-def test_una_variante_no_ofrece_selector():
+PANEL = "https://www.paris.cl/panel-bento-light-60-MKTDEDRP8J.html"
+
+
+@pytest.mark.parametrize("url", [PANEL, f"{PANEL}?sku=MKTDEDRP8J-1"])
+def test_una_variante_se_ofrece_sin_sku(url):
+    # Con o sin ?sku= se agrega el mismo Product (variant_id vacío).
     raw = fixture_text("paris", "marketplace.json")
-    ref = paris.normalize("https://www.paris.cl/panel-bento-light-60-MKTDEDRP8J.html")
-    assert paris.parse_variants(raw, ref) == []
+    assert paris.parse_variants(raw, paris.normalize(url)) == [
+        Variant(PANEL, "", "MKTDEDRP8J", "", True)
+    ]
+    r = paris.parse(raw, paris.normalize(url))
+    assert (r.price, r.available) == (99990, True)
+
+
+def test_una_variante_con_otro_sku_es_no_encontrado():
+    raw = fixture_text("paris", "marketplace.json")
+    with pytest.raises(NotFoundError):
+        paris.parse_variants(raw, paris.normalize(f"{PANEL}?sku=MKTDEDRP8J-9"))
 
 
 @pytest.mark.parametrize(
