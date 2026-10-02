@@ -42,6 +42,7 @@ from tracker.processors.spdigital import SpDigitalProcessor
 from tracker.processors.steam import SteamProcessor
 from tracker.processors.tottus import TottusProcessor
 from tracker.processors.unimarc import UnimarcProcessor
+from tracker.processors.vudugaming import VuduGamingProcessor
 
 PROCESSORS: dict[str, Processor] = {
     p.name: p
@@ -79,6 +80,7 @@ PROCESSORS: dict[str, Processor] = {
         FeriaChilenaDelLibroProcessor(),
         BuscalibreProcessor(),
         PreunicProcessor(),
+        VuduGamingProcessor(),
     )
 }
 
