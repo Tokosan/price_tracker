@@ -10,6 +10,7 @@ from tracker.processors.base import (
     ScrapeResult,
     Variant,
 )
+from tracker.processors.cruzverde import CruzVerdeProcessor
 from tracker.processors.dementegames import DementeGamesProcessor
 from tracker.processors.easy import EasyProcessor
 from tracker.processors.ecofarmacias import EcofarmaciasProcessor
@@ -57,6 +58,7 @@ PROCESSORS: dict[str, Processor] = {
         UnimarcProcessor(),
         SpDigitalProcessor(),
         EcofarmaciasProcessor(),
+        CruzVerdeProcessor(),
     )
 }
 
