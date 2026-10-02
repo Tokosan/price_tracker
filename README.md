@@ -25,6 +25,7 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Hites | JSON del controlador `Product-Variation` (Salesforce Commerce Cloud), con selector de color y talla |
 | Solotodo (comparador) | API pública: el precio más bajo entre tiendas, con o sin reacondicionados |
 | Sodimac | API de la plataforma Falabella, con selector de variantes (medidas con precio propio) |
+| Tottus | API de la plataforma Falabella (con las zonas de despacho de la página) |
 
 Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX** y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
