@@ -70,6 +70,26 @@ def test_combinacion_agotada():
     assert r.image_url is None
 
 
+@pytest.mark.parametrize(
+    "selection",
+    [
+        "dwvar_954699_color=NARANJAX&dwvar_954699_Talla-Vestuario-Generica=TL",  # valor
+        "dwvar_954699_Color=NARANJA&dwvar_954699_Talla-Vestuario-Generica=TL",  # atributo
+        "dwvar_954699_color=NARANJA",  # incompleta: falta la talla
+    ],
+)
+def test_seleccion_que_no_existe_es_error_de_lectura(selection):
+    raw = fixture_text("hites", "polera_variante_agotada.json")
+    with pytest.raises(FetchError, match="ya no existe"):
+        hites.parse(raw, hites.normalize(f"{POLERA}?{selection}"))
+
+
+def test_sin_seleccion_no_se_revisa():
+    # Un maestro sin dwvar o un pid de variante en la ruta no traen selección que validar.
+    raw = fixture_text("hites", "polera_variante_agotada.json")
+    assert hites.parse(raw, hites.normalize(POLERA)).available is False
+
+
 def test_disponible_exige_in_stock():
     data = json.loads(fixture_text("hites", "en_stock_mario_kart.json"))
     data["product"]["availability"]["status"] = "NOT_AVAILABLE"

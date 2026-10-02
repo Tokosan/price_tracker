@@ -65,6 +65,7 @@ class HitesProcessor(SFCCProcessor):
 
     def parse(self, raw: str, ref: ProductRef) -> ScrapeResult:
         product = _product(raw)
+        self.check_selection(product, ref)
         prices = product.get("price") or {}
         sales = prices.get("sales") or {}
         currency = sales.get("currency") or "CLP"

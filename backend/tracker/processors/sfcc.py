@@ -11,7 +11,7 @@ import re
 from datetime import timedelta
 from urllib.parse import parse_qsl, urlencode, urlsplit
 
-from tracker.processors.base import Processor, ProductRef
+from tracker.processors.base import FetchError, Processor, ProductRef
 
 
 class SFCCProcessor(Processor):
@@ -67,6 +67,20 @@ class SFCCProcessor(Processor):
             f"https://{self.canonical_host}/on/demandware.store/"
             f"Sites-{self.site_id}-Site/{self.locale}/{controller}"
         )
+
+    def check_selection(self, product: dict, ref: ProductRef) -> None:
+        """La selección del link debe seguir existiendo en la tienda.
+
+        Con un atributo o valor que no existe, `Product-Variation` no da error: responde el
+        maestro sin stock. Sin esta revisión, un valor renombrado o mal escrito se leería
+        como "agotado" para siempre en vez de como un seguimiento roto.
+        """
+        wanted = decode_selection(ref.variant_id)
+        if wanted and selected_values(product) != wanted:
+            raise FetchError(
+                f"la selección {ref.variant_id!r} ya no existe en {self.label} "
+                "(algún color o talla cambió de nombre o se quitó)"
+            )
 
     def variation_params(self, ref: ProductRef) -> dict[str, str]:
         """Parámetros de `Product-Variation` para el producto (y variante) de `ref`."""
