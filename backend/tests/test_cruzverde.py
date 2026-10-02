@@ -52,24 +52,75 @@ def test_agotado_conserva_el_precio():
     assert r.list_price is None
 
 
-def test_receta_ignora_el_precio_de_necesidad_de_salud():
-    # La ficha muestra $27.490, $24.741 y $17.868 (-35 %, `healthNeedsPrice`: programa
-    # de "necesidad de salud", no lo paga cualquiera).
+def test_receta_descarta_la_promocion_por_dias_de_la_semana():
+    # La ficha muestra $27.490, $24.741 y $17.868. El 24.741 lo pone FPW050 ("10%-planW"),
+    # que rige solo algunos días de la semana: se usa el normal, sin precio "antes". El
+    # 17.868 (-35 %, `healthNeedsPrice`, "necesidad de salud") tampoco se usa.
     raw = fixture_text("cruzverde", "receta.json")
-    assert json.loads(raw)["productData"]["healthNeedsPrice"]["price"] == 17868
+    data = json.loads(raw)["productData"]
+    assert data["appliedPromotions"]["price-sale-cl"]["promotionId"] == "FPW050"
+    assert data["healthNeedsPrice"]["price"] == 17868
     r = cv.parse(raw, ref("293816"))
-    assert r.price == 24741
-    assert r.list_price == 27490
+    assert r.price == 27490
+    assert r.list_price is None
     assert r.available is True
 
 
 def test_receta_retenida():
-    # Receta retenida (`prescription: restricted`, solo retiro en tienda): igual tiene precio.
+    # Receta retenida (`prescription: restricted`, solo retiro en tienda): igual tiene
+    # precio. También con FPW050 aplicada: queda el normal.
     r = cv.parse(fixture_text("cruzverde", "receta_retenida.json"), ref("199479"))
     assert r.title == "Clonazepam 2 mg 30 Comprimidos"
-    assert r.price == 5391
-    assert r.list_price == 5990
+    assert r.price == 5990
+    assert r.list_price is None
     assert r.available is True
+
+
+def _receta_con(promotions_edit):
+    """Copia de receta.json con `promotions` modificado por `promotions_edit`."""
+    body = json.loads(fixture_text("cruzverde", "receta.json"))
+    promotions_edit(body["productData"]["promotions"])
+    return json.dumps(body)
+
+
+def test_promocion_solo_con_fechas_se_mantiene():
+    def sin_recurrencia(promotions):
+        for promo in promotions:
+            info = promo["assignmentInformation"]
+            info["schedule"] = {"startDate": "2026-09-01T04:00:00.000Z"}
+            info["endDate"] = "2026-10-31T03:00:00.000Z"
+            for a in info.get("activeCampaignAssignments") or []:
+                a["schedule"] = {"endDate": "2026-10-31T03:00:00.000Z"}
+
+    r = cv.parse(_receta_con(sin_recurrencia), ref("293816"))
+    assert r.price == 24741
+    assert r.list_price == 27490
+
+
+def test_recurrencia_solo_en_la_campana_tambien_descarta():
+    def solo_en_campana(promotions):
+        for promo in promotions:
+            promo["assignmentInformation"]["schedule"] = {}
+
+    r = cv.parse(_receta_con(solo_en_campana), ref("293816"))
+    assert (r.price, r.list_price) == (27490, None)
+
+
+def test_promocion_aplicada_que_no_esta_en_promotions_se_descarta():
+    # No se puede saber si es recurrente: se descarta por si acaso.
+    r = cv.parse(_receta_con(lambda promotions: promotions.clear()), ref("293816"))
+    assert (r.price, r.list_price) == (27490, None)
+
+
+def test_rebajado_de_catalogo_se_mantiene():
+    # descuento.json trae FPW050 en `promotions`, pero `appliedPromotions` viene vacío: el
+    # rebajado es de catálogo, no de esa promoción.
+    raw = fixture_text("cruzverde", "descuento.json")
+    data = json.loads(raw)["productData"]
+    assert data["appliedPromotions"] == {}
+    assert any(p["id"] == "FPW050" for p in data["promotions"])
+    r = cv.parse(raw, ref("266145"))
+    assert (r.price, r.list_price) == (7690, 11390)
 
 
 def _raw(prices, stock=10, product_id="1"):

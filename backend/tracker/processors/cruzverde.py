@@ -13,8 +13,15 @@ la vez no abran una cada una.
 
 Precio: `productData.prices` = `{"price-sale-cl": …, "price-list-cl": …}` (enteros en
 CLP). Se usa el rebajado (`price-sale-cl`) si existe y, si no, el normal; el normal es el
-precio "antes" solo si es mayor. Los precios de convenios, Club o "necesidad de salud"
-(`healthNeedsPrice`, `promotions`) no se guardan. Stock: `stock` (sin zona; con
+precio "antes" solo si es mayor. Excepción: si el rebajado lo pone una promoción
+(`appliedPromotions["price-sale-cl"].promotionId`) con días de la semana
+(`assignmentInformation.schedule.recurrence`, p. ej. FPW050 "10%-planW" en medicamentos,
+que rige domingo, martes, miércoles, viernes y sábado), el rebajado se descarta y queda el
+normal, sin precio "antes": si no, el precio alternaría cada semana y dispararía alertas
+falsas. Si la promoción aplicada no aparece en `promotions` (no se puede saber si es
+recurrente), también se descarta. Las promociones con solo `startDate`/`endDate` y el
+rebajado de catálogo (`appliedPromotions` vacío) se mantienen. Los precios de convenios
+o "necesidad de salud" (`healthNeedsPrice`) no se guardan. Stock: `stock` (sin zona; con
 `?inventoryId=` cambia la cantidad pero no el precio). Un agotado tiene `stock: 0` y
 conserva sus precios.
 
@@ -70,9 +77,10 @@ class CruzVerdeProcessor(Processor):
     supports_list_price = True
     notes = (
         "Precio de la compra online: el rebajado si lo hay y, si no, el normal; el normal "
-        "queda como precio «antes». Los descuentos de convenios, Club o «necesidad de salud» "
-        "no se guardan. Un producto agotado sigue mostrando su precio. Stock del despacho, "
-        "sin elegir comuna."
+        "queda como precio «antes». Los descuentos que rigen solo algunos días de la semana "
+        "(como el 10 % de Club/Plan W en medicamentos) no se guardan: en ese caso se usa el "
+        "precio normal. Tampoco los de convenios o «necesidad de salud». Un producto agotado "
+        "sigue mostrando su precio. Stock del despacho, sin elegir comuna."
     )
 
     def matches(self, url: str) -> bool:
@@ -107,8 +115,12 @@ class CruzVerdeProcessor(Processor):
         if resp.status_code == 404:
             raise NotFoundError(f"404 en {url}")
         if resp.status_code == 500:
-            # Así responde también un id que no existe: no se puede distinguir.
-            raise FetchError(f"HTTP 500 en {url} (el producto no existe o falló la API)")
+            # Un id que no existe responde igual que una falla de la API: no se distinguen, y
+            # por eso es FetchError (no NotFoundError) y el mensaje nombra las dos causas.
+            raise FetchError(
+                f"HTTP 500 en {url}: el producto no existe o falló la API "
+                "(Cruz Verde responde igual en los dos casos)"
+            )
         if resp.status_code >= 400:
             raise FetchError(f"HTTP {resp.status_code} en {url}")
         return resp.text
@@ -129,6 +141,8 @@ class CruzVerdeProcessor(Processor):
             prices = {}
         sale = _amount(prices.get("price-sale-cl"))
         regular = _amount(prices.get("price-list-cl"))
+        if sale is not None and _sale_by_recurring_promotion(data):
+            sale = None  # rige solo algunos días: el precio alternaría cada semana
         price = sale or regular
         # Sin el campo no se sabe el stock: leerlo como agotado dispararía OUT_OF_STOCK.
         stock = data.get("stock")
@@ -152,6 +166,36 @@ def _amount(value) -> int | None:
         return None
     amount = int(value)
     return amount if amount > 0 else None
+
+
+def _sale_by_recurring_promotion(data: dict) -> bool:
+    """True si `price-sale-cl` lo pone una promoción con días de la semana, o una que no
+    aparece en `promotions` (no se puede comprobar que no lo sea: se descarta por si acaso).
+
+    False si no hay promoción aplicada (rebajado de catálogo) o si la promoción solo tiene
+    fechas de inicio o término.
+    """
+    applied = data.get("appliedPromotions")
+    applied = applied.get("price-sale-cl") if isinstance(applied, dict) else None
+    if not isinstance(applied, dict):
+        return False
+    promo_id = applied.get("promotionId")
+    if not promo_id:
+        return True
+    for promo in data.get("promotions") or []:
+        if not isinstance(promo, dict) or promo_id not in (
+            promo.get("id"),
+            promo.get("promotionId"),
+        ):
+            continue
+        info = promo.get("assignmentInformation") or {}
+        schedules = [info.get("schedule")] + [
+            a.get("schedule")
+            for a in info.get("activeCampaignAssignments") or []
+            if isinstance(a, dict)
+        ]
+        return any(isinstance(s, dict) and s.get("recurrence") for s in schedules)
+    return True
 
 
 def _invalid_session(resp: httpx.Response) -> bool:
