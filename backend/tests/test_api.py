@@ -8,7 +8,7 @@ from tests.conftest import fixture_text
 from tracker.config import settings
 from tracker.db import SessionLocal
 from tracker.main import app
-from tracker.models import PricePoint, Product, User
+from tracker.models import PricePoint, Product, User, WatchItem
 from tracker.processors import PROCESSORS
 from tracker.security import create_invite
 
@@ -25,6 +25,7 @@ def sin_red(monkeypatch):
         "00263850": ("ikea", "billy_blanco.html"),
         "50508652": ("ikea", "billy_blanco.html"),  # basta para tener precio
         "MLC49200061": ("mercadolibre", "catalogo_switch2.json"),
+        "143441472": ("falabella", "tallas.json"),
     }
 
     def fake(proc):
@@ -120,7 +121,7 @@ def test_csrf_obligatorio():
 
 def test_url_de_tienda_no_soportada_se_rechaza():
     api = logged_in("ana")
-    r = api.post("/api/resolve", {"url": "https://www.falabella.com/falabella-cl/product/123"})
+    r = api.post("/api/resolve", {"url": "https://www.tiendainexistente.cl/producto/123"})
     assert r.status_code == 422
     assert r.json()["detail"]["code"] == "unsupported"
     # Ya no existe la función de pedirle una tienda al admin.
@@ -155,6 +156,22 @@ def test_agregar_ikea_con_variantes_y_reglas():
     # Volver a agregar el mismo no duplica.
     api.post("/api/watches", {"urls": urls[:1], "rules": []})
     assert len(api.get("/api/watches").json()) == 2
+
+
+def test_falabella_link_sin_sku_sigue_un_sku_fijo(session):
+    api = logged_in("ana")
+    url = "https://www.falabella.com/falabella-cl/product/143441472"
+    body = api.post("/api/resolve", {"url": url}).json()
+    current = next(v for v in body["variants"] if v["selected"])
+    assert current["url"].endswith(
+        "/143441472/zapatilla-urbana-mujer-blanco-ginevra-chinitown/143441473"
+    )
+    r = api.post("/api/watches", {"urls": [current["url"]], "rules": []})
+    assert r.status_code == 201, r.text
+    followed = session.scalars(
+        select(Product).join(WatchItem, WatchItem.product_id == Product.id)
+    ).all()
+    assert [(p.external_id, p.variant_id) for p in followed] == [("143441472", "143441473")]
 
 
 def test_regla_invalida_422():
