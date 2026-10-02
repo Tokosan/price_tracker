@@ -23,6 +23,7 @@ from tracker.processors.santaisabel import SantaIsabelProcessor
 from tracker.processors.sodimac import SodimacProcessor
 from tracker.processors.solotodo import SolotodoProcessor
 from tracker.processors.steam import SteamProcessor
+from tracker.processors.tottus import TottusProcessor
 
 PROCESSORS: dict[str, Processor] = {
     p.name: p
@@ -41,6 +42,7 @@ PROCESSORS: dict[str, Processor] = {
         HitesProcessor(),
         SolotodoProcessor(),
         SodimacProcessor(),
+        TottusProcessor(),
     )
 }
 
