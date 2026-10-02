@@ -148,3 +148,45 @@ def test_matchea_solo_fichas_de_su_dominio():
     )
     with pytest.raises(ValueError):
         antartica.normalize("https://www.antartica.cl/libros.html")
+
+
+def test_precio_con_formato_raro_no_se_trunca():
+    raw = fixture_text("antartica", "en_stock_disparos.html")
+    raw = raw.replace('data-price-amount="15000"', 'data-price-amount="15,000"')
+    assert 'data-price-amount="15,000"' in raw
+    r = antartica.parse(raw, antartica.normalize(DISPAROS))
+    assert (r.price, r.available) == (None, True)
+
+
+def test_stock_solo_se_lee_en_su_bloque():
+    # Sin el div de stock en su bloque, no se toma uno de otra parte de la página.
+    raw = fixture_text("antartica", "agotado_hablame_de_amores.html").replace(
+        '<div class="stock unavailable">', '<div class="otra-cosa">'
+    )
+    raw = raw.replace("</body>", '<div class="stock available">x</div></body>')
+    with pytest.raises(FetchError, match="stock"):
+        antartica.parse(raw, antartica.normalize(HABLAME))
+
+
+@pytest.mark.parametrize(
+    "marca",
+    [
+        '<script src="/cdn-cgi/challenge-platform/h/b/orchestrate/chl_page/v1"></script>',
+        "<script>window._cf_chl_opt={cvId: '3'};</script>",
+        '<div id="cf-chl-widget"></div>',
+    ],
+)
+def test_challenge_traducido_con_200_es_error_de_lectura(marca):
+    raw = f"<html><head><title>Un momento…</title></head><body>{marca}</body></html>"
+    with pytest.raises(FetchError, match="bloqueó") as exc:
+        antartica.parse(raw, antartica.normalize(FRANKL))
+    assert not isinstance(exc.value, NotFoundError)
+
+
+def test_script_de_cloudflare_en_una_ficha_no_la_bloquea():
+    # Cloudflare puede inyectar su script de detección de bots en una página normal.
+    script = '<script src="/cdn-cgi/challenge-platform/scripts/jsd/main.js"></script>'
+    raw = fixture_text("antartica", "descuento_hombre_en_busca.html")
+    raw = raw.replace("</body>", script + "</body>")
+    r = antartica.parse(raw, antartica.normalize(FRANKL))
+    assert (r.price, r.list_price) == (17408, 20480)

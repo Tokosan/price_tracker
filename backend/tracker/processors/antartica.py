@@ -44,7 +44,11 @@ _URL_RE = re.compile(
 )
 _OG_TYPE_RE = re.compile(r"<meta\s+property=\"og:type\"\s+content=\"([^\"]*)\"", re.I)
 _PID_RE = re.compile(r"<input\s+type=\"hidden\"\s+name=\"product\"\s+value=\"(\d+)\"")
-_STOCK_RE = re.compile(r"class=\"product-info-stock-sku\">.*?<div class=\"stock (\w+)\"", re.S)
+# El div de stock va al principio del bloque (después, a lo más, de una etiqueta de promoción):
+# se busca solo ahí, para no tomar el de otra parte de la página.
+_STOCK_RE = re.compile(
+    r"class=\"product-info-stock-sku\">.{0,600}?<div class=\"stock (\w+)\"", re.S
+)
 _TITLE_RE = re.compile(r"<span[^>]*data-ui-id=\"page-title-wrapper\"[^>]*>(.*?)</span>", re.S)
 _IMAGE_RE = re.compile(r"itemprop=\"image\"\s+href=\"([^\"]+)\"")
 _TAG_RE = re.compile(r"<[^>]+>")
@@ -54,6 +58,10 @@ _BLOCKED_RE = re.compile(
     r"|id=\"px-captcha\"",
     re.I,
 )
+# Restos de un challenge de Cloudflare (sirve aunque venga traducido y con HTTP 200). Solo
+# cuentan si la página no es una ficha: Cloudflare puede inyectar `/cdn-cgi/challenge-platform/`
+# en páginas normales (detección de bots con JS), y eso no debe romper las lecturas.
+_CHALLENGE_RE = re.compile(r"challenge-platform|cf_chl_opt|cf-chl")
 
 
 class AntarticaProcessor(Processor):
@@ -89,10 +97,11 @@ class AntarticaProcessor(Processor):
         return await get_text(ref.canonical_url)
 
     def parse(self, raw: str, ref: ProductRef) -> ScrapeResult:
-        if _BLOCKED_RE.search(raw):
-            raise FetchError("Antártica bloqueó la lectura (página de bloqueo del antibots)")
         og_type = _OG_TYPE_RE.search(raw)
-        if not og_type or og_type.group(1).strip().lower() != "product":
+        is_product = bool(og_type) and og_type.group(1).strip().lower() == "product"
+        if _BLOCKED_RE.search(raw) or (not is_product and _CHALLENGE_RE.search(raw)):
+            raise FetchError("Antártica bloqueó la lectura (página de bloqueo del antibots)")
+        if not is_product:
             raise NotFoundError("no es una ficha de producto de Antártica")
         pid = _PID_RE.search(raw)
         stock = _STOCK_RE.search(raw)
@@ -113,6 +122,7 @@ class AntarticaProcessor(Processor):
 
 
 def _amount(raw: str, kind: str, pid: str) -> int | None:
+    # Anclada a las dos comillas: un formato raro ("17,408") da None, no 17.
     m = re.search(rf"id=\"{kind}-{pid}\"\s+data-price-amount=\"([\d.]+)\"", raw)
     value = to_minor(m.group(1), "CLP") if m else None
     return value or None  # 0 es "sin precio" en Magento

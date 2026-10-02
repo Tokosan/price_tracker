@@ -64,7 +64,8 @@ class Processor:
     # límite, para tiendas cuya fuente es estructurada y confiable (una API, no HTML).
     anomaly_drop_pct: int | None = 80
     # True si "sin precio y sin stock" es un agotado real y no un parseo roto (APIs
-    # que dejan de listar la oferta cuando se agota). En HTML debe quedar en False.
+    # que dejan de listar la oferta cuando se agota). En HTML debe quedar en False, salvo
+    # que la página traiga una marca de agotado explícita (p. ej. Antártica).
     sold_out_without_price: bool = False
 
     # Metadatos para la página "Tiendas soportadas" (solo presentación).
