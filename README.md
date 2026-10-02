@@ -17,7 +17,7 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Entrejuegos | PrestaShop, detrás de Cloudflare → [FlareSolverr](https://github.com/FlareSolverr/FlareSolverr) |
 | DementeGames | PrestaShop |
 | La Fortaleza | Jumpseller |
-| Lider (supermercado) | Datos de Next.js de la ficha (plataforma de Walmart) |
+| Lider (supermercado y mercadería general) | Datos de Next.js de la ficha (plataforma de Walmart) |
 | Jumbo | API pública del catálogo de VTEX |
 | Santa Isabel | API pública del catálogo de VTEX |
 | PC Factory | API del catálogo que usa la página (precio por transferencia) |
