@@ -7,8 +7,9 @@ sus `items` (SKU) y, por cada vendedor, la oferta (`commertialOffer`) con precio
 precio 0, mientras que la API sí lo lista.
 
 Cada tienda solo define su `host` y su `account`. Si sus items son variantes elegibles
-(p. ej. colores que comparten la URL), activa `supports_variants` y redefine `item_label`:
-`variant_id` es el `itemId`.
+(p. ej. colores que comparten la ficha), activa `supports_variants` y redefine `item_label`:
+`variant_id` es el `itemId`, que va en la URL como `?skuId=` (el parámetro que la propia
+ficha de VTEX entiende), y el título lleva la etiqueta del item entre paréntesis.
 
 Si el buscador de la tienda muestra slugs de otro catálogo (Santa Isabel muestra los de
 Jumbo), `refid_fallback` busca por el sufijo numérico del slug (`alternateIds_RefId`)
@@ -18,6 +19,7 @@ cuando el slug no existe, y solo acepta un producto con ese RefId.
 import json
 import re
 from datetime import timedelta
+from urllib.parse import parse_qs, urlsplit
 
 from tracker.processors.base import (
     FetchError,
@@ -60,7 +62,14 @@ class VtexProcessor(Processor):
         if not m:
             raise ValueError(f"no es una URL de producto de {self.label}")
         slug = m.group(1).lower()
-        return ProductRef(slug, f"https://{self.host}/{slug}/p")
+        sku = ""
+        if self.supports_variants:
+            sku = (parse_qs(urlsplit(url.strip()).query).get("skuId") or [""])[0]
+            sku = sku if sku.isdigit() else ""
+        return ProductRef(slug, self._url(slug, sku), sku)
+
+    def _url(self, slug: str, sku: str = "") -> str:
+        return f"https://{self.host}/{slug}/p" + (f"?skuId={sku}" if sku else "")
 
     def domain(self) -> str:
         return f"{self.account}.vtexcommercestable.com.br"
@@ -110,8 +119,11 @@ class VtexProcessor(Processor):
             price = None
         listed = to_minor(offer.get("ListPrice"), "CLP")
         images = item.get("images") or []
+        title = (product.get("productName") or "").strip()
+        if self.supports_variants and len(product.get("items") or []) > 1:
+            title = f"{title} ({self._labels(product)[str(item.get('itemId') or '')]})"
         return ScrapeResult(
-            title=(product.get("productName") or "").strip(),
+            title=title,
             price=price,
             list_price=listed if listed and price is not None and listed > price else None,
             currency="CLP",
@@ -123,24 +135,59 @@ class VtexProcessor(Processor):
         """Etiqueta de un item en el selector de variantes."""
         return (item.get("name") or item.get("itemId") or "").strip()
 
+    def _labels(self, product: dict) -> dict[str, str]:
+        """Etiqueta de cada item por `itemId`; sin etiqueta o repetida, se agrega el SKU."""
+        items = [it for it in product.get("items") or [] if it.get("itemId")]
+        raw = {str(it["itemId"]): self.item_label(it) for it in items}
+        repeated = {lbl for lbl in raw.values() if list(raw.values()).count(lbl) > 1}
+        return {
+            vid: (f"{lbl}, SKU {vid}" if lbl in repeated else lbl) if lbl else f"SKU {vid}"
+            for vid, lbl in raw.items()
+        }
+
     def parse_variants(self, raw: str, ref: ProductRef) -> list[Variant]:
+        """Los items hermanos, cada uno con su `?skuId=` en la URL.
+
+        Si el link no trae `skuId`, el item actual (el primero) se devuelve con el suyo: al
+        agregarlo se sigue ese item fijo, no el que la API liste primero más adelante. Con un
+        solo item es al revés: se devuelve sin `skuId` (`variant_id` vacío).
+        """
         if not self.supports_variants:
             return []
         product = self._product(raw, ref)
         items = product.get("items") or []
-        if len(items) < 2:
+        if len(items) == 1:
+            # Un solo item: el `skuId` del link no aporta nada. Se ofrece la forma sin
+            # `skuId` (la UI no muestra selector con una opción, pero agrega esta URL), para
+            # que el link limpio y el copiado del sitio, con `?skuId=`, sean el mismo Product.
+            _item(product, ref)  # un skuId que no es el de su item sigue siendo NotFoundError
+            label = self._labels(product).get(str(items[0].get("itemId") or ""), "")
+            return [Variant(self._url(ref.external_id), label, ref.external_id, "", True)]
+        if not items:
             return []
-        current = _item(product, ref).get("itemId")
-        return [
-            Variant(
-                url=ref.canonical_url,
-                label=self.item_label(it),
-                external_id=ref.external_id,
-                variant_id=str(it.get("itemId") or ""),
-                selected=it.get("itemId") == current,
-            )
-            for it in items
-        ]
+        current = str(_item(product, ref).get("itemId") or "")
+        labels = self._labels(product)
+        out: list[Variant] = []
+        for it in items:
+            vid = str(it.get("itemId") or "")
+            if not vid:
+                continue
+            label = labels[vid]
+            try:
+                offer = _offer(it)
+            except FetchError:
+                offer = {}
+            price = to_minor(offer.get("Price"), "CLP")
+            if price:
+                label += f": ${price:,}".replace(",", ".")
+            if not (offer.get("IsAvailable") and (offer.get("AvailableQuantity") or 0) > 0):
+                label += " (agotada)"
+            if vid == current and ref.variant_id:
+                url = ref.canonical_url
+            else:
+                url = self._url(ref.external_id, vid)
+            out.append(Variant(url, label, ref.external_id, vid, vid == current))
+        return sorted(out, key=lambda v: not v.selected)
 
 
 # Sufijo numérico del slug (`…-1871480`), que en Cencosud es el RefId del producto. Cinco
