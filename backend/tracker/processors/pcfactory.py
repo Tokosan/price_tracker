@@ -79,13 +79,17 @@ class PcFactoryProcessor(Processor):
         if price is not None and price <= 0:
             price = None  # un precio en cero es un dato roto, no una oferta
         ref_price = to_minor(precio.get("referencia"), "CLP")
-        stock = str((producto.get("stock") or {}).get("aproximado") or "0").strip()
+        # Sin el campo no se sabe el stock: leerlo como agotado dispararía OUT_OF_STOCK.
+        stock = (producto.get("stock") or {}).get("aproximado")
+        stock = str(stock).strip() if stock is not None else ""
+        if not stock:
+            raise FetchError("falta stock en la respuesta de PC Factory")
         return ScrapeResult(
             title=(producto.get("nombre") or "").strip(),
             price=price,
             list_price=ref_price if ref_price and price is not None and ref_price > price else None,
             currency="CLP",
-            available=stock not in ("", "0"),
+            available=stock != "0",
             image_url=IMAGE_URL.format(id=ref.external_id),
         )
 

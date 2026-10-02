@@ -82,6 +82,22 @@ def test_stock(stock, available):
     assert pcf.parse(_raw(stock=stock), ref("1")).available is available
 
 
+@pytest.mark.parametrize(
+    "producto",
+    [
+        '{"id": 1, "nombre": "X", "precio": 1}',
+        '{"id": 1, "nombre": "X", "stock": null}',
+        '{"id": 1, "nombre": "X", "stock": {}}',
+        '{"id": 1, "nombre": "X", "stock": {"aproximado": null}}',
+        '{"id": 1, "nombre": "X", "stock": {"aproximado": ""}}',
+    ],
+)
+def test_sin_stock_en_la_respuesta_es_fetch_error_y_no_agotado(producto):
+    raw = f'{{"producto": {producto}, "precio": {{"precio": {{"efectivo": 1990}}}}}}'
+    with pytest.raises(FetchError):
+        pcf.parse(raw, ref("1"))
+
+
 def test_otro_error_de_la_api_es_fetch_error_y_no_not_found():
     raw = '{"producto": {"errors": [{"code": "500"}]}, "precio": {}}'
     with pytest.raises(FetchError) as exc:
