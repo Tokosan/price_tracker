@@ -16,6 +16,7 @@ from tracker.processors.jumbo import JumboProcessor
 from tracker.processors.lafortaleza import LaFortalezaProcessor
 from tracker.processors.lider import LiderProcessor
 from tracker.processors.mercadolibre import MercadoLibreProcessor
+from tracker.processors.pcfactory import PcFactoryProcessor
 from tracker.processors.steam import SteamProcessor
 
 PROCESSORS: dict[str, Processor] = {
@@ -29,6 +30,7 @@ PROCESSORS: dict[str, Processor] = {
         MercadoLibreProcessor(),
         LiderProcessor(),
         JumboProcessor(),
+        PcFactoryProcessor(),
     )
 }
 
