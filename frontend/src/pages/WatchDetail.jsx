@@ -30,7 +30,7 @@ export default function WatchDetail() {
         api(`/api/notifications?watch_id=${id}&limit=20`),
       ]);
       setWatch(w);
-      setHistory(h);
+      setHistory(h.items[0]?.points ?? []);
       setNotifs(n);
       setEditor(editorFromRules(w.rules, w.product.currency));
       setDirty(false);

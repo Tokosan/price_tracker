@@ -103,6 +103,28 @@ def initial_state(kind: str, current: Reading | None) -> dict[str, Any]:
     return {"last_available": current.available if current else None}
 
 
+def calibrate(
+    kind: str,
+    params: dict[str, Any],
+    state: dict[str, Any],
+    reading: Reading | None,
+    *,
+    price_at_start: int | None = None,
+) -> dict[str, Any]:
+    """Estado de una regla "como si hubiera visto" esta lectura, sin avisar.
+
+    Para cuando la lectura de un Watch con varios links cambia por algo que no es un
+    cambio de precio (se agregó o quitó un link, uno dejó de contar): una regla de umbral
+    ya cumplida queda desarmada y las de cambio toman la lectura como nueva referencia.
+    """
+    if reading is None:
+        return dict(state or {})
+    _, new_state = evaluate(kind, params, state, reading, price_at_start=price_at_start)
+    if kind in ("PRICE_DROP", "PRICE_UP") and reading.price is not None and reading.available:
+        new_state["last_notified_price"] = reading.price
+    return new_state
+
+
 def baseline_price(
     params: dict[str, Any], reading: Reading, price_at_start: int | None
 ) -> int | None:

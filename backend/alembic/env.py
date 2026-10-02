@@ -26,12 +26,23 @@ def run_migrations_offline() -> None:
 
 def run_migrations_online() -> None:
     with db.engine.connect() as connection:
-        # render_as_batch: SQLite no soporta ALTER TABLE completo.
-        context.configure(
-            connection=connection, target_metadata=target_metadata, render_as_batch=True
-        )
-        with context.begin_transaction():
-            context.run_migrations()
+        # FK apagadas durante las migraciones: recrear una tabla con hijos (DROP + RENAME)
+        # los borraría en cascada. Dentro de una transacción el PRAGMA no tiene efecto,
+        # por eso va antes. Cada migración que recrea revisa `PRAGMA foreign_key_check`.
+        connection.exec_driver_sql("PRAGMA foreign_keys=OFF")
+        connection.commit()
+        try:
+            # render_as_batch: SQLite no soporta ALTER TABLE completo.
+            context.configure(
+                connection=connection, target_metadata=target_metadata, render_as_batch=True
+            )
+            with context.begin_transaction():
+                context.run_migrations()
+            connection.commit()
+        finally:
+            # La conexión vuelve al pool: que no quede sin FK para quien la reuse.
+            connection.exec_driver_sql("PRAGMA foreign_keys=ON")
+            connection.commit()
 
 
 if context.is_offline_mode():

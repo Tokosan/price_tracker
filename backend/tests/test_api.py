@@ -188,8 +188,8 @@ def test_revisar_ahora_con_cooldown():
     r = api.post(f"/api/watches/{wid}/check")
     assert r.status_code == 429
     assert r.json()["detail"]["code"] == "cooldown"
-    hist = api.get(f"/api/watches/{wid}/history").json()
-    assert [p["price"] for p in hist] == [7500, 7500]
+    hist = api.get(f"/api/watches/{wid}/history").json()["items"]
+    assert [p["price"] for p in hist[0]["points"]] == [7500, 7500]
 
 
 def test_editar_reglas_y_pausar():

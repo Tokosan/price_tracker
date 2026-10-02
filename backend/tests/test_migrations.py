@@ -41,10 +41,36 @@ def test_migrar_no_borra_datos(tmp_path):
             "INSERT INTO watches (id, user_id, product_id, active, created_at)"
             " VALUES (1, 1, 1, 1, '2026-01-01')"
         )
+        conn.exec_driver_sql(
+            "INSERT INTO price_points (product_id, price, available, checked_at)"
+            " VALUES (1, 7500, 1, '2026-01-02')"
+        )
+        conn.exec_driver_sql(
+            "INSERT INTO alert_rules (watch_id, kind, params, state, enabled)"
+            " VALUES (1, 'BACK_IN_STOCK', '{}', '{}', 1)"
+        )
+        conn.exec_driver_sql(
+            "INSERT INTO notifications (watch_id, payload, sent_at, delivery)"
+            " VALUES (1, '{}', '2026-01-02', '{}')"
+        )
+        conn.exec_driver_sql(
+            "INSERT INTO channels (id, user_id, kind, config, enabled, created_at)"
+            " VALUES (1, 1, 'discord', '{}', 1, '2026-01-01')"
+        )
+        conn.exec_driver_sql(
+            "INSERT INTO watch_channels (watch_id, channel_id, enabled) VALUES (1, 1, 0)"
+        )
     command.upgrade(cfg, "head")
     with dbmod.engine.connect() as conn:
-        assert conn.exec_driver_sql("SELECT count(*) FROM watches").scalar() == 1
-        assert conn.exec_driver_sql("SELECT count(*) FROM users").scalar() == 1
+        q = conn.exec_driver_sql
+        for table in ("users", "watches", "alert_rules", "notifications", "watch_channels"):
+            assert q(f"SELECT count(*) FROM {table}").scalar() == 1, table
+        # 0008: cada Watch quedó con su producto como único item y su última lectura.
+        assert q("SELECT watch_id, product_id, user_id FROM watch_items").all() == [(1, 1, 1)]
+        assert q("SELECT last_price, last_best_product_id FROM watches").one() == (7500, 1)
+        assert q("PRAGMA foreign_key_check").all() == []
+        # Las migraciones apagan las FK; la conexión vuelve al pool con las FK activas.
+        assert q("PRAGMA foreign_keys").scalar() == 1
 
 
 def test_catalogos_de_meli_pasan_al_modo_por_defecto_sin_perder_historial(tmp_path):
