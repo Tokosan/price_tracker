@@ -12,6 +12,7 @@ from tracker.processors.base import (
     ScrapeResult,
     Variant,
 )
+from tracker.processors.buscalibre import BuscalibreProcessor
 from tracker.processors.contrapunto import ContrapuntoProcessor
 from tracker.processors.cruzverde import CruzVerdeProcessor
 from tracker.processors.dementegames import DementeGamesProcessor
@@ -75,6 +76,7 @@ PROCESSORS: dict[str, Processor] = {
         PiedraBrujaProcessor(),
         ContrapuntoProcessor(),
         FeriaChilenaDelLibroProcessor(),
+        BuscalibreProcessor(),
     )
 }
 

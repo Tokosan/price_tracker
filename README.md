@@ -42,6 +42,7 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Piedra Bruja | JSON de la ficha de Shopify (`/products/<handle>.js`), con selector de variantes |
 | Contrapunto | JSON de la ficha de Shopify (`/products/<handle>.js`) |
 | Feria Chilena del Libro | Store API de WooCommerce |
+| Buscalibre | HTML de la ficha (opciones de compra), con selector para incluir libros usados |
 
 Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX**, **WooCommerce**, **Shopify** y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
