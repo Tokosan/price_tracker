@@ -18,6 +18,7 @@ cuando el slug no existe, y solo acepta un producto con ese RefId.
 
 import json
 import re
+import unicodedata
 from datetime import timedelta
 from urllib.parse import parse_qs, quote, unquote, urlsplit
 
@@ -49,15 +50,22 @@ class VtexProcessor(Processor):
 
     def __init__(self) -> None:
         bare = self.host.removeprefix("www.")
-        # Ficha: /<slug>/p. Categorías (/despensa/conservas) y búsquedas no matchean. El
-        # slug admite letras unicode (`panadol-para-niños-…`): se compara decodificado.
-        self._url_re = re.compile(
-            rf"^https?://(?:www\.)?{re.escape(bare)}/((?:[^\W_]|-)+)/p/?(?:[?#].*)?$", re.I
-        )
+        self._hosts = {bare, f"www.{bare}"}
 
     def _match(self, url: str) -> re.Match | None:
-        path, rest = re.match(r"([^?#]*)(.*)", url.strip(), re.S).groups()
-        return self._url_re.match(unquote(path) + rest)
+        """Ficha: /<slug>/p. Categorías (/despensa/conservas) y búsquedas no matchean.
+
+        El host se compara tal cual; solo el path se decodifica (y se normaliza a NFC), para
+        aceptar slugs con letras latinas acentuadas o ñ (`panadol-para-niños-…`), literales
+        o codificadas.
+        """
+        try:
+            parts = urlsplit(url.strip())
+        except ValueError:
+            return None
+        if parts.scheme.lower() not in ("http", "https") or parts.hostname not in self._hosts:
+            return None
+        return _PATH_RE.fullmatch(unicodedata.normalize("NFC", unquote(parts.path)))
 
     def matches(self, url: str) -> bool:
         return bool(self._match(url))
@@ -200,6 +208,9 @@ class VtexProcessor(Processor):
             out.append(Variant(url, label, ref.external_id, vid, vid == current))
         return sorted(out, key=lambda v: not v.selected)
 
+
+# Path de una ficha: slug de letras latinas (con tildes y ñ), dígitos y guiones.
+_PATH_RE = re.compile(r"/((?:[a-z0-9à-öø-ÿ]|-)+)/p/?", re.I)
 
 # Sufijo numérico del slug (`…-1871480`), que en Cencosud es el RefId del producto. Cinco
 # dígitos o más: los sufijos cortos (`…-500grs-2`) no son RefId.

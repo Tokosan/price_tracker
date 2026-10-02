@@ -181,7 +181,35 @@ def test_slug_ascii_no_cambia():
         "https://www.drsimi.cl/para_cetamol/p",
         "https://www.drsimi.cl/para%2Fcetamol/p",  # "/" codificada: dos segmentos
         "https://www.drsimi.cl/para%20cetamol/p",
+        "https://www.drsimi.cl/παρα/p",  # letras no latinas
+        "https://www.drsimi.cl/para×cetamol/p",
+        # Decodificar el host dejaría pasar a otro dominio...
+        "https://www.drsimi.cl%2Fabc%2Fp%23@evil.com/",
+        "https://www.drsimi.cl%2Fabc%2Fp%23.evil.com/",
+        # ...y decodificar la query, rutas que no son /<slug>/p.
+        "https://www.drsimi.cl/ab/p%3Fx",
+        "https://www.drsimi.cl/ab/p%23x",
+        "javascript://www.drsimi.cl/ab/p",
     ],
 )
 def test_slug_con_caracteres_raros_no_matchea(url):
     assert not drsimi.matches(url)
+
+
+def test_enie_en_nfd_se_normaliza_a_nfc():
+    import unicodedata
+
+    nfd = unicodedata.normalize("NFD", f"https://www.drsimi.cl/{PANADOL_SLUG}/p")
+    assert nfd != f"https://www.drsimi.cl/{PANADOL_SLUG}/p"
+    assert drsimi.normalize(nfd) == ProductRef(PANADOL_SLUG, PANADOL)
+    # NFD codificada (n + U+0303), como la copiaría un navegador en macOS.
+    assert drsimi.normalize(PANADOL.replace("%C3%B1", "n%CC%83")) == ProductRef(
+        PANADOL_SLUG, PANADOL
+    )
+
+
+def test_host_en_mayusculas_y_tildes_latinas():
+    url = "HTTPS://WWW.DRSIMI.CL/crema-cicatrizante-árnica-50-g/p"
+    ref = drsimi.normalize(url)
+    assert ref.external_id == "crema-cicatrizante-árnica-50-g"
+    assert ref.canonical_url == "https://www.drsimi.cl/crema-cicatrizante-%C3%A1rnica-50-g/p"

@@ -6,7 +6,7 @@ import pytest
 
 from tests.conftest import fixture_text
 from tracker.processors import FetchError, NotFoundError, ProductRef, find_processor
-from tracker.processors.ahumada import AhumadaProcessor, pdp_summary
+from tracker.processors.ahumada import SESSION_MAX_IDLE, AhumadaProcessor, pdp_summary
 
 ahumada = AhumadaProcessor()
 HOST = "https://www.farmaciasahumada.cl"
@@ -303,6 +303,47 @@ async def test_reutiliza_la_sesion():
     proc = _proc(fake)
     await _read(proc)
     await _read(proc)
+    assert fake.count("Stores-SaveZone") == 1
+
+
+class FakeClock:
+    def __init__(self):
+        self.now = 1000.0
+
+    def __call__(self):
+        return self.now
+
+
+@pytest.mark.parametrize(
+    ("idle", "sessions", "fichas"),
+    [
+        (SESSION_MAX_IDLE - 1, 1, 2),  # todavía fresca: se reutiliza
+        (SESSION_MAX_IDLE + 1, 2, 2),  # vieja: se renueva antes de pedir la ficha
+    ],
+)
+async def test_sesion_sin_uso_se_renueva_por_adelantado(idle, sessions, fichas):
+    fake = FakeAhumada()
+    proc = _proc(fake)
+    clock = FakeClock()
+    proc.clock = clock
+    await _read(proc)
+    clock.now += idle
+    fake.zoned.clear()  # pasado ese tiempo, la tienda ya olvidó la sesión...
+    if idle < SESSION_MAX_IDLE:
+        fake.zoned.update({"s1": True})  # ...salvo que siga fresca
+    assert (await _read(proc)).available is True
+    assert fake.count("Stores-SaveZone") == sessions
+    assert fake.count("-89871.html") == fichas  # sin una ficha perdida sin zona
+
+
+async def test_cada_lectura_refresca_el_uso_de_la_sesion():
+    fake = FakeAhumada()
+    proc = _proc(fake)
+    clock = FakeClock()
+    proc.clock = clock
+    for _ in range(4):  # cada 15 min: nunca pasa 20 min sin uso
+        await _read(proc)
+        clock.now += 15 * 60
     assert fake.count("Stores-SaveZone") == 1
 
 

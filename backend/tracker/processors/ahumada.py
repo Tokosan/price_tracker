@@ -18,7 +18,8 @@ La zona se guarda en la sesión de SFCC (cookies `dwsid`/`sid`): `GET /` abre la
 (`option.sectorList.inventoryZone`). Sin zona, la tienda usa Las Condes. La sesión vive
 en memoria, bajo un lock. La cabecera de la ficha muestra la comuna de la sesión
 (`<span class="commune">`): si no es Santiago (sesión vencida), se crea otra y se
-reintenta una vez; si sigue sin serlo es un error de lectura, nunca un agotado.
+reintenta una vez; si sigue sin serlo es un error de lectura, nunca un agotado. Como la
+sesión vence a los ~30 min sin uso, tras 20 min sin usarla se renueva por adelantado.
 
 De la ficha solo se guarda lo que se usa (controlador, comuna y botón), junto al JSON,
 para que las fixtures no pesen 600 KB. No hay variantes: cada talla o presentación es su
@@ -29,6 +30,7 @@ import asyncio
 import html as htmllib
 import json
 import re
+import time
 
 import httpx
 
@@ -40,6 +42,10 @@ from tracker.processors.util import to_minor
 STATE = "Región Metropolitana"
 CITY = "Santiago"
 INVENTORY_ZONE = "inventario_santiago"
+# La sesión de SFCC vence a los ~30 min sin uso y cada producto se lee cada 6 h: pasado
+# este tiempo sin usarla se abre otra antes de pedir la ficha, en vez de gastar una
+# petición en una ficha sin zona.
+SESSION_MAX_IDLE = 20 * 60  # segundos
 
 _PAGE_RE = re.compile(r"<div\s[^>]*\bclass=\"(?:[^\"]*\s)?page(?:\s[^\"]*)?\"[^>]*>")
 _ACTION_RE = re.compile(r"\bdata-action=\"([^\"]*)\"")
@@ -86,11 +92,14 @@ class AhumadaProcessor(SFCCProcessor):
     )
     # Solo para tests: un transporte falso de httpx.
     transport: httpx.AsyncBaseTransport | None = None
+    # Reloj de la sesión (los tests lo reemplazan).
+    clock = staticmethod(time.monotonic)
 
     def __init__(self) -> None:
         super().__init__()
         self._lock = asyncio.Lock()
         self._cookies: httpx.Cookies | None = None
+        self._used_at = 0.0  # última vez que la tienda respondió con esta sesión
 
     def _client(self, cookies: httpx.Cookies | None = None) -> httpx.AsyncClient:
         return httpx.AsyncClient(
@@ -123,12 +132,16 @@ class AhumadaProcessor(SFCCProcessor):
     async def _pdp(self, ref: ProductRef) -> dict:
         """Resumen de la ficha leída con la comuna Santiago (reintenta una vez)."""
         async with self._lock:
+            if self._cookies is not None and self.clock() - self._used_at > SESSION_MAX_IDLE:
+                self._cookies = None  # probablemente vencida: se renueva por adelantado
             for _ in range(2):
                 if self._cookies is None:
                     self._cookies = await self._new_session()
+                    self._used_at = self.clock()
                 async with self._client(self._cookies) as client:
                     html = await _request(client, "GET", ref.canonical_url)  # 404 → NotFound
                     self._cookies = httpx.Cookies(client.cookies)
+                    self._used_at = self.clock()
                 pdp = pdp_summary(html, ref.external_id)
                 if pdp["action"] != "Product-Show":
                     # Página de contenido con forma de ficha: Product-Variation daría 500.
