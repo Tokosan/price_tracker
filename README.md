@@ -33,6 +33,7 @@ que soporta cada tienda.
   - se agotó;
   - volvió a haber stock.
 - **Anti-spam**: histéresis en los umbrales y un solo mensaje por lectura. Las lecturas absurdas (errores de scraping) nunca generan alertas: quedan como anomalías en el panel admin.
+- **Un producto, varios links**: la misma cosa en varias tiendas o publicaciones se sigue como un solo producto (hasta 8 links, con nombre propio). Los avisos son por el más barato con stock y dicen en qué tienda está; el gráfico muestra una línea por link. Se puede agregar links al crear el seguimiento, juntar productos que ya sigues o mover un link a otro.
 - **Productos compartidos**: si dos usuarios siguen lo mismo, se lee una sola vez y ambos ven el historial completo.
 - **Historial de precios** con gráfico, historial de avisos y botón "Revisar ahora" (con cooldown).
 - **Panel admin** (dashboard con sidebar): resumen, usuarios e invitaciones, productos (todos, con quién los sigue, y el detalle por usuario) y salud de cada tienda (productos rotos, anomalías). El admin ve qué productos sigue cada usuario; los usuarios entre sí no se ven.

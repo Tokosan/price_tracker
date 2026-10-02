@@ -1,35 +1,46 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { api } from "../api.js";
 import StoreLogo, { useStores } from "../components/StoreLogo.jsx";
 import { formatPrice, PROCESSOR_LABEL, relative } from "../format.js";
 
+// Máximo de links por producto (igual que el backend).
+const MAX_ITEMS = 8;
+
 export function priceChange(watch) {
-  const cur = watch.product.current?.price;
+  const cur = watch.best?.price;
   const start = watch.price_at_start;
   if (cur == null || !start) return null;
   return ((cur - start) / start) * 100;
 }
 
-const storeLabel = (w) => PROCESSOR_LABEL[w.product.processor] ?? w.product.processor;
-const title = (w) => w.product.title || w.product.url;
+const processorsOf = (w) => [...new Set(w.items.map((i) => i.processor))];
+const label = (proc) => PROCESSOR_LABEL[proc] ?? proc;
+// Un producto con links en varias tiendas va en su propia sección al agrupar por tienda:
+// bajo la tienda ganadora cambiaría de sección cada vez que cambia el más barato.
+const MULTI = "Varias tiendas";
+const storeLabel = (w) => {
+  const procs = processorsOf(w);
+  return procs.length === 1 ? label(procs[0]) : MULTI;
+};
+const title = (w) => w.display_name || w.items[0]?.url || "";
 const byName = (a, b) => title(a).localeCompare(title(b), "es", { sensitivity: "base" });
 
 // Cada orden define su dirección natural (la que se usa al elegirlo).
 const SORTS = {
   created: { label: "Fecha de agregado", dir: "desc", cmp: (a, b) => a.created_at.localeCompare(b.created_at) },
   name: { label: "Nombre", dir: "asc", cmp: byName },
-  price: { label: "Precio", dir: "asc", cmp: (a, b) => a.product.current.price - b.product.current.price },
+  price: { label: "Precio", dir: "asc", cmp: (a, b) => a.best.price - b.best.price },
   store: { label: "Tienda", dir: "asc", cmp: (a, b) => storeLabel(a).localeCompare(storeLabel(b), "es") || byName(a, b) },
 };
 
 const STATUS = {
   all: { label: "Todos los estados", test: () => true },
-  available: { label: "Disponibles", test: (w) => w.product.current?.available === true },
-  out: { label: "Sin stock", test: (w) => w.product.current?.available === false },
+  available: { label: "Disponibles", test: (w) => w.best?.available === true },
+  out: { label: "Sin stock", test: (w) => w.best?.available === false },
   down: { label: "Bajaron de precio", test: (w) => (priceChange(w) ?? 0) <= -0.5 },
   paused: { label: "Pausados", test: (w) => !w.active },
-  broken: { label: "Con problemas", test: (w) => w.product.status === "broken" },
+  broken: { label: "Con problemas", test: (w) => w.items.some((i) => i.status === "broken") },
 };
 
 const DEFAULT_VIEW = { q: "", store: "", status: "all", sort: "created", dir: "desc", group: false };
@@ -61,7 +72,7 @@ function sortWatches(list, sort, dir) {
   const { cmp } = SORTS[sort] ?? SORTS.created;
   const sign = dir === "desc" ? -1 : 1;
   // Sin precio al final, en cualquier dirección.
-  const hasPrice = (w) => w.product.current?.price != null;
+  const hasPrice = (w) => w.best?.price != null;
   return [...list].sort((a, b) => {
     if (sort === "price" && hasPrice(a) !== hasPrice(b)) return hasPrice(a) ? -1 : 1;
     if (sort === "price" && !hasPrice(a)) return byName(a, b);
@@ -69,7 +80,8 @@ function sortWatches(list, sort, dir) {
   });
 }
 
-// [[tienda, watches]] en orden alfabético, conservando el orden dentro de cada grupo.
+// [[tienda, watches]] en orden alfabético ("Varias tiendas" al final), conservando el
+// orden dentro de cada grupo.
 function groupByStore(list) {
   const groups = new Map();
   for (const w of list) {
@@ -77,28 +89,34 @@ function groupByStore(list) {
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(w);
   }
-  return [...groups].sort(([a], [b]) => a.localeCompare(b, "es"));
+  return [...groups].sort(([a], [b]) => (a === MULTI) - (b === MULTI) || a.localeCompare(b, "es"));
 }
 
 export default function Watches() {
   const [watches, setWatches] = useState(null);
   const [error, setError] = useState("");
   const [view, setView] = useView();
+  const [params, setParams] = useSearchParams();
+  const selecting = params.has("seleccionar");
+  const [selected, setSelected] = useState(() => new Set());
+  const [merging, setMerging] = useState(false);
   const storeInfo = useStores();
   useEffect(() => {
     api("/api/watches").then(setWatches).catch((e) => setError(e.message));
   }, []);
 
   const stores = useMemo(
-    () => [...new Set((watches ?? []).map((w) => w.product.processor))].sort((a, b) => (PROCESSOR_LABEL[a] ?? a).localeCompare(PROCESSOR_LABEL[b] ?? b)),
+    () => [...new Set((watches ?? []).flatMap(processorsOf))].sort((a, b) => label(a).localeCompare(label(b))),
     [watches],
   );
   const shown = useMemo(() => {
     if (!watches) return [];
     const q = view.q.trim().toLocaleLowerCase("es");
     const test = (STATUS[view.status] ?? STATUS.all).test;
+    // La búsqueda mira el nombre puesto y el título de cada link.
+    const matches = (w) => [title(w), ...w.items.map((i) => i.title || "")].some((t) => t.toLocaleLowerCase("es").includes(q));
     const filtered = watches.filter(
-      (w) => (!view.store || w.product.processor === view.store) && test(w) && (!q || title(w).toLocaleLowerCase("es").includes(q)),
+      (w) => (!view.store || processorsOf(w).includes(view.store)) && test(w) && (!q || matches(w)),
     );
     return sortWatches(filtered, view.sort, view.dir);
   }, [watches, view]);
@@ -118,19 +136,38 @@ export default function Watches() {
 
   const groups = view.group ? groupByStore(shown) : [[null, shown]];
   const filtering = view.q || view.store || view.status !== "all";
+  const setSelecting = (on) => {
+    setSelected(new Set());
+    setMerging(false);
+    setParams(on ? { seleccionar: "1" } : {}, { replace: true });
+  };
+  const toggle = (id) => {
+    const next = new Set(selected);
+    next.has(id) ? next.delete(id) : next.add(id);
+    setSelected(next);
+    setMerging(false);
+  };
+  const chosen = watches.filter((w) => selected.has(w.id));
 
   return (
     <>
       <div className="row-between">
         <h1>Productos</h1>
-        <Link className="button" to="/agregar">+ Agregar</Link>
+        <div className="actions-inline">
+          {watches.length > 1 && (
+            <button className="secondary" onClick={() => setSelecting(!selecting)}>
+              {selecting ? "Cancelar" : "Seleccionar"}
+            </button>
+          )}
+          <Link className="button" to="/agregar">+ Agregar</Link>
+        </div>
       </div>
 
       <div className="toolbar">
         <input type="search" className="grow" placeholder="Buscar por nombre…" value={view.q} onChange={(e) => setView({ q: e.target.value })} aria-label="Buscar" />
         <select value={view.store} onChange={(e) => setView({ store: e.target.value })} aria-label="Tienda">
           <option value="">Todas las tiendas</option>
-          {stores.map((s) => <option key={s} value={s}>{PROCESSOR_LABEL[s] ?? s}</option>)}
+          {stores.map((s) => <option key={s} value={s}>{label(s)}</option>)}
         </select>
         <select value={view.status} onChange={(e) => setView({ status: e.target.value })} aria-label="Estado">
           {Object.entries(STATUS).map(([k, s]) => <option key={k} value={k}>{s.label}</option>)}
@@ -154,6 +191,12 @@ export default function Watches() {
         </label>
       </div>
 
+      {selecting && (
+        <p className="muted small select-hint">
+          Elige los productos que son la misma cosa (por ejemplo, el mismo juego en dos tiendas) para seguirlos como uno solo.
+        </p>
+      )}
+
       <p className="muted small list-count">
         {filtering ? `${shown.length} de ${watches.length} productos` : `${watches.length} productos`}
         {filtering && (
@@ -162,43 +205,154 @@ export default function Watches() {
       </p>
 
       {shown.length === 0 && <p className="muted empty">Ningún producto coincide con los filtros.</p>}
-      {groups.map(([label, items]) => (
-        <section key={label ?? "all"}>
-          {label && <h2 className="day-label">{label} · {items.length}</h2>}
-          <ul className="watch-list">{items.map((w) => <WatchCard key={w.id} w={w} logo={storeInfo[w.product.processor]?.logo_url} />)}</ul>
+      {groups.map(([group, items]) => (
+        <section key={group ?? "all"}>
+          {group && <h2 className="day-label">{group} · {items.length}</h2>}
+          <ul className="watch-list">
+            {items.map((w) => (
+              <WatchCard
+                key={w.id}
+                w={w}
+                stores={storeInfo}
+                selecting={selecting}
+                selected={selected.has(w.id)}
+                onToggle={() => toggle(w.id)}
+              />
+            ))}
+          </ul>
         </section>
       ))}
+
+      {selecting && (
+        <div className="select-bar card">
+          {merging ? (
+            <MergeDialog watches={chosen} onCancel={() => setMerging(false)} />
+          ) : (
+            <MergeBar chosen={chosen} onMerge={() => setMerging(true)} />
+          )}
+        </div>
+      )}
     </>
   );
 }
 
-function WatchCard({ w, logo }) {
-  const p = w.product;
+// Por qué no se pueden juntar los elegidos (o null si se puede).
+function mergeProblem(chosen) {
+  if (chosen.length < 2) return "Elige al menos dos productos.";
+  const links = chosen.reduce((n, w) => n + w.items.length, 0);
+  if (links > MAX_ITEMS) return `Entre todos suman ${links} links; el máximo es ${MAX_ITEMS}.`;
+  if (new Set(chosen.map((w) => w.currency)).size > 1) return "Tienen monedas distintas.";
+  return null;
+}
+
+function MergeBar({ chosen, onMerge }) {
+  const problem = mergeProblem(chosen);
+  return (
+    <div className="row-between">
+      <span className="small">
+        {chosen.length === 0 ? "Ningún producto elegido" : `${chosen.length} elegido${chosen.length === 1 ? "" : "s"}`}
+        {chosen.length > 0 && problem && <span className="muted"> · {problem}</span>}
+      </span>
+      <button onClick={onMerge} disabled={problem !== null}>Juntar ({chosen.length})</button>
+    </div>
+  );
+}
+
+// Confirmación: cuál conserva nombre, reglas y canales (por defecto, el más antiguo).
+function MergeDialog({ watches, onCancel }) {
+  const navigate = useNavigate();
+  const oldest = [...watches].sort((a, b) => a.created_at.localeCompare(b.created_at))[0];
+  const [primary, setPrimary] = useState(oldest.id);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
+  const others = watches.filter((w) => w.id !== primary && w.rules.length > 0);
+
+  const merge = async () => {
+    setBusy(true);
+    setError("");
+    try {
+      const w = await api("/api/watches/merge", { method: "POST", body: { ids: watches.map((x) => x.id), primary } });
+      navigate(`/w/${w.id}`);
+    } catch (e) {
+      setError(e.message);
+      setBusy(false);
+    }
+  };
+
+  return (
+    <div className="merge-dialog">
+      <h2>Juntar {watches.length} productos</h2>
+      <p className="muted small">Se seguirán como uno solo y te avisaremos por el más barato con stock. ¿Cuál conserva su nombre, reglas y canales?</p>
+      <ul className="merge-options">
+        {watches.map((w) => (
+          <li key={w.id}>
+            <label className="check">
+              <input type="radio" name="primary" checked={primary === w.id} onChange={() => setPrimary(w.id)} />
+              <span>
+                {title(w)}
+                <span className="muted small"> · {w.rules.length} regla{w.rules.length === 1 ? "" : "s"} · {w.items.length} link{w.items.length === 1 ? "" : "s"}</span>
+              </span>
+            </label>
+          </li>
+        ))}
+      </ul>
+      {others.length > 0 && (
+        <p className="warn small">Se descartan las reglas de: {others.map(title).join(", ")}. Sus avisos pasados se conservan.</p>
+      )}
+      {error && <p className="error">{error}</p>}
+      <div className="actions">
+        <button onClick={merge} disabled={busy}>{busy ? "Juntando…" : "Juntar"}</button>
+        <button className="secondary" onClick={onCancel} disabled={busy}>Volver</button>
+      </div>
+    </div>
+  );
+}
+
+function WatchCard({ w, stores, selecting, selected, onToggle }) {
+  const first = w.items[0] ?? {};
+  const best = w.items.find((i) => i.best) ?? first;
+  const procs = processorsOf(w);
+  const multi = w.items.length > 1;
   const change = priceChange(w);
+  const checked = w.items.map((i) => i.last_checked_at).filter(Boolean).sort().at(-1);
+  const body = (
+    <>
+      {selecting && <input type="checkbox" className="card-check" checked={selected} onChange={onToggle} aria-label={`Elegir ${title(w)}`} />}
+      {best.image_url ? <img src={best.image_url} alt="" loading="lazy" /> : <div className="img-ph" />}
+      <div className="watch-main">
+        <div className="watch-title">{title(w)}</div>
+        {!multi && first.variant_label && <div className="small variant-label">{first.variant_label}</div>}
+        <div className="muted small store-line">
+          {procs.slice(0, 3).map((p) => <StoreLogo key={p} name={p} url={stores[p]?.logo_url} size={16} />)}
+          {procs.length === 1 ? label(procs[0]) : `${procs.length} tiendas`}
+          {multi && <span className="badge links-badge">{w.items.length} links</span>}
+          {" · "}revisado {relative(checked)}
+          {!w.active && " · pausado"}
+        </div>
+        {w.items.some((i) => i.status === "broken") && (
+          <div className="warn small">⚠ {multi ? "Un link no se ha podido leer" : "No se ha podido leer este producto"} últimamente.</div>
+        )}
+      </div>
+      <div className="watch-price">
+        <div className="price">{formatPrice(w.best?.price, w.currency)}</div>
+        {multi && w.best && <div className="muted small">en {label(w.best.processor)}</div>}
+        {w.best && !w.best.available && <div className="badge out">Sin stock</div>}
+        {change !== null && Math.abs(change) >= 0.5 && (
+          <div className={"small " + (change < 0 ? "down" : "up")}>
+            {change < 0 ? "▼" : "▲"} {Math.abs(change).toFixed(0)} %
+          </div>
+        )}
+      </div>
+    </>
+  );
+  const cls = "watch-card card" + (w.active ? "" : " paused") + (selected ? " selected" : "");
   return (
     <li>
-      <Link to={`/w/${w.id}`} className={"watch-card card" + (w.active ? "" : " paused")}>
-        {p.image_url ? <img src={p.image_url} alt="" loading="lazy" /> : <div className="img-ph" />}
-        <div className="watch-main">
-          <div className="watch-title">{p.title || p.url}</div>
-          {p.variant_label && <div className="small variant-label">{p.variant_label}</div>}
-          <div className="muted small store-line">
-            <StoreLogo name={p.processor} url={logo} size={16} />
-            {PROCESSOR_LABEL[p.processor] ?? p.processor} · revisado {relative(p.last_checked_at)}
-            {!w.active && " · pausado"}
-          </div>
-          {p.status === "broken" && <div className="warn small">⚠ No se ha podido leer este producto últimamente.</div>}
-        </div>
-        <div className="watch-price">
-          <div className="price">{formatPrice(p.current?.price, p.currency)}</div>
-          {p.current && !p.current.available && <div className="badge out">Sin stock</div>}
-          {change !== null && Math.abs(change) >= 0.5 && (
-            <div className={"small " + (change < 0 ? "down" : "up")}>
-              {change < 0 ? "▼" : "▲"} {Math.abs(change).toFixed(0)} %
-            </div>
-          )}
-        </div>
-      </Link>
+      {selecting ? (
+        <label className={cls}>{body}</label>
+      ) : (
+        <Link to={`/w/${w.id}`} className={cls}>{body}</Link>
+      )}
     </li>
   );
 }
