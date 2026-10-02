@@ -19,6 +19,7 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | La Fortaleza | Jumpseller |
 | Lider (supermercado) | Datos de Next.js de la ficha (plataforma de Walmart) |
 | Jumbo | API pública del catálogo de VTEX |
+| Santa Isabel | API pública del catálogo de VTEX |
 | PC Factory | API del catálogo que usa la página (precio por transferencia) |
 | Falabella | API de la plataforma Falabella, con selector de variantes (tallas, colores, medidas) |
 | Hites | JSON del controlador `Product-Variation` (Salesforce Commerce Cloud), con selector de color y talla |
