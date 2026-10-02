@@ -17,6 +17,8 @@ BAODA = f"{BASE}/{BAODA_SLUG}/"
 COPA_SLUG = "copa-menstrual-bentley-certificada-reutilizable-talla-a-eleccion-s-xs-l"
 COPA = f"{BASE}/{COPA_SLUG}/"
 VOGUE = f"{BASE}/vogue-base-liquida-fps-15-resist-30-ml/"
+AXE = f"{BASE}/axe-desodorante-aerosol-apollo-152-ml/"
+KOTEX = f"{BASE}/kotex-tampones-con-aplicador-medio-x-8-tampones-descuentos/"
 
 
 def parse(fixture, url):
@@ -93,7 +95,36 @@ def test_selector_de_variantes():
     for v in vs:
         assert v.external_id == BAODA_SLUG
         assert eco.normalize(v.url) == ProductRef(BAODA_SLUG, v.url, v.variant_id)
-        assert eco.variant_label(v.external_id, v.variant_id) == v.label.split(":")[0]
+    assert [v.variant_id for v in vs] == ["color=nino", "color=nina"]
+
+
+@pytest.mark.parametrize(
+    "query", ["attribute_color=NI%C3%91A", "attribute_color=nina", "attribute_COLOR=Ni%C3%B1a"]
+)
+def test_variant_id_igual_en_resolve_y_en_el_selector(query):
+    # Un link escrito a mano y el del selector (permalink) deben ser el mismo Product.
+    ref = eco.normalize(f"{BAODA}?{query}")
+    assert ref.variant_id == "color=nina"
+    vs = variants("variable_baoda.json", f"{BAODA}?{query}")
+    current = next(v for v in vs if v.selected)
+    assert current.variant_id == ref.variant_id
+    assert current.url == f"{BAODA}?attribute_color=NI%C3%91A"
+    assert [v.selected for v in vs] == [True, False]
+
+
+def test_seleccion_parcial_elige_la_primera_compatible():
+    data = json.loads(fixture_text("ecofarmacias", "variable_copa_agotada.json"))
+    for var in data["variations"]:
+        var["permalink"] += "&attribute_color=ROSA"
+    raw = json.dumps(data)
+    r = eco.parse(raw, eco.normalize(f"{COPA}?attribute_talla=S"))
+    assert r.price == 7950
+    vs = eco.parse_variants(raw, eco.normalize(f"{COPA}?attribute_talla=S"))
+    assert vs[0].selected and vs[0].variant_id == "color=rosa&talla=s"
+    with pytest.raises(NotFoundError):
+        eco.parse(raw, eco.normalize(f"{COPA}?attribute_talla=S&attribute_color=AZUL"))
+    with pytest.raises(NotFoundError):
+        eco.parse(raw, eco.normalize(f"{COPA}?attribute_sabor=menta"))
 
 
 def test_variaciones_con_precio_distinto_y_agotadas():
@@ -101,7 +132,7 @@ def test_variaciones_con_precio_distinto_y_agotadas():
     r = parse("variable_copa_agotada.json", url)
     assert (r.price, r.available) == (9800, False)
     vs = variants("variable_copa_agotada.json", url)
-    assert vs[0].selected and vs[0].url == url
+    assert vs[0].selected and vs[0].url == url and vs[0].variant_id == "talla=l"
     assert [v.label for v in vs] == [
         "L: $9.800 (agotada)",
         "S: $7.950 (agotada)",
@@ -139,6 +170,31 @@ def test_variable_sin_variaciones_es_error_de_lectura():
         eco.parse(json.dumps(data), eco.normalize(BAODA))
 
 
+def test_respuesta_con_otro_producto_es_error_de_lectura():
+    # Si algo borra `?slug=`, la API lista los últimos productos: no leer el de otro.
+    raw = fixture_text("ecofarmacias", "descuento_kotex.json")
+    with pytest.raises(FetchError):
+        eco.parse(raw, eco.normalize(ENSURE))
+
+
+@pytest.mark.parametrize(
+    ("fixture", "url", "field", "value"),
+    [
+        ("agotado_axe.json", AXE, "is_in_stock", None),
+        ("agotado_axe.json", AXE, "is_in_stock", "false"),
+        ("agotado_axe.json", AXE, "prices", None),
+        ("variable_baoda.json", BAODA, "is_in_stock", None),
+        ("variable_baoda.json", BAODA, "prices", []),
+    ],
+)
+def test_respuesta_incompleta_es_error_de_lectura(fixture, url, field, value):
+    data = json.loads(fixture_text("ecofarmacias", fixture))
+    for target in data["variations"] or data["products"]:
+        target[field] = value
+    with pytest.raises(FetchError):
+        eco.parse(json.dumps(data), eco.normalize(url))
+
+
 def test_no_existe():
     # La Store API responde [] (HTTP 200) para un slug inexistente.
     raw = json.dumps({"products": [], "variations": []})
@@ -162,7 +218,7 @@ def test_respuesta_que_no_es_json():
 def test_agotado_con_precio_0_no_es_anomalia():
     data = json.loads(fixture_text("ecofarmacias", "agotado_axe.json"))
     data["products"][0]["prices"]["price"] = "0"
-    r = eco.parse(json.dumps(data), eco.normalize(ENSURE))
+    r = eco.parse(json.dumps(data), eco.normalize(AXE))
     assert (r.price, r.available) == (None, False)
     reading = Reading(price=None, list_price=None, available=False)
     assert check_anomaly(reading, 2990, eco.anomaly_drop_pct, eco.sold_out_without_price) is None
@@ -172,7 +228,7 @@ def test_respeta_currency_minor_unit():
     data = json.loads(fixture_text("ecofarmacias", "descuento_kotex.json"))
     prices = data["products"][0]["prices"]
     prices.update(price="200000", regular_price="298000", currency_minor_unit=2)
-    r = eco.parse(json.dumps(data), eco.normalize(ENSURE))
+    r = eco.parse(json.dumps(data), eco.normalize(KOTEX))
     assert (r.price, r.list_price) == (2000, 2980)
 
 
@@ -195,22 +251,29 @@ def test_fetch_raw_junta_producto_y_variaciones(monkeypatch):
 
 
 @pytest.mark.parametrize(
-    ("url", "selection"),
+    ("url", "query"),
     [
         (ENSURE, ""),
         ("https://ecofarmacias.cl/producto/ensure-advance-chocolate-850-g", ""),
         ("http://www.ecofarmacias.cl/producto/Ensure-Advance-Chocolate-850-G/?utm_source=x#a", ""),
         (f"{ENSURE}?attribute_color=", ""),
-        (f"{ENSURE}?attribute_color=NI%C3%91A&utm_source=x", "color=NI%C3%91A"),
-        (f"{ENSURE}?attribute_talla=S&attribute_color=ROJO", "color=ROJO&talla=S"),
+        (f"{ENSURE}?attribute_color=NI%C3%91A&utm_source=x", "attribute_color=NI%C3%91A"),
+        (
+            f"{ENSURE}?attribute_talla=S&attribute_color=ROJO",
+            "attribute_color=ROJO&attribute_talla=S",
+        ),
     ],
 )
-def test_normaliza_url(url, selection):
+def test_normaliza_url(url, query):
     ref = eco.normalize(url)
     assert ref.external_id == "ensure-advance-chocolate-850-g"
-    assert ref.variant_id == selection
-    query = "&".join(f"attribute_{p}" for p in selection.split("&")) if selection else ""
     assert ref.canonical_url == ENSURE + (f"?{query}" if query else "")
+    variant = {
+        "": "",
+        "attribute_color=NI%C3%91A": "color=nina",
+        "attribute_color=ROJO&attribute_talla=S": "color=rojo&talla=s",
+    }
+    assert ref.variant_id == variant[query]
 
 
 def test_matchea_solo_fichas_de_su_dominio():

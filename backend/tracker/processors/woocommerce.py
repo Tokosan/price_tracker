@@ -9,9 +9,11 @@ Productos variables (`type: variable`): el padre solo trae el precio mínimo y u
 que puede quedar desactualizado (un padre "en stock" con todas sus variaciones agotadas),
 así que se piden también las variaciones (`?type=variation&include=<ids>`), cada una con
 su precio, stock y `permalink`. El permalink de una variación es la ficha con la selección
-en la query (`/producto/<slug>/?attribute_color=NI%C3%91A`), que la propia ficha entiende:
-esa selección va en `variant_id` (`color=NI%C3%91A`). Sin selección se sigue la primera
-variación, como en VTEX. `fetch_raw` junta ambas respuestas en un JSON
+en la query (`/producto/<slug>/?attribute_color=NI%C3%91A`), que la propia ficha entiende.
+La selección va en la URL tal cual y en `variant_id` normalizada (`color=nina`: sin
+mayúsculas ni tildes), para que un link copiado a mano y el del selector sean el mismo
+Product. Un link puede elegir solo algunos atributos: se sigue la primera variación
+compatible. Sin selección se sigue la primera variación, como en VTEX. `fetch_raw` junta ambas respuestas en un JSON
 `{"products": [...], "variations": [...]}`, que es lo que se guarda como fixture.
 
 Cada tienda define `name`, `label`, `host` (sin www), `canonical_host` y sus metadatos; si
@@ -20,6 +22,7 @@ sus fichas no viven en `/producto/`, también `product_base`.
 
 import html as htmllib
 import json
+import logging
 import re
 import unicodedata
 from datetime import timedelta
@@ -36,6 +39,8 @@ from tracker.processors.base import (
 )
 from tracker.processors.http import get_text
 from tracker.processors.util import to_minor
+
+log = logging.getLogger(__name__)
 
 # Máximo de variaciones que se piden (el `per_page` máximo de la Store API).
 _MAX_VARIATIONS = 100
@@ -71,16 +76,15 @@ class WooCommerceProcessor(Processor):
         if not m:
             raise ValueError(f"no es una URL de producto de {self.label}")
         slug = m.group(1).lower()
-        selection = ""
+        selection: dict[str, str] = {}
         if self.supports_variants:
-            selection = encode_selection(_query_selection(urlsplit(url.strip()).query))
-        return ProductRef(slug, self._url(slug, selection), selection)
+            selection = _query_selection(urlsplit(url.strip()).query)
+        return ProductRef(slug, self._url(slug, selection), variant_key(selection))
 
-    def _url(self, slug: str, selection: str = "") -> str:
+    def _url(self, slug: str, selection: dict[str, str] | None = None) -> str:
         url = f"https://{self.canonical_host}/{self.product_base}/{slug}/"
-        pairs = decode_selection(selection)
-        if pairs:
-            url += "?" + urlencode([(f"attribute_{k}", v) for k, v in pairs.items()])
+        if selection:
+            url += "?" + urlencode(sorted((f"attribute_{k}", v) for k, v in selection.items()))
         return url
 
     def domain(self) -> str:
@@ -96,7 +100,16 @@ class WooCommerceProcessor(Processor):
         variations: list = []
         product = _pick(products, ref) if products else None
         if product and product.get("type") == "variable":
-            ids = _variation_ids(product)[:_MAX_VARIATIONS]
+            ids = _variation_ids(product)
+            if len(ids) > _MAX_VARIATIONS:
+                log.warning(
+                    "%s: %s tiene %d variaciones; se leen las primeras %d",
+                    self.name,
+                    ref.external_id,
+                    len(ids),
+                    _MAX_VARIATIONS,
+                )
+                ids = ids[:_MAX_VARIATIONS]
             if ids:
                 params = {
                     "type": "variation",
@@ -113,7 +126,11 @@ class WooCommerceProcessor(Processor):
             # Un producto simple no tiene variaciones: un link con selección vieja no
             # puede leer otra cosa que el producto.
             raise NotFoundError(f"la variante {ref.variant_id} ya no existe")
-        prices = item.get("prices") or {}
+        prices = item.get("prices")
+        if not isinstance(prices, dict) or not isinstance(item.get("is_in_stock"), bool):
+            # Respuesta incompleta: es un error de lectura, no un agotado (si no,
+            # `sold_out_without_price` lo dejaría pasar y avisaría OUT_OF_STOCK).
+            raise FetchError("el producto de la Store API no trae prices o is_in_stock")
         currency = (prices.get("currency_code") or "CLP").upper()
         price = _amount(prices, "price", currency)
         regular = _amount(prices, "regular_price", currency)
@@ -140,7 +157,13 @@ class WooCommerceProcessor(Processor):
 
         Si el link no trae selección, la variación actual (la primera) se devuelve con la
         suya, para que al agregarla se siga esa y no la que la tienda liste primero más
-        adelante. Con una sola variación se devuelve sin selección (`variant_id` vacío).
+        adelante. La URL y el `variant_id` salen siempre del permalink de la variación, así
+        que son los mismos que da `normalize` sobre esa URL.
+
+        Con una sola variación se devuelve sin selección (`variant_id` vacío), como en VTEX.
+        Si el link traía selección, `/resolve` ya creó un Product con ella y el selector
+        ofrece el link limpio: ese Product queda sin seguir (no se lee) y el que se agrega es
+        el limpio. No se puede unificar en `normalize`, que no sabe cuántas variaciones hay.
         """
         if not self.supports_variants:
             return []
@@ -151,10 +174,12 @@ class WooCommerceProcessor(Processor):
         if len(variations) == 1:
             label = _label(current, product)
             return [Variant(self._url(ref.external_id), label, ref.external_id, "", True)]
+        current_key = variant_key(_variation_selection(current, product))
         out: list[Variant] = []
         for var in variations:
-            selection = encode_selection(_variation_selection(var, product))
-            if not selection:
+            selection = _variation_selection(var, product)
+            key = variant_key(selection)
+            if not key:
                 continue
             prices = var.get("prices") or {}
             price = _amount(prices, "price", (prices.get("currency_code") or "CLP").upper())
@@ -163,17 +188,9 @@ class WooCommerceProcessor(Processor):
                 label += f": ${price:,}".replace(",", ".")
             if not (var.get("is_in_stock") is True and var.get("is_purchasable") is not False):
                 label += " (agotada)"
-            is_current = var is current
-            url = (
-                ref.canonical_url
-                if is_current and ref.variant_id
-                else self._url(ref.external_id, selection)
-            )
-            out.append(Variant(url, label, ref.external_id, selection, is_current))
+            url = self._url(ref.external_id, selection)
+            out.append(Variant(url, label, ref.external_id, key, key == current_key))
         return sorted(out, key=lambda v: not v.selected)
-
-    def variant_label(self, external_id: str, variant_id: str) -> str:
-        return ", ".join(decode_selection(variant_id).values())
 
     def _load(self, raw: str, ref: ProductRef) -> tuple[dict, list[dict] | None]:
         """(producto, variaciones ordenadas como en el padre; None si no es variable)."""
@@ -222,9 +239,9 @@ def _pick(products: list, ref: ProductRef) -> dict:
     for p in products:
         if isinstance(p, dict) and unquote(str(p.get("slug") or "")).lower() == slug:
             return p
-    if isinstance(products[0], dict):
-        return products[0]
-    raise FetchError("respuesta inesperada de la Store API")
+    # Sin el producto pedido la respuesta no sirve: p. ej. un caché o WAF que borra
+    # `?slug=` y la API lista los últimos productos (se leería el precio de otro).
+    raise FetchError(f"la Store API no devolvió el producto {ref.external_id}")
 
 
 def _variation_ids(product: dict) -> list[str]:
@@ -254,9 +271,13 @@ def _slug(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
 
 
-def encode_selection(selection: dict[str, str]) -> str:
-    """{atributo: valor} → "atributo=valor&…" ordenado (forma estable para `variant_id`)."""
-    return urlencode(sorted(selection.items()), quote_via=quote)
+def variant_key(selection: dict[str, str]) -> str:
+    """{atributo: valor} → "atributo=valor&…" normalizado y ordenado (el `variant_id`).
+
+    "COLOR=NIÑA" y "color=nina" dan lo mismo ("color=nina"): la ficha no distingue.
+    """
+    pairs = {_slug(k): _slug(v) for k, v in selection.items()}
+    return urlencode(sorted((k, v) for k, v in pairs.items() if k and v), quote_via=quote)
 
 
 def decode_selection(variant_id: str) -> dict[str, str]:
@@ -288,17 +309,19 @@ def _variation_selection(var: dict, product: dict) -> dict[str, str]:
 
 
 def _select(variations: list[dict], ref: ProductRef, product: dict) -> dict:
-    """La variación de la selección del link, o la primera si no trae selección.
+    """La primera variación compatible con la selección del link (la primera si no trae).
 
-    Un atributo que la variación deja vacío ("cualquiera") no aparece en su permalink y
-    acepta cualquier valor en el link.
+    Compatible: coincide en todos los atributos que tienen ambos y comparte al menos uno.
+    Un link puede elegir solo algunos atributos, y un atributo que la variación deja vacío
+    ("cualquiera") no aparece en su permalink y acepta cualquier valor.
     """
     if not ref.variant_id:
         return variations[0]
-    wanted = {_slug(k): _slug(v) for k, v in decode_selection(ref.variant_id).items()}
+    wanted = decode_selection(ref.variant_id)
     for var in variations:
-        have = {_slug(k): _slug(v) for k, v in _variation_selection(var, product).items()}
-        if have and all(wanted.get(k) == v for k, v in have.items()):
+        have = dict(parse_qsl(variant_key(_variation_selection(var, product))))
+        common = wanted.keys() & have.keys()
+        if common and all(wanted[k] == have[k] for k in common):
             return var
     raise NotFoundError(f"la variante {ref.variant_id} ya no existe")
 
