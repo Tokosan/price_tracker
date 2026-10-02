@@ -399,3 +399,4 @@ label.watch-card { flex-direction: row; cursor: pointer; }
 .add-extra input { flex: 1; min-width: 0; }
 .mode-choice { margin: 1rem 0 0.5rem; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); display: flex; flex-direction: column; gap: 0.4rem; }
 .name-field { display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.35rem; max-width: 420px; }
+.save-status { margin: 0.25rem 0 0.75rem; min-height: 1.2rem; }

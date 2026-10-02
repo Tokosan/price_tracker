@@ -25,7 +25,8 @@ async function ensureCsrf() {
 }
 
 // `body` va como JSON; `file` (un Blob/File) va tal cual, con su tipo como Content-Type.
-export async function api(path, { method = "GET", body, file } = {}) {
+// `keepalive`: la petición sobrevive a cerrar o recargar la página (guardado al salir).
+export async function api(path, { method = "GET", body, file, keepalive = false } = {}) {
   const headers = {};
   if (method !== "GET") {
     await ensureCsrf();
@@ -37,6 +38,7 @@ export async function api(path, { method = "GET", body, file } = {}) {
     method,
     headers,
     credentials: "same-origin",
+    keepalive,
     body: file !== undefined ? file : body !== undefined ? JSON.stringify(body) : undefined,
   });
   if (resp.status === 204) return null;
