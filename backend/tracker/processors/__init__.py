@@ -20,6 +20,7 @@ from tracker.processors.lider import LiderProcessor
 from tracker.processors.mercadolibre import MercadoLibreProcessor
 from tracker.processors.pcfactory import PcFactoryProcessor
 from tracker.processors.santaisabel import SantaIsabelProcessor
+from tracker.processors.sodimac import SodimacProcessor
 from tracker.processors.solotodo import SolotodoProcessor
 from tracker.processors.steam import SteamProcessor
 
@@ -39,6 +40,7 @@ PROCESSORS: dict[str, Processor] = {
         FalabellaProcessor(),
         HitesProcessor(),
         SolotodoProcessor(),
+        SodimacProcessor(),
     )
 }
 
