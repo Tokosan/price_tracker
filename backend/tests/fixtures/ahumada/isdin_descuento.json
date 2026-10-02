@@ -1,0 +1,296 @@
+{"pdp": {"action": "Product-Show", "commune": "Santiago", "add_to_cart": "<button class=\"add-to-cart btn btn-primary\"\n            data-toggle=\"modal\" data-target=\"#chooseBonusProductModal\"\n            data-pid=\"92197\"\n            data-is-unavailable=\"false\"\n            >"}, "variation": {
+  "action": "Product-Variation",
+  "queryString": "pid=92197&quantity=1",
+  "locale": "default",
+  "product": {
+    "uuid": "bd74e458955fba89b7d2d0e991",
+    "id": "92197",
+    "productName": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL",
+    "productType": "standard",
+    "brand": "Isdin",
+    "farmaIsp": false,
+    "manufacturerName": "Sin Laboratorio Asignado",
+    "pickupInStoreOnly": {},
+    "price": {
+      "sales": {
+        "value": 13859,
+        "currency": "CLP",
+        "formatted": "$13.859",
+        "decimalPrice": "13859"
+      },
+      "list": {
+        "value": 23099,
+        "currency": "CLP",
+        "formatted": "$23.099",
+        "decimalPrice": "23099"
+      },
+      "hasFamiliaAhumadaPrice": false,
+      "familiaAhumadaPriceForCart": {},
+      "html": "    <div class=\"price\">\n        \n        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    <span class=\"d-block default-price\">\n        <span class=\"sales d-flex \">\n            \n            \n                \n                \n                \n                    <span class=\"value d-flex align-items-center\" content=\"13859\"></span>\n                \n                $13.859\n\n\n                <img\n                    class=\"promotion-badge\"\n                    src=\"\"\n                    alt=\"Loyalty Familia Ahumada\"\n                    onerror=\"this.style.display='none';\"\n                />\n            \n            \n                \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"promotion-badge-container flex-row align-items-center ml-0 \">\n    \n        \n        \n    \n</div>\n\n            \n            \n            \n            \n            \n        </span>\n    </span>\n\n    \n\n    \n        \n        <del class=\"text-decoration-none \">\n            <span class=\"strike-through list text-decoration-none\">\n                <span class=\"value\" content=\"23099\">\n                    <span class=\"sr-only\">\n                        Price reduced from\n                    </span>\n                    $23.099\n\n\n                    <span class=\"sr-only\">\n                        to\n                    </span>\n                </span>\n                <span class=\"ml-1 text-decoration-none price-internet\">\n                    Precio normal\n                </span>\n            </span>\n        </del>\n    \n</span>\n\n\n\n\n\n\n    </div>\n\n\n"
+    },
+    "renderedPrice": "    <div class=\"price\">\n        \n        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    <span class=\"d-block default-price\">\n        <span class=\"pricing line-item-total-price-amount \">\n            \n            \n                \n                \n                \n                    <span class=\"value d-flex align-items-center\" content=\"13859\"></span>\n                \n                $13.859\n\n\n\n            \n            \n                \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"promotion-badge-container flex-row align-items-center ml-0 \">\n    \n        \n        \n    \n</div>\n\n            \n            \n            \n            \n            \n        </span>\n    </span>\n\n    \n\n    \n        \n        <del class=\"text-decoration-none \">\n            <span class=\"strike-through list text-decoration-none\">\n                <span class=\"value\" content=\"23099\">\n                    <span class=\"sr-only\">\n                        Price reduced from\n                    </span>\n                    $23.099\n\n\n                    <span class=\"sr-only\">\n                        to\n                    </span>\n                </span>\n                <span class=\"ml-1 text-decoration-none price-internet\">\n                    Precio normal\n                </span>\n            </span>\n        </del>\n    \n</span>\n\n\n\n\n\n\n    </div>\n\n\n",
+    "images": {
+      "large": [
+        {
+          "index": "0",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwf1572469/images/products/92197/92197.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwf1572469/images/products/92197/92197.jpg?sw=1050&sh=1050&sm=fit"
+        },
+        {
+          "index": "1",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw4417d888/images/products/92197/92197_2.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw4417d888/images/products/92197/92197_2.jpg?sw=1050&sh=1050&sm=fit"
+        },
+        {
+          "index": "2",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw380fda35/images/products/92197/92197_3.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw380fda35/images/products/92197/92197_3.jpg?sw=1050&sh=1050&sm=fit"
+        },
+        {
+          "index": "3",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw053ca96c/images/products/92197/92197_4.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw053ca96c/images/products/92197/92197_4.jpg?sw=1050&sh=1050&sm=fit"
+        },
+        {
+          "index": "4",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw678b61da/images/products/92197/92197_5.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw678b61da/images/products/92197/92197_5.jpg?sw=1050&sh=1050&sm=fit"
+        }
+      ],
+      "small": [
+        {
+          "index": "0",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwf1572469/images/products/92197/92197.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwf1572469/images/products/92197/92197.jpg?sw=247&sh=247&sm=fit"
+        },
+        {
+          "index": "1",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw4417d888/images/products/92197/92197_2.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw4417d888/images/products/92197/92197_2.jpg?sw=247&sh=247&sm=fit"
+        },
+        {
+          "index": "2",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw380fda35/images/products/92197/92197_3.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw380fda35/images/products/92197/92197_3.jpg?sw=247&sh=247&sm=fit"
+        },
+        {
+          "index": "3",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw053ca96c/images/products/92197/92197_4.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw053ca96c/images/products/92197/92197_4.jpg?sw=247&sh=247&sm=fit"
+        },
+        {
+          "index": "4",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw678b61da/images/products/92197/92197_5.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw678b61da/images/products/92197/92197_5.jpg?sw=247&sh=247&sm=fit"
+        }
+      ],
+      "zoom": [
+        {
+          "index": "0",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwf1572469/images/products/92197/92197.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwf1572469/images/products/92197/92197.jpg?sw=1575&sh=1575&sm=fit"
+        },
+        {
+          "index": "1",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw4417d888/images/products/92197/92197_2.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw4417d888/images/products/92197/92197_2.jpg?sw=1575&sh=1575&sm=fit"
+        },
+        {
+          "index": "2",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw380fda35/images/products/92197/92197_3.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw380fda35/images/products/92197/92197_3.jpg?sw=1575&sh=1575&sm=fit"
+        },
+        {
+          "index": "3",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw053ca96c/images/products/92197/92197_4.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw053ca96c/images/products/92197/92197_4.jpg?sw=1575&sh=1575&sm=fit"
+        },
+        {
+          "index": "4",
+          "alt": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, , large",
+          "title": "Protector Solar Isdin Fusion Water Magic FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw678b61da/images/products/92197/92197_5.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw678b61da/images/products/92197/92197_5.jpg?sw=1575&sh=1575&sm=fit"
+        }
+      ]
+    },
+    "selectedQuantity": 1,
+    "minOrderQuantity": 1,
+    "maxOrderQuantity": 10,
+    "variationAttributes": null,
+    "longDescription": null,
+    "shortDescription": null,
+    "rating": 4.9,
+    "promotions": [
+      {
+        "calloutMsg": "",
+        "details": "",
+        "enabled": true,
+        "id": "Despacho Gratis Cyber",
+        "name": "Despacho Gratis sobre $39.990",
+        "promotionClass": "SHIPPING",
+        "rank": null
+      }
+    ],
+    "attributes": null,
+    "availability": {
+      "messages": [
+        "In Stock"
+      ],
+      "inStockDate": null,
+      "outOfStockCustomMessage": "Producto sin stock"
+    },
+    "available": true,
+    "options": [],
+    "quantities": [
+      {
+        "value": "1",
+        "selected": true,
+        "url": ""
+      },
+      {
+        "value": "2",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "3",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "4",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "5",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "6",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "7",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "8",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "9",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "10",
+        "selected": false,
+        "url": ""
+      }
+    ],
+    "selectedProductUrl": "/protector-solar-isdin-fusion-water-magic-fps-50-50-ml-92197.html?%2Fprotector-solar-isdin-fusion-water-magic-fps-50-50-ml-92197.html=undefined&quantity=1",
+    "readyToOrder": true,
+    "online": true,
+    "pageTitle": "Protector Solar Isdin Fusion Water Magic FPS 50 | Farmacias Ahumada",
+    "pageDescription": "El Protector Solar Isdin Fusion Water Magic FPS 50 previene quemaduras y fotoenvejecimiento, brindando una protección avanzada y antioxidante para tu piel.",
+    "pageKeywords": "bloqueador solar, protección UV, quemaduras de sol, alta protección, piel sensible al sol, playa, verano",
+    "pageMetaTags": [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "template": null,
+    "custom": {
+      "sellCondition": {},
+      "bioequivalent": false,
+      "activePrinciple": null,
+      "displayReceta": null,
+      "cmr": null,
+      "fonasa": null,
+      "badgeSchedule": [
+        {
+          "startDateTime": "10/04/2026 20:00:00",
+          "endDateTime": "10/08/2026 02:59:00",
+          "imagePath": "logo_cyber.png",
+          "priority": 0
+        }
+      ],
+      "promotionBadgeSchedule": {
+        "guestCustomer": [
+          {
+            "startDateTime": "09/28/2026 02:45:00",
+            "endDateTime": "10/05/2026 02:44:00",
+            "imagePath": null,
+            "text": "-40%",
+            "priority": 1,
+            "type": "static",
+            "precioOferta": "13859"
+          },
+          {
+            "startDateTime": "10/01/2026 02:45:00",
+            "endDateTime": "11/01/2026 02:44:00",
+            "imagePath": null,
+            "text": "Antes | Ahora",
+            "priority": 2,
+            "type": "pill",
+            "precioOferta": "15990"
+          }
+        ]
+      },
+      "ahumadaContigo3Unidad": null,
+      "fractionedPrice": "461.980 x Lt"
+    },
+    "tabDetails": "<br>\r\n<h3>Ingredientes:</h3>\r\n<p>Aqua (Water), Dibutyl Adipate, Propanediol, Ethylhexyl Salicylate, Ethylhexyl Triazone, Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine, Dimethicone, Butyl Methoxydibenzoylmethane, Phenylbenzimidazole Sulfonic Acid, Silica, Diisopropyl Sebacate, Arginine, Pentylene Glycol, Hydroxyacetophenone, Lauryl PEG/PPG-18/18 Methicone, VP/Eicosene Copolymer, Polysorbate 60, Dimethicone/Vinyl Dimethicone Crosspolymer, Glycerin, Caprylyl Glycol, Hydrated Silica, Tocopheryl Acetate, PEG-10 Dimethicone, Tetrasodium Glutamate Diacetate, Parfum (Fragrance), Sclerotium Gum, Sodium Hyaluronate, Porphyridium Cruentum Extract, Xanthan Gum, Citric Acid.</p>",
+    "tabDescription": "<br>\r\n<p><strong>Fusion Water MAGIC SPF 50</strong> es un <strong>fotoprotector facial</strong> de textura <strong>ultraligera</strong> y fase externa acuosa, enriquecido con <strong>ácido hialurónico</strong>, <strong>Mediterranean Alga Extract</strong> y <strong>vitamina E</strong>. Su <strong>SPF 50</strong> ofrece <strong>protección de amplio espectro</strong>, hidratación intensa y acción antioxidante, sin dejar residuos grasos ni irritar los ojos. Apto para todo tipo de piel, incluso sensibles y atópicas.</p>\r\n\r\n<h3>Beneficios clave</h3>\r\n<ul>\r\n  <li><strong>Alta protección UV SPF 50:</strong> Testada en laboratorio y condiciones reales de alta radiación.</li>\r\n  <li><strong>Textura ultraligera de absorción inmediata:</strong> Oil control y sin sensación grasa.</li>\r\n  <li><strong>Hidratación prolongada:</strong> Ácido hialurónico para retener la humedad hasta 24 horas.</li>\r\n  <li><strong>Acción antioxidante:</strong> Combatir radicales libres gracias a Mediterranean Alga Extract y vitamina E.</li>\r\n  <li><strong>No comedogénico y mineral oil free:</strong> Respeta la piel normal, grasa, sensible y atópica.</li>\r\n  <li><strong>Oftalmológicamente testado:</strong> No irrita la zona de los ojos.</li>\r\n</ul>\r\n\r\n<h3>Resultados tras 4 semanas¹</h3>\r\n<ul>\r\n  <li><strong>100 %:</strong> Textura ultraligera de absorción inmediata.</li>\r\n  <li><strong>93 %:</strong> No deja la piel grasa.</li>\r\n  <li><strong>97 %:</strong> No irrita los ojos².</li>\r\n  <li><strong>90 %:</strong> Sensación de piel más fresca.</li>\r\n</ul>\r\n<p><small>\r\n¹ Evaluación de la no comedogenicidad de Fusion Water Magic en 30 sujetos (18–45 años) con piel grasa durante 28 días en condiciones normales de uso. Datos en archivo, 2023.<br>\r\n² Evaluación de la eficacia de Fusion Water Magic en 30 sujetos (18–70 años) con todo tipo de piel durante 28 días en condiciones normales de uso. Datos en archivo, 2023.\r\n</small></p>\r\n<h3>Ingredientes destacados</h3>\r\n<ul>\r\n  <li><strong>Ácido hialurónico:</strong> Retención de humedad y elasticidad.</li>\r\n  <li><strong>Mediterranean Alga Extract:</strong> Refuerzo de la barrera cutánea y protección ambiental.</li>\r\n  <li><strong>Vitamina E:</strong> Antioxidante para prevenir el fotoenvejecimiento.</li>\r\n</ul>\r\n\r\n<h3>Modo de uso recomendado</h3>\r\n<ol>\r\n  <li>Agitar antes de usar.</li>\r\n  <li>Aplicar generosamente en rostro y cuello 15 minutos antes de la exposición solar.</li>\r\n  <li>Reaplicar cada 2 horas o tras nadar, sudar o secar con toalla.</li>\r\n</ol>\r\n\r\n<p><small>REG.I.S.P N° 558C-305. Válido por 3 años desde la fabricación.</small></p>\r\n<div id=\"contenidoIndexado\"></div> <script type=\"text/javascript\" src=\"https://orchestrator.omnitok.com/loader.js\" data-sku=\"92197\" data-lang=\"esCL\" data-brand=\"Isdin\"></script>",
+    "enableAtencionMedica": false,
+    "attributesHtml": "",
+    "promotionsHtml": "    \n        <div class=\"row collapsible-xl\">\n            <div class=\"col-12\">\n                <button class=\"title callout btn text-left btn-block\"\n                        aria-expanded=\"false\" aria-controls=\"collapsible-promotion-details-0\">\n                    \n                </button>\n            </div>\n            <div class=\"col-12 value content\" id=\"collapsible-promotion-details-0\">\n                \n            </div>\n        </div>\n        <hr>\n    \n\n\n",
+    "optionsHtml": ""
+  },
+  "isAjax": true,
+  "imageTextPrecio": "",
+  "productDisplayType": "N",
+  "ahumadaContigo3Unidad": null,
+  "suppressChronicVisuals": false,
+  "resources": {
+    "info_selectforstock": "Select Styles for Availability",
+    "assistiveSelectedText": "selected"
+  }
+}}

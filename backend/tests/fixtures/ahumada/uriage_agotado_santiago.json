@@ -1,0 +1,287 @@
+{"pdp": {"action": "Product-Show", "commune": "Santiago", "add_to_cart": "<button class=\"add-to-cart btn btn-primary\"\n            data-toggle=\"modal\" data-target=\"#chooseBonusProductModal\"\n            data-pid=\"88464\"\n            data-is-unavailable=\"true\"\n            disabled>"}, "variation": {
+  "action": "Product-Variation",
+  "queryString": "pid=88464&quantity=1",
+  "locale": "default",
+  "product": {
+    "uuid": "66e08b6a45b049601b6e8a3b70",
+    "id": "88464",
+    "productName": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL",
+    "productType": "standard",
+    "brand": "Uriage",
+    "farmaIsp": false,
+    "manufacturerName": "Sin Laboratorio Asignado",
+    "pickupInStoreOnly": {},
+    "price": {
+      "sales": {
+        "value": 14759,
+        "currency": "CLP",
+        "formatted": "$14.759",
+        "decimalPrice": "14759"
+      },
+      "list": {
+        "value": 24599,
+        "currency": "CLP",
+        "formatted": "$24.599",
+        "decimalPrice": "24599"
+      },
+      "hasFamiliaAhumadaPrice": false,
+      "familiaAhumadaPriceForCart": {},
+      "html": "    <div class=\"price\">\n        \n        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    <span class=\"d-block default-price\">\n        <span class=\"sales d-flex \">\n            \n            \n                \n                \n                \n                    <span class=\"value d-flex align-items-center\" content=\"14759\"></span>\n                \n                $14.759\n\n\n                <img\n                    class=\"promotion-badge\"\n                    src=\"\"\n                    alt=\"Loyalty Familia Ahumada\"\n                    onerror=\"this.style.display='none';\"\n                />\n            \n            \n                \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"promotion-badge-container flex-row align-items-center ml-0 \">\n    \n        \n        \n    \n</div>\n\n            \n            \n            \n            \n            \n        </span>\n    </span>\n\n    \n\n    \n        \n        <del class=\"text-decoration-none \">\n            <span class=\"strike-through list text-decoration-none\">\n                <span class=\"value\" content=\"24599\">\n                    <span class=\"sr-only\">\n                        Price reduced from\n                    </span>\n                    $24.599\n\n\n                    <span class=\"sr-only\">\n                        to\n                    </span>\n                </span>\n                <span class=\"ml-1 text-decoration-none price-internet\">\n                    Precio normal\n                </span>\n            </span>\n        </del>\n    \n</span>\n\n\n\n\n\n\n    </div>\n\n\n"
+    },
+    "renderedPrice": "    <div class=\"price\">\n        \n        \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    <span class=\"d-block default-price\">\n        <span class=\"pricing line-item-total-price-amount \">\n            \n            \n                \n                \n                \n                    <span class=\"value d-flex align-items-center\" content=\"14759\"></span>\n                \n                $14.759\n\n\n\n            \n            \n                \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"promotion-badge-container flex-row align-items-center ml-0 \">\n    \n        \n        \n    \n</div>\n\n            \n            \n            \n            \n            \n        </span>\n    </span>\n\n    \n\n    \n        \n        <del class=\"text-decoration-none \">\n            <span class=\"strike-through list text-decoration-none\">\n                <span class=\"value\" content=\"24599\">\n                    <span class=\"sr-only\">\n                        Price reduced from\n                    </span>\n                    $24.599\n\n\n                    <span class=\"sr-only\">\n                        to\n                    </span>\n                </span>\n                <span class=\"ml-1 text-decoration-none price-internet\">\n                    Precio normal\n                </span>\n            </span>\n        </del>\n    \n</span>\n\n\n\n\n\n\n    </div>\n\n\n",
+    "images": {
+      "large": [
+        {
+          "index": "0",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwb51152c0/images/products/88464/88464.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwb51152c0/images/products/88464/88464.jpg?sw=1050&sh=1050&sm=fit"
+        },
+        {
+          "index": "1",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw073565ad/images/products/88464/88464_2.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw073565ad/images/products/88464/88464_2.jpg?sw=1050&sh=1050&sm=fit"
+        },
+        {
+          "index": "2",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw5444883f/images/products/88464/88464_3.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw5444883f/images/products/88464/88464_3.jpg?sw=1050&sh=1050&sm=fit"
+        },
+        {
+          "index": "3",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw9883e2c3/images/products/88464/88464_4.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw9883e2c3/images/products/88464/88464_4.jpg?sw=1050&sh=1050&sm=fit"
+        },
+        {
+          "index": "4",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw73df6b91/images/products/88464/88464_5.jpg?sw=1050&sh=1050&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw73df6b91/images/products/88464/88464_5.jpg?sw=1050&sh=1050&sm=fit"
+        }
+      ],
+      "small": [
+        {
+          "index": "0",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwb51152c0/images/products/88464/88464.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwb51152c0/images/products/88464/88464.jpg?sw=247&sh=247&sm=fit"
+        },
+        {
+          "index": "1",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw073565ad/images/products/88464/88464_2.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw073565ad/images/products/88464/88464_2.jpg?sw=247&sh=247&sm=fit"
+        },
+        {
+          "index": "2",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw5444883f/images/products/88464/88464_3.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw5444883f/images/products/88464/88464_3.jpg?sw=247&sh=247&sm=fit"
+        },
+        {
+          "index": "3",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw9883e2c3/images/products/88464/88464_4.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw9883e2c3/images/products/88464/88464_4.jpg?sw=247&sh=247&sm=fit"
+        },
+        {
+          "index": "4",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw73df6b91/images/products/88464/88464_5.jpg?sw=247&sh=247&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw73df6b91/images/products/88464/88464_5.jpg?sw=247&sh=247&sm=fit"
+        }
+      ],
+      "zoom": [
+        {
+          "index": "0",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwb51152c0/images/products/88464/88464.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dwb51152c0/images/products/88464/88464.jpg?sw=1575&sh=1575&sm=fit"
+        },
+        {
+          "index": "1",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw073565ad/images/products/88464/88464_2.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw073565ad/images/products/88464/88464_2.jpg?sw=1575&sh=1575&sm=fit"
+        },
+        {
+          "index": "2",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw5444883f/images/products/88464/88464_3.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw5444883f/images/products/88464/88464_3.jpg?sw=1575&sh=1575&sm=fit"
+        },
+        {
+          "index": "3",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw9883e2c3/images/products/88464/88464_4.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw9883e2c3/images/products/88464/88464_4.jpg?sw=1575&sh=1575&sm=fit"
+        },
+        {
+          "index": "4",
+          "alt": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, , large",
+          "title": "Protector Solar Uriage Bariesun 100 FPS 50 50 mL, ",
+          "url": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw73df6b91/images/products/88464/88464_5.jpg?sw=1575&sh=1575&sm=fit",
+          "absURL": "https://www.farmaciasahumada.cl/dw/image/v2/BJVH_PRD/on/demandware.static/-/Sites-ahumada-master-catalog/default/dw73df6b91/images/products/88464/88464_5.jpg?sw=1575&sh=1575&sm=fit"
+        }
+      ]
+    },
+    "selectedQuantity": 1,
+    "minOrderQuantity": 1,
+    "maxOrderQuantity": 10,
+    "variationAttributes": null,
+    "longDescription": null,
+    "shortDescription": null,
+    "rating": 3.1,
+    "promotions": [
+      {
+        "calloutMsg": "",
+        "details": "",
+        "enabled": true,
+        "id": "Despacho Gratis Cyber",
+        "name": "Despacho Gratis sobre $39.990",
+        "promotionClass": "SHIPPING",
+        "rank": null
+      }
+    ],
+    "attributes": null,
+    "availability": {
+      "messages": [
+        "In Stock"
+      ],
+      "inStockDate": null,
+      "outOfStockCustomMessage": "Producto sin stock"
+    },
+    "available": true,
+    "options": [],
+    "quantities": [
+      {
+        "value": "1",
+        "selected": true,
+        "url": ""
+      },
+      {
+        "value": "2",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "3",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "4",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "5",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "6",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "7",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "8",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "9",
+        "selected": false,
+        "url": ""
+      },
+      {
+        "value": "10",
+        "selected": false,
+        "url": ""
+      }
+    ],
+    "selectedProductUrl": "/protector-solar-uriage-bariesun-100-fps-50-50-ml-88464.html?%2Fprotector-solar-uriage-bariesun-100-fps-50-50-ml-88464.html=undefined&quantity=1",
+    "readyToOrder": true,
+    "online": true,
+    "pageTitle": "Protector solar Uriage Bariesun 100 FPS 50ml",
+    "pageDescription": "Protege tu piel con Uriage Bariesun 100 FPS. Ideal para prevenir daños solares. Compra ahora y mantén tu piel saludable.",
+    "pageKeywords": "bloqueador solar, protección UV, quemaduras de sol, alta protección, piel sensible al sol, playa, verano",
+    "pageMetaTags": [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "template": null,
+    "custom": {
+      "sellCondition": {},
+      "bioequivalent": false,
+      "activePrinciple": null,
+      "displayReceta": null,
+      "cmr": null,
+      "fonasa": null,
+      "badgeSchedule": [
+        {
+          "startDateTime": "10/04/2026 20:00:00",
+          "endDateTime": "10/08/2026 02:59:00",
+          "imagePath": "logo_cyber.png",
+          "priority": 0
+        }
+      ],
+      "promotionBadgeSchedule": {
+        "guestCustomer": [
+          {
+            "startDateTime": "09/28/2026 02:45:00",
+            "endDateTime": "10/05/2026 02:44:00",
+            "imagePath": null,
+            "text": "-40%",
+            "priority": 1,
+            "type": "static",
+            "precioOferta": "14759"
+          }
+        ]
+      },
+      "ahumadaContigo3Unidad": null,
+      "fractionedPrice": "491.980 x Lt"
+    },
+    "tabDetails": null,
+    "tabDescription": "<br>\r\n<p>\r\nEl <strong>Protector Solar Uriage Bariésun 100 Fluid SPF50+ 50ml</strong> ofrece una protección solar ultra alta gracias a su exclusiva fórmula con filtros dermatológicos avanzados y Agua Termal de Uriage. Su textura fluida y ligera garantiza una aplicación agradable y una rápida absorción sin residuos blancos. Ideal para pieles sensibles, reactivas o muy claras, protege eficazmente del daño solar, previene el envejecimiento cutáneo y mantiene la piel confortable durante todo el día.\r\n</p>\r\n\r\n<h2>Activos principales</h2>\r\n<ul>\r\n  <li><strong>Filtros UV de última generación:</strong> brindan protección reforzada contra los rayos UVA y UVB.</li>\r\n  <li><strong>Escudo antioxidante (Vitaminas C y E):</strong> previene el daño celular y el envejecimiento prematuro.</li>\r\n  <li><strong>Agua Termal de Uriage:</strong> calma, hidrata y fortalece la barrera cutánea.</li>\r\n  <li><strong>Ácido hialurónico:</strong> ayuda a mantener la piel hidratada y confortable bajo el sol.</li>\r\n</ul>\r\n\r\n<h2>Beneficios clave</h2>\r\n<ul>\r\n  <li><strong>Protección muy alta SPF50+</strong> contra rayos UVA y UVB, ideal para pieles claras o fotosensibles.</li>\r\n  <li><strong>Textura ultra fluida</strong> que se absorbe al instante sin dejar residuos grasos ni efecto blanco.</li>\r\n  <li><strong>Hipoalergénico y no comedogénico</strong>, apto para todo tipo de piel, incluso sensible.</li>\r\n  <li><strong>Resistente al agua</strong>, ideal para actividades al aire libre y exposición prolongada al sol.</li>\r\n  <li><strong>Protege contra el estrés oxidativo</strong> y refuerza la barrera cutánea gracias a su acción antioxidante.</li>\r\n</ul>\r\n\r\n<h2>Modo de uso</h2>\r\n<ol>\r\n  <li>Agita bien el envase antes de cada uso.</li>\r\n  <li>Aplica una cantidad generosa sobre la piel limpia y seca, 15 minutos antes de la exposición solar.</li>\r\n  <li>Extiende uniformemente en rostro, cuello y zonas expuestas.</li>\r\n  <li>Reaplica cada 2 horas, especialmente después de nadar, sudar o secarte con una toalla.</li>\r\n  <li>Evita el contacto con los ojos. En caso de contacto, enjuaga con abundante agua.</li>\r\n</ol>\r\n\r\n<h2>Preguntas frecuentes</h2>\r\n<p><strong>¿Es adecuado para piel grasa?</strong><br>\r\nSí, su fórmula fluida y no comedogénica está diseñada para pieles mixtas a grasas, dejando un acabado seco sin brillos.</p>\r\n\r\n<p><strong>¿Deja residuos blancos?</strong><br>\r\nNo, su textura ultraligera se absorbe rápidamente sin dejar marcas blancas en la piel.</p>\r\n\r\n<p><strong>¿Puede usarse con maquillaje?</strong><br>\r\nSí, funciona perfectamente como base diaria bajo el maquillaje gracias a su acabado invisible y seco.</p>\r\n\r\n<p><strong>¿Es seguro para piel sensible o con rosácea?</strong><br>\r\nSí, está dermatológicamente probado y enriquecido con Agua Termal de Uriage, lo que lo hace ideal para pieles sensibles o reactivas.</p>",
+    "enableAtencionMedica": false,
+    "attributesHtml": "",
+    "promotionsHtml": "    \n        <div class=\"row collapsible-xl\">\n            <div class=\"col-12\">\n                <button class=\"title callout btn text-left btn-block\"\n                        aria-expanded=\"false\" aria-controls=\"collapsible-promotion-details-0\">\n                    \n                </button>\n            </div>\n            <div class=\"col-12 value content\" id=\"collapsible-promotion-details-0\">\n                \n            </div>\n        </div>\n        <hr>\n    \n\n\n",
+    "optionsHtml": ""
+  },
+  "isAjax": true,
+  "imageTextPrecio": "",
+  "productDisplayType": "N",
+  "ahumadaContigo3Unidad": null,
+  "suppressChronicVisuals": false,
+  "resources": {
+    "info_selectforstock": "Select Styles for Availability",
+    "assistiveSelectedText": "selected"
+  }
+}}

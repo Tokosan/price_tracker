@@ -18,8 +18,9 @@ cuando el slug no existe, y solo acepta un producto con ese RefId.
 
 import json
 import re
+import unicodedata
 from datetime import timedelta
-from urllib.parse import parse_qs, urlsplit
+from urllib.parse import parse_qs, quote, unquote, urlsplit
 
 from tracker.processors.base import (
     FetchError,
@@ -49,16 +50,28 @@ class VtexProcessor(Processor):
 
     def __init__(self) -> None:
         bare = self.host.removeprefix("www.")
-        # Ficha: /<slug>/p. Categorías (/despensa/conservas) y búsquedas no matchean.
-        self._url_re = re.compile(
-            rf"^https?://(?:www\.)?{re.escape(bare)}/([a-z0-9-]+)/p/?(?:[?#].*)?$", re.I
-        )
+        self._hosts = {bare, f"www.{bare}"}
+
+    def _match(self, url: str) -> re.Match | None:
+        """Ficha: /<slug>/p. Categorías (/despensa/conservas) y búsquedas no matchean.
+
+        El host se compara tal cual; solo el path se decodifica (y se normaliza a NFC), para
+        aceptar slugs con letras latinas acentuadas o ñ (`panadol-para-niños-…`), literales
+        o codificadas.
+        """
+        try:
+            parts = urlsplit(url.strip())
+        except ValueError:
+            return None
+        if parts.scheme.lower() not in ("http", "https") or parts.hostname not in self._hosts:
+            return None
+        return _PATH_RE.fullmatch(unicodedata.normalize("NFC", unquote(parts.path)))
 
     def matches(self, url: str) -> bool:
-        return bool(self._url_re.match(url.strip()))
+        return bool(self._match(url))
 
     def normalize(self, url: str) -> ProductRef:
-        m = self._url_re.match(url.strip())
+        m = self._match(url)
         if not m:
             raise ValueError(f"no es una URL de producto de {self.label}")
         slug = m.group(1).lower()
@@ -69,13 +82,13 @@ class VtexProcessor(Processor):
         return ProductRef(slug, self._url(slug, sku), sku)
 
     def _url(self, slug: str, sku: str = "") -> str:
-        return f"https://{self.host}/{slug}/p" + (f"?skuId={sku}" if sku else "")
+        return f"https://{self.host}/{quote(slug)}/p" + (f"?skuId={sku}" if sku else "")
 
     def domain(self) -> str:
         return f"{self.account}.vtexcommercestable.com.br"
 
     def search_url(self, slug: str) -> str:
-        return f"https://{self.domain()}/api/catalog_system/pub/products/search/{slug}/p"
+        return f"https://{self.domain()}/api/catalog_system/pub/products/search/{quote(slug)}/p"
 
     def refid_url(self, refid: str) -> str:
         return (
@@ -118,6 +131,12 @@ class VtexProcessor(Processor):
             # queda price=None, que el checker trata como anomalía.
             price = None
         listed = to_minor(offer.get("ListPrice"), "CLP")
+        if not (listed and price is not None and listed > price):
+            # Suposición, sin un caso real observado: una promoción del catálogo bajaría
+            # `Price` y dejaría el precio previo en `PriceWithoutDiscount` en una tienda que
+            # no usa `ListPrice` (Dr. Simi). En los productos VTEX revisados (Jumbo, Santa
+            # Isabel, Easy, Dr. Simi) nunca se activa: vale lo mismo que `ListPrice`.
+            listed = to_minor(offer.get("PriceWithoutDiscount"), "CLP")
         images = item.get("images") or []
         title = (product.get("productName") or "").strip()
         if self.supports_variants and len(product.get("items") or []) > 1:
@@ -189,6 +208,9 @@ class VtexProcessor(Processor):
             out.append(Variant(url, label, ref.external_id, vid, vid == current))
         return sorted(out, key=lambda v: not v.selected)
 
+
+# Path de una ficha: slug de letras latinas (con tildes y ñ), dígitos y guiones.
+_PATH_RE = re.compile(r"/((?:[a-z0-9à-öø-ÿ]|-)+)/p/?", re.I)
 
 # Sufijo numérico del slug (`…-1871480`), que en Cencosud es el RefId del producto. Cinco
 # dígitos o más: los sufijos cortos (`…-500grs-2`) no son RefId.
