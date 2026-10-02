@@ -13,7 +13,16 @@ from tracker.checker import (
     record_failure,
 )
 from tracker.db import utcnow
-from tracker.models import AlertRule, Anomaly, Notification, PricePoint, Product, User, Watch
+from tracker.models import (
+    AlertRule,
+    Anomaly,
+    Notification,
+    PricePoint,
+    Product,
+    User,
+    Watch,
+    WatchItem,
+)
 from tracker.processors import ScrapeResult
 
 URLS = {
@@ -41,7 +50,13 @@ def setup_watch(session, rules_spec, price_at_start=10000, processor="steam"):
             checked_at=utcnow() - timedelta(days=1),
         )
     )
-    watch = Watch(user_id=user.id, product_id=product.id, price_at_start=price_at_start)
+    watch = Watch(
+        user_id=user.id,
+        price_at_start=price_at_start,
+        last_price=price_at_start,
+        last_available=True,
+        items=[WatchItem(product_id=product.id, user_id=user.id)],
+    )
     session.add(watch)
     session.flush()
     for kind, params, state in rules_spec:
@@ -153,9 +168,10 @@ async def test_el_antes_del_aviso_es_la_lectura_anterior_no_el_precio_normal(ses
 
 
 def test_mensaje_muestra_antes_y_precio_normal_por_separado():
-    product = Product(title="Frosthaven", canonical_url="https://x/1")
+    product = Product(title="Frosthaven", canonical_url="https://x/1", currency="CLP")
     fired = [rules.Fired("PRICE_CHANGE", "El precio varió +0.5 %", {"from": 248803})]
-    text = build_message(product, result(249966, list_price=249990), fired, False, 248803)
+    reading = rules.Reading(249966, 249990, True)
+    text = build_message("Frosthaven", product, reading, fired, False, 248803)
     lines = text.split("\n")
     assert lines[1] == "$249.966 (antes $248.803)"
     assert lines[2] == "Precio normal $249.990"
@@ -164,8 +180,8 @@ def test_mensaje_muestra_antes_y_precio_normal_por_separado():
 
 
 def test_mensaje_conserva_el_desde_del_ultimo_aviso():
-    product = Product(title="Juego", canonical_url="https://x/1")
+    product = Product(title="Juego", canonical_url="https://x/1", currency="CLP")
     fired = [rules.Fired("PRICE_DROP", "Bajó 20 %", {"from": 10000})]
-    text = build_message(product, result(8000), fired, False, 9000)
+    text = build_message("Juego", product, rules.Reading(8000, None, True), fired, False, 9000)
     assert "$8.000 (antes $9.000)" in text
     assert "• Bajó 20 % (desde $10.000)" in text

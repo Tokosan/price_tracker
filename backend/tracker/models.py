@@ -122,7 +122,7 @@ class Product(Base):
         cascade="all, delete-orphan",
         passive_deletes=True,
     )
-    watches: Mapped[list["Watch"]] = relationship(
+    watch_items: Mapped[list["WatchItem"]] = relationship(
         back_populates="product", cascade="all, delete-orphan", passive_deletes=True
     )
 
@@ -157,23 +157,60 @@ class Anomaly(Base):
 
 
 class Watch(Base):
+    """Lo que sigue un usuario: uno o más links (`WatchItem`) de "la misma cosa".
+
+    Las reglas se evalúan sobre la lectura del grupo (la del item más barato con
+    stock, ver `tracker/groups.py`). La mayoría de los Watches tiene un solo item.
+    """
+
     __tablename__ = "watches"
 
     id: Mapped[int] = mapped_column(primary_key=True)
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), index=True)
-    product_id: Mapped[int] = mapped_column(
-        ForeignKey("products.id", ondelete="CASCADE"), index=True
-    )
+    # Nombre puesto por el usuario; nulo = título del primer item.
+    name: Mapped[str | None] = mapped_column(String(200))
     active: Mapped[bool] = mapped_column(Boolean, default=True)
+    # Mejor precio del grupo al empezar (base de DISCOUNT_PCT `watch_start`).
     price_at_start: Mapped[int | None] = mapped_column(Integer)
+    # Última lectura del grupo evaluada: es el "antes" de los avisos.
+    last_price: Mapped[int | None] = mapped_column(Integer)
+    last_available: Mapped[bool | None] = mapped_column(Boolean)
+    last_best_product_id: Mapped[int | None] = mapped_column(Integer)
+    # Items que contaron en esa lectura: si el conjunto cambia (uno quedó broken, se
+    # recuperó o dejó de leerse), las reglas se recalibran sin avisar.
+    counted_product_ids: Mapped[list[Any] | None] = mapped_column(JSON)
     created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow)
 
     user: Mapped[User] = relationship(back_populates="watches")
-    product: Mapped[Product] = relationship(back_populates="watches")
+    items: Mapped[list["WatchItem"]] = relationship(
+        back_populates="watch",
+        cascade="all, delete-orphan",
+        order_by="WatchItem.id",
+        passive_deletes=True,
+    )
     rules: Mapped[list["AlertRule"]] = relationship(
         back_populates="watch", cascade="all, delete-orphan", order_by="AlertRule.id"
     )
     channel_overrides: Mapped[list["WatchChannel"]] = relationship(cascade="all, delete-orphan")
+
+
+class WatchItem(Base):
+    """Un link (producto) dentro de un Watch. Un producto va en un solo Watch por usuario."""
+
+    __tablename__ = "watch_items"
+    __table_args__ = (UniqueConstraint("user_id", "product_id"),)
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    watch_id: Mapped[int] = mapped_column(ForeignKey("watches.id", ondelete="CASCADE"), index=True)
+    product_id: Mapped[int] = mapped_column(
+        ForeignKey("products.id", ondelete="CASCADE"), index=True
+    )
+    # Copia de watches.user_id para poder exigir la unicidad por usuario.
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"))
+    added_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow)
+
+    watch: Mapped[Watch] = relationship(back_populates="items")
+    product: Mapped[Product] = relationship(back_populates="watch_items")
 
 
 class WatchChannel(Base):

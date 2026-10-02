@@ -9,13 +9,13 @@ from contextlib import asynccontextmanager
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 
-from sqlalchemy import func, select
+from sqlalchemy import select
 from sqlalchemy.orm import Session as DbSession
 
-from tracker import rules
+from tracker import groups, rules
 from tracker.config import settings
 from tracker.db import SessionLocal, utcnow
-from tracker.models import Anomaly, Notification, PricePoint, Product, User, Watch
+from tracker.models import Anomaly, Notification, PricePoint, Product, User, Watch, WatchItem
 from tracker.money import format_price
 from tracker.notifications.notifier import channels_for_watch, esc, notify_admins, send_to_channels
 from tracker.processors import FetchError, ProductRef, ScrapeResult, get_processor
@@ -179,46 +179,16 @@ async def apply_result(
     if was_broken:
         log.info("producto %s se recuperó", product.id)
 
-    historic_min = _is_historic_min(db, product.id, result.price, now)
     pending: list[tuple[Notification, Watch, str]] = []
     watches = db.scalars(
         select(Watch)
+        .join(WatchItem, WatchItem.watch_id == Watch.id)
         .join(User, User.id == Watch.user_id)
-        .where(Watch.product_id == product.id, Watch.active.is_(True), User.active.is_(True))
+        .where(WatchItem.product_id == product.id, Watch.active.is_(True), User.active.is_(True))
     ).all()
     for watch in watches:
-        if watch.price_at_start is None:
-            watch.price_at_start = result.price
-        fired: list[rules.Fired] = []
-        for rule in watch.rules:
-            if not rule.enabled:
-                continue
-            hit, new_state = rules.evaluate(
-                rule.kind, rule.params, rule.state, reading, price_at_start=watch.price_at_start
-            )
-            rule.state = new_state
-            if hit:
-                fired.append(hit)
-        if fired:
-            text = build_message(product, result, fired, historic_min, previous)
-            notif = Notification(
-                watch_id=watch.id,
-                payload={
-                    "title": product.title,
-                    "url": product.canonical_url,
-                    "price": result.price,
-                    "list_price": result.list_price,
-                    # Precio de la lectura anterior: es el "antes" del aviso (list_price es
-                    # el precio normal de la tienda, no el anterior).
-                    "previous_price": previous,
-                    "currency": result.currency,
-                    "available": result.available,
-                    "historic_min": historic_min,
-                    "fired": [{"kind": f.kind, "message": f.message, **f.data} for f in fired],
-                },
-                sent_at=now,
-                delivery={},
-            )
+        notif, text = evaluate_watch(db, watch, now)
+        if notif is not None:
             db.add(notif)
             pending.append((notif, watch, text))
     db.commit()
@@ -236,36 +206,112 @@ async def apply_result(
     )
 
 
-def _is_historic_min(db: DbSession, product_id: int, price: int | None, now: datetime) -> bool:
-    if price is None:
-        return False
-    prior_min, prior_count = db.execute(
-        select(func.min(PricePoint.price), func.count(PricePoint.id)).where(
-            PricePoint.product_id == product_id,
-            PricePoint.price.is_not(None),
-            PricePoint.checked_at < now,
+def evaluate_watch(db: DbSession, watch: Watch, now: datetime) -> tuple[Notification | None, str]:
+    """Evalúa las reglas de un Watch contra la lectura de su grupo.
+
+    Se llama cada vez que cualquiera de sus items recibe una lectura válida. Devuelve
+    la notificación consolidada (sin agregarla a la sesión) y su texto, o (None, "").
+    """
+    states = groups.item_states(db, watch, now)
+    counted = groups.counted_ids(states)
+    previous_counted = watch.counted_product_ids
+    if previous_counted and set(previous_counted) != set(counted):
+        # Un item dejó de contar (broken, sin lecturas) o volvió: el cambio de la lectura
+        # del grupo es un efecto de eso, no del precio. Nunca se avisa por un error.
+        groups.recalibrate(db, watch, now)
+        return None, ""
+    best = groups.best_item(states)
+    reading = groups.reading_of(best)
+    if reading is None or best is None:
+        watch.counted_product_ids = counted
+        return None, ""
+    if watch.price_at_start is None:
+        watch.price_at_start = reading.price
+    previous_price, previous_best = watch.last_price, watch.last_best_product_id
+    fired: list[rules.Fired] = []
+    for rule in watch.rules:
+        if not rule.enabled:
+            continue
+        hit, new_state = rules.evaluate(
+            rule.kind, rule.params, rule.state, reading, price_at_start=watch.price_at_start
         )
-    ).one()
-    return bool(prior_count) and price < prior_min
+        rule.state = new_state
+        if hit:
+            fired.append(hit)
+    groups.remember(watch, reading, best, counted)
+    if not fired:
+        return None, ""
+
+    winner = best.product
+    multi = len(watch.items) > 1
+    prior_min = groups.group_min_price(db, watch, before=now)
+    historic_min = reading.price is not None and prior_min is not None and reading.price < prior_min
+    previous_store = None
+    if multi and previous_best is not None and previous_best != winner.id:
+        prev = db.get(Product, previous_best)
+        previous_store = get_processor(prev.processor).label if prev else None
+    title = groups.display_name(watch)
+    text = build_message(
+        title,
+        winner,
+        reading,
+        fired,
+        historic_min,
+        previous_price,
+        store=get_processor(winner.processor).label if multi else None,
+        previous_store=previous_store,
+    )
+    notif = Notification(
+        watch_id=watch.id,
+        payload={
+            "title": title,
+            "url": winner.canonical_url,
+            "product_id": winner.id,
+            "processor": winner.processor,
+            "item_title": winner.title,
+            "price": reading.price,
+            "list_price": reading.list_price,
+            # Lectura anterior del grupo: es el "antes" del aviso (list_price es el
+            # precio normal de la tienda, no el anterior).
+            "previous_price": previous_price,
+            "currency": winner.currency,
+            "available": reading.available,
+            "historic_min": historic_min,
+            "fired": [{"kind": f.kind, "message": f.message, **f.data} for f in fired],
+        },
+        sent_at=now,
+        delivery={},
+    )
+    return notif, text
 
 
 def build_message(
+    title: str,
     product: Product,
-    result: ScrapeResult,
+    reading: rules.Reading,
     fired: list[rules.Fired],
     historic_min: bool,
     previous_price: int | None = None,
+    *,
+    store: str | None = None,
+    previous_store: str | None = None,
 ) -> str:
-    cur = result.currency
-    lines = [f"<b>{esc(product.title)}</b>"]
-    price_line = format_price(result.price, cur)
-    if previous_price is not None and result.price is not None and previous_price != result.price:
-        price_line += f" (antes {format_price(previous_price, cur)})"
-    if not result.available:
+    """Texto del aviso. `store` solo va en Watches con varios links (dónde está el precio)."""
+    cur = product.currency
+    lines = [f"<b>{esc(title)}</b>"]
+    price_line = format_price(reading.price, cur)
+    if store:
+        price_line += f" en {esc(store)}"
+    if previous_price is not None and reading.price is not None and previous_price != reading.price:
+        before = format_price(previous_price, cur)
+        if previous_store:
+            before += f" en {esc(previous_store)}"
+        price_line += f" (antes {before})"
+    if not reading.available:
         price_line += " · sin stock"
     lines.append(price_line)
-    if result.list_price and result.price is not None and result.list_price > result.price:
-        lines.append(f"Precio normal {format_price(result.list_price, cur)}")
+    if reading.list_price and reading.price is not None and reading.list_price > reading.price:
+        lines.append(f"Precio normal {format_price(reading.list_price, cur)}")
     for f in fired:
         extra = ""
         if "target" in f.data:

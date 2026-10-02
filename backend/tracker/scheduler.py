@@ -8,7 +8,7 @@ from sqlalchemy import select
 
 from tracker.checker import check_product, is_in_flight
 from tracker.db import SessionLocal, utcnow
-from tracker.models import Product, User, Watch
+from tracker.models import Product, User, Watch, WatchItem
 
 log = logging.getLogger("tracker.scheduler")
 
@@ -20,7 +20,8 @@ def due_product_ids(limit: int = 50) -> list[int]:
     """Productos con al menos un Watch activo (de un usuario activo) y revisión vencida."""
     with SessionLocal() as db:
         active = (
-            select(Watch.product_id)
+            select(WatchItem.product_id)
+            .join(Watch, Watch.id == WatchItem.watch_id)
             .join(User, User.id == Watch.user_id)
             .where(Watch.active.is_(True), User.active.is_(True))
         )

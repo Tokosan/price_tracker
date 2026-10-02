@@ -14,7 +14,7 @@ import sys
 from sqlalchemy import select
 
 from tracker.db import SessionLocal
-from tracker.models import Product, User, Watch
+from tracker.models import Product, User, WatchItem
 from tracker.security import create_invite
 
 
@@ -73,7 +73,7 @@ def main() -> None:
             print(f"usuario {args.username} borrado")
             if args.purge_orphan_products:
                 orphans = db.scalars(
-                    select(Product).where(~Product.id.in_(select(Watch.product_id)))
+                    select(Product).where(~Product.id.in_(select(WatchItem.product_id)))
                 ).all()
                 for product in orphans:
                     db.delete(product)

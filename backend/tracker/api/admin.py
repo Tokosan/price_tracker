@@ -17,7 +17,7 @@ from sqlalchemy.orm import Session as DbSession
 
 from tracker import logos, meli
 from tracker.api.deps import require_admin
-from tracker.api.watches import latest_point, product_out, rule_out
+from tracker.api.watches import latest_point, watch_out
 from tracker.config import settings
 from tracker.db import get_db, utcnow
 from tracker.models import (
@@ -28,6 +28,7 @@ from tracker.models import (
     Product,
     User,
     Watch,
+    WatchItem,
 )
 from tracker.processors import PROCESSORS
 from tracker.security import create_invite, revoke_sessions
@@ -153,8 +154,8 @@ def products(
         followers = list(
             db.scalars(
                 select(User.username)
-                .join(Watch, Watch.user_id == User.id)
-                .where(Watch.product_id == p.id)
+                .join(WatchItem, WatchItem.user_id == User.id)
+                .where(WatchItem.product_id == p.id)
                 .order_by(User.username)
             )
         )
@@ -202,13 +203,8 @@ def watches(
         )
         out.append(
             {
-                "id": w.id,
+                **watch_out(db, w),
                 "user": {"id": w.user_id, "username": username},
-                "active": w.active,
-                "created_at": iso(w.created_at),
-                "price_at_start": w.price_at_start,
-                "product": product_out(db, w.product),
-                "rules": [rule_out(r) for r in w.rules],
                 "notifications_7d": db.scalar(
                     select(func.count(Notification.id)).where(
                         Notification.watch_id == w.id, Notification.sent_at >= week
@@ -230,11 +226,13 @@ def stores(_: User = Depends(require_admin), db: DbSession = Depends(get_db)) ->
 
     products_n = per_processor(select(Product.processor, func.count(Product.id)))
     watches_n = per_processor(
-        select(Product.processor, func.count(Watch.id)).join(Watch, Watch.product_id == Product.id)
+        select(Product.processor, func.count(WatchItem.id)).join(
+            WatchItem, WatchItem.product_id == Product.id
+        )
     )
     users_n = per_processor(
-        select(Product.processor, func.count(func.distinct(Watch.user_id))).join(
-            Watch, Watch.product_id == Product.id
+        select(Product.processor, func.count(func.distinct(WatchItem.user_id))).join(
+            WatchItem, WatchItem.product_id == Product.id
         )
     )
     broken_n = per_processor(

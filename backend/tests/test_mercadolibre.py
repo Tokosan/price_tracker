@@ -20,6 +20,7 @@ from tracker.models import (
     Product,
     User,
     Watch,
+    WatchItem,
 )
 from tracker.processors import FetchError, NotFoundError, find_processor
 from tracker.processors import mercadolibre as mlmod
@@ -243,7 +244,12 @@ async def test_agotado_y_vuelta_a_stock_en_mercadolibre(session):
     session.add(
         PricePoint(product_id=product.id, price=248803, available=True, checked_at=utcnow())
     )
-    watch = Watch(user_id=user.id, product_id=product.id, active=True, price_at_start=248803)
+    watch = Watch(
+        user_id=user.id,
+        active=True,
+        price_at_start=248803,
+        items=[WatchItem(product_id=product.id, user_id=user.id)],
+    )
     session.add(watch)
     session.flush()
     for kind in ("OUT_OF_STOCK", "BACK_IN_STOCK"):
