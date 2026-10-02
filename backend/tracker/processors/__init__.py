@@ -12,6 +12,7 @@ from tracker.processors.base import (
     ScrapeResult,
     Variant,
 )
+from tracker.processors.contrapunto import ContrapuntoProcessor
 from tracker.processors.cruzverde import CruzVerdeProcessor
 from tracker.processors.dementegames import DementeGamesProcessor
 from tracker.processors.drsimi import DrSimiProcessor
@@ -28,6 +29,7 @@ from tracker.processors.lider import LiderProcessor
 from tracker.processors.mercadolibre import MercadoLibreProcessor
 from tracker.processors.paris import ParisProcessor
 from tracker.processors.pcfactory import PcFactoryProcessor
+from tracker.processors.piedrabruja import PiedraBrujaProcessor
 from tracker.processors.ripley import RipleyProcessor
 from tracker.processors.salcobrand import SalcobrandProcessor
 from tracker.processors.santaisabel import SantaIsabelProcessor
@@ -69,6 +71,8 @@ PROCESSORS: dict[str, Processor] = {
         AhumadaProcessor(),
         GatoArcanoProcessor(),
         AntarticaProcessor(),
+        PiedraBrujaProcessor(),
+        ContrapuntoProcessor(),
     )
 }
 

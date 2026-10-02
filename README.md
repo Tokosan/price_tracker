@@ -39,8 +39,10 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Farmacias Ahumada | JSON de `Product-Variation` (Salesforce Commerce Cloud) y el stock de la ficha (comuna Santiago) |
 | Gato Arcano | Store API de WooCommerce (preventas incluidas) |
 | Librería Antártica | HTML de la ficha (Magento) |
+| Piedra Bruja | JSON de la ficha de Shopify (`/products/<handle>.js`), con selector de variantes |
+| Contrapunto | JSON de la ficha de Shopify (`/products/<handle>.js`) |
 
-Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX**, **WooCommerce** y la **plataforma Falabella**, así que una tienda nueva con
+Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX**, **WooCommerce**, **Shopify** y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
 que soporta cada tienda.
 
