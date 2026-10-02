@@ -249,7 +249,6 @@ async def create_watches(
         proc = _processor_or_422(url)
         targets.append((proc, proc.normalize(url)))
 
-    existing = db.scalar(select(func.count(Watch.id)).where(Watch.user_id == user.id)) or 0
     created: list[Watch] = []
     for proc, ref in targets:
         product = get_or_create_product(db, proc, ref)
@@ -259,10 +258,6 @@ async def create_watches(
         if watch is not None:
             created.append(watch)
             continue
-        if existing + 1 > user.watch_quota:
-            raise HTTPException(
-                409, f"Llegaste a tu cuota de {user.watch_quota} productos seguidos."
-            )
         # Una variante hermana que nunca se leyó: se lee ahora para tener precio de inicio.
         if latest_point(db, product.id) is None:
             db.commit()
@@ -288,7 +283,6 @@ async def create_watches(
                     enabled=item.enabled,
                 )
             )
-        existing += 1
         created.append(watch)
     db.commit()
     for w in created:

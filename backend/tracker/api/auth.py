@@ -206,7 +206,6 @@ def me(user: User = Depends(current_user), db: DbSession = Depends(get_db)) -> d
         "id": user.id,
         "username": user.username,
         "role": user.role,
-        "watch_quota": user.watch_quota,
         "watch_count": watch_count,
         "preferences": preferences_out(user),
         "telegram": {

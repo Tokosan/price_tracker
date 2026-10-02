@@ -134,7 +134,7 @@ function UserWatches({ user, userId }) {
   return (
     <>
       <section className="metrics">
-        <div className="metric card"><div className="metric-value">{watches.length}<span className="muted metric-of"> / {user?.watch_quota}</span></div><div className="muted small">Productos (cuota)</div></div>
+        <div className="metric card"><div className="metric-value">{watches.length}</div><div className="muted small">Productos</div></div>
         <div className="metric card"><div className="metric-value">{active}</div><div className="muted small">Activos</div></div>
         <div className="metric card"><div className="metric-value">{stores}</div><div className="muted small">Tiendas</div></div>
         <div className="metric card"><div className="metric-value">{notifs}</div><div className="muted small">Avisos (7 d)</div></div>

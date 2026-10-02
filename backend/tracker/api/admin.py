@@ -11,7 +11,7 @@ from urllib.parse import quote
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import RedirectResponse
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session as DbSession
 
@@ -53,7 +53,6 @@ def user_out(db: DbSession, u: User) -> dict:
         "username": u.username,
         "role": u.role,
         "active": u.active,
-        "watch_quota": u.watch_quota,
         "watch_count": db.scalar(select(func.count(Watch.id)).where(Watch.user_id == u.id)),
         "active_watch_count": db.scalar(
             select(func.count(Watch.id)).where(Watch.user_id == u.id, Watch.active.is_(True))
@@ -112,7 +111,6 @@ def reinvite(
 
 class UserPatchIn(BaseModel):
     active: bool | None = None
-    watch_quota: int | None = Field(default=None, ge=0, le=10000)
     role: str | None = None
 
 
@@ -134,8 +132,6 @@ def update_user(
             # Desactivar = sesiones revocadas al instante; sus Watch quedan pausados
             # porque el scheduler ignora a los usuarios inactivos. Reversible.
             revoke_sessions(db, user.id)
-    if body.watch_quota is not None:
-        user.watch_quota = body.watch_quota
     if body.role is not None:
         if body.role not in ("admin", "user"):
             raise HTTPException(422, "rol inválido")

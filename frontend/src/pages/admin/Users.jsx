@@ -22,10 +22,6 @@ export default function Users() {
     setInvite({ username: u.username, url: r.invite_url });
   });
   const patchUser = (u, body) => run(() => api(`/api/admin/users/${u.id}`, { method: "PATCH", body }));
-  const setQuota = (u) => {
-    const q = prompt(`Cuota de productos para ${u.username}`, u.watch_quota);
-    if (q !== null && q !== "") patchUser(u, { watch_quota: Number(q) });
-  };
 
   const users = data?.[0] ?? [];
   return (
@@ -60,8 +56,6 @@ export default function Users() {
                   <td>{u.role}</td>
                   <td className="num nowrap">
                     <Link to={`/admin/productos?usuario=${u.id}`} title="Ver sus productos">{u.watch_count}</Link>
-                    {" / "}
-                    <button className="link" onClick={() => setQuota(u)} title="Cambiar cuota">{u.watch_quota}</button>
                   </td>
                   <td className="num">{u.notifications_7d}</td>
                   <td className="small">
