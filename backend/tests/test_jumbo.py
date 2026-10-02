@@ -5,7 +5,6 @@ import pytest
 from tests.conftest import fixture_text
 from tracker.processors import FetchError, NotFoundError, ProductRef, find_processor
 from tracker.processors.jumbo import JumboProcessor
-from tracker.processors.vtex import VtexProcessor
 from tracker.rules import Reading, check_anomaly
 
 jumbo = JumboProcessor()
@@ -162,39 +161,6 @@ def test_matchea_solo_fichas_de_su_dominio():
     assert not jumbo.matches("https://www.santaisabel.cl/atun-robinson-2036254/p")
 
 
-class _ConColores(VtexProcessor):
-    name = "prueba"
-    label = "Prueba"
-    host = "www.tienda.cl"
-    account = "tienda"
-    supports_variants = True
-
-    def item_label(self, item):
-        return item["Color"][0]
-
-
-def test_base_con_variantes_elige_el_item():
-    data = json.loads(fixture_text("jumbo", "arroz_en_stock.json"))
-    rojo = json.loads(json.dumps(data[0]["items"][0]))
-    rojo.update(itemId="999", Color=["Rojo"])
-    rojo["sellers"][0]["commertialOffer"].update(
-        Price=3000.0, IsAvailable=False, AvailableQuantity=0
-    )
-    data[0]["items"][0]["Color"] = ["Azul"]
-    data[0]["items"].append(rojo)
-    raw = json.dumps(data)
-    proc = _ConColores()
-    ref = proc.normalize("https://tienda.cl/arroz/p")
-
-    variants = proc.parse_variants(raw, ref)
-    first_id = data[0]["items"][0]["itemId"]
-    assert [(v.label, v.variant_id, v.selected) for v in variants] == [
-        ("Azul", first_id, True),
-        ("Rojo", "999", False),
-    ]
-    assert all(v.url == "https://www.tienda.cl/arroz/p" for v in variants)
-
-    r = proc.parse(raw, ProductRef(ref.external_id, ref.canonical_url, "999"))
-    assert (r.price, r.available) == (3000, False)
-    with pytest.raises(NotFoundError):
-        proc.parse(raw, ProductRef(ref.external_id, ref.canonical_url, "123"))
+def test_sin_variantes_ignora_skuid():
+    ref = jumbo.normalize(ATUN + "?skuId=150171")
+    assert ref == ProductRef("atun-robinson-crusoe-lomitos-en-agua-140-g-neto-2036254", ATUN)

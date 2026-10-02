@@ -11,6 +11,7 @@ from tracker.processors.base import (
     Variant,
 )
 from tracker.processors.dementegames import DementeGamesProcessor
+from tracker.processors.easy import EasyProcessor
 from tracker.processors.entrejuegos import EntrejuegosProcessor
 from tracker.processors.falabella import FalabellaProcessor
 from tracker.processors.hites import HitesProcessor
@@ -38,6 +39,7 @@ PROCESSORS: dict[str, Processor] = {
         LiderProcessor(),
         JumboProcessor(),
         SantaIsabelProcessor(),
+        EasyProcessor(),
         PcFactoryProcessor(),
         FalabellaProcessor(),
         HitesProcessor(),
