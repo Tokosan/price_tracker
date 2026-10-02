@@ -16,5 +16,6 @@ class VuduGamingProcessor(JumpsellerProcessor):
     example_url = "https://www.vudugaming.cl/sierra-west-espanol"
     notes = (
         "Juegos de mesa y TCG. Pega el link de un producto, no de una categoría. Las "
-        "preventas con reserva muestran el monto a abonar, no el precio total."
+        "variantes (opciones) no se pueden elegir: se sigue la variante por defecto. En las "
+        "preventas con reserva (100 % / 50 %) se sigue el precio total, no el abono."
     )

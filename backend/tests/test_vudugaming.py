@@ -1,7 +1,7 @@
 import pytest
 
 from tests.conftest import fixture_text
-from tracker.processors import NotFoundError, find_processor
+from tracker.processors import FetchError, NotFoundError, find_processor, jumpseller
 from tracker.processors.vudugaming import VuduGamingProcessor
 
 vg = VuduGamingProcessor()
@@ -49,13 +49,64 @@ def test_preventa_abierta_esta_disponible():
     assert (r.title, r.price, r.available) == ("Preventa - Nyakuza - Español", 34990, True)
 
 
+BONE_WARS = f"{BASE}/bone-wars-espanol"
+
+
 def test_no_disponible_aunque_el_json_ld_diga_instock():
     # Preventa cerrada: el JSON-LD dice InStock, pero el meta dice `pending` y la página
-    # muestra "No disponible". El precio es el de la reserva (50 %), no el total.
+    # muestra "No disponible".
     raw = fixture_text("vudugaming", "bone_wars_no_disponible.html")
     assert "schema.org/InStock" in raw
-    r = vg.parse(raw, vg.normalize(f"{BASE}/bone-wars-espanol"))
-    assert (r.price, r.available) == (41495, False)
+    r = vg.parse(raw, vg.normalize(BONE_WARS))
+    assert r.available is False
+
+
+def test_preventa_con_reserva_usa_el_precio_total():
+    # "MONTO PARA RESERVA": el JSON-LD y el meta traen el abono del 50 % ($41.495); se
+    # sigue la variante "100%".
+    raw = fixture_text("vudugaming", "bone_wars_no_disponible.html")
+    assert 'content="41495.0"' in raw
+    r = parse("bone_wars_no_disponible.html", BONE_WARS)
+    assert (r.price, r.list_price) == (82990, None)
+
+
+def test_reserva_sin_variante_100_toma_la_mas_cara():
+    raw = fixture_text("vudugaming", "bone_wars_no_disponible.html").replace(
+        '"name":"100%","option"', '"name":"Completo","option"'
+    )
+    r = vg.parse(raw, vg.normalize(BONE_WARS))
+    assert r.price == 82990
+
+
+def test_opcion_que_no_es_reserva_no_cambia_el_precio():
+    raw = fixture_text("vudugaming", "bone_wars_no_disponible.html").replace(
+        "MONTO PARA RESERVA", "COLOR"
+    )
+    r = vg.parse(raw, vg.normalize(BONE_WARS))
+    assert r.price == 41495
+
+
+def test_availability_desconocido_usa_el_json_ld(monkeypatch):
+    # El logger se reemplaza: la config de logging de alembic (test_migrations) deshabilita
+    # los loggers existentes y caplog no vería nada en la suite completa.
+    avisos = []
+    monkeypatch.setattr(jumpseller.log, "warning", lambda msg, *args: avisos.append(msg % args))
+    raw = fixture_text("vudugaming", "arknova_dados_en_stock.html")
+    raw = raw.replace(
+        'product:availability" content="instock"', 'product:availability" content="raro"'
+    )
+    r = vg.parse(raw, vg.normalize(f"{BASE}/arknova-set-de-datos-magenta"))
+    assert r.available is True
+    assert len(avisos) == 1 and "'raro'" in avisos[0]
+
+
+def test_sin_disponibilidad_es_fetch_error():
+    raw = (
+        '<meta property="og:type" content="product">'
+        '<meta property="product:price:amount" content="12990.0">'
+    )
+    with pytest.raises(FetchError, match="disponibilidad"):
+        vg.parse(raw, vg.normalize(SIERRA))
 
 
 @pytest.mark.parametrize(

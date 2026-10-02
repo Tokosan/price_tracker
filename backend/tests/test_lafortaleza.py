@@ -36,6 +36,16 @@ def test_agotado_por_json_ld():
     assert r.available is False and r.price == 249990
 
 
+def test_agotado_real():
+    r = parse("splendor_marvel_agotado.html", "https://www.lafortalezapuq.cl/splendor-marvel")
+    assert (r.title, r.price, r.list_price, r.available) == (
+        "Splendor: Marvel",
+        39990,
+        None,
+        False,
+    )
+
+
 def test_categoria_se_rechaza():
     url = "https://www.lafortalezapuq.cl/accesorios"
     with pytest.raises(NotFoundError, match="no es una página de producto"):
