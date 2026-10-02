@@ -38,6 +38,7 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Dr. Simi | API pública del catálogo de VTEX |
 | Farmacias Ahumada | JSON de `Product-Variation` (Salesforce Commerce Cloud) y el stock de la ficha (comuna Santiago) |
 | Gato Arcano | Store API de WooCommerce (preventas incluidas) |
+| Librería Antártica | HTML de la ficha (Magento) |
 
 Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX**, **WooCommerce** y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo

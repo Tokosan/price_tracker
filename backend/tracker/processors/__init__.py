@@ -2,6 +2,7 @@
 
 from tracker.processors.abc import AbcProcessor
 from tracker.processors.ahumada import AhumadaProcessor
+from tracker.processors.antartica import AntarticaProcessor
 from tracker.processors.base import (
     FetchError,
     Inspection,
@@ -67,6 +68,7 @@ PROCESSORS: dict[str, Processor] = {
         DrSimiProcessor(),
         AhumadaProcessor(),
         GatoArcanoProcessor(),
+        AntarticaProcessor(),
     )
 }
 
