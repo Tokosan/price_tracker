@@ -19,7 +19,7 @@ cuando el slug no existe, y solo acepta un producto con ese RefId.
 import json
 import re
 from datetime import timedelta
-from urllib.parse import parse_qs, urlsplit
+from urllib.parse import parse_qs, quote, unquote, urlsplit
 
 from tracker.processors.base import (
     FetchError,
@@ -49,16 +49,21 @@ class VtexProcessor(Processor):
 
     def __init__(self) -> None:
         bare = self.host.removeprefix("www.")
-        # Ficha: /<slug>/p. Categorías (/despensa/conservas) y búsquedas no matchean.
+        # Ficha: /<slug>/p. Categorías (/despensa/conservas) y búsquedas no matchean. El
+        # slug admite letras unicode (`panadol-para-niños-…`): se compara decodificado.
         self._url_re = re.compile(
-            rf"^https?://(?:www\.)?{re.escape(bare)}/([a-z0-9-]+)/p/?(?:[?#].*)?$", re.I
+            rf"^https?://(?:www\.)?{re.escape(bare)}/((?:[^\W_]|-)+)/p/?(?:[?#].*)?$", re.I
         )
 
+    def _match(self, url: str) -> re.Match | None:
+        path, rest = re.match(r"([^?#]*)(.*)", url.strip(), re.S).groups()
+        return self._url_re.match(unquote(path) + rest)
+
     def matches(self, url: str) -> bool:
-        return bool(self._url_re.match(url.strip()))
+        return bool(self._match(url))
 
     def normalize(self, url: str) -> ProductRef:
-        m = self._url_re.match(url.strip())
+        m = self._match(url)
         if not m:
             raise ValueError(f"no es una URL de producto de {self.label}")
         slug = m.group(1).lower()
@@ -69,13 +74,13 @@ class VtexProcessor(Processor):
         return ProductRef(slug, self._url(slug, sku), sku)
 
     def _url(self, slug: str, sku: str = "") -> str:
-        return f"https://{self.host}/{slug}/p" + (f"?skuId={sku}" if sku else "")
+        return f"https://{self.host}/{quote(slug)}/p" + (f"?skuId={sku}" if sku else "")
 
     def domain(self) -> str:
         return f"{self.account}.vtexcommercestable.com.br"
 
     def search_url(self, slug: str) -> str:
-        return f"https://{self.domain()}/api/catalog_system/pub/products/search/{slug}/p"
+        return f"https://{self.domain()}/api/catalog_system/pub/products/search/{quote(slug)}/p"
 
     def refid_url(self, refid: str) -> str:
         return (
@@ -119,8 +124,10 @@ class VtexProcessor(Processor):
             price = None
         listed = to_minor(offer.get("ListPrice"), "CLP")
         if not (listed and price is not None and listed > price):
-            # Una promoción del catálogo baja `Price` y deja el precio previo en
-            # `PriceWithoutDiscount`, aunque la tienda no use `ListPrice` (Dr. Simi).
+            # Suposición, sin un caso real observado: una promoción del catálogo bajaría
+            # `Price` y dejaría el precio previo en `PriceWithoutDiscount` en una tienda que
+            # no usa `ListPrice` (Dr. Simi). En los productos VTEX revisados (Jumbo, Santa
+            # Isabel, Easy, Dr. Simi) nunca se activa: vale lo mismo que `ListPrice`.
             listed = to_minor(offer.get("PriceWithoutDiscount"), "CLP")
         images = item.get("images") or []
         title = (product.get("productName") or "").strip()

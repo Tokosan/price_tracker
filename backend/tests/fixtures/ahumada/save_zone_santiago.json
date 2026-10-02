@@ -1,0 +1,13 @@
+{
+  "action": "Stores-SaveZone",
+  "queryString": "",
+  "locale": "default",
+  "success": true,
+  "option": {
+    "name": "Región Metropolitana",
+    "sectorList": {
+      "name": "Santiago",
+      "inventoryZone": "inventario_santiago"
+    }
+  }
+}

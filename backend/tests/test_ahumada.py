@@ -1,5 +1,7 @@
 import json
+import re
 
+import httpx
 import pytest
 
 from tests.conftest import fixture_text
@@ -11,6 +13,7 @@ HOST = "https://www.farmaciasahumada.cl"
 ISDIN = f"{HOST}/protector-solar-isdin-fusion-water-magic-fps-50-50-ml-92197.html"
 REFLEXAN = f"{HOST}/reflexan-10-mg-x-20-comprimidos-recubiertos-6.html"
 TETINA = f"{HOST}/tetina-pigeon-repuesto-boca-standard-talla-m-2-un-89871.html"
+URIAGE = f"{HOST}/protector-solar-uriage-bariesun-100-fps-50-50-ml-88464.html"
 
 
 def parse(fixture, url):
@@ -42,14 +45,30 @@ def test_en_stock_sin_descuento():
     assert (r.price, r.list_price, r.available) == (13719, None, True)
 
 
-def test_agotado_sale_del_boton_de_la_ficha():
+def test_agotado_en_santiago_sale_del_boton_de_la_ficha():
     # Product-Variation dice "In Stock" igual; la ficha muestra "Producto sin stock".
-    raw = fixture_text("ahumada", "tetina_agotado.json")
-    product = json.loads(raw)["variation"]["product"]
-    assert product["available"] is True
-    assert product["availability"]["messages"] == ["In Stock"]
-    r = ahumada.parse(raw, ahumada.normalize(TETINA))
-    assert (r.price, r.list_price, r.available) == (7799, None, False)
+    raw = fixture_text("ahumada", "uriage_agotado_santiago.json")
+    data = json.loads(raw)
+    assert data["pdp"]["commune"] == "Santiago"
+    assert data["variation"]["product"]["available"] is True
+    assert data["variation"]["product"]["availability"]["messages"] == ["In Stock"]
+    r = ahumada.parse(raw, ahumada.normalize(URIAGE))
+    assert r.title == "Protector Solar Uriage Bariesun 100 FPS 50 50 mL"
+    assert (r.price, r.list_price, r.available) == (14759, 24599, False)
+
+
+def test_en_stock_en_santiago_aunque_no_en_la_zona_por_defecto():
+    # El 89871 sale sin stock sin comuna (Las Condes) y con stock en Santiago.
+    r = parse("tetina_en_stock_santiago.json", TETINA)
+    assert (r.price, r.list_price, r.available) == (7799, None, True)
+
+
+def test_stock_de_otra_comuna_es_error_de_lectura():
+    def otra(data):
+        data["pdp"]["commune"] = "Las Condes"
+
+    with pytest.raises(FetchError):
+        ahumada.parse(_con("tetina_en_stock_santiago.json", otra), ahumada.normalize(TETINA))
 
 
 def test_ignora_el_precio_familia_ahumada():
@@ -102,16 +121,45 @@ def test_respuesta_que_no_es_json():
 def test_pdp_summary_toma_el_boton_del_producto_y_no_los_de_carruseles():
     html = (
         '<div class="page" data-action="Product-Show" data-querystring="pid=6" >'
+        '<span class="commune"> Santiago </span>'
         '<button class="btn product-tile-add-to-cart" data-pid="7" data-is-unavailable="false">'
         '<button class="add-to-cart-global btn" data-pid="6">'
         '<button class="add-to-cart btn btn-primary"\n data-pid="6"\n'
         ' data-is-unavailable="true"\n disabled>'
     )
     summary = pdp_summary(html, "6")
-    assert summary["action"] == "Product-Show"
+    assert (summary["action"], summary["commune"]) == ("Product-Show", "Santiago")
     assert 'data-is-unavailable="true"' in summary["add_to_cart"]
     assert pdp_summary(html, "60")["add_to_cart"] is None
-    assert pdp_summary("<html></html>", "6") == {"action": None, "add_to_cart": None}
+    assert pdp_summary("<html></html>", "6") == {
+        "action": None,
+        "commune": None,
+        "add_to_cart": None,
+    }
+
+
+@pytest.mark.parametrize(
+    "div",
+    [
+        '<div class="page" data-action="Product-Show">',
+        '<div data-action="Product-Show" class="page">',
+        '<div id="x" class="page product" data-querystring="pid=6" data-action="Product-Show">',
+        '<div class="js page" data-action="Product-Show">',
+    ],
+)
+def test_pdp_summary_tolera_orden_y_clases_del_div_page(div):
+    assert pdp_summary(div, "6")["action"] == "Product-Show"
+
+
+def test_pdp_summary_no_toma_data_action_de_otro_div():
+    html = '<div class="pagination" data-action="Search-Show"><div class="page-x">'
+    assert pdp_summary(html, "6")["action"] is None
+
+
+def test_pdp_summary_de_la_ficha_real_con_santiago():
+    summary = pdp_summary(fixture_text("ahumada", "ficha_tetina_santiago.html"), "89871")
+    assert (summary["action"], summary["commune"]) == ("Product-Show", "Santiago")
+    assert 'data-is-unavailable="false"' in summary["add_to_cart"]
 
 
 def test_sin_variantes():
@@ -156,3 +204,147 @@ def test_matchea_solo_fichas_de_su_dominio():
     assert not ahumada.matches("https://evilfarmaciasahumada.cl/protector-92197.html")
     assert not ahumada.matches("https://www.hites.com/protector-solar-92197001.html")
     assert not ahumada.matches("ftp://www.farmaciasahumada.cl/protector-92197.html")
+    assert not ahumada.matches(f"{HOST}/protector-solar-123456789.html")  # pid de 9 dígitos
+
+
+# --- Sesión con la comuna Santiago (transporte falso de httpx, sin red) ---
+
+FICHA = fixture_text("ahumada", "ficha_tetina_santiago.html")
+SAVE_ZONE = fixture_text("ahumada", "save_zone_santiago.json")
+VARIATION = json.dumps(
+    json.loads(fixture_text("ahumada", "tetina_en_stock_santiago.json"))["variation"]
+)
+SANTIAGO = re.compile(r'(<span class="commune">\s*)Santiago(\s*</span>)')
+DISPONIBLE = re.compile(r'(data-pid="89871"\s+data-is-unavailable=)"false"')
+
+
+def _sin_zona(ficha: str) -> str:
+    """La ficha sin zona en la sesión: la tienda usa Las Condes, donde el 89871 no tiene stock."""
+    ficha = SANTIAGO.sub(r"\1Las Condes\2", ficha)
+    return DISPONIBLE.sub(r'\1"true"', ficha)
+
+
+def test_la_ficha_de_prueba_sin_zona_cambia_comuna_y_stock():
+    assert len(SANTIAGO.findall(FICHA)) == 2  # cabecera de escritorio y de móvil
+    assert DISPONIBLE.search(FICHA)
+    summary = pdp_summary(_sin_zona(FICHA), "89871")
+    assert summary["commune"] == "Las Condes"
+    assert 'data-is-unavailable="true"' in summary["add_to_cart"]
+
+
+class FakeAhumada:
+    """Imita a la tienda: la zona vive en la sesión (cookie `dwsid`)."""
+
+    def __init__(self, save_zone=SAVE_ZONE, ficha_status=200, keeps_zone=True):
+        self.save_zone = save_zone
+        self.ficha_status = ficha_status
+        self.keeps_zone = keeps_zone
+        self.zoned: dict[str, bool] = {}  # dwsid → tiene zona
+        self.calls: list[str] = []
+
+    def __call__(self, request: httpx.Request) -> httpx.Response:
+        path = request.url.path
+        self.calls.append(f"{request.method} {path}")
+        cookies = dict(
+            part.strip().split("=", 1)
+            for part in request.headers.get("cookie", "").split(";")
+            if "=" in part
+        )
+        sid = cookies.get("dwsid", "")
+        if path == "/":
+            sid = f"s{len(self.zoned) + 1}"
+            self.zoned[sid] = False
+            return httpx.Response(200, text="<html></html>", headers={"set-cookie": f"dwsid={sid}"})
+        if path.endswith("/Stores-SaveZone"):
+            form = dict(httpx.QueryParams(request.content.decode()))
+            assert request.method == "POST"
+            assert form == {"state": "Región Metropolitana", "city": "Santiago"}
+            if sid in self.zoned and self.keeps_zone:
+                self.zoned[sid] = True
+            return httpx.Response(200, text=self.save_zone)
+        if path.endswith("/Product-Variation"):
+            assert request.url.params["pid"] == "89871"
+            return httpx.Response(200, text=VARIATION)
+        if path.endswith("-89871.html"):
+            if self.ficha_status != 200:
+                return httpx.Response(self.ficha_status, text="no")
+            return httpx.Response(200, text=FICHA if self.zoned.get(sid) else _sin_zona(FICHA))
+        return httpx.Response(500, text="ruta inesperada")
+
+    def count(self, suffix: str) -> int:
+        return sum(c.endswith(suffix) for c in self.calls)
+
+
+def _proc(fake: FakeAhumada) -> AhumadaProcessor:
+    proc = AhumadaProcessor()
+    proc.transport = httpx.MockTransport(fake)
+    return proc
+
+
+async def _read(proc: AhumadaProcessor):
+    ref = proc.normalize(TETINA)
+    return proc.parse(await proc.fetch_raw(ref), ref)
+
+
+async def test_lee_la_ficha_con_la_comuna_santiago():
+    fake = FakeAhumada()
+    r = await _read(_proc(fake))
+    assert (r.price, r.available) == (7799, True)
+    assert fake.calls == [
+        "GET /",
+        "POST /on/demandware.store/Sites-ahumada-cl-Site/default/Stores-SaveZone",
+        "GET /tetina-pigeon-repuesto-boca-standard-talla-m-2-un-89871.html",
+        "GET /on/demandware.store/Sites-ahumada-cl-Site/default/Product-Variation",
+    ]
+
+
+async def test_reutiliza_la_sesion():
+    fake = FakeAhumada()
+    proc = _proc(fake)
+    await _read(proc)
+    await _read(proc)
+    assert fake.count("Stores-SaveZone") == 1
+
+
+async def test_sesion_vencida_se_recrea_y_reintenta_una_vez():
+    fake = FakeAhumada()
+    proc = _proc(fake)
+    await _read(proc)
+    fake.zoned.clear()  # la tienda olvidó la sesión: la ficha vuelve a Las Condes
+    r = await _read(proc)
+    assert r.available is True
+    assert fake.count("Stores-SaveZone") == 2
+    assert fake.count("-89871.html") == 3
+
+
+async def test_si_la_ficha_nunca_refleja_la_zona_es_error_no_agotado():
+    fake = FakeAhumada(keeps_zone=False)
+    proc = _proc(fake)
+    with pytest.raises(FetchError, match="Las Condes"):
+        await proc.fetch_raw(proc.normalize(TETINA))
+    assert fake.count("-89871.html") == 2  # un reintento, no más
+    assert fake.count("Product-Variation") == 0
+
+
+@pytest.mark.parametrize(
+    "save_zone",
+    [
+        SAVE_ZONE.replace("inventario_santiago", "inventario_lascondes"),
+        SAVE_ZONE.replace('"success": true', '"success": false'),
+        '{"success": true}',
+        "<html>error</html>",
+    ],
+    ids=["otra-zona", "sin-exito", "sin-zona", "no-json"],
+)
+async def test_zona_no_confirmada_es_error_de_lectura(save_zone):
+    fake = FakeAhumada(save_zone=save_zone)
+    proc = _proc(fake)
+    with pytest.raises(FetchError):
+        await proc.fetch_raw(proc.normalize(TETINA))
+    assert fake.count("-89871.html") == 0
+
+
+async def test_ficha_inexistente_es_not_found():
+    proc = _proc(FakeAhumada(ficha_status=404))
+    with pytest.raises(NotFoundError):
+        await proc.fetch_raw(proc.normalize(TETINA))

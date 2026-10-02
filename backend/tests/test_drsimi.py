@@ -65,7 +65,8 @@ def test_promociones_por_cantidad_no_cambian_el_precio(fixture, url, teaser, pri
 
 
 def test_promocion_del_catalogo_usa_price_without_discount():
-    # Dr. Simi no usa ListPrice: una promoción deja el precio previo en PriceWithoutDiscount.
+    # Caso armado (no observado en la tienda): una promoción que deja el precio previo en
+    # PriceWithoutDiscount sin usar ListPrice.
     data = json.loads(fixture_text("drsimi", "paracetamol_en_stock.json"))
     _offer(data).update(Price=360.0, ListPrice=360.0, PriceWithoutDiscount=480.0)
     r = drsimi.parse(json.dumps(data), drsimi.normalize(PARACETAMOL))
@@ -130,3 +131,57 @@ def test_matchea_solo_fichas_de_su_dominio():
     assert not drsimi.matches("https://www.drsimi.cl/229?map=productClusterIds")
     assert not drsimi.matches("https://www.drsimi.cl.evil.com/paracetamol-500-mg/p")
     assert not drsimi.matches("https://evildrsimi.cl/paracetamol-500-mg/p")
+
+
+PANADOL_SLUG = "panadol-para-niños-jarabe-para-niños-90-ml-no-contiene-azucar-ch6134"
+PANADOL = (
+    "https://www.drsimi.cl/panadol-para-ni%C3%B1os-jarabe-para-ni%C3%B1os-90-ml-"
+    "no-contiene-azucar-ch6134/p"
+)
+
+
+@pytest.mark.parametrize(
+    "url",
+    [
+        f"https://www.drsimi.cl/{PANADOL_SLUG}/p",  # ñ literal
+        PANADOL,  # ñ codificada
+        PANADOL.replace("%C3%B1", "%c3%b1"),
+        f"https://www.drsimi.cl/{PANADOL_SLUG.upper()}/p?x=1",
+    ],
+)
+def test_slug_con_enie(url):
+    assert drsimi.matches(url)
+    assert drsimi.normalize(url) == ProductRef(PANADOL_SLUG, PANADOL)
+    assert drsimi.search_url(PANADOL_SLUG).endswith(
+        "/search/panadol-para-ni%C3%B1os-jarabe-para-ni%C3%B1os-90-ml-no-contiene-azucar-ch6134/p"
+    )
+
+
+def test_parsea_el_producto_con_enie():
+    r = drsimi.parse(
+        fixture_text("drsimi", "panadol_slug_con_enie.json"), drsimi.normalize(PANADOL)
+    )
+    assert (r.title, r.price, r.available) == (
+        "Panadol paracetamol 160 mg/5 mL jarabe infantil 90 mL",
+        7920,
+        True,
+    )
+
+
+def test_slug_ascii_no_cambia():
+    # Los external_id ya guardados (ASCII) siguen iguales.
+    ref = drsimi.normalize(PARACETAMOL)
+    assert ref.external_id == "paracetamol-500-mg-16-comprimidos"
+    assert drsimi.search_url(ref.external_id).endswith("/paracetamol-500-mg-16-comprimidos/p")
+
+
+@pytest.mark.parametrize(
+    "url",
+    [
+        "https://www.drsimi.cl/para_cetamol/p",
+        "https://www.drsimi.cl/para%2Fcetamol/p",  # "/" codificada: dos segmentos
+        "https://www.drsimi.cl/para%20cetamol/p",
+    ],
+)
+def test_slug_con_caracteres_raros_no_matchea(url):
+    assert not drsimi.matches(url)

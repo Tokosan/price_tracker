@@ -1,4 +1,4 @@
-{"pdp": {"action": "Product-Show", "add_to_cart": "<button class=\"add-to-cart btn btn-primary\"\n            data-toggle=\"modal\" data-target=\"#chooseBonusProductModal\"\n            data-pid=\"92197\"\n            data-is-unavailable=\"false\"\n            >"}, "variation": {
+{"pdp": {"action": "Product-Show", "commune": "Santiago", "add_to_cart": "<button class=\"add-to-cart btn btn-primary\"\n            data-toggle=\"modal\" data-target=\"#chooseBonusProductModal\"\n            data-pid=\"92197\"\n            data-is-unavailable=\"false\"\n            >"}, "variation": {
   "action": "Product-Variation",
   "queryString": "pid=92197&quantity=1",
   "locale": "default",
