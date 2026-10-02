@@ -71,6 +71,14 @@ def test_sin_boton_no_inventa_precio():
     assert (r.price, r.list_price, r.available) == (None, None, False)
 
 
+def test_link_del_maestro_con_variantes_pide_el_de_la_variante():
+    # El maestro (…/638317.html, el canonical de sus variantes) muestra la ficha de una
+    # variante por defecto, con su propio data-pid: no se sigue en silencio otra talla.
+    maestro = "https://www.abc.cl/zapatilla-lona-hombre-icono/638317.html"
+    with pytest.raises(NotFoundError, match="pega el link de la talla"):
+        parse("descuento_zapatilla.html", maestro)
+
+
 def test_pagina_sin_bloque_de_producto_es_error_de_lectura():
     with pytest.raises(FetchError):
         abc.parse('<meta property="og:type" content="product">', abc.normalize(ZAPATILLA))

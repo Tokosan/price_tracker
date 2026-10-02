@@ -70,6 +70,13 @@ class AbcProcessor(SFCCProcessor):
         detail = _DETAIL_RE.search(raw)
         if not detail:
             raise FetchError("la ficha de abc no trae el bloque del producto")
+        if detail.group(1) != ref.external_id:
+            # El link es el de un producto maestro (con tallas o colores): la tienda muestra
+            # una variante por defecto, que puede cambiar sin aviso. Se sigue solo la variante.
+            raise NotFoundError(
+                "este link es de un producto con tallas o colores: pega el link de la talla "
+                "o el color que quieres seguir"
+            )
         button = _BUTTON_RE.search(raw, detail.end())
         # Sin botón no se sabe dónde termina el bloque: mejor sin precio que uno ajeno.
         block = raw[detail.end() : button.start()] if button else ""
