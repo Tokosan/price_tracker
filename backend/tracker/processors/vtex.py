@@ -69,7 +69,14 @@ class VtexProcessor(Processor):
         product = _product(raw, ref)
         item = _item(product, ref)
         offer = _offer(item)
-        price = to_minor(offer.get("Price"), "CLP") or None  # 0 = sin precio
+        price = to_minor(offer.get("Price"), "CLP")
+        if price is None or not isinstance(offer.get("IsAvailable"), bool):
+            raise FetchError("la oferta de VTEX no trae Price o IsAvailable")
+        available = offer["IsAvailable"] and (offer.get("AvailableQuantity") or 0) > 0
+        if price == 0:
+            # Sin stock, precio 0 es un agotado real (sold_out_without_price). Con stock
+            # queda price=None, que el checker trata como anomalía.
+            price = None
         listed = to_minor(offer.get("ListPrice"), "CLP")
         images = item.get("images") or []
         return ScrapeResult(
@@ -77,7 +84,7 @@ class VtexProcessor(Processor):
             price=price,
             list_price=listed if listed and price is not None and listed > price else None,
             currency="CLP",
-            available=bool(offer.get("IsAvailable")) and (offer.get("AvailableQuantity") or 0) > 0,
+            available=available,
             image_url=images[0].get("imageUrl") if images else None,
         )
 
@@ -130,7 +137,16 @@ def _item(product: dict, ref: ProductRef) -> dict:
 
 
 def _offer(item: dict) -> dict:
-    """La oferta del vendedor por defecto (o del primero)."""
+    """La oferta del vendedor por defecto (o del primero).
+
+    Sin vendedor u oferta la respuesta está incompleta: es un error de lectura, no un
+    agotado (si no, `sold_out_without_price` lo dejaría pasar y avisaría OUT_OF_STOCK).
+    """
     sellers = item.get("sellers") or []
-    seller = next((s for s in sellers if s.get("sellerDefault")), sellers[0] if sellers else {})
-    return seller.get("commertialOffer") or {}
+    if not sellers:
+        raise FetchError("el item no trae vendedores")
+    seller = next((s for s in sellers if s.get("sellerDefault")), sellers[0])
+    offer = seller.get("commertialOffer")
+    if not isinstance(offer, dict):
+        raise FetchError("el vendedor no trae commertialOffer")
+    return offer

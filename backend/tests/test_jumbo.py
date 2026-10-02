@@ -72,6 +72,45 @@ def test_precio_0_con_stock_no_se_vuelve_precio():
     assert check_anomaly(reading, 2730, jumbo.anomaly_drop_pct, jumbo.sold_out_without_price)
 
 
+def _arroz_con(cambio):
+    data = json.loads(fixture_text("jumbo", "arroz_en_stock.json"))
+    cambio(data[0]["items"][0])
+    return json.dumps(data)
+
+
+def _offer(item):
+    return item["sellers"][0]["commertialOffer"]
+
+
+@pytest.mark.parametrize(
+    "cambio",
+    [
+        lambda it: it.update(sellers=[]),
+        lambda it: it.pop("sellers"),
+        lambda it: it["sellers"][0].pop("commertialOffer"),
+        lambda it: it["sellers"][0].update(commertialOffer=None),
+        lambda it: _offer(it).pop("Price"),
+        lambda it: _offer(it).update(Price=None),
+        lambda it: _offer(it).update(Price="n/d"),
+        lambda it: _offer(it).pop("IsAvailable"),
+    ],
+    ids=[
+        "sin-sellers",
+        "sellers-ausente",
+        "sin-oferta",
+        "oferta-null",
+        "sin-price",
+        "price-null",
+        "price-no-numerico",
+        "sin-isavailable",
+    ],
+)
+def test_oferta_incompleta_es_error_de_lectura_no_agotado(cambio):
+    # Si contara como agotado, sold_out_without_price lo dejaría pasar y avisaría OUT_OF_STOCK.
+    with pytest.raises(FetchError):
+        jumbo.parse(_arroz_con(cambio), jumbo.normalize(ATUN))
+
+
 def test_no_existe():
     with pytest.raises(NotFoundError):
         parse("no_existe.json")
