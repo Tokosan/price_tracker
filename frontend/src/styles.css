@@ -400,3 +400,14 @@ label.watch-card { flex-direction: row; cursor: pointer; }
 .mode-choice { margin: 1rem 0 0.5rem; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); display: flex; flex-direction: column; gap: 0.4rem; }
 .name-field { display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.35rem; max-width: 420px; }
 .save-status { margin: 0.25rem 0 0.75rem; min-height: 1.2rem; }
+
+/* Menú ⋯ de las tarjetas de la lista (fuera del link: no navega al abrirlo). */
+.watch-item { position: relative; }
+.watch-item:has(.card-menu) .watch-card { padding-right: 2.6rem; }
+.card-menu { position: absolute; top: 0.45rem; right: 0.45rem; }
+.card-menu .icon-button { font-size: 1.15rem; line-height: 1; padding: 0.2rem 0.45rem; }
+.menu-popover { position: absolute; right: 0; top: 100%; z-index: 10; min-width: 11rem; background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); box-shadow: 0 6px 20px rgb(0 0 0 / 0.14); padding: 0.25rem; display: flex; flex-direction: column; }
+.menu-popover button, .menu-popover button:hover:not(:disabled) { background: none; color: var(--text); border: 0; text-align: left; padding: 0.45rem 0.65rem; font-weight: 400; border-radius: 6px; }
+.menu-popover button:hover:not(:disabled) { background: var(--surface-2); }
+.menu-popover .danger-item, .menu-popover .danger-item:hover:not(:disabled) { color: var(--danger); }
+.card-name-form { margin: 0 0 0.25rem; }
