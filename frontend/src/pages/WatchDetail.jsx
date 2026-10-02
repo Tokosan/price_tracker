@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { api } from "../api.js";
 import { useMe } from "../App.jsx";
 import PriceChart from "../components/PriceChart.jsx";
@@ -370,9 +370,11 @@ function Links({ watch, colorOf, labelOf, stores, busy, run, onChange, navigate 
           <button disabled={busy || !url}>+ Agregar link</button>
         </form>
       ) : (
-        <p className="muted small add-link">Este producto ya tiene el máximo de 8 links.</p>
+        <p className="muted small links-note">Este producto ya tiene el máximo de 8 links.</p>
       )}
-      <p className="muted small add-link">Te avisamos por el más barato con stock.</p>
+      <p className="muted small links-note">
+        Te avisamos por el más barato con stock. ¿Ya los sigues por separado? <Link to="/?seleccionar=1">Júntalos desde la lista</Link>.
+      </p>
     </section>
   );
 }

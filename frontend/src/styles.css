@@ -315,6 +315,10 @@ button.person:hover:not(:disabled) { background: var(--accent-soft); color: var(
   table { display: block; overflow-x: auto; }
   .table-card table { display: table; }
   .hide-sm { display: none; }
+  .links .row-actions { white-space: normal; }
+  .links .row-actions button { display: block; margin-left: auto; white-space: nowrap; }
+  .links td:first-child { min-width: 0; }
+  .add-link { flex-direction: column; }
 }
 
 .toolbar { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem; }
@@ -362,7 +366,7 @@ button.icon-only { padding: 0.45rem 0.7rem; min-width: 2.4rem; }
 .name-form input { flex: 1 1 16rem; }
 .links-card h2 { padding: 0.75rem 1.2rem 0; }
 .link-store { display: flex; align-items: center; gap: 0.5rem; }
-.link-title { font-weight: 500; }
+.link-title { font-weight: 500; word-break: normal; overflow-wrap: break-word; }
 .links tr.muted .link-title { color: var(--muted); }
 .muted-badge { background: var(--surface-2); color: var(--muted); }
 .row-actions { text-align: right; }
@@ -370,4 +374,28 @@ button.icon-only { padding: 0.45rem 0.7rem; min-width: 2.4rem; }
 .move-form { display: inline-flex; gap: 0.25rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
 .move-form select { max-width: 14rem; }
 .add-link { display: flex; gap: 0.5rem; padding: 0.5rem 1.2rem 0.25rem; margin: 0; }
+.links-note { padding: 0.25rem 1.2rem 0.5rem; margin: 0; }
 .add-link input { flex: 1; min-width: 0; }
+
+/* Lista: seleccionar y juntar; tarjetas con varias tiendas. */
+.actions-inline { display: flex; gap: 0.5rem; align-items: center; }
+.select-hint { margin: 0.25rem 0 0; }
+.watch-card .card-check { width: 1.1rem; height: 1.1rem; flex-shrink: 0; margin: 0; }
+label.watch-card { flex-direction: row; cursor: pointer; }
+.watch-card.selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.links-badge { background: var(--accent-soft); color: var(--accent); }
+.select-bar { position: sticky; bottom: 0.75rem; z-index: 5; margin-top: 1rem; box-shadow: 0 4px 16px rgb(0 0 0 / 0.12); }
+.merge-dialog h2 { margin-top: 0; }
+.merge-options { list-style: none; padding: 0; margin: 0 0 0.75rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.merge-dialog .actions { margin-bottom: 0; }
+
+/* Agregar: links extra y modo. */
+.extras { margin-top: 1rem; }
+.extra-list { list-style: none; padding: 0; margin: 0 0 0.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.extra { display: flex; gap: 0.75rem; align-items: center; }
+.extra > img, .extra > .img-ph { width: 44px; height: 44px; }
+.extra > img { object-fit: contain; background: #fff; border-radius: 6px; flex-shrink: 0; }
+.add-extra { display: flex; gap: 0.5rem; }
+.add-extra input { flex: 1; min-width: 0; }
+.mode-choice { margin: 1rem 0 0.5rem; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius-sm); display: flex; flex-direction: column; gap: 0.4rem; }
+.name-field { display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.35rem; max-width: 420px; }
