@@ -19,11 +19,40 @@ USER_AGENT = (
 )
 
 
-async def get_text(url: str, *, params: dict | None = None, timeout: float = 30) -> str:
-    headers = {"User-Agent": USER_AGENT, "Accept-Language": "es-CL,es;q=0.9"}
+# Headers de una navegación de Chrome. Algunos WAF (Akamai en Unimarc) rechazan un cliente
+# que no los manda o que no habla HTTP/2.
+BROWSER_HEADERS = {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,"
+    "image/webp,*/*;q=0.8",
+    "Upgrade-Insecure-Requests": "1",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "none",
+    "Sec-Fetch-User": "?1",
+    "sec-ch-ua": '"Chromium";v="128", "Not;A=Brand";v="24", "Google Chrome";v="128"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Linux"',
+}
+
+
+async def get_text(
+    url: str,
+    *,
+    params: dict | None = None,
+    timeout: float = 30,
+    http2: bool = False,
+    browser_headers: bool = False,
+    headers: dict | None = None,
+) -> str:
+    """GET con User-Agent de navegador. `http2` y `browser_headers` son para sitios con WAF;
+    `headers` agrega o reemplaza headers (después de los de navegador)."""
+    base = {"User-Agent": USER_AGENT, "Accept-Language": "es-CL,es;q=0.9"}
+    if browser_headers:
+        base.update(BROWSER_HEADERS)
+    base.update(headers or {})
     try:
         async with httpx.AsyncClient(
-            headers=headers, follow_redirects=True, timeout=timeout
+            headers=base, follow_redirects=True, timeout=timeout, http2=http2
         ) as client:
             resp = await client.get(url, params=params)
     except httpx.HTTPError as exc:
