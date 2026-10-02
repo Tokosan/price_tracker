@@ -44,6 +44,7 @@ log = logging.getLogger(__name__)
 
 # Máximo de variaciones que se piden (el `per_page` máximo de la Store API).
 _MAX_VARIATIONS = 100
+_ALL_STOCK_STATUSES = "instock,outofstock,onbackorder"
 
 
 class WooCommerceProcessor(Processor):
@@ -95,8 +96,15 @@ class WooCommerceProcessor(Processor):
 
     async def fetch_raw(self, ref: ProductRef) -> str:
         _check_slug(ref)
-        raw = await get_text(self.api_url(), params={"slug": unquote(ref.external_id)})
-        products = _json_list(raw)
+        slug = unquote(ref.external_id)
+        products = _json_list(await get_text(self.api_url(), params={"slug": slug}))
+        if not products:
+            # Con "ocultar productos agotados del catálogo" (Feria Chilena del Libro), la
+            # Store API omite los agotados (`?slug=` da `[]`) salvo que la query pida
+            # `stock_status`. Ese filtro usa una tabla de búsqueda que puede faltar para
+            # productos que sí existen, así que solo se usa si la primera respuesta viene vacía.
+            params = {"slug": slug, "stock_status": _ALL_STOCK_STATUSES}
+            products = _json_list(await get_text(self.api_url(), params=params))
         variations: list = []
         product = _pick(products, ref) if products else None
         if product and product.get("type") == "variable":
