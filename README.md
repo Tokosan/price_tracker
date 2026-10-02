@@ -20,8 +20,9 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Lider (supermercado) | Datos de Next.js de la ficha (plataforma de Walmart) |
 | Jumbo | API pública del catálogo de VTEX |
 | PC Factory | API del catálogo que usa la página (precio por transferencia) |
+| Falabella | API de la plataforma Falabella, con selector de variantes (tallas, colores, medidas) |
 
-Hay clases base para **PrestaShop**, **Jumpseller** y **VTEX**, así que una tienda nueva con
+Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX** y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
 que soporta cada tienda.
 

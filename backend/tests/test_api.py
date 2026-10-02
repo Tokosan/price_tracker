@@ -120,7 +120,7 @@ def test_csrf_obligatorio():
 
 def test_url_de_tienda_no_soportada_se_rechaza():
     api = logged_in("ana")
-    r = api.post("/api/resolve", {"url": "https://www.falabella.com/falabella-cl/product/123"})
+    r = api.post("/api/resolve", {"url": "https://www.tiendainexistente.cl/producto/123"})
     assert r.status_code == 422
     assert r.json()["detail"]["code"] == "unsupported"
     # Ya no existe la función de pedirle una tienda al admin.
