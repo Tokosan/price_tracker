@@ -216,15 +216,6 @@ def test_editar_reglas_y_pausar():
     assert [x["kind"] for x in body["rules"]] == ["PRICE_DROP", "PRICE_UP"]
 
 
-def test_cuota_de_watches():
-    api = logged_in("ana")
-    with SessionLocal() as db:
-        db.scalar(select(User).where(User.username == "ana")).watch_quota = 1
-        db.commit()
-    assert api.post("/api/watches", {"urls": [STARDEW], "rules": []}).status_code == 201
-    assert api.post("/api/watches", {"urls": [BILLY], "rules": []}).status_code == 409
-
-
 def test_admin_invita_desactiva_y_ve_metricas():
     admin = logged_in("jefe", role="admin")
     r = admin.post("/api/admin/users", {"username": "Carla"})
@@ -244,9 +235,6 @@ def test_admin_invita_desactiva_y_ve_metricas():
 
     assert admin.patch(f"/api/admin/users/{carla_id}", {"active": False}).status_code == 200
     assert carla.get("/api/auth/me").status_code == 401  # sesión revocada al instante
-    assert (
-        admin.patch(f"/api/admin/users/{carla_id}", {"watch_quota": 5}).json()["watch_quota"] == 5
-    )
 
 
 def test_telegram_no_configurado():

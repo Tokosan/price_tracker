@@ -128,7 +128,7 @@ export default function Settings() {
       <section className="card">
         <h2>Cuenta</h2>
         <p className="muted small">
-          Usuario <b>{me.username}</b> · {me.watch_count} de {me.watch_quota} productos
+          Usuario <b>{me.username}</b> · {me.watch_count} productos
         </p>
         <form onSubmit={changePw} className="stack">
           <label>Contraseña actual<input type="password" autoComplete="current-password" value={pw.current} onChange={(e) => setPw({ ...pw, current: e.target.value })} /></label>

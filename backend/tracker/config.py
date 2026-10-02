@@ -51,7 +51,6 @@ class Settings:
     domain_min_interval: float = field(
         default_factory=lambda: float(os.environ.get("DOMAIN_MIN_INTERVAL", "5"))
     )
-    default_watch_quota: int = 50
     session_days: int = 30
     invite_hours: int = 48
     manual_check_cooldown_min: int = 15

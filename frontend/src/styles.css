@@ -270,7 +270,6 @@ main.wide { max-width: 1240px; }
 .admin-nav a:hover { background: var(--surface-2); color: var(--text); }
 .admin-nav a.active { background: var(--accent-soft); color: var(--accent); }
 .admin-content { min-width: 0; }
-.metric-of { font-size: 1rem; font-weight: 500; }
 .two-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0 1rem; }
 .bars { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: auto 1fr auto; gap: 0.45rem 0.75rem; align-items: center; }
 .bars li { display: contents; }
