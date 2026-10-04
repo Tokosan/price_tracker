@@ -28,6 +28,7 @@ from tracker.processors.ikea import IkeaProcessor
 from tracker.processors.jumbo import JumboProcessor
 from tracker.processors.lafortaleza import LaFortalezaProcessor
 from tracker.processors.lider import LiderProcessor
+from tracker.processors.ligafarmacia import LigaFarmaciaProcessor
 from tracker.processors.mercadolibre import MercadoLibreProcessor
 from tracker.processors.paris import ParisProcessor
 from tracker.processors.pcfactory import PcFactoryProcessor
@@ -81,6 +82,7 @@ PROCESSORS: dict[str, Processor] = {
         BuscalibreProcessor(),
         PreunicProcessor(),
         VuduGamingProcessor(),
+        LigaFarmaciaProcessor(),
     )
 }
 
