@@ -169,7 +169,7 @@ async def test_el_antes_del_aviso_es_la_lectura_anterior_no_el_precio_normal(ses
 
 def test_mensaje_muestra_antes_y_precio_normal_por_separado():
     product = Product(title="Frosthaven", canonical_url="https://x/1", currency="CLP")
-    fired = [rules.Fired("PRICE_CHANGE", "El precio varió +0.5 %", {"from": 248803})]
+    fired = [rules.Fired("PRICE_CHANGE", "El precio varió +0,5 %", {"from": 248803})]
     reading = rules.Reading(249966, 249990, True)
     text = build_message("Frosthaven", product, reading, fired, False, 248803)
     lines = text.split("\n")
@@ -177,7 +177,7 @@ def test_mensaje_muestra_antes_y_precio_normal_por_separado():
     assert lines[2] == "vs. anterior ($248.803): +$1.163 (+0,5 %)"
     assert lines[3] == "Precio normal $249.990"
     # El "desde" repetiría el anterior: no se agrega.
-    assert lines[4] == "• El precio varió +0.5 %"
+    assert lines[4] == "• El precio varió +0,5 %"
 
 
 def test_mensaje_conserva_el_desde_del_ultimo_aviso():
@@ -220,9 +220,29 @@ def test_mensaje_sin_anterior_ni_inicio_no_agrega_lineas():
     assert "vs." not in text
 
 
-async def test_payload_guarda_el_precio_de_inicio(session):
-    product, _ = setup_watch(session, [("PRICE_CHANGE", {}, {"last_price": 10000})], 10000)
+def test_mensaje_no_repite_el_desde_si_es_el_precio_de_inicio():
+    product = Product(title="Juego", canonical_url="https://x/1", currency="CLP")
+    fired = [rules.Fired("PRICE_DROP", "Bajó 25 %", {"from": 12000})]
+    text = build_message(
+        "Juego", product, rules.Reading(9000, None, True), fired, False, 10000, price_at_start=12000
+    )
+    assert "vs. inicio ($12.000): -$3.000 (-25 %)" in text
+    assert "• Bajó 25 %\n" in text + "\n" and "desde" not in text
+
+
+def test_mensaje_cambio_minimo_escapa_el_menor_que():
+    product = Product(title="Juego", canonical_url="https://x/1", currency="CLP")
+    fired = [rules.Fired("PRICE_CHANGE", "El precio varió +0,0 %", {"from": 100000})]
+    text = build_message("Juego", product, rules.Reading(100001, None, True), fired, False, 100000)
+    assert "vs. anterior ($100.000): +$1 (&lt;0,1 %)" in text
+
+
+async def test_aviso_usa_la_lectura_anterior_y_el_precio_de_inicio_por_separado(session):
+    # Inicio 12.000, última lectura 10.000, nueva 9.000: cada línea usa su base.
+    product, watch = setup_watch(session, [("PRICE_CHANGE", {}, {"last_price": 10000})], 12000)
+    watch.last_price = 10000
+    session.commit()
     await apply_result(session, product, result(9000))
-    payload = session.scalars(select(Notification)).one().payload
-    assert payload["previous_price"] == 10000
-    assert payload["price_at_start"] == 10000
+    notif = session.scalars(select(Notification)).one()
+    assert notif.payload["previous_price"] == 10000
+    assert notif.payload["price_at_start"] == 12000

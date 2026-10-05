@@ -176,7 +176,7 @@ def test_varia_mensaje_con_signo_y_referencia():
     fired, _ = evaluate("PRICE_CHANGE", {}, {"last_price": 10000}, Reading(9000, None, True))
     assert fired.message == "El precio varió -10 %" and fired.data == {"from": 10000}
     fired, _ = evaluate("PRICE_CHANGE", {}, {"last_price": 10000}, Reading(10050, None, True))
-    assert fired.message == "El precio varió +0.5 %"
+    assert fired.message == "El precio varió +0,5 %"
 
 
 def test_varia_desde_gratis_y_sin_stock():

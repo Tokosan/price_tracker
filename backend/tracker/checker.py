@@ -315,10 +315,10 @@ def build_message(
             before = format_price(previous_price, cur)
             if previous_store:
                 before += f" en {esc(previous_store)}"
-            change = format_change(reading.price, previous_price, cur)
+            change = esc(format_change(reading.price, previous_price, cur))
             lines.append(f"vs. anterior ({before}): {change}")
         if price_at_start is not None:
-            change = format_change(reading.price, price_at_start, cur)
+            change = esc(format_change(reading.price, price_at_start, cur))
             lines.append(f"vs. inicio ({format_price(price_at_start, cur)}): {change}")
     if reading.list_price and reading.price is not None and reading.list_price > reading.price:
         lines.append(f"Precio normal {format_price(reading.list_price, cur)}")
@@ -326,9 +326,9 @@ def build_message(
         extra = ""
         if "target" in f.data:
             extra = f" (objetivo {format_price(f.data['target'], cur)})"
-        elif "from" in f.data and f.data["from"] != previous_price:
+        elif "from" in f.data and f.data["from"] not in (previous_price, price_at_start):
             # PRICE_DROP / PRICE_UP comparan contra el último aviso, no contra la
-            # lectura anterior: ese "desde" sí aporta.
+            # lectura anterior: ese "desde" sí aporta (salvo que repita una de las bases).
             extra = f" (desde {format_price(f.data['from'], cur)})"
         lines.append(f"• {esc(f.message)}{extra}")
     if historic_min:

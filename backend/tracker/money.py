@@ -22,8 +22,9 @@ def format_price(amount: int | None, currency: str) -> str:
 def format_change(amount: int, base: int, currency: str) -> str:
     """Variación de `base` a `amount` en plata y en porcentaje: "-$1.000 (-10 %)".
 
-    El porcentaje se calcula con `Decimal` (un decimal, sin ",0") y se omite si la base no
-    es positiva. Sin cambio da "sin cambio".
+    El porcentaje se calcula con `Decimal` (un decimal, sin ",0"; "<0,1 %" si redondea a
+    cero) y se omite si la base no es positiva. Sin cambio da "sin cambio". El texto no
+    lleva caracteres HTML sin escapar salvo "<" en "<0,1": quien lo use en HTML lo escapa.
     """
     diff = amount - base
     if diff == 0:
@@ -31,6 +32,7 @@ def format_change(amount: int, base: int, currency: str) -> str:
     text = ("+" if diff > 0 else "") + format_price(diff, currency)
     if base > 0:
         pct = (Decimal(diff) * 100 / Decimal(base)).quantize(Decimal("0.1"), ROUND_HALF_UP)
-        pct_text = f"{pct:+}".replace(".", ",").removesuffix(",0")
+        # Un cambio real menor a 0,05 % redondea a cero: "+0 %" confundiría.
+        pct_text = "<0,1" if pct == 0 else f"{pct:+}".replace(".", ",").removesuffix(",0")
         text += f" ({pct_text} %)"
     return text
