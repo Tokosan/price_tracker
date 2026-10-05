@@ -16,7 +16,7 @@ from tracker import groups, rules
 from tracker.config import settings
 from tracker.db import SessionLocal, utcnow
 from tracker.models import Anomaly, Notification, PricePoint, Product, User, Watch, WatchItem
-from tracker.money import format_price
+from tracker.money import format_change, format_price
 from tracker.notifications.notifier import channels_for_watch, esc, notify_admins, send_to_channels
 from tracker.processors import FetchError, ProductRef, ScrapeResult, get_processor
 
@@ -260,6 +260,7 @@ def evaluate_watch(db: DbSession, watch: Watch, now: datetime) -> tuple[Notifica
         previous_price,
         store=get_processor(winner.processor).label if multi else None,
         previous_store=previous_store,
+        price_at_start=watch.price_at_start,
     )
     notif = Notification(
         watch_id=watch.id,
@@ -274,6 +275,7 @@ def evaluate_watch(db: DbSession, watch: Watch, now: datetime) -> tuple[Notifica
             # Lectura anterior del grupo: es el "antes" del aviso (list_price es el
             # precio normal de la tienda, no el anterior).
             "previous_price": previous_price,
+            "price_at_start": watch.price_at_start,
             "currency": winner.currency,
             "available": reading.available,
             "historic_min": historic_min,
@@ -295,6 +297,7 @@ def build_message(
     *,
     store: str | None = None,
     previous_store: str | None = None,
+    price_at_start: int | None = None,
 ) -> str:
     """Texto del aviso. `store` solo va en Watches con varios links (dónde está el precio)."""
     cur = product.currency
@@ -302,14 +305,21 @@ def build_message(
     price_line = format_price(reading.price, cur)
     if store:
         price_line += f" en {esc(store)}"
-    if previous_price is not None and reading.price is not None and previous_price != reading.price:
-        before = format_price(previous_price, cur)
-        if previous_store:
-            before += f" en {esc(previous_store)}"
-        price_line += f" (antes {before})"
     if not reading.available:
         price_line += " · sin stock"
     lines.append(price_line)
+    # Variación en plata y en %: contra la lectura anterior y contra el inicio del
+    # seguimiento (siempre las dos, aunque coincidan o no haya cambio).
+    if reading.price is not None:
+        if previous_price is not None:
+            before = format_price(previous_price, cur)
+            if previous_store:
+                before += f" en {esc(previous_store)}"
+            change = format_change(reading.price, previous_price, cur)
+            lines.append(f"vs. anterior ({before}): {change}")
+        if price_at_start is not None:
+            change = format_change(reading.price, price_at_start, cur)
+            lines.append(f"vs. inicio ({format_price(price_at_start, cur)}): {change}")
     if reading.list_price and reading.price is not None and reading.list_price > reading.price:
         lines.append(f"Precio normal {format_price(reading.list_price, cur)}")
     for f in fired:
