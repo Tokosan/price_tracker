@@ -225,7 +225,7 @@ def evaluate(
         if last <= 0:
             return Fired(kind, "El precio varió (dejó de ser gratis)", {"from": last}), state
         change = (price - last) * 100 / last
-        pct = f"{change:+.1f}" if abs(change) < 1 else f"{change:+.0f}"
+        pct = f"{change:+.1f}".replace(".", ",") if abs(change) < 1 else f"{change:+.0f}"
         return Fired(kind, f"El precio varió {pct} %", {"from": last}), state
 
     raise RuleError(f"regla desconocida: {kind}")

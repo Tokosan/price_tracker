@@ -136,7 +136,11 @@ async def test_mensaje_de_grupo_dice_donde_esta_el_precio(session):
         store="IKEA",
         previous_store="Steam",
     )
-    assert text.split("\n")[:2] == ["<b>Estante</b>", "$9.000 en IKEA (antes $10.000 en Steam)"]
+    assert text.split("\n")[:3] == [
+        "<b>Estante</b>",
+        "$9.000 en IKEA",
+        "vs. anterior ($10.000 en Steam): -$1.000 (-10 %)",
+    ]
 
 
 async def test_un_item_broken_no_dispara_alertas(session):

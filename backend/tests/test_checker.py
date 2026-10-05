@@ -169,19 +169,80 @@ async def test_el_antes_del_aviso_es_la_lectura_anterior_no_el_precio_normal(ses
 
 def test_mensaje_muestra_antes_y_precio_normal_por_separado():
     product = Product(title="Frosthaven", canonical_url="https://x/1", currency="CLP")
-    fired = [rules.Fired("PRICE_CHANGE", "El precio varió +0.5 %", {"from": 248803})]
+    fired = [rules.Fired("PRICE_CHANGE", "El precio varió +0,5 %", {"from": 248803})]
     reading = rules.Reading(249966, 249990, True)
     text = build_message("Frosthaven", product, reading, fired, False, 248803)
     lines = text.split("\n")
-    assert lines[1] == "$249.966 (antes $248.803)"
-    assert lines[2] == "Precio normal $249.990"
-    # El "desde" repetiría el "antes": no se agrega.
-    assert lines[3] == "• El precio varió +0.5 %"
+    assert lines[1] == "$249.966"
+    assert lines[2] == "vs. anterior ($248.803): +$1.163 (+0,5 %)"
+    assert lines[3] == "Precio normal $249.990"
+    # El "desde" repetiría el anterior: no se agrega.
+    assert lines[4] == "• El precio varió +0,5 %"
 
 
 def test_mensaje_conserva_el_desde_del_ultimo_aviso():
     product = Product(title="Juego", canonical_url="https://x/1", currency="CLP")
     fired = [rules.Fired("PRICE_DROP", "Bajó 20 %", {"from": 10000})]
     text = build_message("Juego", product, rules.Reading(8000, None, True), fired, False, 9000)
-    assert "$8.000 (antes $9.000)" in text
+    assert "vs. anterior ($9.000): -$1.000 (-11,1 %)" in text
     assert "• Bajó 20 % (desde $10.000)" in text
+
+
+def test_mensaje_muestra_variacion_contra_anterior_y_contra_inicio():
+    product = Product(title="Juego", canonical_url="https://x/1", currency="CLP")
+    fired = [rules.Fired("PRICE_DROP", "Bajó 10 %", {"from": 10000})]
+    text = build_message(
+        "Juego", product, rules.Reading(9000, None, True), fired, False, 10000, price_at_start=12000
+    )
+    lines = text.split("\n")
+    assert lines[1] == "$9.000"
+    assert lines[2] == "vs. anterior ($10.000): -$1.000 (-10 %)"
+    assert lines[3] == "vs. inicio ($12.000): -$3.000 (-25 %)"
+
+
+def test_mensaje_sin_cambio_y_sin_stock():
+    # BACK_IN_STOCK/OUT_OF_STOCK con el mismo precio: las dos líneas igual aparecen.
+    product = Product(title="Juego", canonical_url="https://x/1", currency="CLP")
+    fired = [rules.Fired("OUT_OF_STOCK", "Se agotó", {})]
+    text = build_message(
+        "Juego", product, rules.Reading(9000, None, False), fired, False, 9000, price_at_start=9000
+    )
+    lines = text.split("\n")
+    assert lines[1] == "$9.000 · sin stock"
+    assert lines[2] == "vs. anterior ($9.000): sin cambio"
+    assert lines[3] == "vs. inicio ($9.000): sin cambio"
+
+
+def test_mensaje_sin_anterior_ni_inicio_no_agrega_lineas():
+    product = Product(title="Juego", canonical_url="https://x/1", currency="CLP")
+    fired = [rules.Fired("TARGET_PRICE", "Llegó al objetivo", {"target": 9000})]
+    text = build_message("Juego", product, rules.Reading(9000, None, True), fired, False)
+    assert "vs." not in text
+
+
+def test_mensaje_no_repite_el_desde_si_es_el_precio_de_inicio():
+    product = Product(title="Juego", canonical_url="https://x/1", currency="CLP")
+    fired = [rules.Fired("PRICE_DROP", "Bajó 25 %", {"from": 12000})]
+    text = build_message(
+        "Juego", product, rules.Reading(9000, None, True), fired, False, 10000, price_at_start=12000
+    )
+    assert "vs. inicio ($12.000): -$3.000 (-25 %)" in text
+    assert "• Bajó 25 %\n" in text + "\n" and "desde" not in text
+
+
+def test_mensaje_cambio_minimo_escapa_el_menor_que():
+    product = Product(title="Juego", canonical_url="https://x/1", currency="CLP")
+    fired = [rules.Fired("PRICE_CHANGE", "El precio varió +0,0 %", {"from": 100000})]
+    text = build_message("Juego", product, rules.Reading(100001, None, True), fired, False, 100000)
+    assert "vs. anterior ($100.000): +$1 (&lt;0,1 %)" in text
+
+
+async def test_aviso_usa_la_lectura_anterior_y_el_precio_de_inicio_por_separado(session):
+    # Inicio 12.000, última lectura 10.000, nueva 9.000: cada línea usa su base.
+    product, watch = setup_watch(session, [("PRICE_CHANGE", {}, {"last_price": 10000})], 12000)
+    watch.last_price = 10000
+    session.commit()
+    await apply_result(session, product, result(9000))
+    notif = session.scalars(select(Notification)).one()
+    assert notif.payload["previous_price"] == 10000
+    assert notif.payload["price_at_start"] == 12000
