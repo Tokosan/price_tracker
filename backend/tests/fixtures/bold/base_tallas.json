@@ -1,0 +1,741 @@
+{
+ "availableForPickup": false,
+ "averageRating": 5.0,
+ "badges": [
+  {
+   "active": false,
+   "code": "BlackBold",
+   "icon": {
+    "url": "/medias/Black.webp?context=bWFzdGVyfHJvb3R8MjYzN3xpbWFnZS93ZWJwfGFHTTVMMmhtWXk4eE1ERXdOVEUzTXpNM056QTFOQzlDYkdGamF5NTNaV0p3fDQ2ZjFkNmMyNTJiZmQxMDc3Nzk4YjYxNTY1ZWY2MTI1OGRlZGQyZDg5ZjMxNmRjNjVmZWEzNGUxNDg0M2JlYjY"
+   },
+   "name": "BlackBold",
+   "position": "TOP_RIGHT",
+   "type": "IMAGE"
+  },
+  {
+   "active": true,
+   "code": "BadegBoldMedallaCyberDay",
+   "icon": {
+    "url": "/medias/Sello15a-os-2026-4x.png?context=bWFzdGVyfHJvb3R8MTc5NDczfGltYWdlL3BuZ3xhR1ExTDJnMU5TOHhNREl3TkRrek9UTTROamt4TUM5VFpXeHNiekUxWWNPeGIzTmZNakF5TmtBMGVDNXdibWN8Mjk5ODNkZjVmZmE2NTlmMDg2MDliNmE3MTY4OWQxYWRjNzQ3OGY4NzY2NzZlYTQxYzM0OGFiZDBlMTdmMzJiYg"
+   },
+   "name": "Bold Medalla CyberDay",
+   "position": "TOP_RIGHT",
+   "type": "IMAGE"
+  },
+  {
+   "active": true,
+   "backgroundColor": "#fcce11",
+   "code": "BadgeBoldDespachoExpress",
+   "name": "Envío Express",
+   "position": "BOTTOM_LEFT",
+   "text": "Envío Express RM",
+   "textColor": "font-family: 'Open Sans';font-size: clamp(0.65rem, 1vw, 1rem); padding: 0px 5px; background-color: #c1c2c4; border-radius: 10px;",
+   "type": "TEXT"
+  },
+  {
+   "active": false,
+   "backgroundColor": "#000000",
+   "code": "ultraRapido_",
+   "name": "ultraRapido_",
+   "position": "TOP_LEFT",
+   "text": "Llega en 3 horas",
+   "textColor": "font-family: 'Open Sans';font-size: clamp(0.65rem, 1vw, 1rem); padding: 0px 5px; background-color: #000000; border-radius: 10px; color: #ffffff",
+   "type": "TEXT"
+  }
+ ],
+ "baseOptions": [],
+ "brandName": "adidas",
+ "categories": [
+  {
+   "code": "boldMarcasAdidas",
+   "compareLinks": [],
+   "hasCompare": false,
+   "image": {
+    "url": "/medias/Logo-Adidas-100x100.png?context=bWFzdGVyfGltYWdlc3wzNzEzfGltYWdlL3BuZ3xhRFkxTDJoaFppODVNek00TWpNNE56WXpNRE00TDB4dloyOWZRV1JwWkdGelh6RXdNSGd4TURBdWNHNW58ZmJkNWMwOGNmMTJjNmQ1MGY1ZjAwMDczZmM3NzZkNmZkYzgyYmNkNjgxNjVmNDRiNzM5MzIzMGYyNzI3YWZmYQ"
+   },
+   "isBrandCategory": true,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "adidas",
+   "superCategories": [
+    {
+     "code": "boldMarcas",
+     "name": "Marcas"
+    }
+   ],
+   "url": "/Categories/Marcas/adidas/c/boldMarcasAdidas"
+  },
+  {
+   "code": "boldHombreCalzadoZapatillas",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Zapatillas Hombre",
+   "superCategories": [
+    {
+     "code": "boldHombreCalzado",
+     "name": "Calzado Hombre"
+    }
+   ],
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/c/boldHombreCalzadoZapatillas"
+  },
+  {
+   "code": "boldMujerCalzadoZapatillas",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Zapatillas Mujer",
+   "superCategories": [
+    {
+     "code": "boldMujerCalzado",
+     "name": "Calzado Mujer"
+    }
+   ],
+   "url": "/Categories/Genero/Mujer/Calzado-Mujer/Zapatillas-Mujer/c/boldMujerCalzadoZapatillas"
+  },
+  {
+   "code": "GSBoldAdidasZapatillaUnisex",
+   "compareLinks": [],
+   "hasCompare": false,
+   "image": {
+    "url": "/medias/GSBoldAdidasZapatillaUnisex.webp?context=bWFzdGVyfHJvb3R8MTA4OTU2fGltYWdlL3dlYnB8YURreEwyaGxaUzg1T1RrNU16UXhNVGt4TVRrNEwwZFRRbTlzWkVGa2FXUmhjMXBoY0dGMGFXeHNZVlZ1YVhObGVDNTNaV0p3fGY0OTI1MGVjMWMxMTc3MDI1MjM4ZWEyZjM2Nzc4MmI4YjdiOTY1MDA2MzRhNjVlNjg2NDZkZDQwMjA2MDIwZDc"
+   },
+   "isBrandCategory": false,
+   "isGuideSizeCategory": true,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "GSBoldAdidasZapatillaUnisex",
+   "superCategories": [
+    {
+     "code": "boldGuideSize",
+     "name": "Guide Size"
+    }
+   ],
+   "url": "/Guide-Size/GSBoldAdidasZapatillaUnisex/c/GSBoldAdidasZapatillaUnisex"
+  },
+  {
+   "code": "sale-bold",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Sale",
+   "superCategories": [
+    {
+     "code": "boldCampanas",
+     "name": "Campañas"
+    }
+   ],
+   "url": "/Campa%C3%B1as/Sale/c/sale-bold"
+  },
+  {
+   "code": "black-mujer",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Mujer",
+   "superCategories": [
+    {
+     "code": "black-friday",
+     "name": "Black Friday"
+    }
+   ],
+   "url": "/Black-Friday/Mujer/c/black-mujer"
+  },
+  {
+   "code": "black-friday",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Black Friday",
+   "superCategories": [],
+   "url": "/Black-Friday/c/black-friday"
+  },
+  {
+   "code": "zapatillas",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Zapatillas",
+   "superCategories": [
+    {
+     "code": "boldTipo",
+     "name": "boldTipo"
+    }
+   ],
+   "url": "/Categories/boldTipo/Zapatillas/c/zapatillas"
+  },
+  {
+   "code": "cyber",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Cyber Bold: Zapatillas, Ropa y Accesorios en Oferta",
+   "superCategories": [],
+   "url": "/Cyber-Bold%3A-Zapatillas%2C-Ropa-y-Accesorios-en-Oferta/c/cyber"
+  },
+  {
+   "code": "cyber-mujer",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Cyber Mujer: Zapatillas y Ropa en Oferta",
+   "superCategories": [
+    {
+     "code": "cyber",
+     "name": "Cyber Bold: Zapatillas, Ropa y Accesorios en Oferta"
+    }
+   ],
+   "url": "/Cyber-Bold%3A-Zapatillas%2C-Ropa-y-Accesorios-en-Oferta/Cyber-Mujer%3A-Zapatillas-y-Ropa-en-Oferta/c/cyber-mujer"
+  },
+  {
+   "code": "cyber-adidas",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Cyber adidas x Bold",
+   "superCategories": [
+    {
+     "code": "cyber",
+     "name": "Cyber Bold: Zapatillas, Ropa y Accesorios en Oferta"
+    }
+   ],
+   "url": "/Cyber-Bold%3A-Zapatillas%2C-Ropa-y-Accesorios-en-Oferta/Cyber-adidas-x-Bold/c/cyber-adidas"
+  },
+  {
+   "code": "cyber-zapatillas",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Cyber Zapatillas: Nike, Jordan, adidas y Más",
+   "superCategories": [
+    {
+     "code": "cyber",
+     "name": "Cyber Bold: Zapatillas, Ropa y Accesorios en Oferta"
+    }
+   ],
+   "url": "/Cyber-Bold%3A-Zapatillas%2C-Ropa-y-Accesorios-en-Oferta/Cyber-Zapatillas%3A-Nike%2C-Jordan%2C-adidas-y-M%C3%A1s/c/cyber-zapatillas"
+  }
+ ],
+ "code": "ADJR1121",
+ "configurable": false,
+ "description": "<ul><li>Horma clásica</li><li>Cierre de cordones</li><li>Exterior de malla, cuero y gamuza</li><li>Forro interno de felpa</li><li>Suela tipo cupsole de caucho</li></ul>",
+ "ean": "ADJR1121",
+ "formattedDiscount": "-60%",
+ "futureStockEnabled": false,
+ "image360": false,
+ "images": [
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "superZoom",
+   "imageType": "PRIMARY",
+   "url": "/medias/BOLD-ADJR1121-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w2NzI0NHxpbWFnZS93ZWJwfGFEa3pMMmd5WlM4eE1EQTBNVE13TmpFeU1ESXlNaTlDVDB4RVgwRkVTbEl4TVRJeFgxWkpSVmN4TG5kbFluQXwzOTg0YmFlZWVjYmYwNzUxZTBlZDkzNGI3ZDNjMTYxYTUzOGQzYjJiYjYyMGRkODRkNjcxZDBhMDY1OWNkMTBl"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "product",
+   "imageType": "PRIMARY",
+   "url": "/medias/300Wx300H-BOLD-ADJR1121-VIEW1.webp?context=bWFzdGVyfGltYWdlc3wxOTgwfGltYWdlL3dlYnB8YUdVMUwyZ3laQzh4TURBME1UTXdOakU0TlRjMU9DOHpNREJYZURNd01FaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNUzUzWldKd3w3ODZmOGQ4ODM1ZjMwZjU0N2RmNDEzZGE5MzhmY2RlMzYxNTczOTFmMzAxYWQwMWJkMjM0MzFlNTJmN2YxNTRm"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "cartIcon",
+   "imageType": "PRIMARY",
+   "url": "/medias/65Wx65H-BOLD-ADJR1121-VIEW1.webp?context=bWFzdGVyfGltYWdlc3wzMzR8aW1hZ2Uvd2VicHxhRE5sTDJneVlpOHhNREEwTVRNd05qSXhPRFV5Tmk4Mk5WZDROalZJWDBKUFRFUmZRVVJLVWpFeE1qRmZWa2xGVnpFdWQyVmljQXwwMzczNDI4YTZmZDY1NzkxODYwNDEzYjA3N2I1ZmE0ODFmN2VjZjE5OTc3ODNlNmZkZjQ1ZDk1YTU2OGJhNWJl"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "zoom",
+   "imageType": "PRIMARY",
+   "url": "/medias/515Wx515H-BOLD-ADJR1121-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w0NzgyfGltYWdlL3dlYnB8YUdRekwyZ3lZUzh4TURBME1UTXdOakkxTVRJNU5DODFNVFZYZURVeE5VaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNUzUzWldKd3wwZmI0M2Y4Y2QwYmE0MGVmYmRmMGMxOGM2OWM1NGY4Y2VmMzZmOTJhYzUyNTM3OWY4ZjNmNDVkZmFjYzM5YWNm"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "thumbnail",
+   "imageType": "PRIMARY",
+   "url": "/medias/96Wx96H-BOLD-ADJR1121-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w1Mzh8aW1hZ2Uvd2VicHxhRGRqTDJneVlTOHhNREEwTVRNd05qSTROREEyTWk4NU5sZDRPVFpJWDBKUFRFUmZRVVJLVWpFeE1qRmZWa2xGVnpFdWQyVmljQXw0ZjIyZTA3ZTY1OWJiYjgwZTBhODg4Mjg4NWRmYjJhZDM5NDUzZDVmYWNkMjliNjY2Y2IzNGI0NTgwY2QwMzY5"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "superZoom",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-ADJR1121-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w2NzI0NHxpbWFnZS93ZWJwfGFEa3pMMmd5WlM4eE1EQTBNVE13TmpFeU1ESXlNaTlDVDB4RVgwRkVTbEl4TVRJeFgxWkpSVmN4TG5kbFluQXwzOTg0YmFlZWVjYmYwNzUxZTBlZDkzNGI3ZDNjMTYxYTUzOGQzYjJiYjYyMGRkODRkNjcxZDBhMDY1OWNkMTBl"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "product",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-ADJR1121-VIEW1.webp?context=bWFzdGVyfGltYWdlc3wxOTgwfGltYWdlL3dlYnB8YUdVMUwyZ3laQzh4TURBME1UTXdOakU0TlRjMU9DOHpNREJYZURNd01FaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNUzUzWldKd3w3ODZmOGQ4ODM1ZjMwZjU0N2RmNDEzZGE5MzhmY2RlMzYxNTczOTFmMzAxYWQwMWJkMjM0MzFlNTJmN2YxNTRm"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "zoom",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-ADJR1121-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w0NzgyfGltYWdlL3dlYnB8YUdRekwyZ3lZUzh4TURBME1UTXdOakkxTVRJNU5DODFNVFZYZURVeE5VaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNUzUzWldKd3wwZmI0M2Y4Y2QwYmE0MGVmYmRmMGMxOGM2OWM1NGY4Y2VmMzZmOTJhYzUyNTM3OWY4ZjNmNDVkZmFjYzM5YWNm"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "thumbnail",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/96Wx96H-BOLD-ADJR1121-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w1Mzh8aW1hZ2Uvd2VicHxhRGRqTDJneVlTOHhNREEwTVRNd05qSTROREEyTWk4NU5sZDRPVFpJWDBKUFRFUmZRVVJLVWpFeE1qRmZWa2xGVnpFdWQyVmljQXw0ZjIyZTA3ZTY1OWJiYjgwZTBhODg4Mjg4NWRmYjJhZDM5NDUzZDVmYWNkMjliNjY2Y2IzNGI0NTgwY2QwMzY5"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "superZoom",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-ADJR1121-VIEW2.webp?context=bWFzdGVyfGltYWdlc3w3MzU4NHxpbWFnZS93ZWJwfGFEYzRMMmd4TXk4eE1EQTBNVE13Tmprd05qWTFOQzlDVDB4RVgwRkVTbEl4TVRJeFgxWkpSVmN5TG5kbFluQXw3ZGM1MjQwY2ZkYTY2YjY1YmEzMDM3MmY4NjhjNWEwNjE1NmY3YzBhMzYxNWI3MTc4MTYyZWQ2MWI1OGI0NGYw"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "product",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-ADJR1121-VIEW2.webp?context=bWFzdGVyfGltYWdlc3wxODQ4fGltYWdlL3dlYnB8YUdJMkwyZ3hNaTh4TURBME1UTXdOamszTWpFNU1DOHpNREJYZURNd01FaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNaTUzWldKd3wyYmM4ZTYxNmMwZmY1ODVmMzRiZmI0MjExYmE5N2Y5NTRjNTBkZGNlNTg3ZjMyMDkzYzdkN2E0MTE1MGMwZGU3"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "zoom",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-ADJR1121-VIEW2.webp?context=bWFzdGVyfGltYWdlc3w0NjA4fGltYWdlL3dlYnB8YUdZeUwyZ3pOeTh4TURBME1UTXdOekF6TnpjeU5pODFNVFZYZURVeE5VaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNaTUzWldKd3xkZmM4ZGZjNzI0YzQxZjI5NmZmMjhiMmZiMDc5MTE4NzYzYzRhMTFkZDUxZWY4OTVlNWRmN2Q4Mjc4NTI3NDA0"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "thumbnail",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/96Wx96H-BOLD-ADJR1121-VIEW2.webp?context=bWFzdGVyfGltYWdlc3w1MDB8aW1hZ2Uvd2VicHxhRFZqTDJnek9DOHhNREEwTVRNd056QTNNRFE1TkM4NU5sZDRPVFpJWDBKUFRFUmZRVVJLVWpFeE1qRmZWa2xGVnpJdWQyVmljQXxjYjAzMTBkZjhhNWU0ZDE3ZmFmOTQyYjRmOGQyOWYxNjM0ZjFjNGExYjMwYzA2MjdmMTI2ZjI4ODUyZTBiOTA4"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "superZoom",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-ADJR1121-VIEW3.webp?context=bWFzdGVyfGltYWdlc3wxMTg4OTZ8aW1hZ2Uvd2VicHxhREV4TDJnMFpDOHhNREEwTVRNd056WTVNekE0Tmk5Q1QweEVYMEZFU2xJeE1USXhYMVpKUlZjekxuZGxZbkF8NTBkMDRkZTk2N2JkNGZjNGEyYzIzYmNmYjkwYTljYzY5YTE1MzQ2ODg0YTYzYWE2Y2Y1ZjNiMmE5ZDYzOGI2Yg"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "product",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-ADJR1121-VIEW3.webp?context=bWFzdGVyfGltYWdlc3wyNTk4fGltYWdlL3dlYnB8YURCbUwyZzFNQzh4TURBME1UTXdOemMxT0RZeU1pOHpNREJYZURNd01FaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNeTUzWldKd3xkMjI5ODYzYjIyZTBkODNkMDg0YTY3YTIxZTcxMjY1MjZlNjE1ZjkwODE3OWRkMGFlYzhmYmNjMGNhOTJiY2Q1"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "zoom",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-ADJR1121-VIEW3.webp?context=bWFzdGVyfGltYWdlc3w3Nzg0fGltYWdlL3dlYnB8YURJd0wyZzFNeTh4TURBME1UTXdOemd5TkRFMU9DODFNVFZYZURVeE5VaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNeTUzWldKd3wwNmIzNDAwMmZhODNhM2Y1ZGJiNWNkMTg3YTViODMxOTg0MTJjYWM2YjlkMTg3YTIwY2VlMTM4ZGJkNWJjYWJm"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "thumbnail",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/96Wx96H-BOLD-ADJR1121-VIEW3.webp?context=bWFzdGVyfGltYWdlc3w2ODh8aW1hZ2Uvd2VicHxhRGMzTDJnMU15OHhNREEwTVRNd056ZzFOamt5Tmk4NU5sZDRPVFpJWDBKUFRFUmZRVVJLVWpFeE1qRmZWa2xGVnpNdWQyVmljQXw5N2YwZTRlNzA1OTU4MTdhYjFmYTc3MzllMzQ5ZDlmYjUxNWNlMjUwNTg1Y2U0ODU4M2U3ZWJhZWIzOTQ5Zjk3"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "superZoom",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-ADJR1121-VIEW4.webp?context=bWFzdGVyfGltYWdlc3w3NjY1NHxpbWFnZS93ZWJwfGFHUTRMMmhoWmk4eE1EQTBNVE13T0RRM09UVXhPQzlDVDB4RVgwRkVTbEl4TVRJeFgxWkpSVmMwTG5kbFluQXxiMDZkOGFjOGJjNTBkNzM1ODk3YzRkNjkyZDZhZTk1OGI4YjY4ZGRkOGMxZTVkNDUxNDg3YjcyN2Q3NTcwYWIz"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "product",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-ADJR1121-VIEW4.webp?context=bWFzdGVyfGltYWdlc3wyMTcyfGltYWdlL3dlYnB8YUdVNUwyaGlNaTh4TURBME1UTXdPRFUwTlRBMU5DOHpNREJYZURNd01FaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhOQzUzWldKd3xmZWRhYTczZTFkMGE4YTZmZjQzZjI0MjM0YTBmOGIwMGNmM2IxYTIzZDhmNGNjMmI5MGNiYjA4MDQwZjkxNGU0"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "zoom",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-ADJR1121-VIEW4.webp?context=bWFzdGVyfGltYWdlc3w1MzUyfGltYWdlL3dlYnB8YUdaaEwyaGlOUzh4TURBME1UTXdPRFl4TURVNU1DODFNVFZYZURVeE5VaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhOQzUzWldKd3wwODdmYThjNTI5NjA0MTM1OTBhNzdjYzU1NWUzMDJlY2Y3NzUzYTVhYjM1NThkN2Y3ZWI1NGVmNzJmM2I1MjUz"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "thumbnail",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/96Wx96H-BOLD-ADJR1121-VIEW4.webp?context=bWFzdGVyfGltYWdlc3w1OTR8aW1hZ2Uvd2VicHxhRFV4TDJoaU5pOHhNREEwTVRNd09EWTBNek0xT0M4NU5sZDRPVFpJWDBKUFRFUmZRVVJLVWpFeE1qRmZWa2xGVnpRdWQyVmljQXwzMTMyOWNmYzc0YzhhY2JhZTVjNmRjY2RjN2I0NTFjMGYwZDk5ZmVhNjA4YjI3NzU3YzcyNGYxZDdiMjJlNjUz"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "superZoom",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-ADJR1121-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w2NzI0NHxpbWFnZS93ZWJwfGFEa3pMMmd5WlM4eE1EQTBNVE13TmpFeU1ESXlNaTlDVDB4RVgwRkVTbEl4TVRJeFgxWkpSVmN4TG5kbFluQXwzOTg0YmFlZWVjYmYwNzUxZTBlZDkzNGI3ZDNjMTYxYTUzOGQzYjJiYjYyMGRkODRkNjcxZDBhMDY1OWNkMTBl"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "thumbnail",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-ADJR1121-VIEW1.webp?context=bWFzdGVyfGltYWdlc3wxOTgwfGltYWdlL3dlYnB8YUdVMUwyZ3laQzh4TURBME1UTXdOakU0TlRjMU9DOHpNREJYZURNd01FaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNUzUzWldKd3w3ODZmOGQ4ODM1ZjMwZjU0N2RmNDEzZGE5MzhmY2RlMzYxNTczOTFmMzAxYWQwMWJkMjM0MzFlNTJmN2YxNTRm"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "product",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-ADJR1121-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w0NzgyfGltYWdlL3dlYnB8YUdRekwyZ3lZUzh4TURBME1UTXdOakkxTVRJNU5DODFNVFZYZURVeE5VaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNUzUzWldKd3wwZmI0M2Y4Y2QwYmE0MGVmYmRmMGMxOGM2OWM1NGY4Y2VmMzZmOTJhYzUyNTM3OWY4ZjNmNDVkZmFjYzM5YWNm"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "superZoom",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-ADJR1121-VIEW2.webp?context=bWFzdGVyfGltYWdlc3w3MzU4NHxpbWFnZS93ZWJwfGFEYzRMMmd4TXk4eE1EQTBNVE13Tmprd05qWTFOQzlDVDB4RVgwRkVTbEl4TVRJeFgxWkpSVmN5TG5kbFluQXw3ZGM1MjQwY2ZkYTY2YjY1YmEzMDM3MmY4NjhjNWEwNjE1NmY3YzBhMzYxNWI3MTc4MTYyZWQ2MWI1OGI0NGYw"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "thumbnail",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-ADJR1121-VIEW2.webp?context=bWFzdGVyfGltYWdlc3wxODQ4fGltYWdlL3dlYnB8YUdJMkwyZ3hNaTh4TURBME1UTXdOamszTWpFNU1DOHpNREJYZURNd01FaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNaTUzWldKd3wyYmM4ZTYxNmMwZmY1ODVmMzRiZmI0MjExYmE5N2Y5NTRjNTBkZGNlNTg3ZjMyMDkzYzdkN2E0MTE1MGMwZGU3"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "product",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-ADJR1121-VIEW2.webp?context=bWFzdGVyfGltYWdlc3w0NjA4fGltYWdlL3dlYnB8YUdZeUwyZ3pOeTh4TURBME1UTXdOekF6TnpjeU5pODFNVFZYZURVeE5VaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNaTUzWldKd3xkZmM4ZGZjNzI0YzQxZjI5NmZmMjhiMmZiMDc5MTE4NzYzYzRhMTFkZDUxZWY4OTVlNWRmN2Q4Mjc4NTI3NDA0"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "superZoom",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-ADJR1121-VIEW3.webp?context=bWFzdGVyfGltYWdlc3wxMTg4OTZ8aW1hZ2Uvd2VicHxhREV4TDJnMFpDOHhNREEwTVRNd056WTVNekE0Tmk5Q1QweEVYMEZFU2xJeE1USXhYMVpKUlZjekxuZGxZbkF8NTBkMDRkZTk2N2JkNGZjNGEyYzIzYmNmYjkwYTljYzY5YTE1MzQ2ODg0YTYzYWE2Y2Y1ZjNiMmE5ZDYzOGI2Yg"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "thumbnail",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-ADJR1121-VIEW3.webp?context=bWFzdGVyfGltYWdlc3wyNTk4fGltYWdlL3dlYnB8YURCbUwyZzFNQzh4TURBME1UTXdOemMxT0RZeU1pOHpNREJYZURNd01FaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNeTUzWldKd3xkMjI5ODYzYjIyZTBkODNkMDg0YTY3YTIxZTcxMjY1MjZlNjE1ZjkwODE3OWRkMGFlYzhmYmNjMGNhOTJiY2Q1"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "product",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-ADJR1121-VIEW3.webp?context=bWFzdGVyfGltYWdlc3w3Nzg0fGltYWdlL3dlYnB8YURJd0wyZzFNeTh4TURBME1UTXdOemd5TkRFMU9DODFNVFZYZURVeE5VaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhNeTUzWldKd3wwNmIzNDAwMmZhODNhM2Y1ZGJiNWNkMTg3YTViODMxOTg0MTJjYWM2YjlkMTg3YTIwY2VlMTM4ZGJkNWJjYWJm"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "superZoom",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-ADJR1121-VIEW4.webp?context=bWFzdGVyfGltYWdlc3w3NjY1NHxpbWFnZS93ZWJwfGFHUTRMMmhoWmk4eE1EQTBNVE13T0RRM09UVXhPQzlDVDB4RVgwRkVTbEl4TVRJeFgxWkpSVmMwTG5kbFluQXxiMDZkOGFjOGJjNTBkNzM1ODk3YzRkNjkyZDZhZTk1OGI4YjY4ZGRkOGMxZTVkNDUxNDg3YjcyN2Q3NTcwYWIz"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "thumbnail",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-ADJR1121-VIEW4.webp?context=bWFzdGVyfGltYWdlc3wyMTcyfGltYWdlL3dlYnB8YUdVNUwyaGlNaTh4TURBME1UTXdPRFUwTlRBMU5DOHpNREJYZURNd01FaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhOQzUzWldKd3xmZWRhYTczZTFkMGE4YTZmZjQzZjI0MjM0YTBmOGIwMGNmM2IxYTIzZDhmNGNjMmI5MGNiYjA4MDQwZjkxNGU0"
+  },
+  {
+   "altText": "Forum2000 Zapatillas adidas Unisex Negro",
+   "format": "product",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-ADJR1121-VIEW4.webp?context=bWFzdGVyfGltYWdlc3w1MzUyfGltYWdlL3dlYnB8YUdaaEwyaGlOUzh4TURBME1UTXdPRFl4TURVNU1DODFNVFZYZURVeE5VaGZRazlNUkY5QlJFcFNNVEV5TVY5V1NVVlhOQzUzWldKd3wwODdmYThjNTI5NjA0MTM1OTBhNzdjYzU1NWUzMDJlY2Y3NzUzYTVhYjM1NThkN2Y3ZWI1NGVmNzJmM2I1MjUz"
+  }
+ ],
+ "images360": [],
+ "keywords": "[]",
+ "maxOrderQuantity": 100,
+ "multidimensional": true,
+ "name": "Forum2000 Zapatillas adidas Unisex Negro",
+ "numberOfReviews": 7,
+ "potentialPromotions": [
+  {
+   "code": "Bold_MensajeCrep"
+  },
+  {
+   "code": "Bold_InfluencersCyber2026-Oct"
+  },
+  {
+   "code": "Bold_ConcursoCyber"
+  },
+  {
+   "code": "Bold_YNKCYBER10_Cyber2026-Oct"
+  },
+  {
+   "code": "Bold_Cumpleaños_25off"
+  },
+  {
+   "code": "Cupon_Vuelve_BOLD"
+  },
+  {
+   "code": "Bold_VuelveBold"
+  },
+  {
+   "code": "20off_Embajadores_BOLD"
+  }
+ ],
+ "price": {
+  "currencyIso": "CLP",
+  "formattedValue": "$47.990",
+  "priceType": "FROM",
+  "value": 47990
+ },
+ "priceRange": {
+  "maxPrice": {
+   "currencyIso": "CLP",
+   "formattedValue": "$47.990",
+   "priceType": "FROM",
+   "value": 47990.0
+  },
+  "minPrice": {
+   "currencyIso": "CLP",
+   "formattedValue": "$47.990",
+   "priceType": "FROM",
+   "value": 47990.0
+  }
+ },
+ "purchasable": false,
+ "regularPrice": {
+  "currencyIso": "CLP",
+  "formattedValue": "$119.990",
+  "priceType": "FROM",
+  "value": 119990
+ },
+ "retailRocketProductId": "8891777220609",
+ "reviews": [],
+ "serialRequired": false,
+ "stock": {
+  "physicalStockLevelByZone": [
+   "zonaSur:outOfStock",
+   "zonaNorte:outOfStock",
+   "regionMetropolitana:inStock"
+  ],
+  "physicalStockLevelStatus": "inStock",
+  "stockLevel": 0,
+  "stockLevelStatus": "outOfStock"
+ },
+ "summary": "Las zapatillas adidas Forum2000 combinan el estilo clásico del baloncesto con detalles modernos. Su exterior de piel sintética ofrece durabilidad y comodidad, mientras que la mediasuela Cloudfoam proporciona una amortiguación receptiva. El cierre de cordones garantiza un ajuste seguro, y la suela de goma garantiza una excelente tracción. Inspirada en la herencia del baloncesto, es perfecta para uso diario o en la cancha.",
+ "unitSales": "PAA",
+ "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Forum2000-Zapatillas-adidas-Unisex-Negro/p/ADJR1121",
+ "variantMatrix": [],
+ "variantOptions": [
+  {
+   "code": "ADJR1121070",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$47.990",
+    "priceType": "BUY",
+    "value": 47990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$119.990",
+    "priceType": "BUY",
+    "value": 119990
+   },
+   "retailRocketProductId": "8891777253377",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "zonaSur:outOfStock",
+     "zonaNorte:outOfStock",
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 0,
+    "stockLevelStatus": "outOfStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Forum2000-Zapatillas-adidas-Unisex-Negro/p/ADJR1121070",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 7 UNSX"
+    }
+   ]
+  },
+  {
+   "code": "ADJR1121080",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$47.990",
+    "priceType": "BUY",
+    "value": 47990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$119.990",
+    "priceType": "BUY",
+    "value": 119990
+   },
+   "retailRocketProductId": "8891777286145",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "zonaSur:outOfStock",
+     "zonaNorte:outOfStock",
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 11,
+    "stockLevelStatus": "inStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Forum2000-Zapatillas-adidas-Unisex-Negro/p/ADJR1121080",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 8 UNSX"
+    }
+   ]
+  },
+  {
+   "code": "ADJR1121085",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$47.990",
+    "priceType": "BUY",
+    "value": 47990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$119.990",
+    "priceType": "BUY",
+    "value": 119990
+   },
+   "retailRocketProductId": "8891777318913",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "zonaSur:outOfStock",
+     "zonaNorte:outOfStock",
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 28,
+    "stockLevelStatus": "inStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Forum2000-Zapatillas-adidas-Unisex-Negro/p/ADJR1121085",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 8.5 UNSX"
+    }
+   ]
+  },
+  {
+   "code": "ADJR1121090",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$47.990",
+    "priceType": "BUY",
+    "value": 47990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$119.990",
+    "priceType": "BUY",
+    "value": 119990
+   },
+   "retailRocketProductId": "8891777351681",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "zonaSur:outOfStock",
+     "zonaNorte:outOfStock",
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 33,
+    "stockLevelStatus": "inStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Forum2000-Zapatillas-adidas-Unisex-Negro/p/ADJR1121090",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 9 UNSX"
+    }
+   ]
+  },
+  {
+   "code": "ADJR1121095",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$47.990",
+    "priceType": "BUY",
+    "value": 47990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$119.990",
+    "priceType": "BUY",
+    "value": 119990
+   },
+   "retailRocketProductId": "8891777384449",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "zonaSur:outOfStock",
+     "zonaNorte:outOfStock",
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 57,
+    "stockLevelStatus": "inStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Forum2000-Zapatillas-adidas-Unisex-Negro/p/ADJR1121095",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 9.5 UNSX"
+    }
+   ]
+  }
+ ],
+ "variantSelectors": [],
+ "variantType": "BelsportSizeVariantProduct",
+ "volumePrices": []
+}
