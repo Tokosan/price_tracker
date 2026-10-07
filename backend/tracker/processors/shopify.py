@@ -182,6 +182,21 @@ class ShopifyProcessor(Processor):
         return to_minor(str(value), self.currency)
 
 
+class ShopifyApparelProcessor(ShopifyProcessor):
+    """Tiendas de ropa y calzado: cada variante (talla, color o ambos) se elige al agregar.
+
+    Shopify limita por IP (429) con pocas peticiones, así que se leen cada 12 h.
+    """
+
+    check_interval = timedelta(hours=12)
+    supports_variants = True
+    variants_title = "¿Qué talla seguir?"
+    variants_hint = (
+        "Cada talla (o color) se sigue por separado, con su precio y su stock. Marca las "
+        "que quieras."
+    )
+
+
 def _product(raw: str, label: str) -> dict:
     try:
         data = json.loads(raw)

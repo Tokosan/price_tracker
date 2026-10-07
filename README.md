@@ -46,6 +46,7 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Buscalibre | HTML de la ficha (opciones de compra), con selector para incluir libros usados |
 | Preunic | API de Spree que usa la página (BFF de `api.preunic.cl`), precio sin tarjeta y stock de la comuna Santiago |
 | Liga Farmacia | Catálogo público de Firestore que usa la página (modalidad despacho a domicilio Santiago) |
+| Ropa y calzado en Shopify: Lippi, Under Armour, Patagonia, Doite, Merrell, Vans, Salomon, Columbia, Rockford, Hush Puppies, Crocs, Dr. Martens, Wrangler, Dockers, Jockey, Kayser, Fashion's Park, Street Machine, Bamers, Gotta, B-Soul | JSON de la ficha de Shopify (`/products/<handle>.js`), con selector de talla y color |
 
 Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX**, **WooCommerce**, **Shopify** y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
