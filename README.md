@@ -53,6 +53,19 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Bold | API OCC de SAP Commerce que usa la página, con selector de talla |
 | Belsport | API OCC de SAP Commerce que usa la página, con selector de talla |
 | Zappa | HTML de la ficha (PrestaShop), con selector de talla |
+| Nike | API pública del catálogo de VTEX (por la cuenta VTEX, sin pasar por Cloudflare), con selector de tallas |
+| Reebok | API pública del catálogo de VTEX, con selector de tallas |
+| Levi's | API pública del catálogo de VTEX, con selector de tallas (cintura y largo) |
+| Tommy Hilfiger | API pública del catálogo de VTEX, con selector de tallas |
+| Calvin Klein | API pública del catálogo de VTEX, con selector de tallas |
+| American Eagle | API pública del catálogo de VTEX, con selector de tallas |
+| Trial | API pública del catálogo de VTEX, con selector de tallas |
+| Ellus | API pública del catálogo de VTEX, con selector de talla y color |
+| Keds | API pública del catálogo de VTEX, con selector de tallas (sin precio "antes": es siempre 2,5 veces el precio) |
+| Colloky | API pública del catálogo de VTEX, con selector de tallas |
+| Ferouch | API pública del catálogo de VTEX, con selector de tallas |
+| Caffarena | API pública del catálogo de VTEX, con selector de color y talla |
+| Opaline | API pública del catálogo de VTEX, con selector de tallas |
 
 Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX**, **WooCommerce**, **Shopify**, **Fenicio**, **SAP Commerce (OCC)** y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
