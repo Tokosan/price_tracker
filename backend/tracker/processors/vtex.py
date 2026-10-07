@@ -14,6 +14,11 @@ ficha de VTEX entiende), y el título lleva la etiqueta del item entre paréntes
 Si el buscador de la tienda muestra slugs de otro catálogo (Santa Isabel muestra los de
 Jumbo), `refid_fallback` busca por el sufijo numérico del slug (`alternateIds_RefId`)
 cuando el slug no existe, y solo acepta un producto con ese RefId.
+
+Algunas tiendas (Levi's) sacan de la búsqueda por slug un producto con **todas** sus tallas
+agotadas (`[]`), aunque la ficha siga publicada. Con `pagetype_fallback`, si el slug da `[]`
+se resuelve el id del producto con `pub/portal/pagetype/<slug>/p` y se pide por
+`?fq=productId:<id>`, que sí lo lista: así el producto queda agotado y no "no existe".
 """
 
 import json
@@ -33,6 +38,9 @@ from tracker.processors.base import (
 from tracker.processors.http import get_text
 from tracker.processors.util import to_minor
 
+# Path de una ficha: slug de letras latinas (con tildes y ñ), dígitos y guiones.
+_PATH_RE = re.compile(r"/((?:[a-z0-9à-öø-ÿ]|-)+)/p/?", re.I)
+
 
 class VtexProcessor(Processor):
     """Subclases: `name`, `label`, `host` (con www), `account` y los metadatos."""
@@ -47,6 +55,10 @@ class VtexProcessor(Processor):
     platform = "VTEX"
     # Si el slug no existe, buscar por su sufijo numérico (RefId) antes de darlo por perdido.
     refid_fallback: bool = False
+    # Si el slug da `[]`, resolver el producto por su id (pagetype) antes de darlo por perdido.
+    pagetype_fallback: bool = False
+    # Path de una ficha (`/<slug>/p`); el grupo 1 es el slug.
+    path_re: re.Pattern = _PATH_RE
 
     def __init__(self) -> None:
         bare = self.host.removeprefix("www.")
@@ -65,7 +77,7 @@ class VtexProcessor(Processor):
             return None
         if parts.scheme.lower() not in ("http", "https") or parts.hostname not in self._hosts:
             return None
-        return _PATH_RE.fullmatch(unicodedata.normalize("NFC", unquote(parts.path)))
+        return self.path_re.fullmatch(unicodedata.normalize("NFC", unquote(parts.path)))
 
     def matches(self, url: str) -> bool:
         return bool(self._match(url))
@@ -96,11 +108,24 @@ class VtexProcessor(Processor):
             f"?fq=alternateIds_RefId:{refid}"
         )
 
+    def pagetype_url(self, slug: str) -> str:
+        return f"https://{self.domain()}/api/catalog_system/pub/portal/pagetype/{quote(slug)}/p"
+
+    def product_id_url(self, product_id: str) -> str:
+        return (
+            f"https://{self.domain()}/api/catalog_system/pub/products/search"
+            f"?fq=productId:{product_id}"
+        )
+
     async def fetch_raw(self, ref: ProductRef) -> str:
         raw = await get_text(self.search_url(ref.external_id))
         refid = _refid(ref.external_id)
         if self.refid_fallback and refid and raw.strip() == "[]":
             raw = await get_text(self.refid_url(refid))
+        if self.pagetype_fallback and raw.strip() == "[]":
+            product_id = _pagetype_product_id(await get_text(self.pagetype_url(ref.external_id)))
+            if product_id:
+                raw = await get_text(self.product_id_url(product_id))
         return raw
 
     def _product(self, raw: str, ref: ProductRef) -> dict:
@@ -130,8 +155,8 @@ class VtexProcessor(Processor):
             # Sin stock, precio 0 es un agotado real (sold_out_without_price). Con stock
             # queda price=None, que el checker trata como anomalía.
             price = None
-        listed = to_minor(offer.get("ListPrice"), "CLP")
-        if not (listed and price is not None and listed > price):
+        listed = to_minor(offer.get("ListPrice"), "CLP") if self.supports_list_price else None
+        if self.supports_list_price and not (listed and price is not None and listed > price):
             # Suposición, sin un caso real observado: una promoción del catálogo bajaría
             # `Price` y dejaría el precio previo en `PriceWithoutDiscount` en una tienda que
             # no usa `ListPrice` (Dr. Simi). En los productos VTEX revisados (Jumbo, Santa
@@ -154,10 +179,15 @@ class VtexProcessor(Processor):
         """Etiqueta de un item en el selector de variantes."""
         return (item.get("name") or item.get("itemId") or "").strip()
 
+    def item_labels(self, items: list[dict]) -> dict[str, str]:
+        """Etiqueta de cada item por `itemId`. Por defecto, `item_label` de cada uno; una tienda
+        puede redefinirlo para mirar todos los items a la vez (p. ej. omitir lo que no varía)."""
+        return {str(it["itemId"]): self.item_label(it) for it in items}
+
     def _labels(self, product: dict) -> dict[str, str]:
         """Etiqueta de cada item por `itemId`; sin etiqueta o repetida, se agrega el SKU."""
         items = [it for it in product.get("items") or [] if it.get("itemId")]
-        raw = {str(it["itemId"]): self.item_label(it) for it in items}
+        raw = self.item_labels(items)
         repeated = {lbl for lbl in raw.values() if list(raw.values()).count(lbl) > 1}
         return {
             vid: (f"{lbl}, SKU {vid}" if lbl in repeated else lbl) if lbl else f"SKU {vid}"
@@ -209,9 +239,6 @@ class VtexProcessor(Processor):
         return sorted(out, key=lambda v: not v.selected)
 
 
-# Path de una ficha: slug de letras latinas (con tildes y ñ), dígitos y guiones.
-_PATH_RE = re.compile(r"/((?:[a-z0-9à-öø-ÿ]|-)+)/p/?", re.I)
-
 # Sufijo numérico del slug (`…-1871480`), que en Cencosud es el RefId del producto. Cinco
 # dígitos o más: los sufijos cortos (`…-500grs-2`) no son RefId.
 _REFID_RE = re.compile(r"-(\d{5,})$")
@@ -220,6 +247,18 @@ _REFID_RE = re.compile(r"-(\d{5,})$")
 def _refid(slug: str) -> str | None:
     m = _REFID_RE.search(slug)
     return m.group(1) if m else None
+
+
+def _pagetype_product_id(raw: str) -> str | None:
+    """Id del producto según `pub/portal/pagetype`; None si la página no es de un producto."""
+    try:
+        data = json.loads(raw)
+    except ValueError as exc:
+        raise FetchError("pagetype de VTEX no devolvió JSON") from exc
+    if not isinstance(data, dict) or data.get("pageType") != "Product":
+        return None
+    product_id = str(data.get("id") or "")
+    return product_id if product_id.isdigit() else None
 
 
 def _product_refids(product: dict) -> set[str]:
