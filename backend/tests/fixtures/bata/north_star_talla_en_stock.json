@@ -1,0 +1,590 @@
+{
+  "action": "Product-Variation",
+  "queryString": "dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356",
+  "locale": "es_CL",
+  "product": {
+    "uuid": "81699502f33370db11360363f1",
+    "id": "701M_2026_8516356_04",
+    "productName": "Zapatilla Hombre North Star Victory ",
+    "productType": "variant",
+    "brand": "North Star",
+    "ean": "851635604",
+    "price": {
+      "sales": {
+        "value": 22990,
+        "currency": "CLP",
+        "formatted": "$ 22.990",
+        "decimalPrice": "22990"
+      },
+      "list": {
+        "value": 36990,
+        "currency": "CLP",
+        "formatted": "$ 36.990",
+        "decimalPrice": "36990"
+      },
+      "euprice": null,
+      "html": "    \n    \n\n    <div class=\"cc-price--wrapper\">\n        \n        \n        \n        \n        \n            \n        \n        <span class=\"sales cc-sales-reduced \">\n            \n            \n            \n                \n                \n                    \n                    \n                \n                <span class=\"cc-price-discount\" content=\"22990\" aria-label=\"$ 22.990 (Descuento 38%)\" tabindex=\"0\">\n            \n                <div class=\"format-price-layout\">\n                    \n                        <span class=\"original-price-striked\">$ 36.990</span>\n                    \n                    $ 22.990\n\n\n                    \n                        <span class=\"badge-alignment-near-price\">-38%</span>\n                    \n                </div>\n            </span>\n        </span>\n\n        \n            \n                \n                \n\n                \n\n                \n            \n        \n    </div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n            \n            \n    \n\n\n\n"
+    },
+    "renderedPrice": "    \n    \n\n    <div class=\"cc-price--wrapper\">\n        \n        \n        \n        \n        \n            \n        \n        <span class=\"sales cc-sales-reduced \">\n            \n            \n            \n                \n                \n                    \n                    \n                \n                <span class=\"cc-price-discount\" content=\"22990\" aria-label=\"$ 22.990 (Descuento 38%)\" tabindex=\"0\">\n            \n                <div class=\"format-price-layout\">\n                    \n                        <span class=\"original-price-striked\">$ 36.990</span>\n                    \n                    $ 22.990\n\n\n                    \n                        <span class=\"badge-alignment-near-price\">-38%</span>\n                    \n                </div>\n            </span>\n        </span>\n\n        \n            \n                \n                \n\n                \n\n                \n            \n        \n    </div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n            \n            \n    \n\n\n\n",
+    "images": {
+      "large": [
+        {
+          "alt": "Zapatilla Hombre North Star Victory , NEGRO",
+          "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=800&sh=800",
+          "index": "0",
+          "title": "Zapatilla Hombre North Star Victory , NEGRO",
+          "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=800&sh=800",
+          "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=140&sh=140",
+          "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=620 620w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=475 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=950 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=375 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=750 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=330 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=660 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=195 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=390 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=620 620w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=1240 1240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=460 460w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw0e64c7d9/images/large/8516356_1.jpg?sw=920 920w\"\n        sizes=\"(min-width: 768px) 35vw, 100vw\"\n        alt=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        title=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        class=\"\"\n        width=\"460\" height=\"460\"\n        loading=\"eager\"\n        fetchpriority=high />\n</div>\n"
+        },
+        {
+          "alt": "Zapatilla Hombre North Star Victory , NEGRO",
+          "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=800&sh=800",
+          "index": "1",
+          "title": "Zapatilla Hombre North Star Victory , NEGRO",
+          "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=800&sh=800",
+          "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=140&sh=140",
+          "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=620 620w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=475 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=950 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=375 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=750 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=330 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=660 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=195 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=390 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=620 620w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=1240 1240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=460 460w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwfaffd2c0/images/large/8516356_2.jpg?sw=920 920w\"\n        sizes=\"(min-width: 768px) 35vw, 100vw\"\n        alt=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        title=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        class=\"\"\n        width=\"460\" height=\"460\"\n        loading=\"eager\"\n        fetchpriority=high />\n</div>\n"
+        },
+        {
+          "alt": "Zapatilla Hombre North Star Victory , NEGRO",
+          "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=800&sh=800",
+          "index": "2",
+          "title": "Zapatilla Hombre North Star Victory , NEGRO",
+          "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=800&sh=800",
+          "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=140&sh=140",
+          "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=620 620w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=475 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=950 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=375 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=750 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=330 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=660 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=195 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=390 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=620 620w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=1240 1240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=460 460w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw90124b1a/images/large/8516356_3.jpg?sw=920 920w\"\n        sizes=\"(min-width: 768px) 35vw, 100vw\"\n        alt=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        title=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        class=\"\"\n        width=\"460\" height=\"460\"\n        loading=\"eager\"\n        fetchpriority=high />\n</div>\n"
+        },
+        {
+          "alt": "Zapatilla Hombre North Star Victory , NEGRO",
+          "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=800&sh=800",
+          "index": "3",
+          "title": "Zapatilla Hombre North Star Victory , NEGRO",
+          "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=800&sh=800",
+          "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=140&sh=140",
+          "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=620 620w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=475 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=950 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=375 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=750 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=330 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=660 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=195 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=390 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=620 620w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=1240 1240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=460 460w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8412b199/images/large/8516356_4.jpg?sw=920 920w\"\n        sizes=\"(min-width: 768px) 35vw, 100vw\"\n        alt=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        title=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        class=\"\"\n        width=\"460\" height=\"460\"\n        loading=\"eager\"\n        fetchpriority=high />\n</div>\n"
+        },
+        {
+          "alt": "Zapatilla Hombre North Star Victory , NEGRO",
+          "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=800&sh=800",
+          "index": "4",
+          "title": "Zapatilla Hombre North Star Victory , NEGRO",
+          "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=800&sh=800",
+          "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=140&sh=140",
+          "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=620 620w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=475 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=950 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=375 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=750 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=330 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=660 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=195 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=390 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=620 620w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=1240 1240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=460 460w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc478609e/images/large/8516356_5.jpg?sw=920 920w\"\n        sizes=\"(min-width: 768px) 35vw, 100vw\"\n        alt=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        title=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        class=\"b-lazyload js-lazyLoadedImg\"\n        width=\"460\" height=\"460\"\n        loading=\"lazy\"\n         />\n</div>\n"
+        },
+        {
+          "alt": "Zapatilla Hombre North Star Victory , NEGRO",
+          "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=800&sh=800",
+          "index": "5",
+          "title": "Zapatilla Hombre North Star Victory , NEGRO",
+          "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=800&sh=800",
+          "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=140&sh=140",
+          "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=620 620w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=475 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=950 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=375 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=750 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=330 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=660 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=195 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=390 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=620 620w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=1240 1240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=460 460w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwaa66f4c6/images/large/8516356_6.jpg?sw=920 920w\"\n        sizes=\"(min-width: 768px) 35vw, 100vw\"\n        alt=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        title=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        class=\"b-lazyload js-lazyLoadedImg\"\n        width=\"460\" height=\"460\"\n        loading=\"lazy\"\n         />\n</div>\n"
+        }
+      ]
+    },
+    "brandLogo": "https://www.bata.com/on/demandware.static/-/Sites-bata-cl-Library/default/dw7bafa05a/brand/north-star.png",
+    "selectedQuantity": 1,
+    "minOrderQuantity": 1,
+    "maxOrderQuantity": 10,
+    "variationAttributes": [
+      {
+        "attributeId": "color",
+        "displayName": "Color",
+        "id": "color",
+        "swatchable": true,
+        "displayValue": "NEGRO",
+        "values": [
+          {
+            "id": "48",
+            "description": null,
+            "displayValue": "NEGRO",
+            "value": "48",
+            "selected": true,
+            "selectable": true,
+            "isColorOffline": false,
+            "url": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356&quantity=1",
+            "images": {
+              "small": [
+                {
+                  "alt": "Missing Image",
+                  "url": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "index": "0",
+                  "title": "Missing Image",
+                  "absURL": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "resizedURL": "",
+                  "templateResizedDevices": "<img class=\"b-lazyload\" alt=\"Missing Image\" title=\"Missing Image\" src=/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png/>"
+                }
+              ],
+              "tile": [
+                {
+                  "alt": "Zapatilla Hombre North Star Victory , NEGRO",
+                  "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=200&sh=200",
+                  "title": "Zapatilla Hombre North Star Victory , NEGRO",
+                  "index": "0",
+                  "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=200&sh=200",
+                  "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=140&sh=140",
+                  "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=480 480w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=240 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=190 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=380 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=505 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=1010 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=385 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=770 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=960 960w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=360 360w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw1f0fd299/images/tile/8516356_1.jpg?sw=720 720w\"\n        sizes=\"(min-width: 1999px) 20vw, 40vw\"\n        alt=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        title=\"Zapatilla Hombre North Star Victory , NEGRO\"\n        class=\"\"\n        width=\"360\" height=\"360\"\n        loading=\"eager\"\n         />\n</div>\n"
+                }
+              ]
+            }
+          },
+          {
+            "id": "49",
+            "description": null,
+            "displayValue": "AGUA",
+            "value": "49",
+            "selected": false,
+            "selectable": false,
+            "isColorOffline": false,
+            "images": {
+              "small": [
+                {
+                  "alt": "Missing Image",
+                  "url": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "index": "0",
+                  "title": "Missing Image",
+                  "absURL": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "resizedURL": "",
+                  "templateResizedDevices": "<img class=\"b-lazyload\" alt=\"Missing Image\" title=\"Missing Image\" src=/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png/>"
+                }
+              ],
+              "tile": [
+                {
+                  "alt": "Zapatilla Hombre North Star Victory , AGUA",
+                  "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=200&sh=200",
+                  "title": "Zapatilla Hombre North Star Victory , AGUA",
+                  "index": "0",
+                  "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=200&sh=200",
+                  "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=140&sh=140",
+                  "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=480 480w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=240 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=190 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=380 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=505 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=1010 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=385 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=770 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=960 960w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=360 360w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw57d815e4/images/tile/8517356_1.jpg?sw=720 720w\"\n        sizes=\"(min-width: 1999px) 20vw, 40vw\"\n        alt=\"Zapatilla Hombre North Star Victory , AGUA\"\n        title=\"Zapatilla Hombre North Star Victory , AGUA\"\n        class=\"\"\n        width=\"360\" height=\"360\"\n        loading=\"eager\"\n         />\n</div>\n"
+                }
+              ]
+            }
+          },
+          {
+            "id": "74",
+            "description": null,
+            "displayValue": "AZUL",
+            "value": "74",
+            "selected": false,
+            "selectable": false,
+            "isColorOffline": false,
+            "images": {
+              "small": [
+                {
+                  "alt": "Missing Image",
+                  "url": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "index": "0",
+                  "title": "Missing Image",
+                  "absURL": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "resizedURL": "",
+                  "templateResizedDevices": "<img class=\"b-lazyload\" alt=\"Missing Image\" title=\"Missing Image\" src=/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png/>"
+                }
+              ],
+              "tile": [
+                {
+                  "alt": "Zapatilla Hombre North Star Victory , AZUL",
+                  "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=200&sh=200",
+                  "title": "Zapatilla Hombre North Star Victory , AZUL",
+                  "index": "0",
+                  "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=200&sh=200",
+                  "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=140&sh=140",
+                  "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=480 480w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=240 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=190 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=380 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=505 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=1010 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=385 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=770 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=960 960w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=360 360w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw5273d821/images/tile/8519356_1.jpg?sw=720 720w\"\n        sizes=\"(min-width: 1999px) 20vw, 40vw\"\n        alt=\"Zapatilla Hombre North Star Victory , AZUL\"\n        title=\"Zapatilla Hombre North Star Victory , AZUL\"\n        class=\"\"\n        width=\"360\" height=\"360\"\n        loading=\"eager\"\n         />\n</div>\n"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "attributeId": "size",
+        "displayName": "Talla",
+        "id": "size",
+        "swatchable": false,
+        "displayValue": "41",
+        "values": [
+          {
+            "id": "8F10",
+            "description": "8F10",
+            "displayValue": "38",
+            "value": "8F10",
+            "selected": false,
+            "selectable": false,
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F10&pid=701M_2026_8516356&sizeSelected=38",
+            "pdpUrl": "/cl/hombre/calzado/zapatillas/zapatilla-hombre-north-star-victory--701M_2026_8516356_04.html",
+            "backInStockID": "701M_2026_8516356_01",
+            "allocation": 0
+          },
+          {
+            "id": "8F20",
+            "description": "8F20",
+            "displayValue": "39",
+            "value": "8F20",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F20&pid=701M_2026_8516356&quantity=1",
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F20&pid=701M_2026_8516356&sizeSelected=39",
+            "pdpUrl": "/cl/hombre/calzado/zapatillas/zapatilla-hombre-north-star-victory--701M_2026_8516356_04.html",
+            "backInStockID": "701M_2026_8516356_02",
+            "allocation": 44
+          },
+          {
+            "id": "8F30",
+            "description": "8F30",
+            "displayValue": "40",
+            "value": "8F30",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F30&pid=701M_2026_8516356&quantity=1",
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F30&pid=701M_2026_8516356&sizeSelected=40",
+            "pdpUrl": "/cl/hombre/calzado/zapatillas/zapatilla-hombre-north-star-victory--701M_2026_8516356_04.html",
+            "backInStockID": "701M_2026_8516356_03",
+            "allocation": 56
+          },
+          {
+            "id": "8F40",
+            "description": "8F40",
+            "displayValue": "41",
+            "value": "8F40",
+            "selected": true,
+            "selectable": true,
+            "url": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=&pid=701M_2026_8516356&quantity=1",
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356&sizeSelected=41",
+            "pdpUrl": "/cl/hombre/calzado/zapatillas/zapatilla-hombre-north-star-victory--701M_2026_8516356_04.html",
+            "backInStockID": "701M_2026_8516356_04",
+            "allocation": 55
+          },
+          {
+            "id": "8F50",
+            "description": "8F50",
+            "displayValue": "42",
+            "value": "8F50",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F50&pid=701M_2026_8516356&quantity=1",
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F50&pid=701M_2026_8516356&sizeSelected=42",
+            "pdpUrl": "/cl/hombre/calzado/zapatillas/zapatilla-hombre-north-star-victory--701M_2026_8516356_04.html",
+            "backInStockID": "701M_2026_8516356_05",
+            "allocation": 59
+          },
+          {
+            "id": "8F60",
+            "description": "8F60",
+            "displayValue": "43",
+            "value": "8F60",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F60&pid=701M_2026_8516356&quantity=1",
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F60&pid=701M_2026_8516356&sizeSelected=43",
+            "pdpUrl": "/cl/hombre/calzado/zapatillas/zapatilla-hombre-north-star-victory--701M_2026_8516356_04.html",
+            "backInStockID": "701M_2026_8516356_06",
+            "allocation": 39
+          },
+          {
+            "id": "8F70",
+            "description": "8F70",
+            "displayValue": "44",
+            "value": "8F70",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F70&pid=701M_2026_8516356&quantity=1",
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F70&pid=701M_2026_8516356&sizeSelected=44",
+            "pdpUrl": "/cl/hombre/calzado/zapatillas/zapatilla-hombre-north-star-victory--701M_2026_8516356_04.html",
+            "backInStockID": "701M_2026_8516356_07",
+            "allocation": 35
+          },
+          {
+            "id": "8F80",
+            "description": "8F80",
+            "displayValue": "45",
+            "value": "8F80",
+            "selected": false,
+            "selectable": false,
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F80&pid=701M_2026_8516356&sizeSelected=45",
+            "pdpUrl": "/cl/hombre/calzado/zapatillas/zapatilla-hombre-north-star-victory--701M_2026_8516356_04.html",
+            "backInStockID": "701M_2026_8516356_08",
+            "allocation": 0
+          },
+          {
+            "id": "8F90",
+            "description": "8F90",
+            "displayValue": "46",
+            "value": "8F90",
+            "selected": false,
+            "selectable": false,
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F90&pid=701M_2026_8516356&sizeSelected=46",
+            "pdpUrl": "/cl/hombre/calzado/zapatillas/zapatilla-hombre-north-star-victory--701M_2026_8516356_04.html",
+            "backInStockID": "701M_2026_8516356_09",
+            "allocation": 0
+          },
+          {
+            "id": "8F100",
+            "description": "8F100",
+            "displayValue": "47",
+            "value": "8F100",
+            "selected": false,
+            "selectable": false,
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F100&pid=701M_2026_8516356&sizeSelected=47",
+            "pdpUrl": "/cl/hombre/calzado/zapatillas/zapatilla-hombre-north-star-victory--701M_2026_8516356_04.html",
+            "backInStockID": "701M_2026_8516356_10",
+            "allocation": 0
+          },
+          {
+            "id": "8F110",
+            "description": "8F110",
+            "displayValue": "48",
+            "value": "8F110",
+            "selected": false,
+            "selectable": false,
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F110&pid=701M_2026_8516356&sizeSelected=48",
+            "pdpUrl": "/cl/hombre/calzado/zapatillas/zapatilla-hombre-north-star-victory--701M_2026_8516356_04.html",
+            "backInStockID": "701M_2026_8516356_11",
+            "allocation": 0
+          }
+        ],
+        "resetUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=&pid=701M_2026_8516356&quantity=1"
+      }
+    ],
+    "longDescription": "Zapatilla urbana con estilo deportivo que ofrece ligereza y estabilidad. Perfecta para el día a día. Perfecta para complementar looks urbanos con comodidad durante toda la jornada.",
+    "shortDescription": null,
+    "promotions": null,
+    "attributes": null,
+    "availability": {
+      "messages": [
+        "Disponible"
+      ],
+      "levelsResult": {
+        "inStock": true,
+        "outOfStock": false,
+        "hurryUp": false,
+        "preorder": false,
+        "notAvailable": false,
+        "backOrder": false,
+        "qtyOverStockLevel": false
+      },
+      "inStockDate": null
+    },
+    "available": true,
+    "quantities": [
+      {
+        "value": "1",
+        "selected": true,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356_04&quantity=1"
+      },
+      {
+        "value": "2",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356_04&quantity=2"
+      },
+      {
+        "value": "3",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356_04&quantity=3"
+      },
+      {
+        "value": "4",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356_04&quantity=4"
+      },
+      {
+        "value": "5",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356_04&quantity=5"
+      },
+      {
+        "value": "6",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356_04&quantity=6"
+      },
+      {
+        "value": "7",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356_04&quantity=7"
+      },
+      {
+        "value": "8",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356_04&quantity=8"
+      },
+      {
+        "value": "9",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356_04&quantity=9"
+      },
+      {
+        "value": "10",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&pid=701M_2026_8516356_04&quantity=10"
+      }
+    ],
+    "selectedProductUrl": "/cl/hombre/calzado/zapatillas/zapatilla-hombre-north-star-victory--701M_2026_8516356.html?dwvar_701M__2026__8516356_color=48&dwvar_701M__2026__8516356_size=8F40&quantity=undefined",
+    "readyToOrder": true,
+    "online": true,
+    "pageTitle": null,
+    "pageDescription": null,
+    "pageKeywords": null,
+    "pageMetaTags": [
+      {},
+      {},
+      {}
+    ],
+    "template": null,
+    "breadcrumbs": [
+      {
+        "id": "CL_Men",
+        "htmlValue": "Hombre",
+        "url": "/cl/hombre/",
+        "absUrl": "https://www.bata.com/cl/hombre/",
+        "variationGroupID": ""
+      },
+      {
+        "id": "CL_Men_Footwear",
+        "htmlValue": "Calzado",
+        "url": "/cl/hombre/calzado/",
+        "absUrl": "https://www.bata.com/cl/hombre/calzado/",
+        "variationGroupID": ""
+      },
+      {
+        "id": "CL_Men_Footwear_Sports",
+        "htmlValue": "Zapatillas",
+        "url": "/cl/hombre/calzado/zapatillas/",
+        "absUrl": "https://www.bata.com/cl/hombre/calzado/zapatillas/",
+        "variationGroupID": "701M_2026_8516356"
+      }
+    ],
+    "seoBreadcrumbs": "{\"@context\":\"http://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"item\":{\"@id\":\"https://www.bata.com/cl/hombre/\",\"name\":\"Hombre\"}},{\"@type\":\"ListItem\",\"position\":2,\"item\":{\"@id\":\"https://www.bata.com/cl/hombre/calzado/\",\"name\":\"Calzado\"}},{\"@type\":\"ListItem\",\"position\":3,\"item\":{\"@id\":\"https://www.bata.com/cl/hombre/calzado/zapatillas/\",\"name\":\"Zapatillas\"}}]}",
+    "brandLink": {
+      "brandUrl": "https://www.bata.com/cl/marcas/north-star/",
+      "name": "North Star",
+      "categoryTopEditorialPDPSection": "",
+      "categoryBottomEditorialPDPSection": ""
+    },
+    "custom": {
+      "longDescription": "Zapatilla urbana con estilo deportivo que ofrece ligereza y estabilidad. Perfecta para el día a día. Perfecta para complementar looks urbanos con comodidad durante toda la jornada.",
+      "brand": "North Star",
+      "manufacturerName": "Bata Primavera Sdn Bhd",
+      "madeIn": null,
+      "displayCategory": null,
+      "packagingUnits": null,
+      "marketedBy": null,
+      "warranty": null,
+      "keyFeatures": null,
+      "articleNo": "8516356",
+      "mrpVariant": null,
+      "heelHeight": null,
+      "platformHeight": null,
+      "shoeHeight": null,
+      "dimHeight": null,
+      "dimWidth": null,
+      "dimDepth": null,
+      "strapLength": null,
+      "additionalHandle": null,
+      "foot": {},
+      "technicalDescription": "",
+      "productMaterialsData": [
+        {
+          "position": {
+            "icon": "/on/demandware.static/Sites-bata-cl-Site/-/default/dw712b162f/images/material/upper.svg",
+            "description": "Exterior"
+          },
+          "material": {
+            "icon": "/on/demandware.static/Sites-bata-cl-Site/-/default/dw6f4929b5/images/material/other.svg",
+            "description": "Sintético"
+          }
+        },
+        {
+          "position": {
+            "icon": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwfe2495a7/images/material/lining.svg",
+            "description": "Interior"
+          },
+          "material": {
+            "icon": "/on/demandware.static/Sites-bata-cl-Site/-/default/dw3bffe817/images/material/textile.svg",
+            "description": "Textil"
+          }
+        }
+      ],
+      "heelToToe": null,
+      "keyBenefits": null,
+      "productWeight": null,
+      "isOnlyWeb": null,
+      "hemSize": null,
+      "materialComposition": null,
+      "idPageDesignerTopSection": "",
+      "idPageDesignerBottomSection": "",
+      "videoID": null
+    },
+    "onlineStartTime": "2026-09-07T00:00:00.000Z",
+    "customBadge": {
+      "markup": "NUEVO",
+      "type": "automaticNewIn",
+      "cssClass": "cc-label-newin",
+      "analyticsPromoName": "NUEVO",
+      "calloutPromoMsg": "38% DE DESCUENTO"
+    },
+    "sizeType": "F",
+    "variationGroupID": "701M_2026_8516356",
+    "primaryCategoryID": "CL_Men_Footwear_Sports",
+    "canonicalUrl": "https://www.bata.com/cl/zapatilla-hombre-north-star-victory--701M_088513560308AC.html",
+    "masterProductID": "701M_088513560308AC",
+    "tryOnAttributes": {
+      "rotation": {
+        "isRotationEnabled": false,
+        "isRotationAvailable": false,
+        "ARtryonIframeLink": null
+      },
+      "augmentedReality": {
+        "isAREnabled": false,
+        "availableTryOnAR": false,
+        "linkARView": null,
+        "tryOnButtonAssetPath": null
+      }
+    },
+    "buyNowPayLaterMessageEnabled": false,
+    "category1": "Hombre",
+    "category2": "Calzado",
+    "category3": "Zapatillas",
+    "discount": "14000.00",
+    "discountPercentage": "-38%",
+    "originalPriceQuantityBased": null,
+    "discountPercentAbs": "38",
+    "promotionName": "NUEVO",
+    "genderName": "None",
+    "stockStatus": "IN_STOCK",
+    "attributesHtml": "",
+    "iframeArTryOnHtml": "<div class=\"cc-pdp-ar-try-on-iframe js-ar-try-on-iframe-container d-none\">\n    \n</div>\n",
+    "promotionsHtml": ""
+  },
+  "resources": {
+    "info_selectforstock": "Seleccionar Talla",
+    "assistiveSelectedText": "Seleccionado",
+    "info_selectColorSize": "Seleccionar color y talla"
+  },
+  "breadcrumbs": [
+    {
+      "id": "CL_Men",
+      "htmlValue": "Hombre",
+      "url": "/cl/hombre/",
+      "absUrl": "https://www.bata.com/cl/hombre/",
+      "variationGroupID": ""
+    },
+    {
+      "id": "CL_Men_Footwear",
+      "htmlValue": "Calzado",
+      "url": "/cl/hombre/calzado/",
+      "absUrl": "https://www.bata.com/cl/hombre/calzado/",
+      "variationGroupID": ""
+    },
+    {
+      "id": "CL_Men_Footwear_Sports",
+      "htmlValue": "Zapatillas",
+      "url": "/cl/hombre/calzado/zapatillas/",
+      "absUrl": "https://www.bata.com/cl/hombre/calzado/zapatillas/",
+      "variationGroupID": "701M_2026_8516356"
+    }
+  ],
+  "backInStockForPdp": null,
+  "backinstockActiveForProduct": false,
+  "buttonText": "Agregar al carrito"
+}

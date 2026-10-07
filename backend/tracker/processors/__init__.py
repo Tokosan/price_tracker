@@ -15,6 +15,7 @@ from tracker.processors.base import (
     ScrapeResult,
     Variant,
 )
+from tracker.processors.bata import BataProcessor
 from tracker.processors.belsport import BelsportProcessor
 from tracker.processors.bold import BoldProcessor
 from tracker.processors.bsoul import BSoulProcessor
@@ -54,6 +55,7 @@ from tracker.processors.levis import LevisProcessor
 from tracker.processors.lider import LiderProcessor
 from tracker.processors.ligafarmacia import LigaFarmaciaProcessor
 from tracker.processors.lippi import LippiProcessor
+from tracker.processors.marathon import MarathonProcessor
 from tracker.processors.mercadolibre import MercadoLibreProcessor
 from tracker.processors.merrell import MerrellProcessor
 from tracker.processors.nike import NikeProcessor
@@ -78,6 +80,7 @@ from tracker.processors.timberland import TimberlandProcessor
 from tracker.processors.tommy import TommyProcessor
 from tracker.processors.tottus import TottusProcessor
 from tracker.processors.trial import TrialProcessor
+from tracker.processors.tricot import TricotProcessor
 from tracker.processors.underarmour import UnderArmourProcessor
 from tracker.processors.unimarc import UnimarcProcessor
 from tracker.processors.vans import VansProcessor
@@ -163,6 +166,9 @@ PROCESSORS: dict[str, Processor] = {
         CaffarenaProcessor(),
         OpalineProcessor(),
         NikeProcessor(),
+        TricotProcessor(),
+        MarathonProcessor(),
+        BataProcessor(),
     )
 }
 

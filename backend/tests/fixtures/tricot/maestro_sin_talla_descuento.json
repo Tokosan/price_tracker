@@ -1,0 +1,543 @@
+{
+  "action": "Product-Variation",
+  "queryString": "pid=683951",
+  "locale": "default",
+  "product": {
+    "uuid": "a29c841ed0ecd32c2500f86394",
+    "id": "683951",
+    "productName": "Polerón mujer clásico costuras",
+    "productType": "master",
+    "brand": "Blu girl",
+    "pricebookPrices": {
+      "internetPrice": {
+        "value": 6990,
+        "formatted": "$6.990",
+        "decimalPrice": 6990
+      },
+      "normalPrice": {
+        "value": 27990,
+        "formatted": "$27.990",
+        "decimalPrice": 27990
+      }
+    },
+    "price": {
+      "sales": {
+        "value": 6990,
+        "currency": "CLP",
+        "formatted": "$6.990",
+        "decimalPrice": "6990"
+      },
+      "list": null,
+      "html": "    <div class=\"price\">\n        \n        <span>\n    \n    \n\n    \n\n    \n        \n    \n\n    \n    \n\n    \n    \n\n    \n        \n        <del class=\"text-decoration-none\">\n            <span class=\"list\">\n                \n                \n\n\n\n\n                <span class=\"strike-through value\" content=\"27990.0\">\n                    <span class=\"sr-only\">\n                        Price reduced from\n                    </span>\n                    $27.990\n\n\n                    <span class=\"sr-only\">\n                        to\n                    </span>\n                </span>\n            </span>\n        </del>\n    \n\n    \n    <span class=\"tri-sales sales tri-tile-price-red\">\n        \n        \n\n\n\n\n        \n        \n        \n            <span class=\"value\" content=\"6990.0\">\n        \n        $6.990\n\n\n        </span>\n    </span>\n</span>\n\n    </div>\n\n\n"
+    },
+    "renderedPrice": "    <div class=\"price\">\n        \n        <span>\n    \n    \n\n    \n\n    \n        \n    \n\n    \n    \n\n    \n    \n\n    \n        \n        <del class=\"text-decoration-none\">\n            <span class=\"list\">\n                \n                \n\n\n\n\n                <span class=\"strike-through value\" content=\"27990.0\">\n                    <span class=\"sr-only\">\n                        Price reduced from\n                    </span>\n                    $27.990\n\n\n                    <span class=\"sr-only\">\n                        to\n                    </span>\n                </span>\n            </span>\n        </del>\n    \n\n    \n    <span class=\"tri-sales sales tri-tile-price-red\">\n        \n        \n\n\n\n\n        \n        \n        \n            <span class=\"value\" content=\"6990.0\">\n        \n        $6.990\n\n\n        </span>\n    </span>\n</span>\n\n    </div>\n\n\n",
+    "images": {
+      "large": [
+        {
+          "index": "0",
+          "alt": "Polerón mujer clásico costuras",
+          "title": "Polerón mujer clásico costuras",
+          "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw1ee4e872/images/large/MD719657-2.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false",
+          "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw1ee4e872/images/large/MD719657-2.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false"
+        },
+        {
+          "index": "1",
+          "alt": "Polerón mujer clásico costuras",
+          "title": "Polerón mujer clásico costuras",
+          "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw991a67d5/images/large/MD719657-3.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false",
+          "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw991a67d5/images/large/MD719657-3.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false"
+        },
+        {
+          "index": "2",
+          "alt": "Polerón mujer clásico costuras",
+          "title": "Polerón mujer clásico costuras",
+          "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw568f3587/images/large/MD719657-4.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false",
+          "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw568f3587/images/large/MD719657-4.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false"
+        },
+        {
+          "index": "3",
+          "alt": "Polerón mujer clásico costuras",
+          "title": "Polerón mujer clásico costuras",
+          "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw9e968347/images/large/MD719657-5.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false",
+          "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw9e968347/images/large/MD719657-5.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false"
+        },
+        {
+          "index": "4",
+          "alt": "Polerón mujer clásico costuras",
+          "title": "Polerón mujer clásico costuras",
+          "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dwa65e3f59/images/large/MD719657-6.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false",
+          "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dwa65e3f59/images/large/MD719657-6.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false"
+        }
+      ],
+      "small": [
+        {
+          "index": "0",
+          "alt": "Polerón mujer clásico costuras",
+          "title": "Polerón mujer clásico costuras",
+          "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw1ee4e872/images/large/MD719657-2.jpg?sw=400&sh=400&sm=fit&q=80&strip=false",
+          "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw1ee4e872/images/large/MD719657-2.jpg?sw=400&sh=400&sm=fit&q=80&strip=false"
+        },
+        {
+          "index": "1",
+          "alt": "Polerón mujer clásico costuras",
+          "title": "Polerón mujer clásico costuras",
+          "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw991a67d5/images/large/MD719657-3.jpg?sw=400&sh=400&sm=fit&q=80&strip=false",
+          "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw991a67d5/images/large/MD719657-3.jpg?sw=400&sh=400&sm=fit&q=80&strip=false"
+        },
+        {
+          "index": "2",
+          "alt": "Polerón mujer clásico costuras",
+          "title": "Polerón mujer clásico costuras",
+          "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw568f3587/images/large/MD719657-4.jpg?sw=400&sh=400&sm=fit&q=80&strip=false",
+          "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw568f3587/images/large/MD719657-4.jpg?sw=400&sh=400&sm=fit&q=80&strip=false"
+        },
+        {
+          "index": "3",
+          "alt": "Polerón mujer clásico costuras",
+          "title": "Polerón mujer clásico costuras",
+          "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw9e968347/images/large/MD719657-5.jpg?sw=400&sh=400&sm=fit&q=80&strip=false",
+          "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw9e968347/images/large/MD719657-5.jpg?sw=400&sh=400&sm=fit&q=80&strip=false"
+        },
+        {
+          "index": "4",
+          "alt": "Polerón mujer clásico costuras",
+          "title": "Polerón mujer clásico costuras",
+          "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dwa65e3f59/images/large/MD719657-6.jpg?sw=400&sh=400&sm=fit&q=80&strip=false",
+          "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dwa65e3f59/images/large/MD719657-6.jpg?sw=400&sh=400&sm=fit&q=80&strip=false"
+        }
+      ]
+    },
+    "modelImages": [
+      {
+        "index": "0",
+        "alt": "Polerón mujer clásico costuras",
+        "title": "Polerón mujer clásico costuras",
+        "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw1ee4e872/images/large/MD719657-2.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false",
+        "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw1ee4e872/images/large/MD719657-2.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false"
+      },
+      {
+        "index": "1",
+        "alt": "Polerón mujer clásico costuras",
+        "title": "Polerón mujer clásico costuras",
+        "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw991a67d5/images/large/MD719657-3.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false",
+        "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw991a67d5/images/large/MD719657-3.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false"
+      },
+      {
+        "index": "2",
+        "alt": "Polerón mujer clásico costuras",
+        "title": "Polerón mujer clásico costuras",
+        "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw568f3587/images/large/MD719657-4.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false",
+        "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw568f3587/images/large/MD719657-4.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false"
+      },
+      {
+        "index": "3",
+        "alt": "Polerón mujer clásico costuras",
+        "title": "Polerón mujer clásico costuras",
+        "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw9e968347/images/large/MD719657-5.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false",
+        "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dw9e968347/images/large/MD719657-5.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false"
+      },
+      {
+        "index": "4",
+        "alt": "Polerón mujer clásico costuras",
+        "title": "Polerón mujer clásico costuras",
+        "url": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dwa65e3f59/images/large/MD719657-6.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false",
+        "absURL": "https://www.tricot.cl/dw/image/v2/BGHZ_PRD/on/demandware.static/-/Sites-master-catalog-tricot/default/dwa65e3f59/images/large/MD719657-6.jpg?sw=2000&sh=2000&sm=fit&q=80&strip=false"
+      }
+    ],
+    "nonModelImages": [],
+    "videos": [],
+    "gifs": [],
+    "selectedQuantity": 1,
+    "minOrderQuantity": 1,
+    "maxOrderQuantity": 10,
+    "variationAttributes": [
+      {
+        "attributeId": "color",
+        "displayName": "Color",
+        "id": "color",
+        "swatchable": true,
+        "displayValue": "Café",
+        "values": [
+          {
+            "id": "41",
+            "description": null,
+            "displayValue": "Café",
+            "value": "41",
+            "selected": true,
+            "selectable": true,
+            "url": "https://www.tricot.cl/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&pid=683951&quantity=1",
+            "images": {
+              "swatch": [
+                {
+                  "index": "0",
+                  "alt": "Polerón mujer clásico costuras",
+                  "title": "Polerón mujer clásico costuras",
+                  "url": "/on/demandware.static/-/Sites-master-catalog-tricot/default/dw5b8aa434/images/swatch/cafe.png",
+                  "absURL": "https://www.tricot.cl/on/demandware.static/-/Sites-master-catalog-tricot/default/dw5b8aa434/images/swatch/cafe.png"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "attributeId": "size",
+        "displayName": "Talla",
+        "id": "size",
+        "swatchable": false,
+        "displayValue": "",
+        "values": [
+          {
+            "id": "101",
+            "description": null,
+            "displayValue": "XS",
+            "value": "101",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.tricot.cl/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&dwvar_683951_size=101&pid=683951&quantity=1"
+          },
+          {
+            "id": "102",
+            "description": null,
+            "displayValue": "S",
+            "value": "102",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.tricot.cl/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&dwvar_683951_size=102&pid=683951&quantity=1"
+          },
+          {
+            "id": "103",
+            "description": null,
+            "displayValue": "M",
+            "value": "103",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.tricot.cl/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&dwvar_683951_size=103&pid=683951&quantity=1"
+          },
+          {
+            "id": "105",
+            "description": null,
+            "displayValue": "L",
+            "value": "105",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.tricot.cl/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&dwvar_683951_size=105&pid=683951&quantity=1"
+          },
+          {
+            "id": "106",
+            "description": null,
+            "displayValue": "XL",
+            "value": "106",
+            "selected": false,
+            "selectable": false
+          }
+        ],
+        "resetUrl": "https://www.tricot.cl/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&dwvar_683951_size=&pid=683951&quantity=1"
+      }
+    ],
+    "longDescription": null,
+    "shortDescription": "Polerón clásico costuras",
+    "rating": 5,
+    "promotions": null,
+    "attributes": [
+      {
+        "ID": "tricot-custom-attributes",
+        "name": "Tricot Custom Attributes",
+        "attributes": [
+          {
+            "label": "Guia de Tallas",
+            "value": [
+              {}
+            ]
+          },
+          {
+            "label": "Refinement Category",
+            "value": [
+              "178"
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "description",
+        "name": "Descripción",
+        "attributes": [
+          {
+            "label": "Material",
+            "value": [
+              "65% Poliéster 35% Viscosa"
+            ]
+          },
+          {
+            "label": "Altura de la modelo",
+            "value": [
+              "La modelo mide 1,70 cm"
+            ]
+          },
+          {
+            "label": "Género",
+            "value": [
+              "Mujer"
+            ]
+          },
+          {
+            "label": "Categoría",
+            "value": [
+              "Juvenil"
+            ]
+          },
+          {
+            "label": "Temporada",
+            "value": [
+              "Verano"
+            ]
+          },
+          {
+            "label": "Marca",
+            "value": [
+              "Blu girl"
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "medidasModel",
+        "name": "Medidas Model",
+        "attributes": [
+          {
+            "label": "Altura de la modelo",
+            "value": [
+              "La modelo mide 1,70 cm"
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "bvRatingsReview",
+        "name": "Bazaarvoice Filter Attributes",
+        "attributes": [
+          {
+            "label": "Average Overall Rating",
+            "value": [
+              "5.0"
+            ]
+          },
+          {
+            "label": "Total Review Count",
+            "value": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "products",
+        "name": "products",
+        "attributes": [
+          {
+            "label": "Altura de la modelo",
+            "value": [
+              "La modelo mide 1,70 cm"
+            ]
+          },
+          {
+            "label": "Brand",
+            "value": [
+              "Blu girl"
+            ]
+          },
+          {
+            "label": "Temporada",
+            "value": [
+              "Verano"
+            ]
+          },
+          {
+            "label": "Material",
+            "value": [
+              "65% Poliéster 35% Viscosa"
+            ]
+          },
+          {
+            "label": "Refinement Category",
+            "value": [
+              "178"
+            ]
+          },
+          {
+            "label": "Guia de Tallas",
+            "value": [
+              {}
+            ]
+          }
+        ]
+      }
+    ],
+    "availability": {
+      "messages": [
+        "In Stock"
+      ],
+      "inStockDate": null
+    },
+    "available": true,
+    "options": [],
+    "quantities": [
+      {
+        "value": "1",
+        "selected": true,
+        "url": "/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&pid=683951&quantity=1"
+      },
+      {
+        "value": "2",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&pid=683951&quantity=2"
+      },
+      {
+        "value": "3",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&pid=683951&quantity=3"
+      },
+      {
+        "value": "4",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&pid=683951&quantity=4"
+      },
+      {
+        "value": "5",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&pid=683951&quantity=5"
+      },
+      {
+        "value": "6",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&pid=683951&quantity=6"
+      },
+      {
+        "value": "7",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&pid=683951&quantity=7"
+      },
+      {
+        "value": "8",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&pid=683951&quantity=8"
+      },
+      {
+        "value": "9",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&pid=683951&quantity=9"
+      },
+      {
+        "value": "10",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-TRICOT_CL-Site/default/Product-Variation?dwvar_683951_color=41&pid=683951&quantity=10"
+      }
+    ],
+    "categoryParent": {
+      "id": "178",
+      "name": "Polerones",
+      "url": "/mujer/polerones"
+    },
+    "tagImageUrl": false,
+    "tagUpperLeftCorner": false,
+    "tagUpperRightCorner": "Tag-Cyber",
+    "tagLowerLeftCorner": false,
+    "tagUpperLeftCornerMob": false,
+    "tagUpperRightCornerMob": "Tag-Cyber",
+    "tagLowerLeftCornerMob": false,
+    "shouldDisplayTagBelowImage": false,
+    "detailGroupList": {
+      "description": {
+        "tittle": "Descripción",
+        "attributeList": [
+          {
+            "name": "Material",
+            "value": "65% Poliéster 35% Viscosa"
+          },
+          {
+            "name": "Género",
+            "value": "Mujer"
+          },
+          {
+            "name": "Categoría",
+            "value": "Juvenil"
+          },
+          {
+            "name": "Temporada",
+            "value": "Verano"
+          },
+          {
+            "name": "Marca",
+            "value": "Blu girl"
+          }
+        ],
+        "customMsg": ""
+      },
+      "medidasModel": {
+        "tittle": "Medidas Model",
+        "attributeList": [
+          {
+            "name": "Altura de la modelo",
+            "value": "La modelo mide 1,70 cm"
+          },
+          {
+            "name": "Talla de la modelo",
+            "value": "La modelo está usando talla S"
+          }
+        ],
+        "customMsg": "La modelo está usando talla S y mide 1,70 m"
+      },
+      "tamanoAjuste": {
+        "tittle": "Tamano Ajuste",
+        "attributeList": [],
+        "customMsg": ""
+      }
+    },
+    "selectedProductUrl": "/poleron-mujer-clasico-costuras-683951.html?dwvar_683951_color=41&quantity=undefined",
+    "readyToOrder": false,
+    "online": true,
+    "pageTitle": null,
+    "pageDescription": null,
+    "pageKeywords": null,
+    "pageMetaTags": [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {}
+    ],
+    "template": null,
+    "isProductWishlisted": false,
+    "attributesHtml": "    <div class=\"col-sm-12 col-md-4 col-lg-3\">\n        <button class=\"title btn text-left btn-block d-sm-none\"\n            aria-expanded=\"false\" aria-controls=\"collapsible-attributes-1\"\n        >\n            Attributes\n        </button>\n        <h2 class=\"title d-none d-sm-block\">\n            Attributes\n        </h2>\n    </div>\n    <div class=\"col-sm-12 col-md-8 col-lg-9 value content\" id=\"collapsible-attributes-1\">\n        \n            \n                <h3 class=\"attribute-name\">\n                    Tricot Custom Attributes\n                </h3>\n                <ul>\n                    \n                        <li class=\"attribute-values\">\n                            Guia de Tallas:\n                            \n                                &lt;style&gt;\r\n       @import url(&quot;https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap&quot;);\r\n\r\n      @media (min-width: 768px) {\r\n        #size-guide-modal .modal-dialog,\r\n        #size-guide-modal .modal-dialog.size-guide-modal {\r\n          max-width: 720px !important;\r\n          width: 100% !important;\r\n        }\r\n        #size-guide-modal .modal-content {\r\n          width: 100% !important;\r\n          height: auto !important;\r\n          max-height: none !important;\r\n          overflow-y: visible !important;\r\n        }\r\n        #size-guide-modal .modal-body,\r\n        #size-guide-modal .tri-modal-body {\r\n          overflow: visible !important;\r\n          height: auto !important;\r\n          max-height: none !important;\r\n        }\r\n        #size-guide-modal .sizechart-wrapper,\r\n        #size-guide-modal .size-chart-custom,\r\n        #size-guide-modal .sizechart-table-wrapper {\r\n          overflow: visible !important;\r\n        }\r\n      }\r\n      #size-guide-modal .modal-open{\r\n      overflow-y: auto !important;\r\n      }\r\n      #size-guide-modal .modal-body,\r\n      #size-guide-modal .tri-modal-body {\r\n        display: block !important;\r\n        width: 100% !important;\r\n        max-width: none !important;\r\n        min-width: 0 !important;\r\n        padding: 0 !important;\r\n        margin: 0 !important;\r\n        float: none !important;\r\n        flex: none !important;\r\n      }\r\n      #size-guide-modal .sizechart-wrapper,\r\n      #size-guide-modal .size-chart-custom,\r\n      #size-guide-modal .sizechart-table-wrapper {\r\n        display: block !important;\r\n        width: 100% !important;\r\n        max-width: none !important;\r\n        min-width: 0 !important;\r\n        padding: 0 !important;\r\n        margin: 0 !important;\r\n        float: none !important;\r\n        flex: none !important;\r\n      }\r\n      #size-guide-modal .sizechart-footnote.d-block {\r\n        display: none !important;\r\n      }\r\n      .tri-sizechart, .tri-sizechart * {\r\n        box-sizing: border-box;\r\n      }\r\n      .tri-sizechart {\r\n        display: block !important;\r\n        width: 100% !important;\r\n        max-width: none !important;\r\n        padding: 12px 24px 16px;\r\n        float: none !important;\r\n        font-family: &quot;Poppins&quot;, system-ui, -apple-system, sans-serif;\r\n      }\r\n      .tri-sizechart .tsc-instruction {\r\n        font-size: 12px;\r\n        font-weight: 400;\r\n        color: #4F5663;\r\n        margin-bottom: 12px;\r\n        line-height: 1.4;\r\n      }\r\n      .tri-sizechart .tsc-instruction strong {\r\n        font-size: 14px;\r\n        font-weight: 600;\r\n        color: #000;\r\n        display: block;\r\n        margin-bottom: 2px;\r\n      }\r\n      .tri-sizechart .tsc-grid {\r\n        display: grid !important;\r\n        grid-template-columns: 1fr 1fr;\r\n        gap: 24px;\r\n        align-items: start;\r\n        width: 100%;\r\n      }\r\n      .tri-sizechart .tsc-grid &gt; * {\r\n        min-width: 0;\r\n      }\r\n      .tri-sizechart .tsc-table {\r\n        width: 100%;\r\n        border-collapse: collapse;\r\n        font-size: 12px;\r\n        color: #4F5663;\r\n        text-align: center;\r\n      }\r\n      .tri-sizechart .tsc-table thead th {\r\n        text-align: center;\r\n        padding: 6px 4px;\r\n        font-size: 12px;\r\n        font-weight: 600;\r\n        color: #000;\r\n        background: #E2E7F7;\r\n        border-bottom: 1px solid #ddd;\r\n      }\r\n      .tri-sizechart .tsc-table tbody tr:nth-child(even) td {\r\n        background: #f5f5f5;\r\n      }\r\n      .tri-sizechart .tsc-table tbody td {\r\n        padding: 4px 4px;\r\n      }\r\n      .tri-sizechart .tsc-footnote {\r\n        font-size: 10px;\r\n        color: #888;\r\n        margin-top: 8px;\r\n        line-height: 1.4;\r\n      }\r\n      .tri-sizechart .tsc-diagram {\r\n        display: flex;\r\n        flex-direction: column;\r\n        align-items: center;\r\n      }\r\n      .tri-sizechart .tsc-diagram img {\r\n        width: 100%;\r\n        max-width: 140px;\r\n        height: auto;\r\n        display: block;\r\n        margin-bottom: 10px;\r\n      }\r\n      .tri-sizechart .tsc-diagram-desc {\r\n        font-size: 12px;\r\n        font-weight: 400;\r\n        color: #4F5663;\r\n        line-height: 1.4;\r\n        margin-bottom: 8px;\r\n        width: 100%;\r\n      }\r\n      .tri-sizechart .tsc-diagram-desc strong {\r\n        font-weight: 600;\r\n        color: #000;\r\n      }\r\n      .tri-sizechart .tsc-mobile-link {\r\n        display: none;\r\n      }\r\n      .sizechart-heading-modal .title-modal {\r\n        text-align: center;\r\n        width: 100%;\r\n      }\r\n      @media (max-width: 480px) {\r\n        .tri-sizechart {\r\n          padding: 16px 0 8px;\r\n        }\r\n        .tri-sizechart .tsc-instruction {\r\n          display: none;\r\n        }\r\n        .tri-sizechart .tsc-mobile-link {\r\n          display: block;\r\n          font-size: 18px;\r\n          font-weight: 600;\r\n          color: #111;\r\n          text-decoration: none;\r\n          margin-bottom: 16px;\r\n        }\r\n        .tri-sizechart .tsc-mobile-link::after {\r\n          content: &quot; &rsaquo;&quot;;\r\n        }\r\n        .tri-sizechart .tsc-grid {\r\n          display: flex !important;\r\n          flex-direction: column;\r\n          gap: 20px;\r\n        }\r\n      }\r\n      #size-guide-modal .modal-body,\r\n      #size-guide-modal .tri-modal-body,\r\n      #size-guide-modal .sizechart-wrapper,\r\n      #size-guide-modal .size-chart-custom,\r\n      #size-guide-modal .sizechart-table-wrapper {\r\n          overflow: visible !important;\r\n          height: auto !important;\r\n          max-height: none !important;\r\n          min-height: auto !important;\r\n      }\r\n      &lt;/style&gt;\r\n\r\n      &lt;div class=&quot;tri-sizechart&quot;&gt;\r\n      &lt;a href=&quot;#&quot; class=&quot;tsc-mobile-link&quot;&gt;C&oacute;mo medir tus prendas&lt;/a&gt;\r\n      &lt;p class=&quot;tsc-instruction&quot;&gt;\r\n        &lt;strong&gt;C&oacute;mo medir tus prendas&lt;/strong&gt;\r\n        Para medir de mejor manera, te recomendamos apoyar la prenda sobre una superficie plana\r\n      &lt;/p&gt;\r\n    &lt;div class=&quot;tsc-grid&quot;&gt;\r\n    &lt;div class=&quot;tsc-table-col&quot; &gt;\r\n      &lt;table class=&quot;tsc-table&quot; &gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Talla&lt;/th&gt;&lt;th&gt;Pecho (cm)&lt;/th&gt;&lt;th&gt;Largo (cm)&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;XS&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;50&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;60&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;S&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;52&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;61&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;M&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;54&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;62&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;L&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;56&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;63&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;XL&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;58&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;64&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/tbody&gt;\r\n      &lt;/table&gt;\r\n      &lt;p style=&quot; font-size: 14px&quot;;&gt;*Estos datos se obtienen de la medici&oacute;n manual del producto, las mediciones pueden variar de 1-2 cm.&lt;/p&gt;\r\n    &lt;/div&gt;\r\n    &lt;div class=&quot;tsc-diagram&quot;&gt;\r\n      &lt;div class=&quot;img-wrapper&quot;&gt;\r\n        &lt;img src=&quot;https://www.tricot.cl/on/demandware.static/-/Sites-master-catalog-tricot/default/dwd3b9fb0a/images/medidas_tallas/poleron.png&quot; alt=&quot;ropa&quot;&gt;\r\n      &lt;/div&gt;\r\n      &lt;div class=&quot;tsc-diagram-desc-1 tsc-diagram-desc&quot;&gt;&lt;strong&gt;Pecho:&lt;/strong&gt;&lt;br&gt;Mide la distancia entre las costuras de las axilas.&lt;/div&gt;\r\n      &lt;div class=&quot;tsc-diagram-desc-2 tsc-diagram-desc&quot;&gt;&lt;strong&gt;Largo:&lt;/strong&gt;&lt;br&gt;Mide desde el cuello hasta la parte inferior de la prenda.&lt;/div&gt;\r\n      &lt;div class=&quot;tsc-diagram-desc-3 tsc-diagram-desc&quot;&gt;&lt;/div&gt;\r\n      &lt;div class=&quot;tsc-diagram-desc-4 tsc-diagram-desc&quot;&gt;&lt;/div&gt;\r\n    &lt;/div&gt;\r\n  &lt;/div&gt;\r\n&lt;/div&gt;\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Refinement Category:\n                            \n                                178\n                            \n                        </li>\n                    \n                </ul>\n            \n        \n            \n                <h3 class=\"attribute-name\">\n                    Descripci&oacute;n\n                </h3>\n                <ul>\n                    \n                        <li class=\"attribute-values\">\n                            Material:\n                            \n                                65% Poli&eacute;ster 35% Viscosa\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Altura de la modelo:\n                            \n                                La modelo mide 1,70 cm\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            G&eacute;nero:\n                            \n                                Mujer\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Categor&iacute;a:\n                            \n                                Juvenil\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Temporada:\n                            \n                                Verano\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Marca:\n                            \n                                Blu girl\n                            \n                        </li>\n                    \n                </ul>\n            \n        \n            \n                <h3 class=\"attribute-name\">\n                    Medidas Model\n                </h3>\n                <ul>\n                    \n                        <li class=\"attribute-values\">\n                            Altura de la modelo:\n                            \n                                La modelo mide 1,70 cm\n                            \n                        </li>\n                    \n                </ul>\n            \n        \n            \n                <h3 class=\"attribute-name\">\n                    Bazaarvoice Filter Attributes\n                </h3>\n                <ul>\n                    \n                        <li class=\"attribute-values\">\n                            Average Overall Rating:\n                            \n                                5.0\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Total Review Count:\n                            \n                                2\n                            \n                        </li>\n                    \n                </ul>\n            \n        \n            \n                <h3 class=\"attribute-name\">\n                    products\n                </h3>\n                <ul>\n                    \n                        <li class=\"attribute-values\">\n                            Altura de la modelo:\n                            \n                                La modelo mide 1,70 cm\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Brand:\n                            \n                                Blu girl\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Temporada:\n                            \n                                Verano\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Material:\n                            \n                                65% Poli&eacute;ster 35% Viscosa\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Refinement Category:\n                            \n                                178\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Guia de Tallas:\n                            \n                                &lt;style&gt;\r\n       @import url(&quot;https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap&quot;);\r\n\r\n      @media (min-width: 768px) {\r\n        #size-guide-modal .modal-dialog,\r\n        #size-guide-modal .modal-dialog.size-guide-modal {\r\n          max-width: 720px !important;\r\n          width: 100% !important;\r\n        }\r\n        #size-guide-modal .modal-content {\r\n          width: 100% !important;\r\n          height: auto !important;\r\n          max-height: none !important;\r\n          overflow-y: visible !important;\r\n        }\r\n        #size-guide-modal .modal-body,\r\n        #size-guide-modal .tri-modal-body {\r\n          overflow: visible !important;\r\n          height: auto !important;\r\n          max-height: none !important;\r\n        }\r\n        #size-guide-modal .sizechart-wrapper,\r\n        #size-guide-modal .size-chart-custom,\r\n        #size-guide-modal .sizechart-table-wrapper {\r\n          overflow: visible !important;\r\n        }\r\n      }\r\n      #size-guide-modal .modal-open{\r\n      overflow-y: auto !important;\r\n      }\r\n      #size-guide-modal .modal-body,\r\n      #size-guide-modal .tri-modal-body {\r\n        display: block !important;\r\n        width: 100% !important;\r\n        max-width: none !important;\r\n        min-width: 0 !important;\r\n        padding: 0 !important;\r\n        margin: 0 !important;\r\n        float: none !important;\r\n        flex: none !important;\r\n      }\r\n      #size-guide-modal .sizechart-wrapper,\r\n      #size-guide-modal .size-chart-custom,\r\n      #size-guide-modal .sizechart-table-wrapper {\r\n        display: block !important;\r\n        width: 100% !important;\r\n        max-width: none !important;\r\n        min-width: 0 !important;\r\n        padding: 0 !important;\r\n        margin: 0 !important;\r\n        float: none !important;\r\n        flex: none !important;\r\n      }\r\n      #size-guide-modal .sizechart-footnote.d-block {\r\n        display: none !important;\r\n      }\r\n      .tri-sizechart, .tri-sizechart * {\r\n        box-sizing: border-box;\r\n      }\r\n      .tri-sizechart {\r\n        display: block !important;\r\n        width: 100% !important;\r\n        max-width: none !important;\r\n        padding: 12px 24px 16px;\r\n        float: none !important;\r\n        font-family: &quot;Poppins&quot;, system-ui, -apple-system, sans-serif;\r\n      }\r\n      .tri-sizechart .tsc-instruction {\r\n        font-size: 12px;\r\n        font-weight: 400;\r\n        color: #4F5663;\r\n        margin-bottom: 12px;\r\n        line-height: 1.4;\r\n      }\r\n      .tri-sizechart .tsc-instruction strong {\r\n        font-size: 14px;\r\n        font-weight: 600;\r\n        color: #000;\r\n        display: block;\r\n        margin-bottom: 2px;\r\n      }\r\n      .tri-sizechart .tsc-grid {\r\n        display: grid !important;\r\n        grid-template-columns: 1fr 1fr;\r\n        gap: 24px;\r\n        align-items: start;\r\n        width: 100%;\r\n      }\r\n      .tri-sizechart .tsc-grid &gt; * {\r\n        min-width: 0;\r\n      }\r\n      .tri-sizechart .tsc-table {\r\n        width: 100%;\r\n        border-collapse: collapse;\r\n        font-size: 12px;\r\n        color: #4F5663;\r\n        text-align: center;\r\n      }\r\n      .tri-sizechart .tsc-table thead th {\r\n        text-align: center;\r\n        padding: 6px 4px;\r\n        font-size: 12px;\r\n        font-weight: 600;\r\n        color: #000;\r\n        background: #E2E7F7;\r\n        border-bottom: 1px solid #ddd;\r\n      }\r\n      .tri-sizechart .tsc-table tbody tr:nth-child(even) td {\r\n        background: #f5f5f5;\r\n      }\r\n      .tri-sizechart .tsc-table tbody td {\r\n        padding: 4px 4px;\r\n      }\r\n      .tri-sizechart .tsc-footnote {\r\n        font-size: 10px;\r\n        color: #888;\r\n        margin-top: 8px;\r\n        line-height: 1.4;\r\n      }\r\n      .tri-sizechart .tsc-diagram {\r\n        display: flex;\r\n        flex-direction: column;\r\n        align-items: center;\r\n      }\r\n      .tri-sizechart .tsc-diagram img {\r\n        width: 100%;\r\n        max-width: 140px;\r\n        height: auto;\r\n        display: block;\r\n        margin-bottom: 10px;\r\n      }\r\n      .tri-sizechart .tsc-diagram-desc {\r\n        font-size: 12px;\r\n        font-weight: 400;\r\n        color: #4F5663;\r\n        line-height: 1.4;\r\n        margin-bottom: 8px;\r\n        width: 100%;\r\n      }\r\n      .tri-sizechart .tsc-diagram-desc strong {\r\n        font-weight: 600;\r\n        color: #000;\r\n      }\r\n      .tri-sizechart .tsc-mobile-link {\r\n        display: none;\r\n      }\r\n      .sizechart-heading-modal .title-modal {\r\n        text-align: center;\r\n        width: 100%;\r\n      }\r\n      @media (max-width: 480px) {\r\n        .tri-sizechart {\r\n          padding: 16px 0 8px;\r\n        }\r\n        .tri-sizechart .tsc-instruction {\r\n          display: none;\r\n        }\r\n        .tri-sizechart .tsc-mobile-link {\r\n          display: block;\r\n          font-size: 18px;\r\n          font-weight: 600;\r\n          color: #111;\r\n          text-decoration: none;\r\n          margin-bottom: 16px;\r\n        }\r\n        .tri-sizechart .tsc-mobile-link::after {\r\n          content: &quot; &rsaquo;&quot;;\r\n        }\r\n        .tri-sizechart .tsc-grid {\r\n          display: flex !important;\r\n          flex-direction: column;\r\n          gap: 20px;\r\n        }\r\n      }\r\n      #size-guide-modal .modal-body,\r\n      #size-guide-modal .tri-modal-body,\r\n      #size-guide-modal .sizechart-wrapper,\r\n      #size-guide-modal .size-chart-custom,\r\n      #size-guide-modal .sizechart-table-wrapper {\r\n          overflow: visible !important;\r\n          height: auto !important;\r\n          max-height: none !important;\r\n          min-height: auto !important;\r\n      }\r\n      &lt;/style&gt;\r\n\r\n      &lt;div class=&quot;tri-sizechart&quot;&gt;\r\n      &lt;a href=&quot;#&quot; class=&quot;tsc-mobile-link&quot;&gt;C&oacute;mo medir tus prendas&lt;/a&gt;\r\n      &lt;p class=&quot;tsc-instruction&quot;&gt;\r\n        &lt;strong&gt;C&oacute;mo medir tus prendas&lt;/strong&gt;\r\n        Para medir de mejor manera, te recomendamos apoyar la prenda sobre una superficie plana\r\n      &lt;/p&gt;\r\n    &lt;div class=&quot;tsc-grid&quot;&gt;\r\n    &lt;div class=&quot;tsc-table-col&quot; &gt;\r\n      &lt;table class=&quot;tsc-table&quot; &gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Talla&lt;/th&gt;&lt;th&gt;Pecho (cm)&lt;/th&gt;&lt;th&gt;Largo (cm)&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;XS&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;50&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;60&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;S&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;52&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;61&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;M&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;54&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;62&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;L&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;56&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;63&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;XL&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;58&lt;/td&gt;&lt;td style=&quot;text-align: center;&quot;&gt;64&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/tbody&gt;\r\n      &lt;/table&gt;\r\n      &lt;p style=&quot; font-size: 14px&quot;;&gt;*Estos datos se obtienen de la medici&oacute;n manual del producto, las mediciones pueden variar de 1-2 cm.&lt;/p&gt;\r\n    &lt;/div&gt;\r\n    &lt;div class=&quot;tsc-diagram&quot;&gt;\r\n      &lt;div class=&quot;img-wrapper&quot;&gt;\r\n        &lt;img src=&quot;https://www.tricot.cl/on/demandware.static/-/Sites-master-catalog-tricot/default/dwd3b9fb0a/images/medidas_tallas/poleron.png&quot; alt=&quot;ropa&quot;&gt;\r\n      &lt;/div&gt;\r\n      &lt;div class=&quot;tsc-diagram-desc-1 tsc-diagram-desc&quot;&gt;&lt;strong&gt;Pecho:&lt;/strong&gt;&lt;br&gt;Mide la distancia entre las costuras de las axilas.&lt;/div&gt;\r\n      &lt;div class=&quot;tsc-diagram-desc-2 tsc-diagram-desc&quot;&gt;&lt;strong&gt;Largo:&lt;/strong&gt;&lt;br&gt;Mide desde el cuello hasta la parte inferior de la prenda.&lt;/div&gt;\r\n      &lt;div class=&quot;tsc-diagram-desc-3 tsc-diagram-desc&quot;&gt;&lt;/div&gt;\r\n      &lt;div class=&quot;tsc-diagram-desc-4 tsc-diagram-desc&quot;&gt;&lt;/div&gt;\r\n    &lt;/div&gt;\r\n  &lt;/div&gt;\r\n&lt;/div&gt;\n                            \n                        </li>\n                    \n                </ul>\n            \n        \n    </div>\n\n\n",
+    "promotionsHtml": "",
+    "optionsHtml": ""
+  },
+  "resources": {
+    "info_selectforstock": "Selecciona una talla para ver disponibilidad",
+    "assistiveSelectedText": "selected",
+    "quantityBiggerThanTheStockQuantity": "Producto sin stock suficiente"
+  },
+  "ats": 65,
+  "productCode": null,
+  "productSuper": null,
+  "errorPrice": false,
+  "__mccEvents": [
+    [
+      "setUserInfo",
+      {
+        "email": "REDACTED"
+      }
+    ],
+    [
+      "trackPageView",
+      {
+        "item": "683951"
+      }
+    ]
+  ]
+}

@@ -1,0 +1,575 @@
+{
+  "action": "Product-Variation",
+  "queryString": "dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&pid=701M_2024_9136031",
+  "locale": "es_CL",
+  "product": {
+    "uuid": "910fa28689b2f46798054ddc5f",
+    "id": "701M_2024_9136031_05",
+    "productName": "Polar Mujer Weinbrenner Cota ",
+    "productType": "variant",
+    "brand": "Weinbrenner",
+    "ean": "913603105",
+    "price": {
+      "sales": {
+        "value": 13990,
+        "currency": "CLP",
+        "formatted": "$ 13.990",
+        "decimalPrice": "13990"
+      },
+      "list": {
+        "value": 29990,
+        "currency": "CLP",
+        "formatted": "$ 29.990",
+        "decimalPrice": "29990"
+      },
+      "euprice": null,
+      "html": "    \n    \n\n    <div class=\"cc-price--wrapper\">\n        \n        \n        \n        \n        \n            \n        \n        <span class=\"sales cc-sales-reduced \">\n            \n            \n            \n                \n                \n                    \n                    \n                \n                <span class=\"cc-price-discount\" content=\"13990\" aria-label=\"$ 13.990 (Descuento 53%)\" tabindex=\"0\">\n            \n                <div class=\"format-price-layout\">\n                    \n                        <span class=\"original-price-striked\">$ 29.990</span>\n                    \n                    $ 13.990\n\n\n                    \n                        <span class=\"badge-alignment-near-price\">-53%</span>\n                    \n                </div>\n            </span>\n        </span>\n\n        \n            \n                \n                \n\n                \n\n                \n            \n        \n    </div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n            \n            \n    \n\n\n\n"
+    },
+    "renderedPrice": "    \n    \n\n    <div class=\"cc-price--wrapper\">\n        \n        \n        \n        \n        \n            \n        \n        <span class=\"sales cc-sales-reduced \">\n            \n            \n            \n                \n                \n                    \n                    \n                \n                <span class=\"cc-price-discount\" content=\"13990\" aria-label=\"$ 13.990 (Descuento 53%)\" tabindex=\"0\">\n            \n                <div class=\"format-price-layout\">\n                    \n                        <span class=\"original-price-striked\">$ 29.990</span>\n                    \n                    $ 13.990\n\n\n                    \n                        <span class=\"badge-alignment-near-price\">-53%</span>\n                    \n                </div>\n            </span>\n        </span>\n\n        \n            \n                \n                \n\n                \n\n                \n            \n        \n    </div>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n    \n    \n            \n            \n    \n\n\n\n",
+    "images": {
+      "large": [
+        {
+          "alt": "Polar Mujer Weinbrenner Cota , NEGRO",
+          "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=800&sh=800",
+          "index": "0",
+          "title": "Polar Mujer Weinbrenner Cota , NEGRO",
+          "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=800&sh=800",
+          "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=140&sh=140",
+          "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=620 620w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=475 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=950 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=375 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=750 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=330 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=660 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=195 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=390 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=620 620w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=1240 1240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=460 460w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw75a517c0/images/large/9136031_1.jpg?sw=920 920w\"\n        sizes=\"(min-width: 768px) 35vw, 100vw\"\n        alt=\"Polar Mujer Weinbrenner Cota , NEGRO\"\n        title=\"Polar Mujer Weinbrenner Cota , NEGRO\"\n        class=\"\"\n        width=\"460\" height=\"460\"\n        loading=\"eager\"\n        fetchpriority=high />\n</div>\n"
+        },
+        {
+          "alt": "Polar Mujer Weinbrenner Cota , NEGRO",
+          "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=800&sh=800",
+          "index": "1",
+          "title": "Polar Mujer Weinbrenner Cota , NEGRO",
+          "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=800&sh=800",
+          "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=140&sh=140",
+          "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=620 620w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=475 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=950 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=375 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=750 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=330 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=660 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=195 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=390 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=620 620w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=1240 1240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=460 460w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw562080e5/images/large/9136031_2.jpg?sw=920 920w\"\n        sizes=\"(min-width: 768px) 35vw, 100vw\"\n        alt=\"Polar Mujer Weinbrenner Cota , NEGRO\"\n        title=\"Polar Mujer Weinbrenner Cota , NEGRO\"\n        class=\"\"\n        width=\"460\" height=\"460\"\n        loading=\"eager\"\n        fetchpriority=high />\n</div>\n"
+        },
+        {
+          "alt": "Polar Mujer Weinbrenner Cota , NEGRO",
+          "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=800&sh=800",
+          "index": "2",
+          "title": "Polar Mujer Weinbrenner Cota , NEGRO",
+          "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=800&sh=800",
+          "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=140&sh=140",
+          "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=620 620w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=475 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=950 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=375 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=750 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=330 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=660 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=195 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=390 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=620 620w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=1240 1240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=460 460w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwc17d0626/images/large/9136031_3.jpg?sw=920 920w\"\n        sizes=\"(min-width: 768px) 35vw, 100vw\"\n        alt=\"Polar Mujer Weinbrenner Cota , NEGRO\"\n        title=\"Polar Mujer Weinbrenner Cota , NEGRO\"\n        class=\"\"\n        width=\"460\" height=\"460\"\n        loading=\"eager\"\n        fetchpriority=high />\n</div>\n"
+        },
+        {
+          "alt": "Polar Mujer Weinbrenner Cota , NEGRO",
+          "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=800&sh=800",
+          "index": "3",
+          "title": "Polar Mujer Weinbrenner Cota , NEGRO",
+          "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=800&sh=800",
+          "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=140&sh=140",
+          "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=620 620w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=475 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=950 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=375 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=750 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=330 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=660 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=195 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=390 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=620 620w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=1240 1240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=460 460w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8ac41135/images/large/9136031_4.jpg?sw=920 920w\"\n        sizes=\"(min-width: 768px) 35vw, 100vw\"\n        alt=\"Polar Mujer Weinbrenner Cota , NEGRO\"\n        title=\"Polar Mujer Weinbrenner Cota , NEGRO\"\n        class=\"\"\n        width=\"460\" height=\"460\"\n        loading=\"eager\"\n        fetchpriority=high />\n</div>\n"
+        },
+        {
+          "alt": "Polar Mujer Weinbrenner Cota , NEGRO",
+          "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=800&sh=800",
+          "index": "4",
+          "title": "Polar Mujer Weinbrenner Cota , NEGRO",
+          "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=800&sh=800",
+          "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=140&sh=140",
+          "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=620 620w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=475 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=950 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=375 475w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=750 950w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=330 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=660 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=195 330w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=390 660w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=620 620w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=1240 1240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=460 460w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw281735eb/images/large/9136031_9.jpg?sw=920 920w\"\n        sizes=\"(min-width: 768px) 35vw, 100vw\"\n        alt=\"Polar Mujer Weinbrenner Cota , NEGRO\"\n        title=\"Polar Mujer Weinbrenner Cota , NEGRO\"\n        class=\"b-lazyload js-lazyLoadedImg\"\n        width=\"460\" height=\"460\"\n        loading=\"lazy\"\n         />\n</div>\n"
+        }
+      ]
+    },
+    "brandLogo": "https://www.bata.com/on/demandware.static/-/Sites-bata-cl-Library/default/dwfb71adf6/brand/weinbrenner.png",
+    "selectedQuantity": 1,
+    "minOrderQuantity": 1,
+    "maxOrderQuantity": 10,
+    "variationAttributes": [
+      {
+        "attributeId": "color",
+        "displayName": "Color",
+        "id": "color",
+        "swatchable": true,
+        "displayValue": "NEGRO",
+        "values": [
+          {
+            "id": "32",
+            "description": null,
+            "displayValue": "BURGUNDY (o BORGOÑA)",
+            "value": "32",
+            "selected": false,
+            "selectable": false,
+            "isColorOffline": false,
+            "images": {
+              "small": [
+                {
+                  "alt": "Missing Image",
+                  "url": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "index": "0",
+                  "title": "Missing Image",
+                  "absURL": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "resizedURL": "",
+                  "templateResizedDevices": "<img class=\"b-lazyload\" alt=\"Missing Image\" title=\"Missing Image\" src=/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png/>"
+                }
+              ],
+              "tile": [
+                {
+                  "alt": "Polar Mujer Weinbrenner Cota , BURGUNDY (o BORGOÑA)",
+                  "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=200&sh=200",
+                  "title": "Polar Mujer Weinbrenner Cota , BURGUNDY (o BORGOÑA)",
+                  "index": "0",
+                  "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=200&sh=200",
+                  "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=140&sh=140",
+                  "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=480 480w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=240 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=190 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=380 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=505 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=1010 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=385 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=770 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=960 960w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=360 360w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf7fbc1a1/images/tile/9135031_1.jpg?sw=720 720w\"\n        sizes=\"(min-width: 1999px) 20vw, 40vw\"\n        alt=\"Polar Mujer Weinbrenner Cota , BURGUNDY (o BORGO&Ntilde;A)\"\n        title=\"Polar Mujer Weinbrenner Cota , BURGUNDY (o BORGO&Ntilde;A)\"\n        class=\"\"\n        width=\"360\" height=\"360\"\n        loading=\"eager\"\n         />\n</div>\n"
+                }
+              ]
+            }
+          },
+          {
+            "id": "48",
+            "description": null,
+            "displayValue": "NEGRO",
+            "value": "48",
+            "selected": true,
+            "selectable": false,
+            "isColorOffline": false,
+            "images": {
+              "small": [
+                {
+                  "alt": "Missing Image",
+                  "url": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "index": "0",
+                  "title": "Missing Image",
+                  "absURL": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "resizedURL": "",
+                  "templateResizedDevices": "<img class=\"b-lazyload\" alt=\"Missing Image\" title=\"Missing Image\" src=/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png/>"
+                }
+              ],
+              "tile": [
+                {
+                  "alt": "Polar Mujer Weinbrenner Cota , NEGRO",
+                  "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=200&sh=200",
+                  "title": "Polar Mujer Weinbrenner Cota , NEGRO",
+                  "index": "0",
+                  "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=200&sh=200",
+                  "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=140&sh=140",
+                  "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=480 480w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=240 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=190 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=380 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=505 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=1010 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=385 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=770 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=960 960w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=360 360w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw8809a631/images/tile/9136031_1.jpg?sw=720 720w\"\n        sizes=\"(min-width: 1999px) 20vw, 40vw\"\n        alt=\"Polar Mujer Weinbrenner Cota , NEGRO\"\n        title=\"Polar Mujer Weinbrenner Cota , NEGRO\"\n        class=\"\"\n        width=\"360\" height=\"360\"\n        loading=\"eager\"\n         />\n</div>\n"
+                }
+              ]
+            }
+          },
+          {
+            "id": "49",
+            "description": null,
+            "displayValue": "AGUA",
+            "value": "49",
+            "selected": false,
+            "selectable": false,
+            "isColorOffline": false,
+            "images": {
+              "small": [
+                {
+                  "alt": "Missing Image",
+                  "url": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "index": "0",
+                  "title": "Missing Image",
+                  "absURL": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "resizedURL": "",
+                  "templateResizedDevices": "<img class=\"b-lazyload\" alt=\"Missing Image\" title=\"Missing Image\" src=/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png/>"
+                }
+              ],
+              "tile": [
+                {
+                  "alt": "Polar Mujer Weinbrenner Cota , AGUA",
+                  "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=200&sh=200",
+                  "title": "Polar Mujer Weinbrenner Cota , AGUA",
+                  "index": "0",
+                  "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=200&sh=200",
+                  "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=140&sh=140",
+                  "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=480 480w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=240 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=190 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=380 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=505 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=1010 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=385 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=770 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=960 960w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=360 360w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dw2a145c15/images/tile/9137031_1.jpg?sw=720 720w\"\n        sizes=\"(min-width: 1999px) 20vw, 40vw\"\n        alt=\"Polar Mujer Weinbrenner Cota , AGUA\"\n        title=\"Polar Mujer Weinbrenner Cota , AGUA\"\n        class=\"\"\n        width=\"360\" height=\"360\"\n        loading=\"eager\"\n         />\n</div>\n"
+                }
+              ]
+            }
+          },
+          {
+            "id": "74",
+            "description": null,
+            "displayValue": "AZUL",
+            "value": "74",
+            "selected": false,
+            "selectable": false,
+            "isColorOffline": false,
+            "images": {
+              "small": [
+                {
+                  "alt": "Missing Image",
+                  "url": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "index": "0",
+                  "title": "Missing Image",
+                  "absURL": "/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png",
+                  "resizedURL": "",
+                  "templateResizedDevices": "<img class=\"b-lazyload\" alt=\"Missing Image\" title=\"Missing Image\" src=/on/demandware.static/Sites-bata-cl-Site/-/default/dwdc7fe2c1/images/noimagesmall.png/>"
+                }
+              ],
+              "tile": [
+                {
+                  "alt": "Polar Mujer Weinbrenner Cota , AZUL",
+                  "url": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=200&sh=200",
+                  "title": "Polar Mujer Weinbrenner Cota , AZUL",
+                  "index": "0",
+                  "absURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=200&sh=200",
+                  "resizedURL": "https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=140&sh=140",
+                  "templateResizedDevices": "<div class=\"cc-container-dis-picture\">\n        <img\n        src=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=480 480w\"\n        srcset=\"https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=240 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=190 240w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=380 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=505 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=1010 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=385 505w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=770 1010w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=480 480w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=960 960w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=360 360w, https://www.bata.com/dw/image/v2/BCLG_PRD/on/demandware.static/-/Sites-bata-cl-master-catalog/default/dwf3d45306/images/tile/9139031_1.jpg?sw=720 720w\"\n        sizes=\"(min-width: 1999px) 20vw, 40vw\"\n        alt=\"Polar Mujer Weinbrenner Cota , AZUL\"\n        title=\"Polar Mujer Weinbrenner Cota , AZUL\"\n        class=\"\"\n        width=\"360\" height=\"360\"\n        loading=\"eager\"\n         />\n</div>\n"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "attributeId": "size",
+        "displayName": "Talla",
+        "id": "size",
+        "swatchable": false,
+        "displayValue": "XXS",
+        "values": [
+          {
+            "id": "9350",
+            "description": "9350",
+            "displayValue": "XXS",
+            "value": "9350",
+            "selected": true,
+            "selectable": false,
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&pid=701M_2024_9136031&sizeSelected=XXS",
+            "pdpUrl": "/cl/polar-mujer-weinbrenner-cota--701M_079130316208IR.html?dwvar_701M__079130316208IR_size=9350",
+            "backInStockID": "701M_2024_9136031_05",
+            "allocation": 0
+          },
+          {
+            "id": "9360",
+            "description": "9360",
+            "displayValue": "XS",
+            "value": "9360",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9360&pid=701M_2024_9136031&quantity=1",
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9360&pid=701M_2024_9136031&sizeSelected=XS",
+            "pdpUrl": "/cl/polar-mujer-weinbrenner-cota--701M_079130316208IR.html?dwvar_701M__079130316208IR_size=9360",
+            "backInStockID": "701M_2024_9136031_06",
+            "allocation": 1
+          },
+          {
+            "id": "9370",
+            "description": "9370",
+            "displayValue": "S",
+            "value": "9370",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9370&pid=701M_2024_9136031&quantity=1",
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9370&pid=701M_2024_9136031&sizeSelected=S",
+            "pdpUrl": "/cl/polar-mujer-weinbrenner-cota--701M_079130316208IR.html?dwvar_701M__079130316208IR_size=9370",
+            "backInStockID": "701M_2024_9136031_07",
+            "allocation": 8
+          },
+          {
+            "id": "9380",
+            "description": "9380",
+            "displayValue": "M",
+            "value": "9380",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9380&pid=701M_2024_9136031&quantity=1",
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9380&pid=701M_2024_9136031&sizeSelected=M",
+            "pdpUrl": "/cl/polar-mujer-weinbrenner-cota--701M_079130316208IR.html?dwvar_701M__079130316208IR_size=9380",
+            "backInStockID": "701M_2024_9136031_08",
+            "allocation": 19
+          },
+          {
+            "id": "9390",
+            "description": "9390",
+            "displayValue": "L",
+            "value": "9390",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9390&pid=701M_2024_9136031&quantity=1",
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9390&pid=701M_2024_9136031&sizeSelected=L",
+            "pdpUrl": "/cl/polar-mujer-weinbrenner-cota--701M_079130316208IR.html?dwvar_701M__079130316208IR_size=9390",
+            "backInStockID": "701M_2024_9136031_09",
+            "allocation": 20
+          },
+          {
+            "id": "93100",
+            "description": "93100",
+            "displayValue": "XL",
+            "value": "93100",
+            "selected": false,
+            "selectable": true,
+            "url": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=93100&pid=701M_2024_9136031&quantity=1",
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=93100&pid=701M_2024_9136031&sizeSelected=XL",
+            "pdpUrl": "/cl/polar-mujer-weinbrenner-cota--701M_079130316208IR.html?dwvar_701M__079130316208IR_size=93100",
+            "backInStockID": "701M_2024_9136031_10",
+            "allocation": 4
+          },
+          {
+            "id": "93110",
+            "description": "93110",
+            "displayValue": "XXL",
+            "value": "93110",
+            "selected": false,
+            "selectable": false,
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=93110&pid=701M_2024_9136031&sizeSelected=XXL",
+            "pdpUrl": "/cl/polar-mujer-weinbrenner-cota--701M_079130316208IR.html?dwvar_701M__079130316208IR_size=93110",
+            "backInStockID": "701M_2024_9136031_11",
+            "allocation": 0
+          },
+          {
+            "id": "93120",
+            "description": "93120",
+            "displayValue": "3XL",
+            "value": "93120",
+            "selected": false,
+            "selectable": false,
+            "refreshTileUrl": "https://www.bata.com/on/demandware.store/Sites-bata-cl-Site/es_CL/Tile-Show?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=93120&pid=701M_2024_9136031&sizeSelected=3XL",
+            "pdpUrl": "/cl/polar-mujer-weinbrenner-cota--701M_079130316208IR.html?dwvar_701M__079130316208IR_size=93120",
+            "backInStockID": "701M_2024_9136031_12",
+            "allocation": 0
+          }
+        ]
+      }
+    ],
+    "longDescription": "<p style=\"padding-bottom:10px\"><strong>Polar Cota Weinbrenner Mujer Fast Dry\nEste polar es livian con textura y medio cierre frontal</strong></p>\n<p style=\"padding-bottom:10px\">Modelo: Cota\nColor: Verde\nMaterial: 100% poliester reciclado</p>\n<ul style=\"width:100%\">\n<li style=\"width:100%\"><strong>Modelo:</strong> Cota</li>\n<li style=\"width:100%\"><strong>Color: </strong>Verde</li>\n<li style=\"width:100%\"><strong>Material: </strong>100% poliester reciclado</li>\n</ul>\n<p style=\"padding-top:10px\">Tecnologia Fast Dry lo que permite un secado mas rapido</p>",
+    "shortDescription": null,
+    "promotions": null,
+    "attributes": null,
+    "availability": {
+      "messages": [
+        "Sin stock"
+      ],
+      "levelsResult": {
+        "inStock": false,
+        "outOfStock": false,
+        "hurryUp": false,
+        "preorder": false,
+        "notAvailable": true,
+        "backOrder": false,
+        "qtyOverStockLevel": false
+      },
+      "inStockDate": null
+    },
+    "available": false,
+    "quantities": [
+      {
+        "value": "1",
+        "selected": true,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&pid=701M_2024_9136031_05&quantity=1"
+      },
+      {
+        "value": "2",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&pid=701M_2024_9136031_05&quantity=2"
+      },
+      {
+        "value": "3",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&pid=701M_2024_9136031_05&quantity=3"
+      },
+      {
+        "value": "4",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&pid=701M_2024_9136031_05&quantity=4"
+      },
+      {
+        "value": "5",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&pid=701M_2024_9136031_05&quantity=5"
+      },
+      {
+        "value": "6",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&pid=701M_2024_9136031_05&quantity=6"
+      },
+      {
+        "value": "7",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&pid=701M_2024_9136031_05&quantity=7"
+      },
+      {
+        "value": "8",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&pid=701M_2024_9136031_05&quantity=8"
+      },
+      {
+        "value": "9",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&pid=701M_2024_9136031_05&quantity=9"
+      },
+      {
+        "value": "10",
+        "selected": false,
+        "url": "/on/demandware.store/Sites-bata-cl-Site/es_CL/Product-Variation?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&pid=701M_2024_9136031_05&quantity=10"
+      }
+    ],
+    "selectedProductUrl": "/cl/mujer/vestuario/polars/polar-mujer-weinbrenner-cota--701M_2024_9136031.html?dwvar_701M__2024__9136031_color=48&dwvar_701M__2024__9136031_size=9350&quantity=undefined",
+    "readyToOrder": true,
+    "online": true,
+    "pageTitle": null,
+    "pageDescription": null,
+    "pageKeywords": null,
+    "pageMetaTags": [
+      {},
+      {},
+      {}
+    ],
+    "template": null,
+    "breadcrumbs": [
+      {
+        "id": "CL_Women",
+        "htmlValue": "Mujer",
+        "url": "/cl/mujer/",
+        "absUrl": "https://www.bata.com/cl/mujer/",
+        "variationGroupID": ""
+      },
+      {
+        "id": "CL_Women_Clothes",
+        "htmlValue": "Vestuario",
+        "url": "/cl/mujer/vestuario/",
+        "absUrl": "https://www.bata.com/cl/mujer/vestuario/",
+        "variationGroupID": ""
+      },
+      {
+        "id": "CL_Women_Clothes_Polars",
+        "htmlValue": "Polars",
+        "url": "/cl/mujer/vestuario/polars/",
+        "absUrl": "https://www.bata.com/cl/mujer/vestuario/polars/",
+        "variationGroupID": "701M_2024_9136031"
+      }
+    ],
+    "seoBreadcrumbs": "{\"@context\":\"http://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"item\":{\"@id\":\"https://www.bata.com/cl/mujer/\",\"name\":\"Mujer\"}},{\"@type\":\"ListItem\",\"position\":2,\"item\":{\"@id\":\"https://www.bata.com/cl/mujer/vestuario/\",\"name\":\"Vestuario\"}},{\"@type\":\"ListItem\",\"position\":3,\"item\":{\"@id\":\"https://www.bata.com/cl/mujer/vestuario/polars/\",\"name\":\"Polars\"}}]}",
+    "brandLink": {
+      "brandUrl": "https://www.bata.com/cl/marcas/weinbrenner/mujer/",
+      "name": "Weinbrenner",
+      "categoryTopEditorialPDPSection": "",
+      "categoryBottomEditorialPDPSection": ""
+    },
+    "custom": {
+      "longDescription": "<p style=\"padding-bottom:10px\"><strong>Polar Cota Weinbrenner Mujer Fast Dry\nEste polar es livian con textura y medio cierre frontal</strong></p>\n<p style=\"padding-bottom:10px\">Modelo: Cota\nColor: Verde\nMaterial: 100% poliester reciclado</p>\n<ul style=\"width:100%\">\n<li style=\"width:100%\"><strong>Modelo:</strong> Cota</li>\n<li style=\"width:100%\"><strong>Color: </strong>Verde</li>\n<li style=\"width:100%\"><strong>Material: </strong>100% poliester reciclado</li>\n</ul>\n<p style=\"padding-top:10px\">Tecnologia Fast Dry lo que permite un secado mas rapido</p>",
+      "brand": "Weinbrenner",
+      "manufacturerName": "Bata Primavera Sdn Bhd",
+      "madeIn": null,
+      "displayCategory": null,
+      "packagingUnits": null,
+      "marketedBy": null,
+      "warranty": null,
+      "keyFeatures": null,
+      "articleNo": "9136031",
+      "mrpVariant": null,
+      "heelHeight": null,
+      "platformHeight": null,
+      "shoeHeight": null,
+      "dimHeight": null,
+      "dimWidth": null,
+      "dimDepth": null,
+      "strapLength": null,
+      "additionalHandle": null,
+      "foot": {},
+      "technicalDescription": "",
+      "productMaterialsData": [
+        {
+          "position": {
+            "icon": "/on/demandware.static/Sites-bata-cl-Site/-/default/dw712b162f/images/material/upper.svg",
+            "description": "Exterior"
+          },
+          "material": {
+            "icon": "/on/demandware.static/Sites-bata-cl-Site/-/default/dw6f4929b5/images/material/other.svg",
+            "description": "Sintético"
+          }
+        },
+        {
+          "position": {
+            "icon": "/on/demandware.static/Sites-bata-cl-Site/-/default/dw95353e8c/images/material/outersole.svg",
+            "description": "Suela"
+          },
+          "material": {
+            "icon": "/on/demandware.static/Sites-bata-cl-Site/-/default/dw6f4929b5/images/material/other.svg",
+            "description": "Sintético"
+          }
+        }
+      ],
+      "heelToToe": null,
+      "keyBenefits": null,
+      "productWeight": null,
+      "isOnlyWeb": null,
+      "hemSize": null,
+      "materialComposition": null,
+      "idPageDesignerTopSection": "",
+      "idPageDesignerBottomSection": "",
+      "videoID": null
+    },
+    "onlineStartTime": "2026-09-07T00:00:00.000Z",
+    "customBadge": {
+      "markup": "NUEVO",
+      "type": "automaticNewIn",
+      "cssClass": "cc-label-newin",
+      "analyticsPromoName": "NUEVO",
+      "calloutPromoMsg": "53% DE DESCUENTO"
+    },
+    "sizeType": "3",
+    "variationGroupID": "701M_2024_9136031",
+    "primaryCategoryID": "CL_Women_Clothes_Polars",
+    "canonicalUrl": "https://www.bata.com/cl/polar-mujer-weinbrenner-cota--701M_079130316208IR.html",
+    "masterProductID": "701M_079130316208IR",
+    "tryOnAttributes": {
+      "rotation": {
+        "isRotationEnabled": false,
+        "isRotationAvailable": false,
+        "ARtryonIframeLink": null
+      },
+      "augmentedReality": {
+        "isAREnabled": false,
+        "availableTryOnAR": false,
+        "linkARView": null,
+        "tryOnButtonAssetPath": null
+      }
+    },
+    "buyNowPayLaterMessageEnabled": false,
+    "category1": "Mujer",
+    "category2": "Vestuario",
+    "category3": "Polars",
+    "discount": "16000.00",
+    "discountPercentage": "-53%",
+    "originalPriceQuantityBased": null,
+    "discountPercentAbs": "53",
+    "promotionName": "NUEVO",
+    "genderName": "Canvas",
+    "stockStatus": "NOT_AVAILABLE",
+    "attributesHtml": "",
+    "iframeArTryOnHtml": "<div class=\"cc-pdp-ar-try-on-iframe js-ar-try-on-iframe-container d-none\">\n    \n</div>\n",
+    "promotionsHtml": ""
+  },
+  "resources": {
+    "info_selectforstock": "Seleccionar Talla",
+    "assistiveSelectedText": "Seleccionado",
+    "info_selectColorSize": "Seleccionar color y talla"
+  },
+  "breadcrumbs": [
+    {
+      "id": "CL_Women",
+      "htmlValue": "Mujer",
+      "url": "/cl/mujer/",
+      "absUrl": "https://www.bata.com/cl/mujer/",
+      "variationGroupID": ""
+    },
+    {
+      "id": "CL_Women_Clothes",
+      "htmlValue": "Vestuario",
+      "url": "/cl/mujer/vestuario/",
+      "absUrl": "https://www.bata.com/cl/mujer/vestuario/",
+      "variationGroupID": ""
+    },
+    {
+      "id": "CL_Women_Clothes_Polars",
+      "htmlValue": "Polars",
+      "url": "/cl/mujer/vestuario/polars/",
+      "absUrl": "https://www.bata.com/cl/mujer/vestuario/polars/",
+      "variationGroupID": "701M_2024_9136031"
+    }
+  ],
+  "backInStockForPdp": null,
+  "backinstockActiveForProduct": null,
+  "buttonText": "Sin stock"
+}

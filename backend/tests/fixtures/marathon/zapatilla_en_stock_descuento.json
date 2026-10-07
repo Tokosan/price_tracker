@@ -1,0 +1,1011 @@
+{
+  "action": "Product-Variation",
+  "queryString": "imageSize=hi-res&pid=11140411010",
+  "locale": "es_CL",
+  "product": {
+    "uuid": "cbaaa969c50bf107c9fb688fca",
+    "id": "11140411010",
+    "productName": "Puma Zapatillas MagMax NITRO 2",
+    "productType": "variant",
+    "brand": "M003",
+    "price": {
+      "sales": {
+        "value": 111993,
+        "currency": "CLP",
+        "formatted": "$ 111.993",
+        "decimalPrice": "111993"
+      },
+      "list": {
+        "value": 159990,
+        "currency": "CLP",
+        "formatted": "$ 159.990",
+        "decimalPrice": "159990"
+      },
+      "html": "    <div class=\"price\">\n        \n        <span class=\"space-text\">\n    \n    \n    <span class=\"sales\">\n        \n        \n        \n            <span class=\"value\" content=\"111993\">\n        \n        $ 111.993\n\n\n        </span>\n    </span>\n    \n        <del>\n            <span class=\"strike-through list salesWithOut\">\n                <span class=\"value\" content=\"111993\">\n                    $ 159.990\n                </span>\n            </span>\n        </del>\n    \n</span>\n\n    </div>\n\n\n"
+    },
+    "renderedPrice": "    <div class=\"price\">\n        \n        <span class=\"space-text\">\n    \n    \n    <span class=\"sales\">\n        \n        \n        \n            <span class=\"value\" content=\"111993\">\n        \n        $ 111.993\n\n\n        </span>\n    </span>\n    \n        <del>\n            <span class=\"strike-through list salesWithOut\">\n                <span class=\"value\" content=\"111993\">\n                    $ 159.990\n                </span>\n            </span>\n        </del>\n    \n</span>\n\n    </div>\n\n\n",
+    "images": {
+      "hi-res": [
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "/on/demandware.static/-/Sites-catalog-equinox/default/dwf1adc5e2/images/marathon/4069161393822_1-20260624120000-mrtChile.jpeg",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "/on/demandware.static/-/Sites-catalog-equinox/default/dw27d1fd8c/images/marathon/4069161393822_5-20260624120000-mrtChile.jpeg",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "/on/demandware.static/-/Sites-catalog-equinox/default/dw4b8c4c80/images/marathon/4069161393822_10-20260624120000-mrtChile.jpeg",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "/on/demandware.static/-/Sites-catalog-equinox/default/dwbdf3b931/images/marathon/4069161393822_12-20260624120000-mrtChile.jpeg",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "/on/demandware.static/-/Sites-catalog-equinox/default/dw6386a26f/images/marathon/4069161393822_13-20260624120000-mrtChile.jpeg",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "/on/demandware.static/-/Sites-catalog-equinox/default/dwb6f08e81/images/marathon/4069161393822_14-20260624120000-mrtChile.jpeg",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        }
+      ],
+      "large": [
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dwf1adc5e2/images/marathon/4069161393822_1-20260624120000-mrtChile.jpeg?sw=800&sh=800",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dw27d1fd8c/images/marathon/4069161393822_5-20260624120000-mrtChile.jpeg?sw=800&sh=800",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dw4b8c4c80/images/marathon/4069161393822_10-20260624120000-mrtChile.jpeg?sw=800&sh=800",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dwbdf3b931/images/marathon/4069161393822_12-20260624120000-mrtChile.jpeg?sw=800&sh=800",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dw6386a26f/images/marathon/4069161393822_13-20260624120000-mrtChile.jpeg?sw=800&sh=800",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dwb6f08e81/images/marathon/4069161393822_14-20260624120000-mrtChile.jpeg?sw=800&sh=800",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        }
+      ],
+      "small": [
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dwf1adc5e2/images/marathon/4069161393822_1-20260624120000-mrtChile.jpeg?sw=140&sh=140",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dw27d1fd8c/images/marathon/4069161393822_5-20260624120000-mrtChile.jpeg?sw=140&sh=140",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dw4b8c4c80/images/marathon/4069161393822_10-20260624120000-mrtChile.jpeg?sw=140&sh=140",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dwbdf3b931/images/marathon/4069161393822_12-20260624120000-mrtChile.jpeg?sw=140&sh=140",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dw6386a26f/images/marathon/4069161393822_13-20260624120000-mrtChile.jpeg?sw=140&sh=140",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        },
+        {
+          "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+          "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dwb6f08e81/images/marathon/4069161393822_14-20260624120000-mrtChile.jpeg?sw=140&sh=140",
+          "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+          "isVideo": false
+        }
+      ]
+    },
+    "selectedQuantity": 1,
+    "minOrderQuantity": 1,
+    "maxOrderQuantity": 1,
+    "variationAttributes": [
+      {
+        "attributeId": "color",
+        "displayName": "color",
+        "id": "color",
+        "swatchable": true,
+        "displayValue": "GRIS",
+        "values": [
+          {
+            "id": "312126 03",
+            "description": null,
+            "displayValue": "GRIS",
+            "value": "312126 03",
+            "selected": true,
+            "selectable": true,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": true,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": false,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=&dwvar_M003312126 03_size=5.5&pid=M003312126%2003&quantity=1&imageSize=hi-res",
+            "images": {
+              "swatch": [
+                {
+                  "alt": "GRIS",
+                  "url": "/on/demandware.static/-/Sites-catalog-equinox/default/dwf1adc5e2/images/marathon/4069161393822_1-20260624120000-mrtChile.jpeg",
+                  "title": "GRIS",
+                  "isVideo": false
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "attributeId": "size",
+        "displayName": "Talla",
+        "id": "size",
+        "swatchable": false,
+        "displayValue": "5.5",
+        "values": [
+          {
+            "id": "1",
+            "description": null,
+            "displayValue": "1",
+            "value": "1",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=1&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "1.5",
+            "description": null,
+            "displayValue": "1.5",
+            "value": "1.5",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=1.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "2",
+            "description": null,
+            "displayValue": "2",
+            "value": "2",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=2&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "2.5",
+            "description": null,
+            "displayValue": "2.5",
+            "value": "2.5",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=2.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "3",
+            "description": null,
+            "displayValue": "3",
+            "value": "3",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=3&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "3.5",
+            "description": null,
+            "displayValue": "3.5",
+            "value": "3.5",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=3.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "4",
+            "description": null,
+            "displayValue": "4",
+            "value": "4",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=4&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "4.5",
+            "description": null,
+            "displayValue": "4.5",
+            "value": "4.5",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=4.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "5",
+            "description": null,
+            "displayValue": "5",
+            "value": "5",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "5.5",
+            "description": null,
+            "displayValue": "5.5",
+            "value": "5.5",
+            "selected": true,
+            "selectable": true,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": true,
+            "isSizeOrderable": true,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": false,
+            "eanValue": "4069161393822",
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "6",
+            "description": null,
+            "displayValue": "6",
+            "value": "6",
+            "selected": false,
+            "selectable": true,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": true,
+            "isSizeOrderable": true,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": false,
+            "eanValue": "4069161393884",
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=6&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "6.5",
+            "description": null,
+            "displayValue": "6.5",
+            "value": "6.5",
+            "selected": false,
+            "selectable": true,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": true,
+            "isSizeOrderable": true,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": false,
+            "eanValue": "4069161393839",
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=6.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "7",
+            "description": null,
+            "displayValue": "7",
+            "value": "7",
+            "selected": false,
+            "selectable": true,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": true,
+            "isSizeOrderable": true,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": false,
+            "eanValue": "4069161393891",
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=7&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "7.5",
+            "description": null,
+            "displayValue": "7.5",
+            "value": "7.5",
+            "selected": false,
+            "selectable": true,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": true,
+            "isSizeOrderable": true,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": false,
+            "eanValue": "4069161393846",
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=7.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "8",
+            "description": null,
+            "displayValue": "8",
+            "value": "8",
+            "selected": false,
+            "selectable": true,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": true,
+            "isSizeOrderable": true,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": false,
+            "eanValue": "4069161393907",
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=8&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "8.5",
+            "description": null,
+            "displayValue": "8.5",
+            "value": "8.5",
+            "selected": false,
+            "selectable": true,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": true,
+            "isSizeOrderable": true,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": false,
+            "eanValue": "4069161393853",
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=8.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "9",
+            "description": null,
+            "displayValue": "9",
+            "value": "9",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": "4069161393914",
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=9&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "9.5",
+            "description": null,
+            "displayValue": "9.5",
+            "value": "9.5",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=9.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "10",
+            "description": null,
+            "displayValue": "10",
+            "value": "10",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=10&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "10.5",
+            "description": null,
+            "displayValue": "10.5",
+            "value": "10.5",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=10.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "11",
+            "description": null,
+            "displayValue": "11",
+            "value": "11",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=11&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "11.5",
+            "description": null,
+            "displayValue": "11.5",
+            "value": "11.5",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=11.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "12",
+            "description": null,
+            "displayValue": "12",
+            "value": "12",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=12&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "12.5",
+            "description": null,
+            "displayValue": "12.5",
+            "value": "12.5",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=12.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "13",
+            "description": null,
+            "displayValue": "13",
+            "value": "13",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=13&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "13.5",
+            "description": null,
+            "displayValue": "13.5",
+            "value": "13.5",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=13.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "14",
+            "description": null,
+            "displayValue": "14",
+            "value": "14",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=14&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "14.5",
+            "description": null,
+            "displayValue": "14.5",
+            "value": "14.5",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=14.5&pid=M003312126%2003&quantity=1"
+          },
+          {
+            "id": "15",
+            "description": null,
+            "displayValue": "15",
+            "value": "15",
+            "selected": false,
+            "selectable": false,
+            "supportBackInStock": false,
+            "isComingSoon": false,
+            "displayable": false,
+            "isSizeOrderable": false,
+            "showMailIcon": false,
+            "sizePermanentlyOutOfStock": null,
+            "eanValue": null,
+            "isSizeDisabled": true,
+            "soldOutFlag": false,
+            "isColorOrderable": true,
+            "url": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=15&pid=M003312126%2003&quantity=1"
+          }
+        ],
+        "resetUrl": "https://www.marathon.cl/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=&pid=M003312126%2003&quantity=1"
+      }
+    ],
+    "longDescription": "<p>\n  <strong>Puma MagMax Nitro 2</strong> son unas zapatillas diseñadas para quienes buscan máxima ligereza y amortiguación en cada paso. Ideales para running, ofrecen un calce cómodo y un diseño que mejora la respuesta durante la carrera, manteniendo la frescura gracias a su empeine en malla respirable. \n  Incorporan <strong>tecnología NITROFOAM™</strong> que brinda un rebote superior, además de una suela con <strong>PUMAGRIP</strong> para una tracción óptima en diversas superficies, perfectas para corredores con pronación neutra.\n</p>\n<h3>Beneficios del producto</h3>\n<ul>\n  <li>Empeine fabricado con al menos un 30% de materiales reciclados.</li>\n  <li><strong>NITROFOAM™</strong> para amortiguación y capacidad de respuesta avanzada.</li>\n  <li><strong>PUMAGRIP</strong> para una suela duradera y tracción superior.</li><li>Calce regular.</li>\n<li>Puntera redondeada.</li>\n<li>Con cordones.</li>\n<li>Talón plano.</li>\n<li>Altura de la suela: 46mm (talón) / 38mm (punta).</li>\n<li>Nivel máximo de amortiguación.</li>\n<li>Drop de talón a punta: 8mm.</li>\n<li>Producto recomendado para pies con pronación neutra.</li>\n<li>Peso de la zapatilla: 225 g. para la talla 36,5 (37,5 EUR).</li>\n</ul>",
+    "shortDescription": "Zapatillas correr mujer",
+    "rating": 5,
+    "promotions": [
+      {
+        "calloutMsg": "-30%",
+        "details": "-30%",
+        "enabled": true,
+        "id": "sem40cyber-30%",
+        "name": "-30%",
+        "promotionClass": "PRODUCT",
+        "rank": null
+      }
+    ],
+    "attributes": [
+      {
+        "ID": "Global Attributes",
+        "name": "Global Attributes",
+        "attributes": [
+          {
+            "label": "Base Site Id",
+            "value": [
+              "nikePeru"
+            ]
+          },
+          {
+            "label": "Secondary Sku",
+            "value": [
+              "312126 03"
+            ]
+          },
+          {
+            "label": "gender",
+            "value": [
+              "H"
+            ]
+          },
+          {
+            "label": "Grouping Code",
+            "value": [
+              "M003312126 03"
+            ]
+          },
+          {
+            "label": "Group Code",
+            "value": [
+              "CAL"
+            ]
+          },
+          {
+            "label": "groupingColor",
+            "value": [
+              "Gris"
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "Nike Attributes",
+        "name": "Nike - Attributes",
+        "attributes": [
+          {
+            "label": "gender",
+            "value": [
+              "H"
+            ]
+          }
+        ]
+      },
+      {
+        "ID": "Marathon Attributes",
+        "name": "Marathon - Attributes",
+        "attributes": [
+          {
+            "label": "Country Code",
+            "value": [
+              "PE"
+            ]
+          },
+          {
+            "label": "Grouping Code",
+            "value": [
+              "M003312126 03"
+            ]
+          },
+          {
+            "label": "Group Code",
+            "value": [
+              "CAL"
+            ]
+          },
+          {
+            "label": "Age Code",
+            "value": [
+              "H"
+            ]
+          },
+          {
+            "label": "Line Code",
+            "value": [
+              "LZA"
+            ]
+          },
+          {
+            "label": "Activity Codes",
+            "value": [
+              "CRU"
+            ]
+          },
+          {
+            "label": "Material Type",
+            "value": [
+              "ZMER"
+            ]
+          },
+          {
+            "label": "Footwear Height",
+            "value": [
+              "B"
+            ]
+          },
+          {
+            "label": "Cost",
+            "value": [
+              0
+            ]
+          },
+          {
+            "label": "Type",
+            "value": [
+              "02"
+            ]
+          }
+        ]
+      }
+    ],
+    "availability": {
+      "messages": [
+        "En stock"
+      ],
+      "inStockDate": null
+    },
+    "available": true,
+    "options": [],
+    "quantities": [
+      {
+        "value": "1",
+        "selected": true,
+        "url": "/on/demandware.store/Sites-MarathonChile-Site/es_CL/Product-Variation?pid=11140411010&quantity=1"
+      }
+    ],
+    "applicableBankPromotion": {
+      "id": "BCH",
+      "name": "Banco de Chile",
+      "badgeLabel": "Descuento con",
+      "bgColor": "#081565",
+      "textColor": "#FFFFFF",
+      "logoStaticPath": "/images/banco-chile-icon.svg",
+      "logoWidth": "18",
+      "logoHeight": "18",
+      "logoBody": "<svg width=\"18\" height=\"18\" version=\"1.2\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1396 1515\" preserveAspectRatio=\"xMidYMid meet\"><path fill=\"#FFFFFF\" fill-rule=\"evenodd\" d=\"m436.6 0.1h77.5c55.7 0 244.7 53.1 244.7 53.1h32.6c12.7 0 33.1-9.8 40.8-16.3 5.7 1.6 9.8 2.8 16.3 8.1l-322.2 228.7c-0.4 0-97.9 48.4-97.9 93.9v575.6l-318.2 220.5c4.5-30.6 44.9-58.2 44.9-102v-567.6c0-44.3 305.9-203.7 305.9-249 0-44.9-179.5-81.7-179.5-81.7-57.1-2-80.7-2-138.6 0-56.8 2.1-120.8 38-142.8 36.8 69.3-46.2 252.5-200.1 436.5-200.1zm652.6 12.3c49 0 78.7 52.6 163.1 163.3 20.9 27.3 118.3 146.6 118.3 204.1v44.9c0 116.3-305.9 233.2-305.9 281.8 0 33 160.7 17.5 232.5 65.3 68.5 45.7 97.9 142.4 97.9 195.9v138.8c0 83.7-113.8 114.4-252.9 220.5-61.2 46.6-270 187.8-285.5 187.8 0 0-239.6-130.6-354.9-130.6h-155c-65.1 0-224.3 57.2-236.6 57.2 0 0 240.4-236.9 485.4-236.9h163.2c33.6 0 149.3 47.4 179.5 57.2v-1037c0-10.3-13.1-28.6-32.7-28.6-45.2 0-77.5 82.5-77.5 85.8v616.4c0 27.9-106 109.9-163.1 142.9-85.3 49.4-140.3 96.8-191.7 122.5v-12.2c0 0 44.8-49 44.8-77.6v-669.6c0-8.2 71.8-98 269.3-212.3 114.5-66.1 231.2-179.6 301.8-179.6zm-93.8 763.4v502.2c0 24.8 43.6 45 69.3 45 12.3 0-4 9.3 16.3 0v-469.6c0-30.6-73-74.3-85.6-77.6zm0-481.7v367.4c80.3-48.2 130.5-73.5 130.5-138.8 0-86.1-130.5-228.6-130.5-228.6z\"/></svg>",
+      "logoBodyTile": "<svg width=\"17\" height=\"18\" version=\"1.2\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1396 1515\" preserveAspectRatio=\"xMidYMid meet\"><path fill=\"#FFFFFF\" fill-rule=\"evenodd\" d=\"m436.6 0.1h77.5c55.7 0 244.7 53.1 244.7 53.1h32.6c12.7 0 33.1-9.8 40.8-16.3 5.7 1.6 9.8 2.8 16.3 8.1l-322.2 228.7c-0.4 0-97.9 48.4-97.9 93.9v575.6l-318.2 220.5c4.5-30.6 44.9-58.2 44.9-102v-567.6c0-44.3 305.9-203.7 305.9-249 0-44.9-179.5-81.7-179.5-81.7-57.1-2-80.7-2-138.6 0-56.8 2.1-120.8 38-142.8 36.8 69.3-46.2 252.5-200.1 436.5-200.1zm652.6 12.3c49 0 78.7 52.6 163.1 163.3 20.9 27.3 118.3 146.6 118.3 204.1v44.9c0 116.3-305.9 233.2-305.9 281.8 0 33 160.7 17.5 232.5 65.3 68.5 45.7 97.9 142.4 97.9 195.9v138.8c0 83.7-113.8 114.4-252.9 220.5-61.2 46.6-270 187.8-285.5 187.8 0 0-239.6-130.6-354.9-130.6h-155c-65.1 0-224.3 57.2-236.6 57.2 0 0 240.4-236.9 485.4-236.9h163.2c33.6 0 149.3 47.4 179.5 57.2v-1037c0-10.3-13.1-28.6-32.7-28.6-45.2 0-77.5 82.5-77.5 85.8v616.4c0 27.9-106 109.9-163.1 142.9-85.3 49.4-140.3 96.8-191.7 122.5v-12.2c0 0 44.8-49 44.8-77.6v-669.6c0-8.2 71.8-98 269.3-212.3 114.5-66.1 231.2-179.6 301.8-179.6zm-93.8 763.4v502.2c0 24.8 43.6 45 69.3 45 12.3 0-4 9.3 16.3 0v-469.6c0-30.6-73-74.3-85.6-77.6zm0-481.7v367.4c80.3-48.2 130.5-73.5 130.5-138.8 0-86.1-130.5-228.6-130.5-228.6z\"/></svg>",
+      "discountPct": 10,
+      "discountLabel": "-10%",
+      "newPriceFormatted": "$ 100.794"
+    },
+    "customTag": {
+      "enabled": true,
+      "text": "PRODUCTO CYBER",
+      "backgroundColor": "#0000FF",
+      "textColor": "#FFFFFF"
+    },
+    "selectedProductUrl": "/marcas/puma/puma-zapatillas-magmax-nitro-2/M003312126+03.html?dwvar_M003312126 03_color=312126%2003&dwvar_M003312126 03_size=5.5&quantity=undefined",
+    "readyToOrder": true,
+    "online": true,
+    "pageTitle": null,
+    "pageDescription": null,
+    "pageKeywords": null,
+    "pageMetaTags": [],
+    "template": null,
+    "EAN": "4069161393822",
+    "UPC": "",
+    "name": "Puma Zapatillas MagMax NITRO 2",
+    "size": "5.5",
+    "tabDescription": "",
+    "color": "312126 03",
+    "creationDate": "2026-06-18T18:54:00.000Z",
+    "tabDetails": "",
+    "width": "",
+    "dimDepth": "",
+    "dimHeight": "",
+    "dimWeight": "",
+    "dimWidth": "",
+    "secondarySku": "312126 03",
+    "sizefit": "",
+    "sustainability": {},
+    "isSustainable": false,
+    "cashPaymentDisabled": "",
+    "exchangeAndReturns": "",
+    "soldOut": "",
+    "badge": "",
+    "groupingColor": "Gris",
+    "category": "",
+    "selectedVariationColorName": "GRIS",
+    "productThumbnailPrice": "$ 111.993",
+    "productThumbnailImage": {
+      "alt": "Puma Zapatillas MagMax NITRO 2, GRIS, hi-res",
+      "url": "https://www.marathon.cl/dw/image/v2/BJKZ_PRD/on/demandware.static/-/Sites-catalog-equinox/default/dwf1adc5e2/images/marathon/4069161393822_1-20260624120000-mrtChile.jpeg?sw=140&sh=140",
+      "title": "Puma Zapatillas MagMax NITRO 2, GRIS",
+      "isVideo": false
+    },
+    "releaseDate": "",
+    "lineCode": "LZA",
+    "gender": "H",
+    "activityCodes": {
+      "0": "CRU"
+    },
+    "collection": "",
+    "ageCode": {
+      "0": "H"
+    },
+    "ATS": 1,
+    "soccerTeam": "",
+    "nationalteams": "",
+    "teambaseball": "",
+    "teamcollege": "",
+    "teamglobalfootballclub": "",
+    "teamnba": {},
+    "teamnfl": "",
+    "teamwnba": "",
+    "customCategory": {},
+    "groupCode": "CAL",
+    "groupingCode": "M003312126 03",
+    "imageBadge": null,
+    "supportBackInStock": false,
+    "isUnisex": false,
+    "lowStockAlert": "",
+    "isProductInWishList": false,
+    "variantURL": "/marcas/puma/puma-zapatillas-magmax-nitro-2/312126-03/11140411010.html",
+    "availableForInStorePickup": false,
+    "attributesHtml": "    <div class=\"col-sm-12 col-md-4 col-lg-3\">\n        <button class=\"title btn text-left btn-block d-sm-none\"\n                aria-expanded=\"false\" aria-controls=\"collapsible-attributes-1\"\n        >\n            atributos\n        </button>\n        <h2 class=\"title d-none d-sm-block\">\n            atributos\n        </h2>\n    </div>\n    <div class=\"col-sm-12 col-md-8 col-lg-9 value content\" id=\"collapsible-attributes-1\">\n        \n            \n                <h3 class=\"attribute-name\">\n                    Global Attributes\n                </h3>\n                <ul>\n                    \n                        <li class=\"attribute-values\">\n                            Base Site Id:\n                            \n                                nikePeru\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Secondary Sku:\n                            \n                                312126 03\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            gender:\n                            \n                                H\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Grouping Code:\n                            \n                                M003312126 03\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Group Code:\n                            \n                                CAL\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            groupingColor:\n                            \n                                Gris\n                            \n                        </li>\n                    \n                </ul>\n            \n        \n            \n                <h3 class=\"attribute-name\">\n                    Nike - Attributes\n                </h3>\n                <ul>\n                    \n                        <li class=\"attribute-values\">\n                            gender:\n                            \n                                H\n                            \n                        </li>\n                    \n                </ul>\n            \n        \n            \n                <h3 class=\"attribute-name\">\n                    Marathon - Attributes\n                </h3>\n                <ul>\n                    \n                        <li class=\"attribute-values\">\n                            Country Code:\n                            \n                                PE\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Grouping Code:\n                            \n                                M003312126 03\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Group Code:\n                            \n                                CAL\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Age Code:\n                            \n                                H\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Line Code:\n                            \n                                LZA\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Activity Codes:\n                            \n                                CRU\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Material Type:\n                            \n                                ZMER\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Footwear Height:\n                            \n                                B\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Cost:\n                            \n                                0.0\n                            \n                        </li>\n                    \n                        <li class=\"attribute-values\">\n                            Type:\n                            \n                                02\n                            \n                        </li>\n                    \n                </ul>\n            \n        \n    </div>\n\n\n",
+    "promotionsHtml": "    \n        <div class=\"row collapsible-xl\">\n            <div class=\"col-12\">\n                <button class=\"title callout btn text-left btn-block\"\n                        aria-expanded=\"false\" aria-controls=\"collapsible-promotion-details-0\">\n                    -30%\n                </button>\n            </div>\n            <div class=\"col-12 value content\" id=\"collapsible-promotion-details-0\">\n                -30%\n            </div>\n        </div>\n        <hr>\n    \n\n\n",
+    "optionsHtml": "",
+    "soldOutProduct": false,
+    "soldOutProductColor": false
+  },
+  "resources": {
+    "info_selectforstock": "Seleccione estilo y talla para ver su disponibilidad",
+    "assistiveSelectedText": "seleccionado"
+  },
+  "render": "<div class=\"imageMosaic\">\n<div class=\"primary-images position-relative\" data-product-image-size=\"hi-res\">\n  <div class=\"zoom-wrapper\">\n        <div class=\"gallery-wrapper d-none d-lg-block\">\n    <div class=\"wrap-images\">\n        <div class=\"product-thumb-images\">\n            \n                <div class='thumb-item'>\n                    <img src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dwf1adc5e2/images/marathon/4069161393822_1-20260624120000-mrtChile.jpeg\" class=\"d-block img-fluid \"\n                        alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res image number null\" itemprop=\"image\" />\n                </div>\n            \n                <div class='thumb-item'>\n                    <img src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw27d1fd8c/images/marathon/4069161393822_5-20260624120000-mrtChile.jpeg\" class=\"d-block img-fluid customize-image\"\n                        alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res image number null\" itemprop=\"image\" />\n                </div>\n            \n                <div class='thumb-item'>\n                    <img src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw4b8c4c80/images/marathon/4069161393822_10-20260624120000-mrtChile.jpeg\" class=\"d-block img-fluid \"\n                        alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res image number null\" itemprop=\"image\" />\n                </div>\n            \n                <div class='thumb-item'>\n                    <img src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dwbdf3b931/images/marathon/4069161393822_12-20260624120000-mrtChile.jpeg\" class=\"d-block img-fluid \"\n                        alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res image number null\" itemprop=\"image\" />\n                </div>\n            \n                <div class='thumb-item'>\n                    <img src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw6386a26f/images/marathon/4069161393822_13-20260624120000-mrtChile.jpeg\" class=\"d-block img-fluid \"\n                        alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res image number null\" itemprop=\"image\" />\n                </div>\n            \n                <div class='thumb-item'>\n                    <img src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dwb6f08e81/images/marathon/4069161393822_14-20260624120000-mrtChile.jpeg\" class=\"d-block img-fluid \"\n                        alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res image number null\" itemprop=\"image\" />\n                </div>\n            \n        </div>\n        <div id=\"product-primary-image\" class=\"product-primary-image\" data-interval=\"0\">\n            \n                <div class='primary-item'>\n                    \n                    <div class=\"most-valued\">\n                     <img class=\"h-25 w-25\" src=\"/on/demandware.static/Sites-MarathonChile-Site/-/default/dwf5e284fa/images/most-valued.svg\"\n                        alt=\"Marathon Chile\" />\n                        <span class=\"text-nowrap\">M&aacute;s valorado</span>\n                    </div>\n                    \n                    <img src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dwf1adc5e2/images/marathon/4069161393822_1-20260624120000-mrtChile.jpeg\" class=\" d-block img-fluid\"\n                        alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res image number null\" data-imageurl=\"\" itemprop=\"image\" />\n                </div>\n            \n                <div class='primary-item'>\n                    \n                    <div class=\"most-valued\">\n                     <img class=\"h-25 w-25\" src=\"/on/demandware.static/Sites-MarathonChile-Site/-/default/dwf5e284fa/images/most-valued.svg\"\n                        alt=\"Marathon Chile\" />\n                        <span class=\"text-nowrap\">M&aacute;s valorado</span>\n                    </div>\n                    \n                    <img src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw27d1fd8c/images/marathon/4069161393822_5-20260624120000-mrtChile.jpeg\" class=\"customize-image d-block img-fluid\"\n                        alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res image number null\" data-imageurl=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw27d1fd8c/images/marathon/4069161393822_5-20260624120000-mrtChile.jpeg\" itemprop=\"image\" />\n                </div>\n            \n                <div class='primary-item'>\n                    \n                    <div class=\"most-valued\">\n                     <img class=\"h-25 w-25\" src=\"/on/demandware.static/Sites-MarathonChile-Site/-/default/dwf5e284fa/images/most-valued.svg\"\n                        alt=\"Marathon Chile\" />\n                        <span class=\"text-nowrap\">M&aacute;s valorado</span>\n                    </div>\n                    \n                    <img src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw4b8c4c80/images/marathon/4069161393822_10-20260624120000-mrtChile.jpeg\" class=\" d-block img-fluid\"\n                        alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res image number null\" data-imageurl=\"\" itemprop=\"image\" />\n                </div>\n            \n                <div class='primary-item'>\n                    \n                    <div class=\"most-valued\">\n                     <img class=\"h-25 w-25\" src=\"/on/demandware.static/Sites-MarathonChile-Site/-/default/dwf5e284fa/images/most-valued.svg\"\n                        alt=\"Marathon Chile\" />\n                        <span class=\"text-nowrap\">M&aacute;s valorado</span>\n                    </div>\n                    \n                    <img src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dwbdf3b931/images/marathon/4069161393822_12-20260624120000-mrtChile.jpeg\" class=\" d-block img-fluid\"\n                        alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res image number null\" data-imageurl=\"\" itemprop=\"image\" />\n                </div>\n            \n                <div class='primary-item'>\n                    \n                    <div class=\"most-valued\">\n                     <img class=\"h-25 w-25\" src=\"/on/demandware.static/Sites-MarathonChile-Site/-/default/dwf5e284fa/images/most-valued.svg\"\n                        alt=\"Marathon Chile\" />\n                        <span class=\"text-nowrap\">M&aacute;s valorado</span>\n                    </div>\n                    \n                    <img src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw6386a26f/images/marathon/4069161393822_13-20260624120000-mrtChile.jpeg\" class=\" d-block img-fluid\"\n                        alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res image number null\" data-imageurl=\"\" itemprop=\"image\" />\n                </div>\n            \n                <div class='primary-item'>\n                    \n                    <div class=\"most-valued\">\n                     <img class=\"h-25 w-25\" src=\"/on/demandware.static/Sites-MarathonChile-Site/-/default/dwf5e284fa/images/most-valued.svg\"\n                        alt=\"Marathon Chile\" />\n                        <span class=\"text-nowrap\">M&aacute;s valorado</span>\n                    </div>\n                    \n                    <img src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dwb6f08e81/images/marathon/4069161393822_14-20260624120000-mrtChile.jpeg\" class=\" d-block img-fluid\"\n                        alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res image number null\" data-imageurl=\"\" itemprop=\"image\" />\n                </div>\n            \n        </div>\n    </div>\n    </div>\n\n    \n    <div id=\"zoom_gallery_pdp\" class=\"gallery-wrapper d-block d-lg-none\">\n        \n            \n                <div class=\"image-wrapper position-relative \">\n                    \n                    <img class=\"galley_img h-auto \" alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res\" src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dwf1adc5e2/images/marathon/4069161393822_1-20260624120000-mrtChile.jpeg\" data-imageurl=\"\" />\n                </div>\n            \n        \n            \n                <div class=\"image-wrapper position-relative customize-image-mobile\">\n                    \n                    <img class=\"galley_img h-auto customize-image\" alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res\" src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw27d1fd8c/images/marathon/4069161393822_5-20260624120000-mrtChile.jpeg\" data-imageurl=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw27d1fd8c/images/marathon/4069161393822_5-20260624120000-mrtChile.jpeg\" />\n                </div>\n            \n        \n            \n                <div class=\"image-wrapper position-relative \">\n                    \n                    <img class=\"galley_img h-auto \" alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res\" src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw4b8c4c80/images/marathon/4069161393822_10-20260624120000-mrtChile.jpeg\" data-imageurl=\"\" />\n                </div>\n            \n        \n            \n                <div class=\"image-wrapper position-relative \">\n                    \n                    <img class=\"galley_img h-auto \" alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res\" src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dwbdf3b931/images/marathon/4069161393822_12-20260624120000-mrtChile.jpeg\" data-imageurl=\"\" />\n                </div>\n            \n        \n            \n                <div class=\"image-wrapper position-relative \">\n                    \n                    <img class=\"galley_img h-auto \" alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res\" src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw6386a26f/images/marathon/4069161393822_13-20260624120000-mrtChile.jpeg\" data-imageurl=\"\" />\n                </div>\n            \n        \n            \n                <div class=\"image-wrapper position-relative \">\n                    \n                    <img class=\"galley_img h-auto \" alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res\" src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dwb6f08e81/images/marathon/4069161393822_14-20260624120000-mrtChile.jpeg\" data-imageurl=\"\" />\n                </div>\n            \n        \n    </div>\n    </div>\n</div>\n\n<div class=\"modal fade\" id=\"imagesModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\"\n    aria-hidden=\"true\">\n    <div class=\"modal-dialog\" role=\"document\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </div>\n            <div class=\"modal-body\">\n                \n                    \n                        <div class=\"col-12\" id=\"image-0\">\n                            <img loading=\"lazy\" alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res\" src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dwf1adc5e2/images/marathon/4069161393822_1-20260624120000-mrtChile.jpeg\" />\n                        </div>\n                    \n                \n                    \n                        <div class=\"col-12\" id=\"image-1\">\n                            <img loading=\"lazy\" alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res\" src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw27d1fd8c/images/marathon/4069161393822_5-20260624120000-mrtChile.jpeg\" />\n                        </div>\n                    \n                \n                    \n                        <div class=\"col-12\" id=\"image-2\">\n                            <img loading=\"lazy\" alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res\" src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw4b8c4c80/images/marathon/4069161393822_10-20260624120000-mrtChile.jpeg\" />\n                        </div>\n                    \n                \n                    \n                        <div class=\"col-12\" id=\"image-3\">\n                            <img loading=\"lazy\" alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res\" src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dwbdf3b931/images/marathon/4069161393822_12-20260624120000-mrtChile.jpeg\" />\n                        </div>\n                    \n                \n                    \n                        <div class=\"col-12\" id=\"image-4\">\n                            <img loading=\"lazy\" alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res\" src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dw6386a26f/images/marathon/4069161393822_13-20260624120000-mrtChile.jpeg\" />\n                        </div>\n                    \n                \n                    \n                        <div class=\"col-12\" id=\"image-5\">\n                            <img loading=\"lazy\" alt=\"Puma Zapatillas MagMax NITRO 2, GRIS, hi-res\" src=\"/on/demandware.static/-/Sites-catalog-equinox/default/dwb6f08e81/images/marathon/4069161393822_14-20260624120000-mrtChile.jpeg\" />\n                        </div>\n                    \n                \n            </div>\n        </div>\n    </div>\n</div>\n</div>",
+  "__mccEvents": [
+    [
+      "trackPageView",
+      {
+        "item": "11140411010"
+      }
+    ],
+    [
+      "trackWishlist",
+      {
+        "clear_List": true
+      }
+    ]
+  ]
+}

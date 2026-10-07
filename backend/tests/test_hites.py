@@ -4,7 +4,7 @@ import pytest
 
 from tests.conftest import fixture_text
 from tracker.processors import FetchError, NotFoundError, find_processor
-from tracker.processors import hites as hites_mod
+from tracker.processors import sfcc as sfcc_mod
 from tracker.processors.hites import HitesProcessor
 
 hites = HitesProcessor()
@@ -242,7 +242,7 @@ def fake_get(monkeypatch):
                 raise result
             return result
 
-        monkeypatch.setattr(hites_mod, "get_text", get_text)
+        monkeypatch.setattr(sfcc_mod, "get_text", get_text)
         return calls
 
     return install
