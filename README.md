@@ -47,8 +47,14 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Preunic | API de Spree que usa la página (BFF de `api.preunic.cl`), precio sin tarjeta y stock de la comuna Santiago |
 | Liga Farmacia | Catálogo público de Firestore que usa la página (modalidad despacho a domicilio Santiago) |
 | Ropa y calzado en Shopify: Lippi, Under Armour, Patagonia, Doite, Merrell, Vans, Salomon, Columbia, Rockford, Hush Puppies, Crocs, Dr. Martens, Wrangler, Dockers, Jockey, Kayser, Fashion's Park, Street Machine, Bamers, Gotta, B-Soul | JSON de la ficha de Shopify (`/products/<handle>.js`), con selector de talla y color |
+| Decathlon | Datos de React Server Components de la ficha (Next.js), con selector de color y talla |
+| Timberland | HTML de la ficha (plataforma Fenicio), con selector de talla |
+| Aldo | API de la plataforma Falabella, con selector de talla |
+| Bold | API OCC de SAP Commerce que usa la página, con selector de talla |
+| Belsport | API OCC de SAP Commerce que usa la página, con selector de talla |
+| Zappa | HTML de la ficha (PrestaShop), con selector de talla |
 
-Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX**, **WooCommerce**, **Shopify** y la **plataforma Falabella**, así que una tienda nueva con
+Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX**, **WooCommerce**, **Shopify**, **Fenicio**, **SAP Commerce (OCC)** y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
 que soporta cada tienda.
 

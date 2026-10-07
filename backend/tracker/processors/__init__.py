@@ -2,6 +2,7 @@
 
 from tracker.processors.abc import AbcProcessor
 from tracker.processors.ahumada import AhumadaProcessor
+from tracker.processors.aldo import AldoProcessor
 from tracker.processors.antartica import AntarticaProcessor
 from tracker.processors.bamers import BamersProcessor
 from tracker.processors.base import (
@@ -13,12 +14,15 @@ from tracker.processors.base import (
     ScrapeResult,
     Variant,
 )
+from tracker.processors.belsport import BelsportProcessor
+from tracker.processors.bold import BoldProcessor
 from tracker.processors.bsoul import BSoulProcessor
 from tracker.processors.buscalibre import BuscalibreProcessor
 from tracker.processors.columbia import ColumbiaProcessor
 from tracker.processors.contrapunto import ContrapuntoProcessor
 from tracker.processors.crocs import CrocsProcessor
 from tracker.processors.cruzverde import CruzVerdeProcessor
+from tracker.processors.decathlon import DecathlonProcessor
 from tracker.processors.dementegames import DementeGamesProcessor
 from tracker.processors.dockers import DockersProcessor
 from tracker.processors.doite import DoiteProcessor
@@ -59,12 +63,14 @@ from tracker.processors.solotodo import SolotodoProcessor
 from tracker.processors.spdigital import SpDigitalProcessor
 from tracker.processors.steam import SteamProcessor
 from tracker.processors.streetmachine import StreetMachineProcessor
+from tracker.processors.timberland import TimberlandProcessor
 from tracker.processors.tottus import TottusProcessor
 from tracker.processors.underarmour import UnderArmourProcessor
 from tracker.processors.unimarc import UnimarcProcessor
 from tracker.processors.vans import VansProcessor
 from tracker.processors.vudugaming import VuduGamingProcessor
 from tracker.processors.wrangler import WranglerProcessor
+from tracker.processors.zappa import ZappaProcessor
 
 PROCESSORS: dict[str, Processor] = {
     p.name: p
@@ -125,6 +131,12 @@ PROCESSORS: dict[str, Processor] = {
         BamersProcessor(),
         GottaProcessor(),
         BSoulProcessor(),
+        DecathlonProcessor(),
+        TimberlandProcessor(),
+        AldoProcessor(),
+        BoldProcessor(),
+        BelsportProcessor(),
+        ZappaProcessor(),
     )
 }
 

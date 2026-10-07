@@ -1,0 +1,790 @@
+{
+ "availableForPickup": false,
+ "averageRating": 5.0,
+ "badges": [
+  {
+   "active": true,
+   "code": "BadegBoldMedallaCyberDay",
+   "icon": {
+    "url": "/medias/Sello15a-os-2026-4x.png?context=bWFzdGVyfHJvb3R8MTc5NDczfGltYWdlL3BuZ3xhR1ExTDJnMU5TOHhNREl3TkRrek9UTTROamt4TUM5VFpXeHNiekUxWWNPeGIzTmZNakF5TmtBMGVDNXdibWN8Mjk5ODNkZjVmZmE2NTlmMDg2MDliNmE3MTY4OWQxYWRjNzQ3OGY4NzY2NzZlYTQxYzM0OGFiZDBlMTdmMzJiYg"
+   },
+   "name": "Bold Medalla CyberDay",
+   "position": "TOP_RIGHT",
+   "type": "IMAGE"
+  },
+  {
+   "active": true,
+   "backgroundColor": "#fcce11",
+   "code": "BadgeBoldDespachoExpress",
+   "name": "Envío Express",
+   "position": "BOTTOM_LEFT",
+   "text": "Envío Express RM",
+   "textColor": "font-family: 'Open Sans';font-size: clamp(0.65rem, 1vw, 1rem); padding: 0px 5px; background-color: #c1c2c4; border-radius: 10px;",
+   "type": "TEXT"
+  },
+  {
+   "active": false,
+   "backgroundColor": "#000000",
+   "code": "ultraRapido_",
+   "name": "ultraRapido_",
+   "position": "TOP_LEFT",
+   "text": "Llega en 3 horas",
+   "textColor": "font-family: 'Open Sans';font-size: clamp(0.65rem, 1vw, 1rem); padding: 0px 5px; background-color: #000000; border-radius: 10px; color: #ffffff",
+   "type": "TEXT"
+  }
+ ],
+ "baseOptions": [],
+ "brandName": "Nike",
+ "categories": [
+  {
+   "code": "boldMarcasNike",
+   "compareLinks": [],
+   "hasCompare": false,
+   "image": {
+    "url": "/medias/Logo-Nike-100x100.png?context=bWFzdGVyfGltYWdlc3w2MTM0fGltYWdlL3BuZ3xhREUyTDJnME15ODVNelEwT1RZM01URTBOemd5TDB4dloyOWZUbWxyWlY4eE1EQjRNVEF3TG5CdVp3fDFhYjk2NDZkOTcyY2M5ZmQ4NTZhZDk3ZTdjNDJjMmRhNzZiMDhlZjFiMjVlNDBiNDY1ODI2YTAzOGU2MGFiZmI"
+   },
+   "isBrandCategory": true,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Nike",
+   "superCategories": [
+    {
+     "code": "boldMarcas",
+     "name": "Marcas"
+    }
+   ],
+   "url": "/Categories/Marcas/Nike/c/boldMarcasNike"
+  },
+  {
+   "code": "boldHombreCalzadoZapatillas",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Zapatillas Hombre",
+   "superCategories": [
+    {
+     "code": "boldHombreCalzado",
+     "name": "Calzado Hombre"
+    }
+   ],
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/c/boldHombreCalzadoZapatillas"
+  },
+  {
+   "code": "GSBoldNikeZapatillaHombreExtendida",
+   "compareLinks": [],
+   "hasCompare": false,
+   "image": {
+    "url": "/medias/GSBoldNikeZapatillaHombreExtendida.webp?context=bWFzdGVyfHJvb3R8ODU5MTB8aW1hZ2Uvd2VicHxhRFF3TDJnell5OHhNREF3T1RRNU9EUTRORGMyTmk5SFUwSnZiR1JPYVd0bFdtRndZWFJwYkd4aFNHOXRZbkpsUlhoMFpXNWthV1JoTG5kbFluQXw3YzE5OTQxYWQwZTFiNDAyMTQ3YjA4M2M3OTU0ZjYwMjZhYzhlM2JkMDgwMjZjMzRkZTAxYjdlMjA3ZDRjZGZl"
+   },
+   "isBrandCategory": false,
+   "isGuideSizeCategory": true,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "GSBoldNikeZapatillaHombreExtendida",
+   "superCategories": [
+    {
+     "code": "boldGuideSize",
+     "name": "Guide Size"
+    }
+   ],
+   "url": "/Guide-Size/GSBoldNikeZapatillaHombreExtendida/c/GSBoldNikeZapatillaHombreExtendida"
+  },
+  {
+   "code": "zapatillas",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Zapatillas",
+   "superCategories": [
+    {
+     "code": "boldTipo",
+     "name": "boldTipo"
+    }
+   ],
+   "url": "/Categories/boldTipo/Zapatillas/c/zapatillas"
+  },
+  {
+   "code": "cyber-hombre",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Cyber Hombre: Zapatillas y Ropa en Oferta",
+   "superCategories": [
+    {
+     "code": "cyber",
+     "name": "Cyber Bold: Zapatillas, Ropa y Accesorios en Oferta"
+    }
+   ],
+   "url": "/Cyber-Bold%3A-Zapatillas%2C-Ropa-y-Accesorios-en-Oferta/Cyber-Hombre%3A-Zapatillas-y-Ropa-en-Oferta/c/cyber-hombre"
+  },
+  {
+   "code": "cyber",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Cyber Bold: Zapatillas, Ropa y Accesorios en Oferta",
+   "superCategories": [],
+   "url": "/Cyber-Bold%3A-Zapatillas%2C-Ropa-y-Accesorios-en-Oferta/c/cyber"
+  },
+  {
+   "code": "cyber-nike-jordan",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Cyber Nike y Jordan: Zapatillas y Ropa",
+   "superCategories": [
+    {
+     "code": "cyber",
+     "name": "Cyber Bold: Zapatillas, Ropa y Accesorios en Oferta"
+    }
+   ],
+   "url": "/Cyber-Bold%3A-Zapatillas%2C-Ropa-y-Accesorios-en-Oferta/Cyber-Nike-y-Jordan%3A-Zapatillas-y-Ropa/c/cyber-nike-jordan"
+  },
+  {
+   "code": "cyber-zapatillas",
+   "compareLinks": [],
+   "hasCompare": false,
+   "isBrandCategory": false,
+   "isGuideSizeCategory": false,
+   "isTechnologyCategory": false,
+   "isVariantValueCategory": false,
+   "name": "Cyber Zapatillas: Nike, Jordan, adidas y Más",
+   "superCategories": [
+    {
+     "code": "cyber",
+     "name": "Cyber Bold: Zapatillas, Ropa y Accesorios en Oferta"
+    }
+   ],
+   "url": "/Cyber-Bold%3A-Zapatillas%2C-Ropa-y-Accesorios-en-Oferta/Cyber-Zapatillas%3A-Nike%2C-Jordan%2C-adidas-y-M%C3%A1s/c/cyber-zapatillas"
+  }
+ ],
+ "code": "NIHM9697002",
+ "configurable": false,
+ "description": "<p><strong>Caracteristicas</strong></p><ul><li>Marca: Nike</li><li>Modelo: Ava X</li><li>Color: Negro</li><li>Diseño contemporáneo inspirado en el estilo urbano.</li><li>Amortiguación ligera para una comodidad duradera.</li><li>Capellada construida para ofrecer transpirabilidad y soporte.</li><li>Suela exterior de goma que proporciona tracción y durabilidad.</li></ul><p><em><strong>Los colores de los productos pueden variar levemente segun la configuracion y calibracion de la pantalla, brillo o dispositivo desde el cual se visualicen las imagenes.</strong></em></p>",
+ "ean": "NIHM9697002",
+ "formattedDiscount": "-40%",
+ "futureStockEnabled": false,
+ "image360": false,
+ "images": [
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "superZoom",
+   "imageType": "PRIMARY",
+   "url": "/medias/BOLD-NIHM9697002-VIEW1.webp?context=bWFzdGVyfGltYWdlc3wxMjE4NjJ8aW1hZ2Uvd2VicHxhREEzTDJobVppOHhNREl3TlRBd01EUXdNRGt5Tmk5Q1QweEVYMDVKU0UwNU5qazNNREF5WDFaSlJWY3hMbmRsWW5BfDA3YTEzOTE2NWJmZWZlYTMxMzkzZTVlZDIxNzUwM2FmZGYwNjM2N2YwMWVhZDM5ZWNhMzkwYzMxYjU5ZmI1ZjI"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "product",
+   "imageType": "PRIMARY",
+   "url": "/medias/300Wx300H-BOLD-NIHM9697002-VIEW1.webp?context=bWFzdGVyfGltYWdlc3wyNTcwfGltYWdlL3dlYnB8YURVNEwyaG1aUzh4TURJd05UQXdNRFEyTmpRMk1pOHpNREJYZURNd01FaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTVM1M1pXSnd8NDgzODFhMGU1MTRiZGM1YTNmYWNjMmVhMDllYzQ0YTQ4NTA1MzE1Nzc4NTJiMWE5ZWU3MGMyY2QxMGFjYjkzMA"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "cartIcon",
+   "imageType": "PRIMARY",
+   "url": "/medias/65Wx65H-BOLD-NIHM9697002-VIEW1.webp?context=bWFzdGVyfGltYWdlc3wzNzB8aW1hZ2Uvd2VicHxhREF4TDJobVpTOHhNREl3TlRBd01EUTVPVEl6TUM4Mk5WZDROalZJWDBKUFRFUmZUa2xJVFRrMk9UY3dNREpmVmtsRlZ6RXVkMlZpY0F8MTljM2Y1MjQ2NzAxZWEzN2FiM2ZiYWY0ODQ3Y2FmM2U0MmZmNmE0YTU4ZWVlOWVjNTc2YTFjYmQwZmExZDBkMw"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "zoom",
+   "imageType": "PRIMARY",
+   "url": "/medias/515Wx515H-BOLD-NIHM9697002-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w4Mzk2fGltYWdlL3dlYnB8YURRM0wyaG1ZaTh4TURJd05UQXdNRFV6TVRrNU9DODFNVFZYZURVeE5VaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTVM1M1pXSnd8NmRhNTI0MGY2ZjNkYjM3ZjcxN2VkZjU1OGU5YmNjNjMzMzkwMDZiYjRhMjQ0NjI4ODVkYzlkMTUyNmE3NTQ0OA"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "thumbnail",
+   "imageType": "PRIMARY",
+   "url": "/medias/96Wx96H-BOLD-NIHM9697002-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w1ODZ8aW1hZ2Uvd2VicHxhR1l3TDJobVlTOHhNREl3TlRBd01EVTJORGMyTmk4NU5sZDRPVFpJWDBKUFRFUmZUa2xJVFRrMk9UY3dNREpmVmtsRlZ6RXVkMlZpY0F8ODZkZmJkNTc3OWQxMjAzZDIwODM4NjJkOWE0ZTdkYjcxN2Q5OTRjNTNjNWUwNGM1Yzg2Mzk2MDMxYThlYmRiYw"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "superZoom",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-NIHM9697002-VIEW1.webp?context=bWFzdGVyfGltYWdlc3wxMjE4NjJ8aW1hZ2Uvd2VicHxhREEzTDJobVppOHhNREl3TlRBd01EUXdNRGt5Tmk5Q1QweEVYMDVKU0UwNU5qazNNREF5WDFaSlJWY3hMbmRsWW5BfDA3YTEzOTE2NWJmZWZlYTMxMzkzZTVlZDIxNzUwM2FmZGYwNjM2N2YwMWVhZDM5ZWNhMzkwYzMxYjU5ZmI1ZjI"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "product",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-NIHM9697002-VIEW1.webp?context=bWFzdGVyfGltYWdlc3wyNTcwfGltYWdlL3dlYnB8YURVNEwyaG1aUzh4TURJd05UQXdNRFEyTmpRMk1pOHpNREJYZURNd01FaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTVM1M1pXSnd8NDgzODFhMGU1MTRiZGM1YTNmYWNjMmVhMDllYzQ0YTQ4NTA1MzE1Nzc4NTJiMWE5ZWU3MGMyY2QxMGFjYjkzMA"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "zoom",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-NIHM9697002-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w4Mzk2fGltYWdlL3dlYnB8YURRM0wyaG1ZaTh4TURJd05UQXdNRFV6TVRrNU9DODFNVFZYZURVeE5VaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTVM1M1pXSnd8NmRhNTI0MGY2ZjNkYjM3ZjcxN2VkZjU1OGU5YmNjNjMzMzkwMDZiYjRhMjQ0NjI4ODVkYzlkMTUyNmE3NTQ0OA"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "thumbnail",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/96Wx96H-BOLD-NIHM9697002-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w1ODZ8aW1hZ2Uvd2VicHxhR1l3TDJobVlTOHhNREl3TlRBd01EVTJORGMyTmk4NU5sZDRPVFpJWDBKUFRFUmZUa2xJVFRrMk9UY3dNREpmVmtsRlZ6RXVkMlZpY0F8ODZkZmJkNTc3OWQxMjAzZDIwODM4NjJkOWE0ZTdkYjcxN2Q5OTRjNTNjNWUwNGM1Yzg2Mzk2MDMxYThlYmRiYw"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "superZoom",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-NIHM9697002-VIEW2.webp?context=bWFzdGVyfGltYWdlc3wxMjA0OTJ8aW1hZ2Uvd2VicHxhR013TDJnNU55OHhNREl3TlRBd01UTTRNemsyTmk5Q1QweEVYMDVKU0UwNU5qazNNREF5WDFaSlJWY3lMbmRsWW5BfGY5NjQyNTZkNzZhNjg5ZmRhMjZmNGFiYThhNzg1YjM1NTEwODE0NTllOTUxZTRkZmJjYWYxOWYyNGQ5ZTAxOWQ"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "product",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-NIHM9697002-VIEW2.webp?context=bWFzdGVyfGltYWdlc3wyNDA4fGltYWdlL3dlYnB8YUdNeEwyZzVOQzh4TURJd05UQXdNVFEwT1RVd01pOHpNREJYZURNd01FaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTWk1M1pXSnd8NWIzZjc5OGMwN2VhYTk2MDdhMjE2MDU2ZDc1NTVkNjg1ZmYzZTQxZDQ2MDdjYjMxMjZmMjU0ZWFiMTM3YzM4Ng"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "zoom",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-NIHM9697002-VIEW2.webp?context=bWFzdGVyfGltYWdlc3w4MjAyfGltYWdlL3dlYnB8YUdJd0wyZzVNUzh4TURJd05UQXdNVFV4TlRBek9DODFNVFZYZURVeE5VaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTWk1M1pXSnd8Zjk5NmExMmIzNDE1YTM3ZTBlMzExYWJiM2EzNWM2NjE4MDU4ZTEzYjQ3NzM1Yzk1NzUyMTU4YTQ5MGYwNzk0Mg"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "thumbnail",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/96Wx96H-BOLD-NIHM9697002-VIEW2.webp?context=bWFzdGVyfGltYWdlc3w1Njh8aW1hZ2Uvd2VicHxhRFU1TDJnNU1TOHhNREl3TlRBd01UVTBOemd3Tmk4NU5sZDRPVFpJWDBKUFRFUmZUa2xJVFRrMk9UY3dNREpmVmtsRlZ6SXVkMlZpY0F8Yjg5NGE0OWUxN2Q0MzkxZWU3MDBiZjA5ZGNhNDYwNDA2NWVkYjg3MWNlMjdjNmJjYTAxMjhmYzY2Y2Q1ZWVhNQ"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "superZoom",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-NIHM9697002-VIEW3.webp?context=bWFzdGVyfGltYWdlc3wxMjE3MDB8aW1hZ2Uvd2VicHxhREk0TDJneVpTOHhNREl3TlRBd01qTTJOekF3Tmk5Q1QweEVYMDVKU0UwNU5qazNNREF5WDFaSlJWY3pMbmRsWW5BfDUyOGU4NTE4NTRjMzM5YjY2OTM5OGVlNjIxNGYwZDYwNWRhOTQwMDAyNmQ1ZWNkNjhkNTkxMGVjMDI5NjFlNjA"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "product",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-NIHM9697002-VIEW3.webp?context=bWFzdGVyfGltYWdlc3wzMDAyfGltYWdlL3dlYnB8YURFM0wyZ3lZaTh4TURJd05UQXdNalF6TWpVME1pOHpNREJYZURNd01FaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTXk1M1pXSnd8ZTEyNTE0Mjk5NTUyNGJmYzQwNDhlMDQzZTNhMzYyZGEyNjczNTY4Mjg5NTdhZjQxYWE2NTlkNmQzZTNjODFkYQ"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "zoom",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-NIHM9697002-VIEW3.webp?context=bWFzdGVyfGltYWdlc3w3NzgwfGltYWdlL3dlYnB8YURZNUwyZ3lZUzh4TURJd05UQXdNalE1T0RBM09DODFNVFZYZURVeE5VaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTXk1M1pXSnd8OWE1YjdiZmIyYzc1YmZhYmUxOTFlODVkMmExODExOTdmZTg5YzM3MWVkMjQ4MTM0M2FlMDMzODYzM2U3NTM4Mg"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "thumbnail",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/96Wx96H-BOLD-NIHM9697002-VIEW3.webp?context=bWFzdGVyfGltYWdlc3w2NjB8aW1hZ2Uvd2VicHxhR0ZtTDJneU55OHhNREl3TlRBd01qVXpNRGcwTmk4NU5sZDRPVFpJWDBKUFRFUmZUa2xJVFRrMk9UY3dNREpmVmtsRlZ6TXVkMlZpY0F8ZDQ1OWYzMzU3ZGI4YjI3ZGE0YzQ2Njc4NDRmY2NiM2MzNTg4NjNkYjI3MDI3ZDA2MDE5YTRhMzA0ZDJiYzEyMw"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "superZoom",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-NIHM9697002-VIEW4.webp?context=bWFzdGVyfGltYWdlc3wxMjc5MjJ8aW1hZ2Uvd2VicHxhRGd4TDJnellpOHhNREl3TlRBd016TTFNREEwTmk5Q1QweEVYMDVKU0UwNU5qazNNREF5WDFaSlJWYzBMbmRsWW5BfDUwYjBhNzRjMWFjMDQzZTUzODNjNTgyYjgzOWY4OWNlMjg2NGE4YTM5NDFiOGRmNDM5MDM3ZjQyZGIxOGRiMGY"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "product",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-NIHM9697002-VIEW4.webp?context=bWFzdGVyfGltYWdlc3wzNzgyfGltYWdlL3dlYnB8YURkbEwyZ3paUzh4TURJd05UQXdNelF4TlRVNE1pOHpNREJYZURNd01FaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTkM1M1pXSnd8Zjc1YTc2N2RhN2FiMWRmM2Q3NDY0OGQ1ZGY1ZjRkOWZlOTZjNzY0NDViZWI2MmMyZTIwMTcwNmQwZWE1ZjZhNQ"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "zoom",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-NIHM9697002-VIEW4.webp?context=bWFzdGVyfGltYWdlc3wxMDgzMHxpbWFnZS93ZWJwfGFEUXdMMmd6Wmk4eE1ESXdOVEF3TXpRNE1URXhPQzgxTVRWWGVEVXhOVWhmUWs5TVJGOU9TVWhOT1RZNU56QXdNbDlXU1VWWE5DNTNaV0p3fGQyNWFkOTQ1MmRjM2VmYTY1MDA0NDhhNGNhZmE4ZThhMDgwYjQyZGVkNzNlYjlmOTcxZWIyNDc3OTRhOWZiZTY"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "thumbnail",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/96Wx96H-BOLD-NIHM9697002-VIEW4.webp?context=bWFzdGVyfGltYWdlc3w3OTZ8aW1hZ2Uvd2VicHxhR1UyTDJnME1TOHhNREl3TlRBd016VXhNemc0Tmk4NU5sZDRPVFpJWDBKUFRFUmZUa2xJVFRrMk9UY3dNREpmVmtsRlZ6UXVkMlZpY0F8NjFhYzljMTQ3NGNlYjllMjRlMTQ1Zjc2YWUxNjBlYzljZTE1MDI5YWQ4MTZiZjZlMzllZTY0OTM2ZTk5N2FiNQ"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "superZoom",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-NIHM9697002-VIEW1.webp?context=bWFzdGVyfGltYWdlc3wxMjE4NjJ8aW1hZ2Uvd2VicHxhREEzTDJobVppOHhNREl3TlRBd01EUXdNRGt5Tmk5Q1QweEVYMDVKU0UwNU5qazNNREF5WDFaSlJWY3hMbmRsWW5BfDA3YTEzOTE2NWJmZWZlYTMxMzkzZTVlZDIxNzUwM2FmZGYwNjM2N2YwMWVhZDM5ZWNhMzkwYzMxYjU5ZmI1ZjI"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "thumbnail",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-NIHM9697002-VIEW1.webp?context=bWFzdGVyfGltYWdlc3wyNTcwfGltYWdlL3dlYnB8YURVNEwyaG1aUzh4TURJd05UQXdNRFEyTmpRMk1pOHpNREJYZURNd01FaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTVM1M1pXSnd8NDgzODFhMGU1MTRiZGM1YTNmYWNjMmVhMDllYzQ0YTQ4NTA1MzE1Nzc4NTJiMWE5ZWU3MGMyY2QxMGFjYjkzMA"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "product",
+   "galleryIndex": 0,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-NIHM9697002-VIEW1.webp?context=bWFzdGVyfGltYWdlc3w4Mzk2fGltYWdlL3dlYnB8YURRM0wyaG1ZaTh4TURJd05UQXdNRFV6TVRrNU9DODFNVFZYZURVeE5VaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTVM1M1pXSnd8NmRhNTI0MGY2ZjNkYjM3ZjcxN2VkZjU1OGU5YmNjNjMzMzkwMDZiYjRhMjQ0NjI4ODVkYzlkMTUyNmE3NTQ0OA"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "superZoom",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-NIHM9697002-VIEW2.webp?context=bWFzdGVyfGltYWdlc3wxMjA0OTJ8aW1hZ2Uvd2VicHxhR013TDJnNU55OHhNREl3TlRBd01UTTRNemsyTmk5Q1QweEVYMDVKU0UwNU5qazNNREF5WDFaSlJWY3lMbmRsWW5BfGY5NjQyNTZkNzZhNjg5ZmRhMjZmNGFiYThhNzg1YjM1NTEwODE0NTllOTUxZTRkZmJjYWYxOWYyNGQ5ZTAxOWQ"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "thumbnail",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-NIHM9697002-VIEW2.webp?context=bWFzdGVyfGltYWdlc3wyNDA4fGltYWdlL3dlYnB8YUdNeEwyZzVOQzh4TURJd05UQXdNVFEwT1RVd01pOHpNREJYZURNd01FaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTWk1M1pXSnd8NWIzZjc5OGMwN2VhYTk2MDdhMjE2MDU2ZDc1NTVkNjg1ZmYzZTQxZDQ2MDdjYjMxMjZmMjU0ZWFiMTM3YzM4Ng"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "product",
+   "galleryIndex": 1,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-NIHM9697002-VIEW2.webp?context=bWFzdGVyfGltYWdlc3w4MjAyfGltYWdlL3dlYnB8YUdJd0wyZzVNUzh4TURJd05UQXdNVFV4TlRBek9DODFNVFZYZURVeE5VaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTWk1M1pXSnd8Zjk5NmExMmIzNDE1YTM3ZTBlMzExYWJiM2EzNWM2NjE4MDU4ZTEzYjQ3NzM1Yzk1NzUyMTU4YTQ5MGYwNzk0Mg"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "superZoom",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-NIHM9697002-VIEW3.webp?context=bWFzdGVyfGltYWdlc3wxMjE3MDB8aW1hZ2Uvd2VicHxhREk0TDJneVpTOHhNREl3TlRBd01qTTJOekF3Tmk5Q1QweEVYMDVKU0UwNU5qazNNREF5WDFaSlJWY3pMbmRsWW5BfDUyOGU4NTE4NTRjMzM5YjY2OTM5OGVlNjIxNGYwZDYwNWRhOTQwMDAyNmQ1ZWNkNjhkNTkxMGVjMDI5NjFlNjA"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "thumbnail",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-NIHM9697002-VIEW3.webp?context=bWFzdGVyfGltYWdlc3wzMDAyfGltYWdlL3dlYnB8YURFM0wyZ3lZaTh4TURJd05UQXdNalF6TWpVME1pOHpNREJYZURNd01FaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTXk1M1pXSnd8ZTEyNTE0Mjk5NTUyNGJmYzQwNDhlMDQzZTNhMzYyZGEyNjczNTY4Mjg5NTdhZjQxYWE2NTlkNmQzZTNjODFkYQ"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "product",
+   "galleryIndex": 2,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-NIHM9697002-VIEW3.webp?context=bWFzdGVyfGltYWdlc3w3NzgwfGltYWdlL3dlYnB8YURZNUwyZ3lZUzh4TURJd05UQXdNalE1T0RBM09DODFNVFZYZURVeE5VaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTXk1M1pXSnd8OWE1YjdiZmIyYzc1YmZhYmUxOTFlODVkMmExODExOTdmZTg5YzM3MWVkMjQ4MTM0M2FlMDMzODYzM2U3NTM4Mg"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "superZoom",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/BOLD-NIHM9697002-VIEW4.webp?context=bWFzdGVyfGltYWdlc3wxMjc5MjJ8aW1hZ2Uvd2VicHxhRGd4TDJnellpOHhNREl3TlRBd016TTFNREEwTmk5Q1QweEVYMDVKU0UwNU5qazNNREF5WDFaSlJWYzBMbmRsWW5BfDUwYjBhNzRjMWFjMDQzZTUzODNjNTgyYjgzOWY4OWNlMjg2NGE4YTM5NDFiOGRmNDM5MDM3ZjQyZGIxOGRiMGY"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "thumbnail",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/300Wx300H-BOLD-NIHM9697002-VIEW4.webp?context=bWFzdGVyfGltYWdlc3wzNzgyfGltYWdlL3dlYnB8YURkbEwyZ3paUzh4TURJd05UQXdNelF4TlRVNE1pOHpNREJYZURNd01FaGZRazlNUkY5T1NVaE5PVFk1TnpBd01sOVdTVVZYTkM1M1pXSnd8Zjc1YTc2N2RhN2FiMWRmM2Q3NDY0OGQ1ZGY1ZjRkOWZlOTZjNzY0NDViZWI2MmMyZTIwMTcwNmQwZWE1ZjZhNQ"
+  },
+  {
+   "altText": "Ava X Zapatillas Nike Negro",
+   "format": "product",
+   "galleryIndex": 3,
+   "imageType": "GALLERY",
+   "url": "/medias/515Wx515H-BOLD-NIHM9697002-VIEW4.webp?context=bWFzdGVyfGltYWdlc3wxMDgzMHxpbWFnZS93ZWJwfGFEUXdMMmd6Wmk4eE1ESXdOVEF3TXpRNE1URXhPQzgxTVRWWGVEVXhOVWhmUWs5TVJGOU9TVWhOT1RZNU56QXdNbDlXU1VWWE5DNTNaV0p3fGQyNWFkOTQ1MmRjM2VmYTY1MDA0NDhhNGNhZmE4ZThhMDgwYjQyZGVkNzNlYjlmOTcxZWIyNDc3OTRhOWZiZTY"
+  }
+ ],
+ "images360": [],
+ "keywords": "[]",
+ "manufacturer": "Ava X Zapatillas Nike Negro: estilo urbano y comodidad diaria. Descubre la versatilidad para tu look en Bold.",
+ "manufacturerTypeDescription": "Ava X Zapatillas Nike Negro: estilo urbano y comodidad diaria. Descubre la versatilidad para tu look en Bold.",
+ "maxOrderQuantity": 100,
+ "multidimensional": true,
+ "name": "Ava X Zapatillas Nike Negro",
+ "numberOfReviews": 1,
+ "potentialPromotions": [
+  {
+   "code": "Bold_MensajeCrep"
+  },
+  {
+   "code": "Bold_InfluencersCyber2026-Oct"
+  },
+  {
+   "code": "Bold_ConcursoCyber"
+  },
+  {
+   "code": "Bold_YNKCYBER10_Cyber2026-Oct"
+  },
+  {
+   "code": "Bold_Cumpleaños_25off"
+  },
+  {
+   "code": "Cupon_Vuelve_BOLD"
+  },
+  {
+   "code": "Bold_VuelveBold"
+  },
+  {
+   "code": "20off_Embajadores_BOLD"
+  }
+ ],
+ "price": {
+  "currencyIso": "CLP",
+  "formattedValue": "$79.990",
+  "priceType": "FROM",
+  "value": 79990
+ },
+ "priceRange": {
+  "maxPrice": {
+   "currencyIso": "CLP",
+   "formattedValue": "$79.990",
+   "priceType": "FROM",
+   "value": 79990.0
+  },
+  "minPrice": {
+   "currencyIso": "CLP",
+   "formattedValue": "$79.990",
+   "priceType": "FROM",
+   "value": 79990.0
+  }
+ },
+ "purchasable": false,
+ "regularPrice": {
+  "currencyIso": "CLP",
+  "formattedValue": "$132.990",
+  "priceType": "FROM",
+  "value": 132990
+ },
+ "retailRocketProductId": "8922399309825",
+ "reviews": [],
+ "serialRequired": false,
+ "stock": {
+  "physicalStockLevelByZone": [
+   "regionMetropolitana:inStock"
+  ],
+  "physicalStockLevelStatus": "inStock",
+  "stockLevel": 0,
+  "stockLevelStatus": "outOfStock"
+ },
+ "summary": "Las zapatillas Nike Ava X combinan un diseño vanguardista con la comodidad esencial para tu día a día. Inspiradas en el estilo urbano, ofrecen una pisada ligera y un ajuste perfecto. Son ideales para complementar cualquier atuendo casual con un toque moderno y deportivo.",
+ "unitSales": "PAA",
+ "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Ava-X-Zapatillas-Nike-Negro/p/NIHM9697002",
+ "variantMatrix": [],
+ "variantOptions": [
+  {
+   "code": "NIHM9697002070",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$79.990",
+    "priceType": "BUY",
+    "value": 79990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$132.990",
+    "priceType": "BUY",
+    "value": 132990
+   },
+   "retailRocketProductId": "8922399342593",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 0,
+    "stockLevelStatus": "outOfStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Ava-X-Zapatillas-Nike-Negro/p/NIHM9697002070",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 7 MEN"
+    }
+   ]
+  },
+  {
+   "code": "NIHM9697002075",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$79.990",
+    "priceType": "BUY",
+    "value": 79990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$132.990",
+    "priceType": "BUY",
+    "value": 132990
+   },
+   "retailRocketProductId": "8922399375361",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 0,
+    "stockLevelStatus": "outOfStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Ava-X-Zapatillas-Nike-Negro/p/NIHM9697002075",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 7.5 MEN"
+    }
+   ]
+  },
+  {
+   "code": "NIHM9697002080",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$79.990",
+    "priceType": "BUY",
+    "value": 79990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$132.990",
+    "priceType": "BUY",
+    "value": 132990
+   },
+   "retailRocketProductId": "8922399408129",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 0,
+    "stockLevelStatus": "outOfStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Ava-X-Zapatillas-Nike-Negro/p/NIHM9697002080",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 8 MEN"
+    }
+   ]
+  },
+  {
+   "code": "NIHM9697002085",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$79.990",
+    "priceType": "BUY",
+    "value": 79990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$132.990",
+    "priceType": "BUY",
+    "value": 132990
+   },
+   "retailRocketProductId": "8922399440897",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 0,
+    "stockLevelStatus": "outOfStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Ava-X-Zapatillas-Nike-Negro/p/NIHM9697002085",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 8.5 MEN"
+    }
+   ]
+  },
+  {
+   "code": "NIHM9697002090",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$79.990",
+    "priceType": "BUY",
+    "value": 79990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$132.990",
+    "priceType": "BUY",
+    "value": 132990
+   },
+   "retailRocketProductId": "8922399473665",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 0,
+    "stockLevelStatus": "outOfStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Ava-X-Zapatillas-Nike-Negro/p/NIHM9697002090",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 9 MEN"
+    }
+   ]
+  },
+  {
+   "code": "NIHM9697002095",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$79.990",
+    "priceType": "BUY",
+    "value": 79990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$132.990",
+    "priceType": "BUY",
+    "value": 132990
+   },
+   "retailRocketProductId": "8922399506433",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 0,
+    "stockLevelStatus": "outOfStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Ava-X-Zapatillas-Nike-Negro/p/NIHM9697002095",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 9.5 MEN"
+    }
+   ]
+  },
+  {
+   "code": "NIHM9697002100",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$79.990",
+    "priceType": "BUY",
+    "value": 79990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$132.990",
+    "priceType": "BUY",
+    "value": 132990
+   },
+   "retailRocketProductId": "8922399539201",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 0,
+    "stockLevelStatus": "outOfStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Ava-X-Zapatillas-Nike-Negro/p/NIHM9697002100",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 10 MEN"
+    }
+   ]
+  },
+  {
+   "code": "NIHM9697002110",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$79.990",
+    "priceType": "BUY",
+    "value": 79990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$132.990",
+    "priceType": "BUY",
+    "value": 132990
+   },
+   "retailRocketProductId": "8922399571969",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 0,
+    "stockLevelStatus": "outOfStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Ava-X-Zapatillas-Nike-Negro/p/NIHM9697002110",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 11 MEN"
+    }
+   ]
+  },
+  {
+   "code": "NIHM9697002120",
+   "priceData": {
+    "currencyIso": "CLP",
+    "formattedValue": "$79.990",
+    "priceType": "BUY",
+    "value": 79990
+   },
+   "regularPrice": {
+    "currencyIso": "CLP",
+    "formattedValue": "$132.990",
+    "priceType": "BUY",
+    "value": 132990
+   },
+   "retailRocketProductId": "8922399604737",
+   "sapPickUpAvailbility": true,
+   "stock": {
+    "physicalStockLevelByZone": [
+     "regionMetropolitana:inStock"
+    ],
+    "physicalStockLevelStatus": "inStock",
+    "stockLevel": 0,
+    "stockLevelStatus": "outOfStock"
+   },
+   "url": "/Categories/Genero/Hombre/Calzado-Hombre/Zapatillas-Hombre/Ava-X-Zapatillas-Nike-Negro/p/NIHM9697002120",
+   "variantOptionQualifiers": [
+    {
+     "name": "Talla",
+     "qualifier": "size",
+     "value": "US 12 MEN"
+    }
+   ]
+  }
+ ],
+ "variantSelectors": [],
+ "variantType": "BelsportSizeVariantProduct",
+ "volumePrices": []
+}
