@@ -56,6 +56,9 @@ class Api:
     def patch(self, url, json=None):
         return self.c.patch(url, json=json, headers=self._h())
 
+    def put(self, url, json=None):
+        return self.c.put(url, json=json, headers=self._h())
+
     def delete(self, url):
         return self.c.delete(url, headers=self._h())
 
@@ -325,6 +328,43 @@ def test_preferencias_de_tema_por_usuario():
     # Son de cada usuario.
     assert bob.get("/api/auth/me").json()["preferences"]["theme"] == "system"
     assert ana.patch("/api/auth/preferences", {"theme": "neon"}).status_code == 422
+
+
+def test_avisos_por_defecto_por_usuario():
+    ana, bob = logged_in("ana"), logged_in("bob")
+    assert ana.get("/api/auth/me").json()["default_rules"] is None
+    mine = [
+        {"kind": "PRICE_CHANGE", "params": {}},
+        {"kind": "OUT_OF_STOCK"},
+        {"kind": "DISCOUNT_PCT", "params": {"pct": 30, "baseline": "list_price"}},
+    ]
+    r = ana.put("/api/auth/default-rules", {"rules": mine})
+    assert r.status_code == 200
+    expected = [
+        {"kind": "PRICE_CHANGE", "params": {}},
+        {"kind": "OUT_OF_STOCK", "params": {}},
+        {"kind": "DISCOUNT_PCT", "params": {"pct": 30, "baseline": "list_price"}},
+    ]
+    assert ana.get("/api/auth/me").json()["default_rules"] == expected
+    # Cambiar el tema no borra los avisos guardados (ni al revés).
+    ana.patch("/api/auth/preferences", {"theme": "dark"})
+    me = ana.get("/api/auth/me").json()
+    assert me["default_rules"] == expected and me["preferences"]["theme"] == "dark"
+    assert bob.get("/api/auth/me").json()["default_rules"] is None
+    # Lista vacía = no proponer ningún aviso (distinto de volver a los de la app).
+    assert ana.put("/api/auth/default-rules", {"rules": []}).json() == {"default_rules": []}
+    assert ana.put("/api/auth/default-rules", {"rules": None}).json() == {"default_rules": None}
+    assert ana.get("/api/auth/me").json()["default_rules"] is None
+
+    malos = [
+        [{"kind": "TARGET_PRICE", "params": {"value": 1000}}],
+        [{"kind": "DISCOUNT_PCT", "params": {"pct": 20, "baseline": {"fixed": 5000}}}],
+        [{"kind": "PRICE_DROP", "params": {}}],
+        [{"kind": "NADA"}],
+        [{"kind": "OUT_OF_STOCK"}, {"kind": "OUT_OF_STOCK"}],
+    ]
+    for rules_ in malos:
+        assert ana.put("/api/auth/default-rules", {"rules": rules_}).status_code == 422
 
 
 def test_admin_ve_los_productos_de_cada_usuario():
