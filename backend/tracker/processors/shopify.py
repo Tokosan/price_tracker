@@ -21,6 +21,11 @@ así que el alta lo rechaza en vez de dejar un seguimiento que daría anomalía 
 lectura.
 
 Cada tienda define `name`, `label`, `host` (sin www), `canonical_host` y sus metadatos.
+
+Tiendas headless (Xtrem, Saxoline): el front es Next.js en Vercel y `/products/<handle>.js`
+da 404 en el dominio de la tienda, pero Shopify sigue sirviéndolo en el dominio del checkout
+(`checkout.<dominio>`, el mismo que `<tienda>.myshopify.com`). `api_host` apunta ahí; los
+links y la URL canónica siguen siendo los del front.
 """
 
 import json
@@ -59,6 +64,7 @@ class ShopifyProcessor(Processor):
     host: str = ""
     canonical_host: str = ""
     currency: str = "CLP"  # moneda de la tienda (el JSON de la ficha no la trae)
+    api_host: str = ""  # host del `.js` si no es el de la tienda (front headless)
     check_interval = timedelta(hours=6)
     fixture_ext = "json"
     platform = "Shopify"
@@ -106,7 +112,8 @@ class ShopifyProcessor(Processor):
         return self.canonical_host
 
     async def fetch_raw(self, ref: ProductRef) -> str:
-        return await get_text(f"https://{self.canonical_host}/products/{ref.external_id}.js")
+        host = self.api_host or self.canonical_host
+        return await get_text(f"https://{host}/products/{ref.external_id}.js")
 
     def parse(self, raw: str, ref: ProductRef) -> ScrapeResult:
         product = _product(raw, self.label)

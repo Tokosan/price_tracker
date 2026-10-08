@@ -18,6 +18,7 @@ ATHLETICS = (
     "169000mt41908blk21.html"
 )
 MARLIN = f"{S}/bicicleta-mtb-trek-marlin-4-gen-3-negra-262533695753369721.html"
+BANCA = f"{S}/combo-banca-blu-fit-essential-cb-80-3690combobanca260000.html"
 TALLA_M = "1690000WT41222BK2104"
 
 
@@ -63,15 +64,34 @@ def test_sin_descuento_sku_con_punto():
 
 
 def test_producto_simple():
-    r = parse("bicicleta_simple.html", MARLIN)
+    r = parse("banca_simple.html", BANCA)
+    assert (r.title, r.price, r.list_price, r.available) == (
+        "Combo Banca Blu Fit Essential CB-80",
+        99990,
+        129990,
+        True,
+    )
+    raw = fixture_text("sparta", "banca_simple.html")
+    assert sparta.parse_variants(raw, sparta.normalize(BANCA)) == []
+
+
+def test_tallas_de_marco_en_spconfig():
+    # Las bicicletas usan el selector clásico (spConfig), no swatches.
+    r = parse("bicicleta_tallas_marco.html", MARLIN)
     assert (r.title, r.price, r.list_price, r.available) == (
         "Bicicleta MTB Trek Marlin 4 Gen 3 Negra",
         478900,
         599900,
         True,
     )
-    raw = fixture_text("sparta", "bicicleta_simple.html")
-    assert sparta.parse_variants(raw, sparta.normalize(MARLIN)) == []
+    r = parse("bicicleta_tallas_marco.html", f"{MARLIN}?sku=26253369575336972104")
+    assert r.title == "Bicicleta MTB Trek Marlin 4 Gen 3 Negra (talla M/L)"
+    assert (r.price, r.available) == (478900, True)
+    raw = fixture_text("sparta", "bicicleta_tallas_marco.html")
+    labels = [v.label for v in sparta.parse_variants(raw, sparta.normalize(MARLIN))]
+    assert labels[0] == "Cualquier talla"
+    assert labels[1:3] == ["Talla XS Aro 27.5: $478.900", "Talla S Aro 27.5: $478.900"]
+    assert len(labels) == 8
 
 
 def test_agotado_con_precio():
@@ -95,19 +115,19 @@ def test_agotado_sin_precio():
 
 
 def test_sin_precio_con_stock_es_error():
-    raw = fixture_text("sparta", "bicicleta_simple.html").replace(
-        'data-price-amount="478900"', 'data-price-amount="0"'
+    raw = fixture_text("sparta", "banca_simple.html").replace(
+        'data-price-amount="99990"', 'data-price-amount="0"'
     )
     with pytest.raises(FetchError):
-        sparta.parse(raw, sparta.normalize(MARLIN))
+        sparta.parse(raw, sparta.normalize(BANCA))
 
 
 def test_sin_marca_de_stock_es_error():
-    raw = fixture_text("sparta", "bicicleta_simple.html").replace(
+    raw = fixture_text("sparta", "banca_simple.html").replace(
         'class="product-info-stock-sku"', 'class="otra-cosa"'
     )
     with pytest.raises(FetchError):
-        sparta.parse(raw, sparta.normalize(MARLIN))
+        sparta.parse(raw, sparta.normalize(BANCA))
 
 
 def test_talla_sin_jsonconfig_con_stock_es_error():
