@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { api } from "../api.js";
-import RulesEditor, { DEFAULT_EDITOR, rulesFromEditor } from "../components/RulesEditor.jsx";
+import { useMe } from "../App.jsx";
+import RulesEditor, { editorFromDefaults, rulesFromEditor } from "../components/RulesEditor.jsx";
 import { formatPrice, PROCESSOR_LABEL } from "../format.js";
 
 // Máximo de links por producto (igual que el backend).
@@ -9,13 +10,14 @@ const MAX_ITEMS = 8;
 
 export default function AddWatch() {
   const navigate = useNavigate();
+  const { me } = useMe();
   const [params] = useSearchParams();
   const [url, setUrl] = useState(params.get("url") || "");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [preview, setPreview] = useState(null);
   const [selected, setSelected] = useState(new Set());
-  const [editor, setEditor] = useState(DEFAULT_EDITOR);
+  const [editor, setEditor] = useState(() => editorFromDefaults(me.default_rules));
   const [unsupported, setUnsupported] = useState(false);
   // Otros links de la misma cosa: [{url, preview}] ya resueltos.
   const [extras, setExtras] = useState([]);
@@ -184,6 +186,9 @@ export default function AddWatch() {
 
           <h3>Avisarme cuando…</h3>
           <RulesEditor value={editor} onChange={setEditor} currency={p.currency} />
+          <p className="muted small">
+            Puedes cambiar los avisos que vienen marcados en <Link to="/ajustes">Ajustes</Link>.
+          </p>
           {problem && <p className="warn small">{problem}</p>}
           {error && <p className="error">{error}</p>}
           <button onClick={create} disabled={busy || problem !== null}>

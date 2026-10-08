@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { api } from "../api.js";
 import { useMe } from "../App.jsx";
+import RulesEditor, { defaultsFromEditor, editorFromDefaults } from "../components/RulesEditor.jsx";
 import { saveTheme } from "../theme.js";
 
 export default function Settings() {
@@ -68,6 +69,7 @@ export default function Settings() {
     <>
       <h1>Ajustes</h1>
       <Appearance />
+      <DefaultRules />
       <section className="card">
         <h2>Telegram</h2>
         {!tg.configured ? (
@@ -139,6 +141,50 @@ export default function Settings() {
       {msg && <p className="ok-msg">{msg}</p>}
       {error && <p className="error">{error}</p>}
     </>
+  );
+}
+
+// Avisos que vienen marcados al seguir un producto nuevo.
+function DefaultRules() {
+  const { me, reload } = useMe();
+  const [editor, setEditor] = useState(() => editorFromDefaults(me.default_rules));
+  const [msg, setMsg] = useState("");
+  const [error, setError] = useState("");
+  const save = (rules) => {
+    setError("");
+    setMsg("");
+    api("/api/auth/default-rules", { method: "PUT", body: { rules } })
+      .then(({ default_rules }) => {
+        setEditor(editorFromDefaults(default_rules));
+        setMsg("Guardado: se usarán al seguir un producto nuevo.");
+        return reload();
+      })
+      .catch((e) => setError(e.message));
+  };
+  const submit = () => {
+    try {
+      save(defaultsFromEditor(editor));
+    } catch (e) {
+      setError(e.message);
+    }
+  };
+  return (
+    <section className="card">
+      <h2>Avisos por defecto</h2>
+      <p className="muted small">
+        Vienen marcados al seguir un producto (los puedes cambiar ahí mismo). Los productos que ya sigues no cambian.
+        El precio objetivo depende de cada producto, así que se elige al agregarlo.
+      </p>
+      <RulesEditor value={editor} onChange={setEditor} forDefaults />
+      <div className="actions">
+        <button onClick={submit}>Guardar</button>
+        {me.default_rules && (
+          <button className="secondary" onClick={() => save(null)}>Restablecer los de la app</button>
+        )}
+      </div>
+      {msg && <p className="ok-msg">{msg}</p>}
+      {error && <p className="error">{error}</p>}
+    </section>
   );
 }
 

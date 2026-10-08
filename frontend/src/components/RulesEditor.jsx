@@ -33,6 +33,16 @@ export function editorFromRules(rules, currency) {
 
 export const DEFAULT_EDITOR = { PRICE_DROP: { on: true, pct: "10" }, BACK_IN_STOCK: { on: true } };
 
+// Avisos por defecto del usuario (me.default_rules; null = los de la app) → estado del editor.
+export function editorFromDefaults(defaultRules) {
+  return defaultRules ? editorFromRules(defaultRules) : DEFAULT_EDITOR;
+}
+
+// Editor → avisos por defecto para la API (sin ids ni lo que depende del producto).
+export function defaultsFromEditor(st) {
+  return rulesFromEditor(st).map(({ kind, params }) => ({ kind, params }));
+}
+
 // Editor → lista para la API. Lanza Error con un mensaje legible si algo falta.
 export function rulesFromEditor(st, currency) {
   const out = [];
@@ -65,11 +75,14 @@ export function rulesFromEditor(st, currency) {
   return out;
 }
 
-export default function RulesEditor({ value, onChange, currency = "CLP" }) {
+// forDefaults: edita los avisos por defecto, sin lo que depende de cada producto
+// (precio objetivo y descuento contra un precio fijo).
+export default function RulesEditor({ value, onChange, currency = "CLP", forDefaults = false }) {
   const set = (kind, patch) => onChange({ ...value, [kind]: { ...value[kind], ...patch } });
+  const kinds = forDefaults ? RULE_KINDS.filter((r) => r.kind !== "TARGET_PRICE") : RULE_KINDS;
   return (
     <div className="rules">
-      {RULE_KINDS.map(({ kind, label }) => {
+      {kinds.map(({ kind, label }) => {
         const r = value[kind] || {};
         return (
           <div key={kind} className={"rule" + (r.on ? " on" : "")}>
@@ -91,7 +104,7 @@ export default function RulesEditor({ value, onChange, currency = "CLP" }) {
                 <select value={r.baseline || "watch_start"} onChange={(e) => set(kind, { baseline: e.target.value })}>
                   <option value="watch_start">el precio al empezar a seguirlo</option>
                   <option value="list_price">el precio normal de la tienda (sin oferta)</option>
-                  <option value="fixed">un precio que yo indico</option>
+                  {!forDefaults && <option value="fixed">un precio que yo indico</option>}
                 </select>
                 {r.baseline === "fixed" && (
                   <input inputMode="decimal" placeholder="59.990" value={r.fixed ?? ""} onChange={(e) => set(kind, { fixed: e.target.value })} />

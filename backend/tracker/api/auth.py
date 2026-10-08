@@ -1,10 +1,13 @@
 """Login, logout, invitaciones y sesión actual."""
 
+from typing import Any
+
 from fastapi import APIRouter, Depends, HTTPException, Request, Response
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session as DbSession
 
+from tracker import rules
 from tracker.api.deps import current_user
 from tracker.config import settings
 from tracker.db import get_db, utcnow
@@ -58,6 +61,21 @@ def preferences_out(user: User) -> dict:
         key: saved.get(key) if saved.get(key) in allowed else allowed[0]
         for key, allowed in PREFERENCES.items()
     }
+
+
+class DefaultRuleIn(BaseModel):
+    kind: str
+    params: dict[str, Any] = Field(default_factory=dict)
+
+
+class DefaultRulesIn(BaseModel):
+    # None = volver a los avisos por defecto de la app.
+    rules: list[DefaultRuleIn] | None = Field(default=None, max_length=len(rules.KINDS))
+
+
+def default_rules_out(user: User) -> list[dict] | None:
+    """Avisos que se proponen al seguir un producto (None = los de la app)."""
+    return (user.preferences or {}).get("default_rules")
 
 
 def _set_session_cookies(response: Response, token: str, csrf: str) -> None:
@@ -188,10 +206,47 @@ def update_preferences(
         if value not in PREFERENCES[key]:
             raise HTTPException(422, f"{key}: debe ser {' | '.join(PREFERENCES[key])}")
         prefs[key] = value
-    # Se reasigna el dict completo: SQLAlchemy no detecta mutaciones de un JSON.
-    user.preferences = prefs
+    # Se reasigna el dict completo (SQLAlchemy no detecta mutaciones de un JSON) y se
+    # conservan las demás claves guardadas (p. ej. default_rules).
+    user.preferences = {**(user.preferences or {}), **prefs}
     db.commit()
     return prefs
+
+
+@router.put("/default-rules")
+def update_default_rules(
+    body: DefaultRulesIn, user: User = Depends(current_user), db: DbSession = Depends(get_db)
+) -> dict:
+    """Guarda los avisos que se proponen al seguir un producto.
+
+    Solo valen avisos que no dependen del producto: nada de precio objetivo ni de
+    descuento contra un precio fijo.
+    """
+    user = db.merge(user)
+    saved = None
+    if body.rules is not None:
+        saved, seen = [], set()
+        for item in body.rules:
+            if item.kind in seen:
+                raise HTTPException(422, f"{item.kind} repetido")
+            seen.add(item.kind)
+            if item.kind == "TARGET_PRICE":
+                raise HTTPException(422, "el precio objetivo depende de cada producto")
+            try:
+                params = rules.validate_params(item.kind, item.params)
+            except rules.RuleError as exc:
+                raise HTTPException(422, str(exc)) from exc
+            if isinstance(params.get("baseline"), dict):
+                raise HTTPException(422, "un descuento contra un precio fijo depende del producto")
+            saved.append({"kind": item.kind, "params": params})
+    prefs = dict(user.preferences or {})
+    if saved is None:
+        prefs.pop("default_rules", None)
+    else:
+        prefs["default_rules"] = saved
+    user.preferences = prefs
+    db.commit()
+    return {"default_rules": saved}
 
 
 @router.get("/me")
@@ -208,6 +263,7 @@ def me(user: User = Depends(current_user), db: DbSession = Depends(get_db)) -> d
         "role": user.role,
         "watch_count": watch_count,
         "preferences": preferences_out(user),
+        "default_rules": default_rules_out(user),
         "telegram": {
             "configured": bot is not None,
             "bot_username": bot.username if bot else None,
