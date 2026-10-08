@@ -69,6 +69,7 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Tricot | JSON de `Product-Variation` (Salesforce Commerce Cloud), precio Internet, con selector de tallas |
 | Marathon | JSON de `Product-Variation` (Salesforce Commerce Cloud); cada talla tiene su link, con selector de tallas |
 | Bata (incluye North Star) | JSON de `Product-Variation` (Salesforce Commerce Cloud) con curl_cffi, con selector de tallas |
+| Sparta | HTML de la ficha (Magento) con el `jsonConfig` de las tallas, con selector de tallas |
 
 Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX**, **WooCommerce**, **Shopify**, **Salesforce Commerce Cloud** (`Product-Variation`), **Fenicio**, **SAP Commerce (OCC)** y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo
