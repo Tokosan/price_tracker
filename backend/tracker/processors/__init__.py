@@ -29,6 +29,7 @@ from tracker.processors.crocs import CrocsProcessor
 from tracker.processors.cruzverde import CruzVerdeProcessor
 from tracker.processors.decathlon import DecathlonProcessor
 from tracker.processors.dementegames import DementeGamesProcessor
+from tracker.processors.dimeiggs import DimeiggsProcessor
 from tracker.processors.dockers import DockersProcessor
 from tracker.processors.doite import DoiteProcessor
 from tracker.processors.drmartens import DrMartensProcessor
@@ -43,6 +44,7 @@ from tracker.processors.feriachilenadellibro import FeriaChilenaDelLibroProcesso
 from tracker.processors.ferouch import FerouchProcessor
 from tracker.processors.gatoarcano import GatoArcanoProcessor
 from tracker.processors.gotta import GottaProcessor
+from tracker.processors.head import HeadProcessor
 from tracker.processors.hites import HitesProcessor
 from tracker.processors.hushpuppies import HushPuppiesProcessor
 from tracker.processors.ikea import IkeaProcessor
@@ -58,6 +60,7 @@ from tracker.processors.lippi import LippiProcessor
 from tracker.processors.marathon import MarathonProcessor
 from tracker.processors.mercadolibre import MercadoLibreProcessor
 from tracker.processors.merrell import MerrellProcessor
+from tracker.processors.newbalance import NewBalanceProcessor
 from tracker.processors.nike import NikeProcessor
 from tracker.processors.opaline import OpalineProcessor
 from tracker.processors.paris import ParisProcessor
@@ -65,16 +68,19 @@ from tracker.processors.patagonia import PatagoniaProcessor
 from tracker.processors.pcfactory import PcFactoryProcessor
 from tracker.processors.piedrabruja import PiedraBrujaProcessor
 from tracker.processors.preunic import PreunicProcessor
+from tracker.processors.puma import PumaProcessor
 from tracker.processors.reebok import ReebokProcessor
 from tracker.processors.ripley import RipleyProcessor
 from tracker.processors.rockford import RockfordProcessor
 from tracker.processors.salcobrand import SalcobrandProcessor
 from tracker.processors.salomon import SalomonProcessor
 from tracker.processors.santaisabel import SantaIsabelProcessor
+from tracker.processors.saxoline import SaxolineProcessor
 from tracker.processors.sodimac import SodimacProcessor
 from tracker.processors.solotodo import SolotodoProcessor
 from tracker.processors.sparta import SpartaProcessor
 from tracker.processors.spdigital import SpDigitalProcessor
+from tracker.processors.speedo import SpeedoProcessor
 from tracker.processors.steam import SteamProcessor
 from tracker.processors.streetmachine import StreetMachineProcessor
 from tracker.processors.timberland import TimberlandProcessor
@@ -87,6 +93,7 @@ from tracker.processors.unimarc import UnimarcProcessor
 from tracker.processors.vans import VansProcessor
 from tracker.processors.vudugaming import VuduGamingProcessor
 from tracker.processors.wrangler import WranglerProcessor
+from tracker.processors.xtrem import XtremProcessor
 from tracker.processors.zappa import ZappaProcessor
 
 PROCESSORS: dict[str, Processor] = {
@@ -155,6 +162,13 @@ PROCESSORS: dict[str, Processor] = {
         BelsportProcessor(),
         ZappaProcessor(),
         SpartaProcessor(),
+        SpeedoProcessor(),
+        NewBalanceProcessor(),
+        HeadProcessor(),
+        PumaProcessor(),
+        XtremProcessor(),
+        SaxolineProcessor(),
+        DimeiggsProcessor(),
         ReebokProcessor(),
         LevisProcessor(),
         TommyProcessor(),
