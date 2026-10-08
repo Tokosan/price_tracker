@@ -73,6 +73,7 @@ from tracker.processors.salomon import SalomonProcessor
 from tracker.processors.santaisabel import SantaIsabelProcessor
 from tracker.processors.sodimac import SodimacProcessor
 from tracker.processors.solotodo import SolotodoProcessor
+from tracker.processors.sparta import SpartaProcessor
 from tracker.processors.spdigital import SpDigitalProcessor
 from tracker.processors.steam import SteamProcessor
 from tracker.processors.streetmachine import StreetMachineProcessor
@@ -153,6 +154,7 @@ PROCESSORS: dict[str, Processor] = {
         BoldProcessor(),
         BelsportProcessor(),
         ZappaProcessor(),
+        SpartaProcessor(),
         ReebokProcessor(),
         LevisProcessor(),
         TommyProcessor(),
