@@ -19,6 +19,7 @@ from tracker.db import get_db, utcnow
 from tracker.groups import latest_point
 from tracker.models import (
     AlertRule,
+    Category,
     Channel,
     Notification,
     PricePoint,
@@ -145,10 +146,15 @@ def watch_out(db: DbSession, watch: Watch) -> dict:
         # Compatibilidad con la UI de un solo link: el primer item.
         "product": items[0] if items else None,
         "rules": [rule_out(r) for r in watch.rules],
+        "categories": categories_of(watch),
         "channels": channels,
         # Compatibilidad con la UI de la v0.
         "telegram_enabled": channels.get("telegram"),
     }
+
+
+def categories_of(watch: Watch) -> list[dict]:
+    return [{"id": c.id, "name": c.name, "color": c.color} for c in watch.categories]
 
 
 def watch_currency(watch: Watch) -> str:
@@ -161,6 +167,18 @@ def get_own_watch(db: DbSession, user: User, watch_id: int) -> Watch:
     if watch is None or watch.user_id != user.id:
         raise HTTPException(404, "no existe")
     return watch
+
+
+def own_category(db: DbSession, user: User, category_id: int) -> Category:
+    category = db.get(Category, category_id)
+    # 404 también si es de otro usuario, igual que con los Watches.
+    if category is None or category.user_id != user.id:
+        raise HTTPException(404, "esa categoría no existe")
+    return category
+
+
+def own_categories(db: DbSession, user: User, ids: list[int]) -> list[Category]:
+    return [own_category(db, user, i) for i in dict.fromkeys(ids)]
 
 
 def own_item(db: DbSession, user: User, product_id: int) -> WatchItem | None:
@@ -284,6 +302,7 @@ class WatchCreateIn(BaseModel):
     # separate: un Watch por link (variantes); group: un solo Watch con todos los links.
     mode: Literal["separate", "group"] = "separate"
     name: str | None = Field(default=None, max_length=200)
+    category_ids: list[int] = Field(default_factory=list, max_length=200)
 
 
 def _validated_rules(items: list[RuleIn]) -> list[tuple[RuleIn, dict]]:
@@ -337,11 +356,13 @@ def _new_watch(
     specs: list[tuple[str, dict, bool]],
     name: str | None = None,
     active: bool = True,
+    categories: list[Category] | None = None,
 ) -> Watch:
     """Watch nuevo con esos productos y reglas (kind, params, enabled) en estado inicial."""
     watch = Watch(user_id=user.id, name=name, active=active)
-    watch.items = [WatchItem(product_id=p.id, user_id=user.id) for p in products]
     db.add(watch)
+    watch.items = [WatchItem(product_id=p.id, user_id=user.id) for p in products]
+    watch.categories = list(categories or [])
     db.flush()
     states = groups.item_states(db, watch, utcnow())
     best = groups.best_item(states)
@@ -366,6 +387,7 @@ async def create_watches(
     body: WatchCreateIn, user: User = Depends(current_user), db: DbSession = Depends(get_db)
 ) -> list[dict]:
     specs = [(item.kind, params, item.enabled) for item, params in _validated_rules(body.rules)]
+    categories = own_categories(db, user, body.category_ids)
     targets: list[tuple[Processor, ProductRef]] = []
     for url in body.urls:
         proc = _processor_or_422(url)
@@ -385,7 +407,9 @@ async def create_watches(
         for product in products:
             await _read_if_new(db, product)
         _check_group(products)  # la moneda se conoce después de la primera lectura
-        watch = _new_watch(db, user, products, specs, name=_clean_name(body.name))
+        watch = _new_watch(
+            db, user, products, specs, name=_clean_name(body.name), categories=categories
+        )
         db.commit()
         db.refresh(watch)
         return [watch_out(db, watch)]
@@ -399,7 +423,7 @@ async def create_watches(
                 created.append(item.watch)
             continue
         await _read_if_new(db, product)
-        created.append(_new_watch(db, user, [product], specs))
+        created.append(_new_watch(db, user, [product], specs, categories=categories))
         db.flush()
     db.commit()
     for w in created:
@@ -580,6 +604,7 @@ def move_item(
             [db.get(Product, product_id)],
             [(r.kind, r.params, r.enabled) for r in source.rules],
             active=source.active,
+            categories=source.categories,
         )
         for wc in db.scalars(select(WatchChannel).where(WatchChannel.watch_id == source.id)):
             db.add(WatchChannel(watch_id=target.id, channel_id=wc.channel_id, enabled=wc.enabled))
@@ -590,7 +615,8 @@ def move_item(
         _check_group([i.product for i in target.items] + [item.product])
         db.execute(update(WatchItem).where(WatchItem.id == item.id).values(watch_id=target.id))
         if len(source.items) == 1:
-            # El de origen se queda vacío y se borra: sus avisos pasan al destino.
+            # El de origen se queda vacío y se borra: sus avisos y categorías pasan al destino.
+            _join_categories(target, [source])
             db.execute(
                 update(Notification)
                 .where(Notification.watch_id == source.id)
@@ -602,6 +628,14 @@ def move_item(
     db.commit()
     db.refresh(target)
     return {"source": watch_out(db, left) if left else None, "target": watch_out(db, target)}
+
+
+def _join_categories(target: Watch, others: list[Watch]) -> None:
+    """El Watch que queda se lleva la unión de las categorías."""
+    for w in others:
+        for c in w.categories:
+            if c not in target.categories:
+                target.categories.append(c)
 
 
 class MergeIn(BaseModel):
@@ -626,6 +660,7 @@ def merge_watches(
     _check_group([i.product for w in watches for i in w.items])
     others = [w for w in watches if w is not primary]
     other_ids = [w.id for w in others]
+    _join_categories(primary, others)
     starts = [w.price_at_start for w in watches if w.price_at_start is not None]
     # Con UPDATE directo: los items y avisos cambian de dueño antes de borrar los otros
     # Watches, así el borrado (en cascada) solo se lleva sus reglas y canales.

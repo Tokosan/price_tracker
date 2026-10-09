@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { api } from "../api.js";
 import { useMe } from "../App.jsx";
+import { CategoryField, useCategories } from "../components/Categories.jsx";
 import PriceChart from "../components/PriceChart.jsx";
 import StoreLogo, { useStores } from "../components/StoreLogo.jsx";
 import RulesEditor, { editorFromRules, rulesFromEditor } from "../components/RulesEditor.jsx";
@@ -117,6 +118,7 @@ export default function WatchDetail() {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [naming, setNaming] = useState(null);
+  const cats = useCategories();
   const stores = useStores();
   const autosave = useAutosaveRules({ id, editor, setEditor, currency: watch?.currency, onSaved: setWatch });
   const loadedId = useRef(null);
@@ -245,6 +247,14 @@ export default function WatchDetail() {
             </form>
           )}
           {!multi && bestItem?.variant_label && <div className="small variant-label">Sigues: {bestItem.variant_label}</div>}
+          <CategoryField
+            categories={cats.categories}
+            value={watch.categories.map((c) => c.id)}
+            onCreate={cats.create}
+            onChange={(ids) =>
+              run(async () => setWatch(await api(`/api/watches/${watch.id}/categories`, { method: "PUT", body: { ids } })))
+            }
+          />
           {!multi && (
             <div className="muted small store-line">
               <StoreLogo name={bestItem.processor} url={stores[bestItem.processor]?.logo_url} size={16} />

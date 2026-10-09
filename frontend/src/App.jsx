@@ -46,7 +46,9 @@ export default function App() {
 function Shell() {
   const { me, reload } = useMe();
   const navigate = useNavigate();
-  const wide = useLocation().pathname.startsWith("/admin");
+  const { pathname } = useLocation();
+  // Admin y Productos (con su sidebar de filtros) usan todo el ancho.
+  const wide = pathname.startsWith("/admin") || pathname === "/";
   const logout = async () => {
     await api("/api/auth/logout", { method: "POST" }).catch(() => {});
     await reload();

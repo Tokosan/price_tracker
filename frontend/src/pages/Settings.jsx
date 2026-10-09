@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { api } from "../api.js";
 import { useMe } from "../App.jsx";
+import { CategoryManager, useCategories } from "../components/Categories.jsx";
 import RulesEditor, { defaultsFromEditor, editorFromDefaults } from "../components/RulesEditor.jsx";
 import { saveTheme } from "../theme.js";
 
@@ -127,6 +128,8 @@ export default function Settings() {
         )}
       </section>
 
+      <Categories />
+
       <section className="card">
         <h2>Cuenta</h2>
         <p className="muted small">
@@ -232,6 +235,19 @@ function Appearance() {
         </div>
       </div>
       {error && <p className="error">{error}</p>}
+    </section>
+  );
+}
+
+function Categories() {
+  const { categories, setCategories } = useCategories();
+  return (
+    <section className="card">
+      <h2>Categorías</h2>
+      <p className="muted small">
+        Para organizar tus productos y filtrarlos en la lista. Se asignan desde cada producto o, a varios a la vez, con «Seleccionar».
+      </p>
+      {categories === null ? <p className="muted small">Cargando…</p> : <CategoryManager categories={categories} setCategories={setCategories} />}
     </section>
   );
 }

@@ -8,7 +8,7 @@ from fastapi import FastAPI
 from sqlalchemy import text
 
 from tracker import db as dbmod
-from tracker.api import admin, auth, channels, watches
+from tracker.api import admin, auth, categories, channels, watches
 from tracker.api.deps import CSRFMiddleware
 from tracker.config import settings
 from tracker.notifications import telegram
@@ -48,6 +48,7 @@ app = FastAPI(title="price_tracker", lifespan=lifespan, docs_url=None, redoc_url
 app.add_middleware(CSRFMiddleware)
 app.include_router(auth.router)
 app.include_router(watches.router)
+app.include_router(categories.router)
 app.include_router(channels.router)
 app.include_router(admin.router)
 

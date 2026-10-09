@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { api } from "../api.js";
 import { useMe } from "../App.jsx";
+import { CategoryField, useCategories } from "../components/Categories.jsx";
 import RulesEditor, { editorFromDefaults, rulesFromEditor } from "../components/RulesEditor.jsx";
 import { formatPrice, PROCESSOR_LABEL } from "../format.js";
 
@@ -23,6 +24,8 @@ export default function AddWatch() {
   const [extras, setExtras] = useState([]);
   const [mode, setMode] = useState(null); // null = el que corresponda por defecto
   const [name, setName] = useState("");
+  const [categoryIds, setCategoryIds] = useState([]);
+  const cats = useCategories();
 
   const resolve = async (e) => {
     e.preventDefault();
@@ -82,7 +85,13 @@ export default function AddWatch() {
     setBusy(true);
     try {
       const urls = [...mainUrls, ...extras.map((x) => x.preview.product.url)];
-      const body = { urls, rules, mode: effectiveMode, ...(group && name.trim() && { name: name.trim() }) };
+      const body = {
+        urls,
+        rules,
+        mode: effectiveMode,
+        category_ids: categoryIds,
+        ...(group && name.trim() && { name: name.trim() }),
+      };
       const created = await api("/api/watches", { method: "POST", body });
       navigate(created.length === 1 ? `/w/${created[0].id}` : "/");
     } catch (err) {
@@ -183,6 +192,9 @@ export default function AddWatch() {
               )}
             </div>
           )}
+
+          <h3>Categorías</h3>
+          <CategoryField categories={cats.categories} value={categoryIds} onChange={setCategoryIds} onCreate={cats.create} />
 
           <h3>Avisarme cuando…</h3>
           <RulesEditor value={editor} onChange={setEditor} currency={p.currency} />
