@@ -72,3 +72,16 @@ export const PROCESSOR_LABEL = { steam: "Steam", ikea: "IKEA", entrejuegos: "Ent
 
 // Color de la n-ésima serie (link) de un gráfico: orden fijo, hasta 8 (el máximo de links).
 export const seriesColor = (n) => `var(--series-${(n % 8) + 1})`;
+
+// Paleta de las categorías (la clave se guarda en el backend; el tono lo pone cada tema
+// en styles.css, `.cat-<clave>`).
+export const CATEGORY_COLORS = {
+  gray: "Gris",
+  red: "Rojo",
+  orange: "Naranjo",
+  yellow: "Amarillo",
+  green: "Verde",
+  blue: "Azul",
+  purple: "Morado",
+  pink: "Rosado",
+};

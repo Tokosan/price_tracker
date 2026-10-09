@@ -42,6 +42,9 @@ class User(Base):
     channels: Mapped[list["Channel"]] = relationship(
         back_populates="user", cascade="all, delete-orphan", passive_deletes=True
     )
+    categories: Mapped[list["Category"]] = relationship(
+        back_populates="user", cascade="all, delete-orphan", passive_deletes=True
+    )
 
 
 class Invite(Base):
@@ -192,6 +195,9 @@ class Watch(Base):
         back_populates="watch", cascade="all, delete-orphan", order_by="AlertRule.id"
     )
     channel_overrides: Mapped[list["WatchChannel"]] = relationship(cascade="all, delete-orphan")
+    categories: Mapped[list["Category"]] = relationship(
+        secondary="watch_categories", back_populates="watches", order_by="Category.name"
+    )
 
 
 class WatchItem(Base):
@@ -211,6 +217,40 @@ class WatchItem(Base):
 
     watch: Mapped[Watch] = relationship(back_populates="items")
     product: Mapped[Product] = relationship(back_populates="watch_items")
+
+
+class Category(Base):
+    """Categoría de un usuario para organizar sus Watches (las ve también el admin).
+
+    El nombre es único por usuario sin distinguir mayúsculas (lo exige la API; el
+    UNIQUE de la tabla cubre el caso exacto).
+    """
+
+    __tablename__ = "categories"
+    __table_args__ = (UniqueConstraint("user_id", "name"),)
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), index=True)
+    name: Mapped[str] = mapped_column(String(40))
+    # Clave de la paleta del frontend (gray, red, …), no un hex: cada tema pone su tono.
+    color: Mapped[str] = mapped_column(String(16), default="gray")
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=utcnow)
+
+    user: Mapped[User] = relationship(back_populates="categories")
+    watches: Mapped[list[Watch]] = relationship(
+        secondary="watch_categories", back_populates="categories", passive_deletes=True
+    )
+
+
+class WatchCategory(Base):
+    __tablename__ = "watch_categories"
+
+    watch_id: Mapped[int] = mapped_column(
+        ForeignKey("watches.id", ondelete="CASCADE"), primary_key=True
+    )
+    category_id: Mapped[int] = mapped_column(
+        ForeignKey("categories.id", ondelete="CASCADE"), primary_key=True, index=True
+    )
 
 
 class WatchChannel(Base):

@@ -53,11 +53,11 @@ class Api:
     def post(self, url, json=None):
         return self.c.post(url, json=json, headers=self._h())
 
-    def patch(self, url, json=None):
-        return self.c.patch(url, json=json, headers=self._h())
-
     def put(self, url, json=None):
         return self.c.put(url, json=json, headers=self._h())
+
+    def patch(self, url, json=None):
+        return self.c.patch(url, json=json, headers=self._h())
 
     def delete(self, url):
         return self.c.delete(url, headers=self._h())

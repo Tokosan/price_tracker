@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { CategoryChip } from "../../components/Categories.jsx";
 import { formatDate, formatPrice, PROCESSOR_LABEL, relative } from "../../format.js";
 import { useAdminData } from "./useAdmin.js";
 
@@ -154,6 +155,11 @@ function UserWatches({ user, userId }) {
                       <a href={p.url} target="_blank" rel="noreferrer" className="cell-title">{p.title || p.url}</a>
                       <StockBadge product={{ status: p.status, available: p.current?.available }} />
                       {!w.active && <span className="badge paused-badge">Pausado</span>}
+                      {w.categories.length > 0 && (
+                        <div className="card-cats">
+                          {w.categories.map((c) => <CategoryChip key={c.id} category={c} />)}
+                        </div>
+                      )}
                     </td>
                     <td className="nowrap">{PROCESSOR_LABEL[p.processor] ?? p.processor}</td>
                     <td className="num nowrap">{formatPrice(p.current?.price, p.currency)}</td>
