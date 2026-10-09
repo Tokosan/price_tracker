@@ -58,6 +58,7 @@ const DEFAULT_VIEW = {
   statuses: [],
   cats: [],
   catMode: "any", // any (alguna) | all (todas)
+  layout: "list", // list | grid (tarjetas)
   sort: "created",
   dir: "desc",
   group: "",
@@ -240,7 +241,7 @@ export default function Watches() {
 
   return (
     <>
-      <div className="row-between">
+      <div className="row-between page-head">
         <h1>Productos</h1>
         <div className="actions-inline">
           {watches.length > 1 && (
@@ -313,6 +314,7 @@ export default function Watches() {
             <select value={view.group} onChange={(e) => setView({ group: e.target.value })} aria-label="Agrupar">
               {Object.entries(GROUPS).map(([k, g]) => <option key={k} value={k}>{g}</option>)}
             </select>
+            <LayoutToggle value={view.layout} onChange={(layout) => setView({ layout })} />
           </div>
 
           {selecting && (
@@ -329,7 +331,7 @@ export default function Watches() {
           {groups.map(([group, items]) => (
             <section key={group ?? "all"}>
               {group && <h2 className="day-label">{group} · {items.length}</h2>}
-              <ul className="watch-list">
+              <ul className={"watch-list" + (view.layout === "grid" ? " grid" : "")}>
                 {items.map((w) => (
                   <WatchCard
                     key={w.id}
@@ -365,6 +367,31 @@ export default function Watches() {
         </div>
       </div>
     </>
+  );
+}
+
+const LAYOUTS = {
+  list: {
+    label: "Lista",
+    icon: <path d="M3 4h10M3 8h10M3 12h10" />,
+  },
+  grid: {
+    label: "Tarjetas",
+    icon: <path d="M2.5 2.5h4.5v4.5h-4.5zM9 2.5h4.5v4.5h-4.5zM2.5 9h4.5v4.5h-4.5zM9 9h4.5v4.5h-4.5z" />,
+  },
+};
+
+function LayoutToggle({ value, onChange }) {
+  return (
+    <div className="segmented layout-toggle" role="radiogroup" aria-label="Vista">
+      {Object.entries(LAYOUTS).map(([k, l]) => (
+        <button key={k} role="radio" aria-checked={value === k} className={value === k ? "on" : ""} onClick={() => onChange(k)} title={l.label} aria-label={l.label}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            {l.icon}
+          </svg>
+        </button>
+      ))}
+    </div>
   );
 }
 

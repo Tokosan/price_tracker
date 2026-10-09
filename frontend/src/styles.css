@@ -503,3 +503,29 @@ label.watch-card { flex-direction: row; cursor: pointer; }
 @media (max-width: 560px) {
   .catalog-main .toolbar .filters-toggle { flex: 1 1 100%; }
 }
+
+/* Productos en tarjetas: tantas columnas como quepan (mín. 200 px cada una). */
+.layout-toggle button { padding: 0.35rem 0.55rem; }
+.layout-toggle svg { display: block; }
+.watch-list.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
+.watch-list.grid .watch-item { display: flex; }
+.watch-list.grid .card { margin-bottom: 0; }
+.watch-list.grid .watch-card { flex: 1; flex-direction: column; align-items: stretch; gap: 0.6rem; padding: 0.75rem; }
+.watch-list.grid .watch-item:has(.card-menu) .watch-card { padding-right: 0.75rem; }
+.watch-list.grid .watch-card > img, .watch-list.grid .watch-card > .img-ph { width: 100%; height: 150px; border-radius: var(--radius-sm); }
+.watch-list.grid .watch-main { display: flex; flex-direction: column; gap: 0.1rem; }
+.watch-list.grid .watch-price { margin-top: auto; text-align: left; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem 0.5rem; }
+.watch-list.grid .card-check { position: absolute; top: 1.1rem; left: 1.1rem; z-index: 1; }
+.watch-list.grid .card-menu { top: 0.9rem; right: 0.9rem; }
+.watch-list.grid .card-menu > .icon-button { background: var(--surface); box-shadow: 0 0 0 1px var(--border); }
+@media (max-width: 560px) {
+  .watch-list.grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.5rem; }
+  .watch-list.grid .watch-card > img, .watch-list.grid .watch-card > .img-ph { height: 120px; }
+}
+/* En una tarjeta angosta el texto de la tienda se corta junto al logo, no debajo. */
+.watch-list.grid .store-line { display: block; }
+.watch-list.grid .store-line .store-logo { display: inline-block; vertical-align: -3px; margin-right: 0.3rem; }
+.watch-list.grid .store-line .badge { margin-left: 0.3rem; }
+.actions-inline > * { white-space: nowrap; }
+.page-head { flex-wrap: wrap; column-gap: 0.75rem; row-gap: 0; }
+@media (max-width: 800px) { .page-head { margin-bottom: 0.6rem; } }
