@@ -77,6 +77,7 @@ usuarios con links de invitación y cada uno ve solo lo que sigue.
 | Xtrem | JSON de la ficha de Shopify (front headless: se pide al dominio del checkout) |
 | Saxoline | JSON de la ficha de Shopify (front headless: se pide al dominio del checkout) |
 | Dimeiggs | API pública del catálogo de VTEX |
+| Casaideas | GraphQL de Magento (`route`, que también trae los agotados que la tienda oculta), con selector de tallas |
 
 Hay clases base para **PrestaShop**, **Jumpseller**, **VTEX**, **WooCommerce**, **Shopify**, **Salesforce Commerce Cloud** (`Product-Variation`), **Fenicio**, **SAP Commerce (OCC)**, **Magento** (ficha HTML) y la **plataforma Falabella**, así que una tienda nueva con
 esas plataformas se agrega en pocas líneas. La app tiene una página `/tiendas` con lo

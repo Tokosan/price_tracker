@@ -22,6 +22,7 @@ from tracker.processors.bsoul import BSoulProcessor
 from tracker.processors.buscalibre import BuscalibreProcessor
 from tracker.processors.caffarena import CaffarenaProcessor
 from tracker.processors.calvinklein import CalvinKleinProcessor
+from tracker.processors.casaideas import CasaideasProcessor
 from tracker.processors.colloky import CollokyProcessor
 from tracker.processors.columbia import ColumbiaProcessor
 from tracker.processors.contrapunto import ContrapuntoProcessor
@@ -185,6 +186,7 @@ PROCESSORS: dict[str, Processor] = {
         TricotProcessor(),
         MarathonProcessor(),
         BataProcessor(),
+        CasaideasProcessor(),
     )
 }
 
